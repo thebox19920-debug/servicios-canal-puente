@@ -6,7 +6,7 @@ const lanePaymentIds={"analisis": "LP-01", "tramites": "LP-01", "expedientes": "
 function laneForPayment(id){return Object.hasOwn(lanePaymentIds,id)?lanePaymentIds[id]:null}
 const laneResponse=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
 async function checkoutApi(request,env){if(request.method!=='GET')return laneResponse({error:'Método no permitido'},405);const id=new URL(request.url).searchParams.get('servicio');if(!id||!/^[a-z0-9-]{1,150}$/.test(id))return laneResponse({error:'Selecciona un servicio del catálogo.'},400);
-if(Object.hasOwn(catalog,id)&&laneForPayment(id)==='LP-01')return laneResponse({action:'checkout',url:'/pagar?servicio='+encodeURIComponent(id)});
+if(Object.hasOwn(catalog,id)&&laneForPayment(id)==='LP-01')return laneResponse({action:'checkout',url:'/pagar.html?servicio='+encodeURIComponent(id)});
 const offer=laneOffers.find(o=>o.id===id);if(!offer)return laneResponse({error:'Este servicio no está disponible.'},404);
 if(offer.lane==='LP-01')return laneResponse({action:'quote',name:offer.name,url:offer.page+'#'+offer.anchor,contact:'https://wa.me/34673735059?text='+encodeURIComponent('Hola, quisiera confirmar el alcance y el presupuesto de '+offer.name+'.')});
 const modality=new URL(request.url).searchParams.get('modalidad');const modalities={'sanidad-periodoncia':['curetaje'],'sanidad-cirugia-oral':['extraccion'],'sanidad-implantologia':['implante']};const valid=modalities[offer.id]||[];if(modality&&!valid.includes(modality))return laneResponse({error:'La modalidad no corresponde al servicio.'},400);const selected=modality||(valid.length===1&&offer.id==='sanidad-implantologia'?'implante':null);

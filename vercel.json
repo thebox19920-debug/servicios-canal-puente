@@ -3,5 +3,9 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": "web",
-  "cleanUrls": false
+  "cleanUrls": false,
+  "rewrites": [
+    {"source": "/contratar", "destination": "/contratar.html"},
+    {"source": "/pagar", "destination": "/pagar.html"}
+  ]
 }

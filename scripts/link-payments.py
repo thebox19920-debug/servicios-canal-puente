@@ -4,7 +4,7 @@ m={'analisis-documental':'analisis','solicitudes-tramites-administrativos':'tram
 for slug,item in m.items():
  for p in [Path('web/servicios')/(slug+'.html'),Path('web/servicios')/slug/'index.html']:
   if not p.exists():continue
-  s=p.read_text();s=re.sub(r'<button[^>]*disabled[^>]*>Pago online pendiente de activación</button>',f'<a class="button lp-pay-link" href="/pagar?servicio={item}">Continuar al pago seguro →</a>',s)
+  s=p.read_text();s=re.sub(r'<button[^>]*disabled[^>]*>Pago online pendiente de activación</button>',f'<a class="button lp-pay-link" href="/pagar.html?servicio={item}">Continuar al pago seguro →</a>',s)
   for id in ('estado-pago','pago-info'):s=re.sub(r'(<p[^>]*id="'+id+r'"[^>]*>).*?(</p>)',r'\1Revisa la modalidad y el importe antes de pagar. Para otros encargos, solicita presupuesto.\2',s,flags=re.S)
   if item=='analisis':
    s=s.replace('function update(){const extended=',"function update(){const pay=document.querySelector('.lp-pay-link');const extended=").replace('summary.textContent=extended?',"if(pay)pay.hidden=extended;summary.textContent=extended?")

@@ -2,6 +2,12 @@
 
 Estado: servicios propios y suscripciones conservan PayPal. LP-02 prevé OPP con retención íntegra; cobros y liberaciones pendientes de aprobación e integración.
 
+## Publicación en Vercel
+
+La web pública SCP usa funciones `/api` de Vercel para el checkout PayPal de servicios LP-01. La configuración debe hacerse en Vercel con las variables indicadas en `docs/PAYPAL-VERCEL.md`; no se guardan claves en el repositorio. El proyecto de Vercel estaba sin variables de entorno en la última revisión, por lo que los pagos permanecen apagados hasta añadir las credenciales PayPal de la aplicación empresarial existente y volver a desplegar.
+
+Este checkout es un cobro único directo en PayPal. No es escrow, no divide pagos entre SCP y especialistas y no habilita membresías, reembolsos automáticos ni Stripe Connect. Esos flujos requieren la integración y aprobación financiera correspondiente.
+
 ## Servicios propios y mixtos
 El catálogo PayPal cobra exclusivamente las prestaciones propias descritas en cada ficha. Un servicio mixto debe tener dos conceptos separados: honorarios propios de coordinación y honorarios del profesional. No modificar silenciosamente el proveedor o la naturaleza de un producto ya vendido.
 
