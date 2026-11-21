@@ -1,0 +1,945 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+:root{--green:#193b28;--green2:#34563b;--cream:#f5f0e5;--beige:#e7ddcb;--gold:#bb9350;--burgundy:#71343d;--ink:#1d2c23}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',Arial,sans-serif}h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:500}a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}img{display:block;width:100%;height:100%;object-fit:cover}
+header{height:84px;display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;background:#f9f5ed;position:sticky;top:0;z-index:50;border-bottom:1px solid #e3d8c6}
+.logo{display:flex;align-items:center;gap:12px}.mark{font:52px Georgia,serif;letter-spacing:-15px;padding-right:15px;color:var(--gold);text-shadow:2px 0 var(--green)}.logo b{display:block;font:25px Georgia,serif;letter-spacing:3px}.logo small{font-size:10px;letter-spacing:1px;color:#716954}
+nav{display:flex;gap:28px;align-items:center;font-size:13px}nav a:hover{color:#a37b38}.lang{border:1px solid #bda77e;border-radius:24px;padding:7px 12px;background:transparent;color:var(--green);font-weight:700}.lang.active{background:var(--green);color:white}.langs{display:flex;gap:5px}.cta{background:var(--green);color:white;border-radius:40px;padding:13px 24px;display:inline-block;border:1px solid var(--green);font-size:13px}.cta:hover{background:var(--burgundy);border-color:var(--burgundy)}
+.hero{min-height:630px;position:relative;display:flex;align-items:center;background:#d5c4a7;overflow:hidden}.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(248,243,231,.98) 0%,rgba(248,243,231,.93) 29%,rgba(248,243,231,.35) 49%,rgba(0,0,0,.05) 80%),url('foto-de-fondo-original.jpg');background-size:cover;background-position:65% center}.hero-content{position:relative;padding:60px 6.5%;max-width:770px}.eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:11px;color:#9a743b;font-weight:700}.hero h1{font-size:clamp(52px,6vw,96px);line-height:1.07;margin:18px 0 15px;letter-spacing:-2px}.hero h1 em{color:#53674e;font-weight:400}.hero .arline{font-size:25px;display:block;margin-bottom:16px}.hero p{max-width:520px;font:20px/1.5 Georgia,serif}.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.outline{display:inline-block;border:1px solid #99743e;border-radius:40px;padding:13px 24px;font-size:13px;background:#faf7eead}.outline:hover{background:#e8ddc8}
+.gold-rule{width:65px;height:2px;background:var(--gold);margin:22px 0}.intro-band{background:var(--green);color:#fff;display:flex;justify-content:space-between;gap:25px;padding:26px 6%;align-items:center}.intro-band strong{font:23px Georgia,serif;color:#e3c28b}.intro-band span{font-size:13px;opacity:.85}
+section{scroll-margin-top:90px}.section-pad{padding:100px 6%}.section-head{max-width:750px;margin-bottom:42px}.section-head h2{font-size:clamp(36px,4vw,62px);line-height:1.15;margin:12px 0}.section-head p{font-size:16px;line-height:1.8;color:#596356}
+.photo-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.service{position:relative;overflow:hidden;min-height:390px;border-radius:5px;isolation:isolate;background:var(--green)}.service img{position:absolute;inset:0;transition:transform .6s;filter:brightness(.82)}.service:hover img{transform:scale(1.06)}.service:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,30,18,.95),rgba(9,30,18,.08) 78%);z-index:0}.service .inside{position:absolute;bottom:0;left:0;right:0;padding:28px;color:white;z-index:1}.service h3{font-size:29px;line-height:1.15;margin:10px 0}.service p{font-size:13px;line-height:1.65;max-width:410px;color:#f0e9db}.service .number{color:#e7c586;letter-spacing:2px;font-size:12px}.service.large{grid-column:span 7}.service.small{grid-column:span 5}.service.third{grid-column:span 4;min-height:340px}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:600px}.split .photo{min-height:520px;background-size:cover;background-position:center}.split .copy{padding:90px 11%;display:flex;flex-direction:column;justify-content:center;background:#eae1d2}.split h2{font-size:clamp(38px,4vw,64px);line-height:1.16;margin:12px 0}.split p{line-height:1.85;color:#53604f;font-size:16px}.split.reverse .copy{background:#f8f4ec}.split.reverse .photo{order:2}
+.quote{padding:90px 6%;text-align:center;background:var(--green);color:#fff;position:relative}.quote h2{font-size:clamp(30px,4vw,58px);font-style:italic;color:#ebd4a5;max-width:950px;margin:0 auto 20px}.quote p{font-size:18px;color:#dcd9c9}
+.contact{background:#eee6d8;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.contact h2{font-size:clamp(40px,5vw,70px);line-height:1.12;margin:15px 0}.contact p{line-height:1.8}.contact-card{padding:40px;background:#faf7f0;box-shadow:0 20px 70px #283f2a14;border-top:3px solid var(--gold)}.contact-card label{display:block;font-size:13px;margin:15px 0 7px}.contact-card input,.contact-card textarea{width:100%;padding:13px;border:1px solid #d8cbb6;background:white;font:inherit;font-size:14px;border-radius:2px}.contact-card textarea{min-height:110px}.contact-card button{margin-top:18px}.notice{font-size:12px;color:#776f63}
+footer{background:#132d1e;color:#f0eadb;padding:38px 6%;display:flex;justify-content:space-between;gap:25px;align-items:center}footer small{color:#d1c9b5}
+[dir=rtl] .hero-bg{transform:scaleX(-1)}[dir=rtl] .hero-content{text-align:right}[dir=rtl] .service .inside{text-align:right}[dir=rtl] .section-head{text-align:right}[dir=rtl] .copy{text-align:right}[dir=rtl] .contact-card{text-align:right}
+@media(max-width:900px){header{padding:10px 4%;height:auto;gap:10px;flex-wrap:wrap}nav{gap:13px;flex-wrap:wrap}nav a{font-size:12px}.hero{min-height:580px}.hero-bg{background-position:58% center}.hero-content{padding:55px 6%}.hero h1{font-size:58px}.service.large,.service.small,.service.third{grid-column:span 6}.split{grid-template-columns:1fr}.split .photo{min-height:360px}.split.reverse .photo{order:0}.contact{grid-template-columns:1fr;gap:25px}}
+@media(max-width:600px){header{align-items:center}.logo b{font-size:19px}.mark{font-size:39px}nav{width:100%;justify-content:space-between}nav a:nth-child(2),nav a:nth-child(3){display:none}.hero{min-height:660px;align-items:flex-start}.hero-bg{background-image:linear-gradient(180deg,rgba(248,243,231,.97) 0%,rgba(248,243,231,.9) 49%,rgba(248,243,231,.12) 100%),url('foto-de-fondo-original.jpg');background-position:60% center}.hero h1{font-size:49px}.hero p{font-size:17px}.intro-band{flex-direction:column;align-items:flex-start}.section-pad{padding:65px 5%}.service.large,.service.small,.service.third{grid-column:span 12;min-height:340px}.split .copy{padding:65px 7%}.contact-card{padding:24px}footer{flex-direction:column;align-items:flex-start}}
+
+/* Sección adicional de propuesta de valor: mantiene intacto el diseño aprobado */
+.value-section{padding:90px 6%;background:var(--cream)}
+.value-intro{max-width:780px;margin-bottom:34px}
+.value-intro h2{font-size:clamp(34px,4vw,58px);line-height:1.16;margin:12px 0;color:var(--green)}
+.value-intro p{color:#596356;line-height:1.8}
+.value-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.value-card{background:#fffdf8;border:1px solid #ddd2be;border-top:5px solid var(--gold);padding:38px 35px;border-radius:5px}
+.value-card:nth-child(2){border-top-color:var(--burgundy)}
+.value-card .value-label{font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--burgundy);text-transform:uppercase}
+.value-card h3{font-family:'Playfair Display',Georgia,serif;color:var(--green);font-size:clamp(25px,2.4vw,35px);line-height:1.22;margin:18px 0}
+.value-card p{color:#4e5b50;line-height:1.85;font-size:15px}
+@media(max-width:750px){.value-grid{grid-template-columns:1fr}.value-section{padding:65px 6%}.value-card{padding:28px 24px}}
+
+/* Añadidos para las dos líneas; no se eliminan estilos aprobados */
+.hero{position:relative}.hero-brand-seal{position:absolute;z-index:3;right:5%;top:85px;display:flex;align-items:center;gap:12px;padding:13px 19px;background:rgba(245,240,229,.92);color:#193b28;border:1px solid #bb9350;box-shadow:0 12px 35px #0002;letter-spacing:.15em;font-weight:800}.seal-monogram{font-family:Georgia,serif;font-size:27px;color:#bb9350;border-right:1px solid #bb9350;padding-right:13px}.seal-name{font-size:16px}.hero-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:640px;margin:22px 0 24px}.hero-path{display:flex;flex-direction:column;gap:6px;padding:15px 18px;background:rgba(245,240,229,.93);color:#193b28;text-decoration:none;border-left:4px solid #bb9350;box-shadow:0 8px 25px #0002;transition:transform .2s}.hero-path:nth-child(2){border-left-color:#71343d}.hero-path:hover{transform:translateY(-3px)}.hero-path strong{font-size:12px;letter-spacing:.07em}.hero-path span{font-size:12px;color:#34563b}.value-card{scroll-margin-top:110px}@media(max-width:800px){.hero-brand-seal{top:74px;right:4%;padding:8px 12px}.seal-monogram{font-size:19px}.seal-name{font-size:12px}.hero-paths{grid-template-columns:1fr;max-width:410px}.hero-path{padding:10px 14px}.hero-content{position:relative;z-index:4}}@media(max-width:440px){.hero-brand-seal{top:62px;right:3%;}.hero-path strong{font-size:11px}}
+
+
+/* Sección adicional: dos historias en paralelo, sin alterar el diseño existente */
+.story-dual{background:#f5f0e5;padding:76px max(5vw,24px) 86px;color:#193b28}
+.story-dual-head{max-width:900px;margin:0 auto 36px;text-align:center}
+.story-dual-head .eyebrow{color:#936b3c}
+.story-dual-head h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,3.5vw,49px);line-height:1.17;margin:12px 0 14px;color:#193b28}
+.story-dual-head p{font-size:17px;line-height:1.7;color:#34563b}
+.story-dual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:1250px;margin:auto;align-items:stretch}
+.story-panel{background:#fffdf7;border:1px solid #d9c9aa;border-top:5px solid #bb9350;border-radius:17px;padding:clamp(22px,3vw,42px);box-shadow:0 12px 36px rgba(25,59,40,.08)}
+.story-panel-health{border-top-color:#71343d}
+.story-tag{font-size:12px;font-weight:800;letter-spacing:.12em;color:#71343d;margin-bottom:16px}
+.story-panel h3{font-family:'Playfair Display',Georgia,serif;color:#193b28;font-size:clamp(23px,2.25vw,32px);line-height:1.23;margin:0 0 22px}
+.story-panel p{font-size:15px;line-height:1.85;color:#293c30;margin:0 0 18px}
+.story-panel .story-connection{font-weight:800;font-size:18px;color:#71343d;margin-top:24px}
+.story-panel .story-value{font-weight:650;border-left:3px solid #bb9350;padding:8px 0 8px 16px;margin:22px 0 0;color:#193b28}
+html[dir="rtl"] .story-panel .story-value{border-left:0;border-right:3px solid #bb9350;padding:8px 16px 8px 0}
+@media(max-width:790px){.story-dual{padding:55px 18px}.story-dual-grid{grid-template-columns:1fr}.story-panel{padding:25px}}
+
+/* Nuevos apartados: servicios detallados y tienda de muestra. */
+.lex-catalog-intro{max-width:850px;margin:75px auto 30px;text-align:center}.lex-catalog-intro h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3vw,43px);margin:12px 0;color:#e9d6a9}.lex-catalog-intro p{line-height:1.75;color:#ddd6c8}.lex-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;max-width:1240px;margin:auto}.lex-detail{padding:30px 25px;border:1px solid rgba(187,147,80,.42);border-top:4px solid #bb9350;border-radius:16px;background:#17251e;color:#f4eee2;display:flex;flex-direction:column}.lex-detail-icon{color:#d4ae6b;letter-spacing:.1em;font-weight:800}.lex-detail h4{font-family:'Playfair Display',Georgia,serif;font-size:25px;margin:12px 0;color:#f2dfb7}.lex-detail p,.lex-detail li{font-size:14px;line-height:1.7;color:#e0d8c8}.lex-detail ul{padding-left:20px;margin:10px 0 22px}.lex-price{margin-top:auto;border-top:1px solid rgba(187,147,80,.3);padding:18px 0;color:#edc884;font-weight:750;font-size:14px}.lex-detail a{color:#f6e4be;text-decoration:underline;text-underline-offset:4px;font-weight:700}.lex-note{max-width:1180px;margin:24px auto 0;font-size:12px;line-height:1.65;color:#bcb6aa}.lex-shop{padding:86px max(5vw,22px);background:#101a16;color:#f7f0e6;border-top:1px solid #7c653d}.lex-shop-head{text-align:center;max-width:900px;margin:0 auto 38px}.lex-shop-head .eyebrow{color:#d5af6b}.lex-shop-head h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(31px,4vw,54px);line-height:1.2;color:#f4deb2;margin:15px 0}.lex-shop-head p{line-height:1.75;color:#d8d1c4}.lex-shop-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1300px;margin:auto}.lex-product{border-radius:16px;overflow:hidden;background:#202e27;border:1px solid #5b5341;padding:0 20px 22px;display:flex;flex-direction:column}.lex-product-art{height:155px;display:flex;align-items:center;justify-content:center;font-size:68px;background:linear-gradient(140deg,#3a4837,#796144 60%,#312b2b);margin:0 -20px 21px}.lex-product>span:not(.lex-coming){font-size:11px;letter-spacing:.12em;color:#dbb776;font-weight:750}.lex-product h3{font-family:'Playfair Display',Georgia,serif;color:#f8e7c4;font-size:23px;margin:11px 0}.lex-product p{font-size:14px;line-height:1.6;color:#ded7c9;flex:1}.lex-product-price{font-weight:750;color:#e8c887;margin:15px 0}.lex-coming{display:inline-block;border:1px solid #8d7955;color:#e4d0a8;border-radius:24px;padding:8px 12px;text-align:center;font-size:12px}.lex-shop-foot{max-width:1300px;margin:34px auto 0;border-top:1px solid #615640;padding-top:23px;display:flex;justify-content:space-between;gap:18px;align-items:center;color:#ded6c9}.lex-shop-foot a{color:#f3d69d;font-weight:750;text-decoration:underline}html[dir="rtl"] .lex-detail ul{padding-left:0;padding-right:20px}@media(max-width:1000px){.lex-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lex-catalog-grid{grid-template-columns:1fr 1fr}}@media(max-width:700px){.lex-catalog-grid,.lex-shop-grid{grid-template-columns:1fr}.lex-shop-foot{display:block}.lex-shop{padding:62px 20px}.lex-catalog-intro{margin-top:45px}}
+
+
+
+/* Mejora exclusiva del texto inicial, sin alterar la estructura ni las fotografías */
+.hero-emotional{font-family:Georgia,serif;font-size:clamp(1.25rem,2vw,1.9rem);color:#efd6a7;line-height:1.25;margin:10px 0 16px;font-weight:500;}
+.hero .eyebrow{max-width:720px;}
+
+
+
+/* Ajuste solicitado: titular de lectura rápida y frase emocional en granate */
+.hero .hero-new-headline{font-family:"Playfair Display",Georgia,serif;font-size:clamp(39px,4.5vw,70px);font-weight:600;line-height:1.12;letter-spacing:-1.3px;max-width:720px;color:#193b28;text-wrap:balance;margin:20px 0 16px;}
+.hero-headline-accent{display:block;color:#71343d;font-weight:700;}
+.hero .hero-emotional{color:#71343d;font-family:"DM Sans",Arial,sans-serif;font-weight:800;font-size:clamp(20px,2.15vw,29px);line-height:1.3;max-width:650px;text-shadow:0 1px 0 rgba(255,255,255,.45);}
+@media(max-width:600px){.hero .hero-new-headline{font-size:clamp(36px,9vw,48px);line-height:1.12;letter-spacing:-.7px;max-width:100%;}.hero .hero-emotional{font-size:21px;}}
+html[dir="rtl"] .hero-headline-accent{display:block;}
+
+/* Nueva propuesta de valor: únicamente contenido y jerarquía tipográfica de portada */
+.hero .hero-bridge{font-family:"Playfair Display",Georgia,serif;color:#193b28;font-weight:600;font-size:clamp(22px,2.15vw,31px);line-height:1.22;max-width:710px;margin:16px 0 8px;}
+.hero .hero-bridge-emotion{font-family:"DM Sans",Arial,sans-serif;color:#71343d;font-weight:700;font-size:clamp(16px,1.35vw,19px);line-height:1.4;margin:0 0 12px;max-width:710px;}
+
+/* Ajuste aprobado: lema de portada en dorado más visible, sin alterar otras secciones */
+.hero .eyebrow {
+  color: #a87926;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: clamp(13px, 1.18vw, 17px);
+  font-weight: 900;
+  letter-spacing: 1.1px;
+  line-height: 1.5;
+  text-shadow: 0 1px 0 rgba(255,255,255,.75);
+  max-width: 750px;
+}
+
+
+
+/* Incorporación aprobada: valor inmediato y compromiso, debajo de las dos historias. */
+.lex-benefits{background:#f5f0e5;color:#193b28;padding:82px 6% 88px;}
+.lex-benefits-inner{max-width:1250px;margin:auto;}
+.lex-benefits-intro{text-align:center;max-width:940px;margin:0 auto 37px;}
+.lex-benefits .eyebrow{font-family:"DM Sans",Arial,sans-serif;font-size:12px;letter-spacing:2px;font-weight:800;color:#a87926;margin-bottom:16px;}
+.lex-benefits h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(30px,3.4vw,49px);line-height:1.18;font-weight:600;margin:0 0 22px;}
+.lex-benefits-highlight{color:#71343d;font-weight:800;font-family:"DM Sans",Arial,sans-serif;font-size:clamp(17px,1.8vw,23px);line-height:1.5;margin:0 auto 15px;}
+.lex-benefits-description{font-family:"DM Sans",Arial,sans-serif;line-height:1.8;font-size:16px;max-width:800px;margin:auto;}
+.lex-benefits-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin:34px 0 58px;}
+.lex-benefit-mini{background:#fffaf1;border:1px solid #e7ddcb;border-radius:14px;padding:27px 28px 25px;box-shadow:0 9px 25px rgba(25,59,40,.045);}
+.lex-benefit-num{display:block;font-weight:800;color:#bb9350;font-size:13px;letter-spacing:1.3px;margin-bottom:11px;}
+.lex-benefit-mini h3{font-family:"Playfair Display",Georgia,serif;font-size:25px;color:#193b28;margin:0 0 10px;}
+.lex-benefit-mini p{font-size:14px;line-height:1.7;margin:0;color:#34563b;}
+.lex-trust{background:#193b28;color:#f5f0e5;border-radius:18px;padding:46px 48px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;box-shadow:0 18px 40px rgba(25,59,40,.13);}
+.lex-trust-kicker{font-family:"DM Sans",Arial,sans-serif;color:#e2bd79;letter-spacing:1.8px;font-weight:800;font-size:12px;margin-bottom:17px;}
+.lex-trust h2{color:#fffaf1;margin:0;font-size:clamp(29px,3vw,42px);}
+.lex-trust-copy p{font-family:"DM Sans",Arial,sans-serif;font-size:16px;line-height:1.8;color:#f2e9d9;margin:0 0 16px;}
+.lex-trust-copy p:last-child{margin-bottom:0;}
+@media(max-width:760px){.lex-benefits{padding:55px 5% 62px}.lex-benefits-three{grid-template-columns:1fr;gap:12px;margin-bottom:36px}.lex-benefit-mini{padding:22px}.lex-trust{grid-template-columns:1fr;gap:18px;padding:32px 26px}.lex-benefits h2{font-size:32px}}
+html[dir="rtl"] .lex-trust,html[dir="rtl"] .lex-benefits{text-align:right;}
+html[dir="rtl"] .lex-benefits-intro{text-align:center;}
+
+
+
+/* LEXPUENTE — propuesta de paleta nocturna: conserva toda la estructura y fotografía */
+:root{--cream:#151918;--beige:#282c27;--ink:#f2eadb;--gold:#d5ad67;--burgundy:#9b5060;--green:#193b28;--green2:#34563b}
+body{background:#141816;color:#f0e8d9}
+header{background:#181c1a;border-bottom:1px solid #65543b;color:#f3eadb;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+header .logo small{color:#e0bc7e}header nav a{color:#f0e7d7}header .logo b{color:#f8f0e3}header .lang{color:#e7c68d;border-color:#9c7d4d}header .lang.active{background:#c29b5b;color:#171a17}
+.hero{background:#141a17}
+.hero-bg{background-image:linear-gradient(90deg,rgba(17,21,19,.97) 0%,rgba(17,21,19,.94) 28%,rgba(17,21,19,.76) 46%,rgba(17,21,19,.13) 80%),url('foto-de-fondo-original.jpg')}
+/* The existing photo is preserved by copying the existing background-image below through a separate override generated in Python. */
+.hero .hero-new-headline{color:#f6eddd;font-size:clamp(36px,4vw,61px);max-width:720px}
+.hero-headline-accent{color:#e2b973}
+.hero .hero-emotional{color:#e4a7b0;text-shadow:none;font-size:clamp(18px,1.75vw,24px)}
+.hero .hero-bridge{color:#f4e9d8;font-size:clamp(21px,1.85vw,27px)}
+.hero .hero-bridge-emotion{color:#e7b6bd}
+.hero .eyebrow{color:#e9bd73;text-shadow:0 2px 7px rgba(0,0,0,.7)}
+.hero-content>p:not(.hero-bridge-emotion):not(.hero-person-first):not(.hero-barriers){color:#f2e9da;line-height:1.65}
+.hero-person-first{font-weight:700;color:#e4b7bd!important;font-size:clamp(15px,1.35vw,18px)!important;margin:13px 0 7px}
+.hero-barriers{font-weight:800;color:#e6c17f!important;font-size:clamp(15px,1.3vw,18px)!important;margin:5px 0 10px}
+.hero .hero-brand-seal{background:rgba(25,28,24,.95);border-color:#d4ad67;color:#f5ebd9}.hero .seal-monogram{color:#d4ad67}
+.hero .hero-path{background:rgba(30,37,31,.95);color:#f7eddf;border-left-color:#d4ad67;border-top:1px solid #806e4f}.hero .hero-path:nth-child(2){border-left-color:#a75e6b}.hero .hero-path span{color:#e4cda6}
+.hero .cta{background:#d4ad67;color:#171b17;border-color:#d4ad67;font-weight:800}.hero .outline{color:#f3e6d2;border-color:#c2a477}
+.story-dual,.lex-benefits,.value-section,.section-pad,.split .copy,.contact{background:#171d1a;color:#f0e8d9}
+.story-dual-head h2,.story-dual-head p,.lex-benefits h2,.lex-benefits-description,.value-intro h2,.value-intro p{color:#f1e6d5}
+.story-panel,.lex-benefit-mini,.value-card{background:#252c27;border:1px solid #6d5b40;border-top:5px solid #d2a965;color:#f2e9db;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.story-panel-health,.value-card:nth-child(2){border-top-color:#a55b6b}
+.story-panel h3,.story-panel p,.story-panel .story-value,.lex-benefit-mini h3,.lex-benefit-mini p,.value-card h3,.value-card p{color:#f0e8d9}
+.story-panel .story-tag,.story-panel .story-connection,.value-card .value-label,.lex-benefits-highlight{color:#e9aab5}
+.lex-trust{background:#203b2c;border:1px solid #6d5b40}
+.intro-band{background:#203b2c}
+.section-pad h2,.split .copy h2,.contact h2{color:#f2e8d7}
+.contact-card{background:#252c27;color:#f2e8d9;border:1px solid #766448}
+.contact input,.contact textarea,.contact select{background:#161d19;color:#f5e9d8;border-color:#6d5b40}
+footer{background:#101612;color:#eee2cf}
+@media(max-width:850px){.hero-bg{background-position:65% center}.hero{min-height:720px}.hero-content{padding-top:90px;padding-bottom:60px}}
+
+
+
+/* Fotografías de Aina para las dos vertientes: añadido sin alterar el diseño anterior */
+.story-panel .lex-story-portrait {display:block; width:100%; height:auto; aspect-ratio: 128 / 117; object-fit:contain; border-radius:14px; margin:22px 0 26px; border:1px solid rgba(187,147,80,.38); box-shadow:0 16px 35px rgba(0,0,0,.23); background:#1c2420;}
+
+
+
+.lex-tariffs{padding:85px max(5%,calc((100% - 1200px)/2));background:#111915;color:#efe8dc}.lex-tariff-intro{max-width:780px;margin:0 auto 35px;text-align:center}.lex-tariff-intro h2{font-family:Georgia,serif;font-size:clamp(30px,4vw,50px);color:#e5c78d;margin:10px 0}.lex-tariff-intro p{line-height:1.8;color:#d9d5c9}.lex-tariff-group{margin:18px 0;border:1px solid #6d624c;border-radius:14px;overflow:hidden;background:#1c2922}.lex-tariff-group summary{cursor:pointer;padding:20px 25px;font-weight:700;font-size:19px;color:#e7c98b;display:flex;justify-content:space-between}.lex-tariff-group summary small{font-size:13px;color:#d7d4c9}.lex-tariff-row{display:flex;justify-content:space-between;gap:12px;padding:12px 24px;border-top:1px solid #ffffff20;align-items:center;color:#e9e8e2}.lex-tariff-row b{white-space:nowrap;color:#f3d99d}.lex-tariff-row:nth-child(even){background:#ffffff06}.lex-disclaimer{max-width:1100px;margin:28px auto 0;color:#c9c3b5;font-size:13px;line-height:1.6}.lex-toolbar{max-width:1150px;margin:25px auto;display:flex;gap:14px;align-items:center;flex-wrap:wrap}.lex-toolbar input{padding:13px 18px;background:#101c17;color:#fff;border:1px solid #8d7a59;border-radius:8px;min-width:210px;flex:1}.lex-filters{display:flex;gap:6px;flex-wrap:wrap}.lex-filters button{border:1px solid #a68a5e;border-radius:20px;padding:8px 12px;color:#eadbbf;background:transparent;cursor:pointer}.lex-filters button.lex-active{background:#bb9350;color:#132017}.lex-catalog-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;max-width:1200px;margin:auto}.lex-catalog-card{background:#1d2b24;border:1px solid #665b44;border-radius:13px;overflow:hidden;display:flex;flex-direction:column;color:#f4ede0}.lex-catalog-card img{width:100%;height:160px;object-fit:cover;background:#34463c}.lex-catalog-card .body{padding:14px;display:flex;flex-direction:column;flex:1}.lex-catalog-card small{color:#d6b474;font-size:10px;letter-spacing:1px;text-transform:uppercase}.lex-catalog-card h3{font-size:15px;margin:8px 0;line-height:1.4;color:#fff}.lex-catalog-card .bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}.lex-catalog-card strong{font-size:21px;color:#e7c78b}.lex-catalog-card .bottom span{font-size:11px;color:#ddd}.lex-catalog-card a{margin-top:10px;color:#e7c78b;text-decoration:underline;font-size:12px}.lex-shop{background:#101a15!important;color:#f0eadf!important}.lex-shop-head h2{color:#e7c78b!important}.lex-shop-head p{color:#e1dcd0!important}@media(max-width:960px){.lex-catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:650px){.lex-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lex-catalog-card img{height:125px}.lex-tariff-row{font-size:13px;padding:12px}.lex-tariff-group summary{font-size:16px;padding:16px}.lex-tariffs{padding:60px 5%}}
+
+
+
+/* Nuevas secciones: octubre 2026 */
+.lex-new-section{padding:76px max(22px,calc((100% - 1180px)/2));background:#101a17;color:#f4ead6}
+.lex-new-section.alt{background:#17221e}
+.lex-new-section h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,4vw,47px);color:#e6c17e;margin:10px 0 18px}
+.lex-new-section p{line-height:1.8;color:#d9d2c3}
+.lex-price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px;margin-top:30px}
+.lex-price-item{padding:21px;background:#21312b;border:1px solid #735e40;border-radius:13px;display:flex;flex-direction:column;gap:8px}
+.lex-price-item h3{font-size:17px;color:#f5ead9;margin:0}
+.lex-price-item .price{font-size:25px;color:#e6c17e;font-weight:700}
+.lex-price-item p{font-size:13px;margin:0}
+.lex-pill{display:inline-block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#e6c17e;font-weight:700}
+.lex-ngo-panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px;margin-top:28px}
+.lex-ngo-panel{border:1px solid #695c45;border-radius:14px;padding:23px;background:#1f3029}
+.lex-ngo-panel h3{color:#e6c17e;margin:0 0 10px}
+.lex-ngo-panel p{margin:0;font-size:14px}
+.lex-shop .lex-catalog-card img{min-height:160px}
+@media(max-width:600px){.lex-new-section{padding:50px 20px}}
+
+
+
+.lex-biz-section{padding:78px max(6vw,22px);background:#101b17;color:#f4ead9}.lex-biz-alt{background:#18231e}.lex-biz-head{max-width:850px;margin:0 auto 35px;text-align:center}.lex-biz-kicker{color:#d5b36e;letter-spacing:.18em;font-size:12px;font-weight:700}.lex-biz-head h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(29px,3.6vw,49px);line-height:1.2;color:#e8cb91;margin:18px 0}.lex-biz-head p{color:#ddd6c8;font-size:17px;line-height:1.8}.lex-biz-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1150px;margin:auto}.lex-biz-grid article{background:#24342b;border:1px solid #776644;border-radius:16px;padding:26px;min-height:200px}.lex-biz-grid b,.lex-offer-tag{color:#d9b978;font-size:13px;letter-spacing:.09em}.lex-biz-grid h3{font-family:"Playfair Display",Georgia,serif;color:#f4e4c7;font-size:22px;margin:15px 0 9px}.lex-biz-grid p{color:#e1d8c9;line-height:1.65}.lex-biz-pricing{max-width:1150px;margin:24px auto 0;padding:25px;border:1px solid #776644;border-radius:16px;background:#24342b}.lex-biz-pricing h3{color:#e8cb91;margin:0 0 14px}.lex-biz-pricing>div{display:flex;gap:12px;flex-wrap:wrap}.lex-biz-pricing span{background:#13241b;padding:14px;border-radius:10px;flex:1;min-width:190px}.lex-biz-pricing strong{color:#e9c787;display:block;margin-top:6px}.lex-biz-pricing small{display:block;color:#d7d0c2;margin-top:12px}.lex-biz-pricing p{color:#e1d8c9}.lex-biz-pricing a{color:#e8cb91;font-weight:700}.lex-offer-price{color:#e8cb91;font-size:32px;font-weight:700;margin:12px 0}@media(max-width:800px){.lex-biz-grid{grid-template-columns:1fr}.lex-biz-section{padding:55px 20px}}
+
+
+
+/* LEXPUENTE 17 OCT · Menú compacto, navegación desplegable y jerarquía editorial */
+.lex-organized-header{height:auto!important;min-height:88px!important;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;padding:11px 3.5%;background:#141d18!important;border-bottom:1px solid #826744!important;color:#f2e8d7!important}
+.lex-organized-header .logo{flex-shrink:0;min-width:180px;color:#f4e5c8}
+.lex-organized-header .logo .mark{color:#d2aa68}
+.lex-organized-header .logo small{color:#dcc5a2;font-size:9px}
+.lex-primary-nav{display:flex;flex:1;justify-content:center;align-items:center;gap:clamp(8px,1.6vw,23px);font-size:13px;min-width:0;flex-wrap:wrap}
+.lex-primary-nav>a,.lex-menu>summary{white-space:nowrap;cursor:pointer;font-weight:700;font-size:13px;color:#f3e9d5;line-height:22px;padding:9px 5px;text-decoration:none}
+.lex-primary-nav>a:hover,.lex-menu>summary:hover{color:#e8c587}
+.lex-menu{position:relative;z-index:65}
+.lex-menu>summary{display:list-item;list-style:none;user-select:none}
+.lex-menu>summary::-webkit-details-marker{display:none}
+.lex-menu>summary:after{content:'⌄';margin-inline-start:7px;color:#d8b777}
+.lex-dropdown-panel{position:absolute;top:calc(100% + 10px);inset-inline-start:0;z-index:90;min-width:235px;max-height:min(73vh,530px);overflow-y:auto;box-shadow:0 20px 60px #0009;background:#202c25;color:#f2e8d8;border:1px solid #92794f;border-radius:12px;padding:13px}
+.lex-submenu-link{display:block;font-size:14px;line-height:1.35;padding:11px 12px;border-radius:6px;color:#f3e7cf!important;text-decoration:none;white-space:normal}
+.lex-submenu-link:hover,.lex-language-option:hover,.lex-language-option[aria-current=true]{background:#384838;color:#f4d292!important}
+.lex-dropdown-group{font-size:10px;letter-spacing:.12em;color:#d4b476;font-weight:800;padding:14px 11px 6px;border-top:1px solid #5e5746;margin-top:6px}
+.lex-dropdown-group:first-child{border:0;margin:0;padding-top:5px}
+.lex-language-menu .lex-dropdown-panel{inset-inline-start:auto;inset-inline-end:0;min-width:205px}
+.lex-language-option{display:block;width:100%;text-align:start;color:#f1e7d4;padding:11px 12px;border:0;background:transparent;font-size:14px;cursor:pointer;border-radius:6px}
+.lex-header-contact{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:9px}
+.lex-phone-link{color:#f0d09c;font-size:15px;font-weight:800;white-space:nowrap;letter-spacing:.02em}
+.lex-whatsapp-nav{background:#ddbf87;color:#18251d!important;font-size:12px;font-weight:800;border-radius:24px;padding:10px 15px;white-space:nowrap}
+.lex-chapter-heading{font:800 11px/1.45 'DM Sans',Arial,sans-serif!important;letter-spacing:.14em;text-transform:uppercase;color:#d6ae6e!important;border-bottom:1px solid rgba(207,166,101,.4);padding-bottom:12px;margin:0 0 22px!important}
+.hero .lex-chapter-heading{color:#9b6422!important;max-width:580px;margin-bottom:11px!important}
+.story-dual .lex-chapter-heading,.lex-benefits .lex-chapter-heading,.section-pad .lex-chapter-heading{max-width:1100px;margin-inline:auto!important;margin-bottom:22px!important}
+.lex-hero-contact{display:flex;gap:13px;flex-wrap:wrap;align-items:center;margin:22px 0}
+.lex-hero-phone,.lex-hero-wa{background:#24362b;color:#f8e6bf!important;border:1px solid #d8ae69;border-radius:9px;padding:12px 19px;font-weight:800;white-space:nowrap}
+.lex-hero-wa{background:#d5b575;color:#1b271d!important}
+.lex-contact-prominent{display:flex;flex-wrap:wrap;gap:7px 17px;font-size:clamp(18px,2vw,27px);font-weight:800;color:#e9c485!important;margin:13px 0 20px}
+.lex-contact-prominent a{color:inherit!important;text-decoration:underline;text-underline-offset:4px}
+#dos-vertientes,#primer-paso,#servicios-reales,#servicios{border-top:1px solid #6a5843;scroll-margin-top:132px}
+#inicio,#nosotros,#clinicas,#tienda,#contacto,#tratamientos,#tarifas,#ofertas,#asociacion{scroll-margin-top:132px}
+#servicios-reales{padding-block:55px!important}
+#servicios-reales .lex-chapter-heading{max-width:900px;margin:0 auto 20px!important}
+.lex-organized-header a:focus-visible,.lex-organized-header summary:focus-visible,.lex-organized-header button:focus-visible{outline:2px solid #edc97a;outline-offset:4px}
+@media(max-width:1150px){.lex-organized-header{justify-content:space-around}.lex-organized-header .logo{flex:1}.lex-primary-nav{order:3;flex-basis:100%;width:100%;justify-content:space-around}.lex-header-contact{order:2}}
+@media(max-width:600px){.lex-organized-header{padding:10px 3%;gap:8px}.lex-organized-header .logo{min-width:125px}.lex-organized-header .logo .mark{font-size:37px;letter-spacing:-11px}.lex-organized-header .logo b{font-size:18px;letter-spacing:2px}.lex-organized-header .logo small{font-size:7px;letter-spacing:.3px}.lex-phone-link{font-size:12px}.lex-whatsapp-nav{font-size:11px;padding:7px 10px}.lex-header-contact{gap:5px}.lex-primary-nav{gap:3px 9px}.lex-primary-nav>a,.lex-menu>summary{font-size:11px;padding:6px 2px}.lex-dropdown-panel{position:fixed;top:127px;inset-inline-start:5%!important;inset-inline-end:auto!important;width:90vw;max-height:65vh}.lex-language-menu .lex-dropdown-panel{inset-inline-start:auto!important;inset-inline-end:5%!important;width:min(90vw,290px)}.hero .hero-content{padding-top:65px}.lex-hero-phone,.lex-hero-wa{font-size:14px;padding:10px 13px}#servicios-reales{padding:45px 14px!important}}
+
+
+
+/* 17 Oct: commercial navigation, contact prominence and expandable project areas */
+.lex-organized-header{padding:13px 2.3%!important;gap:12px 20px!important}
+.lex-organized-header .logo{min-width:210px;flex:0 0 auto}
+.lex-header-contact{gap:12px;flex:0 0 auto}
+.lex-header-contact .lex-phone-link{
+ font-family:Georgia,serif;font-size:clamp(24px,2.25vw,33px)!important;
+ font-weight:900!important;letter-spacing:.008em;line-height:1.16;
+ color:#f0cd89!important;text-shadow:0 1px 6px rgba(0,0,0,.28)
+}
+.lex-header-contact .lex-whatsapp-nav{font-size:14px!important;padding:12px 17px!important}
+.lex-primary-nav{gap:clamp(7px,1.1vw,19px)!important}
+.lex-hero-contact .lex-hero-phone{
+ display:inline-flex;align-items:center;justify-content:center;
+ font-family:Georgia,serif;font-size:clamp(25px,3.1vw,43px)!important;
+ background:#16261b!important;color:#f7d99b!important;
+ letter-spacing:.02em;line-height:1.18;padding:15px 21px!important;
+ box-shadow:0 10px 27px rgba(0,0,0,.25)
+}
+.lex-hero-contact .lex-hero-wa{font-size:clamp(16px,1.55vw,21px)!important;padding:16px 21px!important}
+#inicio .lex-chapter-heading{font-size:clamp(12px,1.14vw,15px)!important;letter-spacing:.11em}
+.story-dual .lex-chapter-heading,.lex-benefits .lex-chapter-heading{
+ font-size:clamp(13px,1.15vw,16px)!important;line-height:1.6!important;
+ letter-spacing:.12em!important;padding:0 0 14px!important
+}
+.story-dual-head{max-width:950px!important;margin-bottom:32px!important}
+.lex-home-dropdown{min-width:230px!important}
+.lex-story-contact{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 20px;margin:22px auto 30px}
+.lex-story-call{font-family:Georgia,serif;font-size:clamp(25px,2.65vw,37px);
+ letter-spacing:.02em;font-weight:800;color:#8a612c!important;
+ padding:8px 15px;border-bottom:2px solid #cba15e;text-decoration:none}
+.lex-story-whatsapp{background:#203c2a;color:#f3d49d!important;padding:13px 23px;
+ border-radius:40px;font-weight:800;text-decoration:none;white-space:nowrap}
+.story-dual-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch}
+.story-panel-housing{border-top-color:#b79455!important}
+.story-panel-housing .lex-story-photo-reserved{
+ min-height:245px;width:100%;display:flex;align-items:center;justify-content:center;
+ border:1px solid #c2b391;border-radius:9px;margin:12px 0 22px;
+ background:linear-gradient(137deg,#e7e0d1 0%,#eeeae1 44%,#dbd1be 100%);
+ color:#6a5842;text-align:center
+}
+.lex-photo-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:20px}
+.lex-house-mark{font-size:70px;font-family:Georgia,serif;line-height:.95;color:#9b8061}
+.lex-photo-label{font-size:13px;letter-spacing:.035em;font-weight:600;opacity:.8}
+.lex-development-status{font-size:12px!important;color:#8b683c!important;font-weight:800;letter-spacing:.09em;border-top:1px solid #ddc9a8;padding-top:14px}
+@media(min-width:1450px){.lex-organized-header{padding-inline:3.4%!important}}
+@media(max-width:1180px){.lex-organized-header{justify-content:space-around!important}.lex-primary-nav{order:3;flex-basis:100%!important}.lex-header-contact .lex-phone-link{font-size:26px!important}}
+@media(max-width:700px){
+ .lex-organized-header{padding:12px 3%!important;gap:9px 8px!important}
+ .lex-organized-header .logo{min-width:0;flex:0 1 auto}
+ .lex-organized-header .logo b{font-size:19px!important}
+ .lex-organized-header .logo .mark{font-size:39px!important}
+ .lex-organized-header .logo small{font-size:7px!important}
+ .lex-header-contact{flex:0 0 100%!important;justify-content:center!important;gap:15px!important}
+ .lex-header-contact .lex-phone-link{font-size:27px!important}
+ .lex-header-contact .lex-whatsapp-nav{padding:9px 13px!important}
+ .lex-primary-nav{justify-content:center!important;order:3;flex-basis:100%;flex-wrap:wrap!important;gap:1px 11px!important}
+ .lex-primary-nav>a,.lex-menu>summary{font-size:12px!important}
+ .lex-hero-contact .lex-hero-phone{font-size:28px!important;padding:12px 14px!important}
+ .lex-hero-contact .lex-hero-wa{font-size:17px!important;padding:12px 14px!important}
+ .story-dual-grid{grid-template-columns:1fr!important}
+ .lex-story-call{font-size:29px!important}
+ .lex-story-photo-reserved{min-height:215px!important}
+}
+@media(max-width:370px){.lex-header-contact .lex-phone-link{font-size:24px!important}.lex-organized-header .logo b{font-size:17px!important}}
+
+
+
+/* Titulares reales de capítulos: índice y secciones coordinados. */
+.hero .lex-chapter-heading,.lex-benefits .lex-chapter-heading,.story-dual .lex-chapter-heading,
+.section-pad .lex-chapter-heading{font-size:clamp(19px,2.1vw,27px)!important;line-height:1.3!important;letter-spacing:.06em!important;font-weight:850!important;padding-bottom:15px!important;margin-bottom:24px!important;}
+.hero .lex-chapter-heading{color:#824c19!important;max-width:740px}
+.lex-benefits .lex-chapter-heading,.story-dual .lex-chapter-heading{color:#8d6838!important;max-width:1060px}
+.story-dual .hero-paths{max-width:950px;margin:0 auto 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.story-dual .hero-path{border:1px solid #d2bd99;border-radius:12px;background:#fffaf1;min-height:76px;display:flex;flex-direction:column;justify-content:center;gap:7px;box-shadow:0 4px 16px rgba(16,37,22,.08);text-align:center;padding:12px;text-decoration:none;}
+.story-dual .hero-path strong{font-size:13px;letter-spacing:.06em;color:#71343d}
+.story-dual .hero-path span{font-size:13px;color:#3a523c}
+.story-panel-wellbeing{border-top-color:#677f72!important;}
+.story-panel-wellbeing .lex-story-photo-reserved{min-height:245px;width:100%;display:flex;align-items:center;justify-content:center;border:1px solid #c2b391;border-radius:9px;margin:12px 0 22px;background:linear-gradient(135deg,#e6e5dd,#f4f0e6);font:800 14px/1.6 Arial,sans-serif;color:#617366;letter-spacing:.04em;text-align:center;padding:30px}
+@media(max-width:700px){.story-dual .hero-paths{grid-template-columns:1fr}.story-dual .lex-chapter-heading,.hero .lex-chapter-heading,.lex-benefits .lex-chapter-heading{font-size:20px!important}}
+
+
+
+/* Top-level site map: Inicio / Servicios / Contacto / Idiomas. */
+.lex-about-chapter,.lex-chapter-heading{font-weight:900!important;font-size:clamp(21px,2.3vw,30px)!important;line-height:1.25!important;letter-spacing:.035em!important;border-bottom:4px solid #b88b49!important;display:table!important;padding:0 0 13px!important;margin:0 0 25px!important;max-width:100%!important}
+#nosotros .copy .lex-about-chapter{color:#c59a57!important}
+.lex-menu-section-index{font-weight:850!important;color:#f3d19d!important;border-bottom:1px solid #6c5d41;padding-bottom:12px!important}
+.lex-i18n-status{font-size:11px;margin:7px 10px 8px;color:#f5d5a3;line-height:1.4}
+.lex-language-option[disabled]{opacity:.48;cursor:not-allowed;pointer-events:none}
+.lex-ngo-animals{margin:24px auto 0;max-width:920px;padding:20px 25px;border:1px solid #af995b;background:#f5f0e8;border-radius:12px;color:#264034}
+.lex-ngo-animals h3{margin:0 0 8px;color:#6a3d2f;font-size:22px}.lex-ngo-animals p{margin:0;line-height:1.65}
+.story-panel-animals .lex-story-photo-reserved{background:linear-gradient(135deg,#dfebe0,#f3f3e9)!important}
+.lex-animal-assoc-link{font-weight:750;color:#8b6331;display:inline-block;padding:8px 0}
+@media(max-width:700px){.lex-about-chapter,.lex-chapter-heading{font-size:20px!important}.lex-ngo-animals{margin:16px;padding:18px}}
+
+/* New editorial area; existing visual design retained */
+.story-panel-comunica{border-top-color:#9b8159}
+.lex-comunica-preview{min-height:215px;margin:12px 0 22px;border-radius:10px;border:1px solid #766448;background:radial-gradient(circle at 50% 28%,#486252 0%,#1b372f 56%,#12241e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;color:#ead4a5;text-align:center;padding:18px}
+.lex-comunica-play{width:64px;height:64px;border:2px solid #d0b885;border-radius:50%;display:grid;place-items:center;font-size:24px;padding-left:4px;color:#f0d8a8}
+.lex-comunica-brand{font:700 clamp(20px,3vw,27px) Georgia,serif;letter-spacing:.07em}
+.lex-comunica-mediums{font-size:11px;letter-spacing:.14em;color:#f3e7cf}
+
+
+
+/* INTRODUCCION ORIGINAL APROBADA – añadido aditivo; no redefine las secciones anteriores */
+html{scroll-padding-top:74px}
+.lex-organized-header{display:grid!important;grid-template-columns:auto minmax(310px,1fr) auto!important;align-items:center!important;min-height:61px!important;height:auto!important;gap:12px!important;flex-wrap:nowrap!important;padding:7px clamp(18px,4vw,120px)!important;background:#10251b!important;color:#f3e4cb!important}
+.lex-organized-header .logo{min-width:0!important;flex:initial!important;gap:12px!important}
+.lex-organized-header .logo b{font-size:clamp(23px,2.0vw,29px)!important;letter-spacing:.15em!important;font-family:Georgia,serif!important}
+.lex-organized-header .logo small{display:none!important}
+.lex-organized-header .logo .mark{font-size:41px!important;color:#dcbb7d!important;letter-spacing:-10px!important;padding-right:10px!important}
+.lex-organized-header .lex-primary-nav{order:unset!important;flex:initial!important;flex-basis:auto!important;width:auto!important;min-width:0!important;display:flex!important;flex-wrap:nowrap!important;gap:clamp(9px,1.55vw,25px)!important;align-items:center!important;justify-content:center!important}
+.lex-organized-header .lex-primary-nav>a,.lex-organized-header .lex-menu>summary{font-family:Georgia,serif!important;font-size:clamp(13px,1vw,16px)!important;font-weight:500!important;white-space:nowrap!important}
+.lex-organized-header .lex-header-contact{order:unset!important;flex:initial!important;gap:16px!important}
+.lex-organized-header .lex-header-contact .lex-phone-link{font-size:clamp(18px,1.3vw,24px)!important}
+.lex-organized-header .lex-header-contact .lex-whatsapp-nav{font-size:15px!important;padding:11px 19px!important;border-radius:12px!important;background:#e3bc79!important;color:#192b1f!important}
+.lex-home-current{border-bottom:2px solid #d3a35f}
+.lex-new-intro{background:#f7e9c8;overflow:hidden;scroll-margin-top:64px}
+.lex-new-hero{min-height:480px;position:relative;overflow:hidden;display:flex;align-items:flex-start;background:#efd9aa}
+.lex-new-hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(255,241,209,.69) 0%,rgba(254,233,196,.49) 29%,rgba(255,237,210,.10) 56%,rgba(0,0,0,0) 80%),url('foto-original-lexpuente.png');background-size:cover;background-position:center 0%;}
+.lex-new-hero-copy{position:relative;z-index:1;max-width:800px;width:56%;padding:50px 10px 55px max(6%,calc((100% - 1280px)/2));text-shadow:0 1px 12px rgba(255,230,180,.25)}
+.lex-new-hero .lex-intro-kicker{font:700 clamp(10px,.92vw,13px)/1.45 'DM Sans',Arial,sans-serif;letter-spacing:.2em;color:#574b30;margin:0 0 14px!important}
+.lex-intro-short-rule{width:57px;height:3px;background:#ab813e;margin:0 0 20px}
+.lex-new-hero h1{font-family:Georgia,serif;font-size:clamp(35px,3.65vw,61px);line-height:1.03;letter-spacing:-.03em;max-width:710px;font-weight:700;margin:0 0 12px;color:#113326}
+.lex-new-hero h1 em{font-style:normal;color:#71343d}
+.lex-new-hero .lex-intro-sub{font:700 clamp(16px,1.42vw,22px)/1.45 Georgia,serif;color:#6f3941;margin:0 0 15px;max-width:660px}
+.lex-new-hero .lex-intro-cta{background:#dfbd7e;color:#172b20!important;padding:13px 23px;border-radius:8px;display:inline-flex;align-items:center;gap:25px;font:700 clamp(16px,1.1vw,19px) Georgia,serif;box-shadow:0 8px 18px #00000019}
+.lex-new-hero .lex-intro-cta:focus-visible{outline:3px solid #7a333d;outline-offset:3px}
+.lex-new-hero .lex-intro-cta:hover{background:#e9c993}
+.lex-intro-story{background:#10281f;color:#f7efe0;padding:22px max(6%,calc((100% - 1280px)/2)) 30px;border-bottom:2px solid #b99151}
+.lex-intro-story .lex-intro-chapter{color:#dec088;font:700 13px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.2em;margin:0 0 16px;border-bottom:1px solid #c29a5e;padding-bottom:13px}
+.lex-intro-story h2{font:700 clamp(24px,2.12vw,35px)/1.21 Georgia,serif;max-width:1130px;color:#f4e8d5;margin:0 0 20px!important}
+.lex-intro-columns{display:grid;grid-template-columns:1.1fr 1fr 1fr .99fr;gap:28px;margin-top:10px}
+.lex-intro-columns>div{border-left:2px solid #a58248;padding-left:19px;min-width:0}
+.lex-intro-columns p{color:#ede5d7;font:400 clamp(15px,1vw,17px)/1.45 Georgia,serif;margin:0 0 9px}
+.lex-intro-columns .lex-intro-gold{font-weight:700;font-style:italic;color:#eac588}
+.lex-intro-columns .lex-slogan{font-size:21px;line-height:1.22;letter-spacing:.07em;color:#fff;font-weight:700;margin:10px 0 0!important}
+.lex-intro-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:17px}
+.lex-intro-actions a{display:inline-flex;gap:8px;align-items:center;justify-content:center;font:700 17px Georgia,serif;min-width:165px;padding:11px 15px;border-radius:8px}
+.lex-intro-actions a:first-child{border:1px solid #d1a763;color:#eac588;background:transparent}
+.lex-intro-actions a:last-child{background:#e4be79;color:#1b2b21}
+.lex-new-intro+section{border-top:1px solid #d6b471;scroll-margin-top:80px}
+@media(max-width:1150px){.lex-organized-header{display:flex!important;flex-wrap:wrap!important;justify-content:center!important}.lex-organized-header .lex-primary-nav{flex:1 0 100%!important;order:3!important;gap:12px!important;justify-content:space-around!important}.lex-new-hero-copy{width:61%}.lex-intro-columns{grid-template-columns:1fr 1fr;gap:22px}}
+@media(max-width:720px){.lex-organized-header{justify-content:space-between!important;padding:10px 3%!important}.lex-organized-header .logo b{font-size:22px!important}.lex-organized-header .lex-header-contact .lex-phone-link{font-size:16px!important}.lex-organized-header .lex-header-contact .lex-whatsapp-nav{font-size:12px!important;padding:8px 10px!important}.lex-organized-header .lex-primary-nav{gap:5px!important}.lex-organized-header .lex-primary-nav>a,.lex-organized-header .lex-menu>summary{font-size:12px!important}.lex-new-hero{min-height:590px;align-items:flex-start}.lex-new-hero-photo{background-image:linear-gradient(180deg,rgba(255,242,216,.93) 0%,rgba(255,239,210,.82) 30%,rgba(255,239,210,.02) 70%),url('foto-original-lexpuente.png');background-position:61% center}.lex-new-hero-copy{width:100%;max-width:550px;padding:36px 7% 20px}.lex-new-hero h1{font-size:clamp(31px,8vw,44px);max-width:520px}.lex-new-hero .lex-intro-sub{font-size:17px}.lex-intro-story{padding:23px 6% 29px}.lex-intro-columns{grid-template-columns:1fr;gap:12px}.lex-intro-columns>div{border-left:2px solid #a58248;padding-left:15px}}
+
+.lex-primary-nav .lex-agenda-nav {color:#71343d;font-weight:800;letter-spacing:.03em;padding:10px 3px;white-space:nowrap;}
+.lex-primary-nav .lex-agenda-nav:hover{color:#bb9350;}
+.lex-agenda-section {padding:75px max(4vw,20px) 88px;background:#f4ede2;color:#193b28;scroll-margin-top:110px;}
+.lex-agenda-heading{text-align:center;max-width:790px;margin:0 auto 36px;}
+.lex-agenda-kicker{font:700 13px 'DM Sans',sans-serif;letter-spacing:.16em;color:#a47c3b;margin:0 0 8px;}
+.lex-agenda-heading h2 {font-family:'Playfair Display',Georgia,serif;font-size:clamp(33px,4vw,53px);line-height:1.17;margin:8px 0 16px;color:#193b28;}
+.lex-agenda-heading>p:last-child{font-size:16px;line-height:1.7;color:#445548;margin:auto;max-width:680px;}
+.lex-agenda-layout {display:grid;grid-template-columns:.85fr 1.15fr;max-width:1100px;margin:0 auto;gap:26px;align-items:stretch;}
+.lex-agenda-benefits {background:#193b28;padding:45px 36px;border-top:5px solid #bb9350;color:#f5f0e5;display:flex;flex-direction:column;justify-content:center;}
+.lex-agenda-number{color:#d9ad62;font-size:18px;letter-spacing:.22em;}
+.lex-agenda-benefits h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,3vw,43px);margin:20px 0;line-height:1.22;color:#f5f0e5;}
+.lex-agenda-benefits p{line-height:1.75;color:#e5dfd1;font-size:16px;}
+.lex-agenda-benefits .lex-agenda-note{color:#d5ccb9;font-size:14px;}
+.lex-agenda-direct{display:inline-block;margin-top:20px;font-size:25px;color:#e7bc6f;font-weight:800;}
+.lex-agenda-form{background:#fffdf8;box-shadow:0 13px 38px #15271c13;padding:35px;border:1px solid #e6d8bd;display:flex;flex-direction:column;gap:16px;}
+.lex-agenda-field{display:flex;flex-direction:column;gap:7px;min-width:0;}
+.lex-agenda-field label{font-size:13px;font-weight:800;color:#203e2d;}
+.lex-agenda-field input,.lex-agenda-field select{width:100%;min-width:0;min-height:48px;padding:12px 13px;border:1px solid #d8c8aa;background:#fff;color:#1d2c23;border-radius:5px;font-size:15px;font-family:inherit;}
+.lex-agenda-field input:focus,.lex-agenda-field select:focus{outline:2px solid #bb9350;outline-offset:2px;}
+.lex-agenda-dates{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.lex-book-submit{min-height:53px;border:0;background:#71343d;color:#fff;font-weight:800;letter-spacing:.02em;border-radius:5px;padding:13px 18px;}
+.lex-book-submit:hover{background:#193b28;}
+.lex-agenda-disclaimer{font-size:12px!important;line-height:1.6!important;color:#69635a!important;margin:0!important;}
+
+@media(max-width:800px){.lex-agenda-layout{grid-template-columns:1fr}.lex-agenda-benefits{padding:34px 28px}.lex-agenda-form{padding:25px}}
+@media(max-width:510px){.lex-agenda-dates{grid-template-columns:1fr}.lex-agenda-form{padding:18px}.lex-agenda-section{padding:55px 15px}.lex-agenda-direct{font-size:20px}}
+
+
+.lex-sms-request{margin:3px 0 4px;padding:19px 20px;border:1px solid #d9c7a6;background:#f9f4eb;border-radius:6px;color:#243f2f;}
+.lex-sms-request-header{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15px;flex-wrap:wrap;}
+.lex-sms-request-header>span:first-child{color:#875f35;font-size:20px;}
+.lex-sms-status{padding:4px 8px;border-radius:12px;background:#e5e7de;color:#506252;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;}
+.lex-sms-description{font-size:13px!important;line-height:1.6!important;color:#4e5a50!important;margin:9px 0 14px!important;}
+.lex-sms-option label{display:flex;align-items:flex-start;gap:10px;font-size:13px;font-weight:650;line-height:1.5;cursor:pointer;}
+.lex-sms-option input{accent-color:#71343d;width:17px;height:17px;margin:2px 0 0;flex-shrink:0;}
+.lex-sms-number{margin:15px 0 0;}.lex-sms-number[hidden]{display:none!important;}
+.lex-sms-activation-note{margin:11px 0 0!important;font-size:12px!important;line-height:1.5!important;color:#7a4b39!important;}
+
+.lex-organized-header .lex-primary-nav .lex-agenda-nav{color:#f4e5cb!important}
+
+
+
+/* Ajustes discretos EXCLUSIVOS de cabecera e introducción. Se conserva la web base íntegra. */
+@media (min-width:721px){
+  .lex-organized-header .logo b{font-size:clamp(25px,2.15vw,31px)!important;}
+  .lex-organized-header .lex-header-contact .lex-phone-link{font-size:clamp(19px,1.45vw,25px)!important;}
+}
+.lex-new-hero .lex-intro-kicker{
+  color:#98671e!important;
+  font-size:clamp(12px,1.06vw,15px)!important;
+  font-weight:800!important;
+  letter-spacing:.15em!important;
+  text-shadow:0 1px 2px rgba(255,244,220,.78);
+}
+.lex-new-hero h1 em{color:#6e2439!important;}
+.lex-new-hero .lex-intro-sub{color:#672439!important;}
+.lex-intro-actions a{
+  min-width:150px!important;
+  padding:9px 13px!important;
+  font-size:15px!important;
+}
+@media(max-width:720px){
+  .lex-new-hero .lex-intro-kicker{font-size:12px!important;letter-spacing:.09em!important;}
+  .lex-intro-actions a{min-width:142px!important;padding:10px 12px!important;font-size:15px!important;}
+}
+
+
+
+/* Presentación aprobada: misma foto y paleta, nuevo contenido editorial. */
+#inicio.hero{min-height:0!important;align-items:flex-start!important}
+#inicio .hero-content{padding:64px 6.5% 68px!important;max-width:min(880px,68vw)!important;position:relative;z-index:3}
+#inicio .hero-new-headline{font-size:clamp(32px,3.2vw,49px)!important;line-height:1.16!important;max-width:780px!important;margin:15px 0 12px!important}
+#inicio .hero-headline-accent{display:inline;color:#e0ba78}
+#inicio .hero-emotional{font-size:clamp(18px,1.6vw,23px)!important;margin:0 0 14px}
+#inicio .gold-rule{margin:17px 0 20px}
+#inicio .lp-project-prose{max-width:760px;color:#f5f0e6}
+#inicio .lp-project-prose p{font-family:'DM Sans',Arial,sans-serif!important;font-size:clamp(15px,1.18vw,17px)!important;line-height:1.62!important;color:#f3ebe0!important;margin:0 0 16px!important;max-width:none!important;text-wrap:pretty}
+#inicio .lp-project-prose p strong{font-weight:700;color:#f7e5c7}
+#inicio .lp-project-prose .lp-project-lead{border-left:3px solid #d4ac69;padding-left:20px;font-size:clamp(17px,1.38vw,20px)!important;line-height:1.55!important;color:#fff!important;margin:0 0 20px!important}
+#inicio .lp-project-prose .lp-project-final{font-family:'Playfair Display',Georgia,serif!important;color:#ebc88b!important;font-size:clamp(20px,1.85vw,28px)!important;line-height:1.42!important;margin:22px 0 15px!important}
+#inicio .lp-project-prose .lp-project-final strong{color:#ebc88b!important}
+#inicio .lex-hero-contact{margin-top:22px!important}
+#inicio .hero-brand-seal{top:28px}
+#area-academia{border-top-color:#bb9350}
+#area-academia .story-tag{color:#85682f}
+#area-academia .lex-academia-visual{min-height:230px;background:linear-gradient(135deg,#152f23 0%,#244432 53%,#51333a 100%);border-radius:10px;margin:12px 0 23px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:15px;padding:18px;border:1px solid rgba(186,147,80,.55)}
+#area-academia .lex-academia-monogram{font:500 clamp(46px,5vw,76px)/1.1 Georgia,serif;color:#e9c88a;letter-spacing:.05em}
+#area-academia .lex-academia-caption{font:700 10px/1.6 'DM Sans',Arial,sans-serif;color:#fff1d5;letter-spacing:.18em}
+@media(max-width:950px){#inicio .hero-content{max-width:min(850px,85vw)!important;padding:54px 6% 60px!important}#inicio .hero-bg{background-position:68% center}}
+@media(max-width:650px){#inicio .hero-content{max-width:none!important;padding:70px 6% 44px!important}#inicio .hero-new-headline{font-size:35px!important}#inicio .lp-project-prose p{font-size:15px!important;line-height:1.55!important}#inicio .lp-project-prose .lp-project-lead{font-size:17px!important}#inicio .lp-project-prose .lp-project-final{font-size:22px!important}#inicio .hero-brand-seal{display:none}}
+
+
+
+/* Cambio solicitado: fondo granate royal más profundo y texto empezando desde la izquierda, como lectura de libro. */
+#nosotros{background:#6a1f2d!important;grid-template-columns:minmax(0,2.65fr) minmax(280px,1fr)!important;align-items:stretch;}
+#nosotros .copy{order:1;background:#6a1f2d!important;color:#f9eee3!important;padding:64px clamp(30px,4vw,64px)!important;text-align:left!important;display:flex;flex-direction:column;justify-content:center;}
+#nosotros .photo{order:2;background-position:55% center!important;min-height:740px;}
+#nosotros .copy .eyebrow{color:#e2bb78!important;letter-spacing:.22em;font-size:12px;text-align:left!important;}
+#nosotros .copy h2{font:500 clamp(31px,3vw,44px)/1.16 'Playfair Display',Georgia,serif!important;letter-spacing:-.01em;color:#fff3e8!important;margin:12px 0 18px!important;text-align:left!important;max-width:none!important;}
+#nosotros .copy p:not(.lex-chapter-heading){font:400 clamp(15px,1.12vw,17px)/1.68 'DM Sans',Arial,sans-serif!important;color:#faece2!important;margin:0 0 16px!important;text-align:left!important;max-width:760px;}
+#nosotros .copy p strong{font-weight:700;color:#f1d3a1!important;}
+#nosotros .copy .lex-about-signature{font-family:Georgia,serif!important;font-size:clamp(19px,1.6vw,23px)!important;line-height:1.35!important;margin:20px 0 22px!important;text-align:left!important;}
+#nosotros .copy .lex-about-signature strong{color:#f0c783!important;}
+#nosotros .copy .gold-rule{background:#d7ac67!important;margin:10px 0 24px!important;align-self:flex-start;}
+#nosotros .copy .outline{align-self:flex-start;border:1px solid #d7b176!important;color:#f8dbad!important;background:rgba(45,14,27,.22)!important;padding:12px 20px!important;border-radius:9px!important;font-weight:700;}
+#nosotros .copy .outline:hover{background:#d7b176!important;color:#482432!important;}
+@media(max-width:900px){#nosotros{grid-template-columns:1fr!important;}#nosotros .copy{order:2;padding:42px 6%!important;}#nosotros .photo{order:1;min-height:360px;}#nosotros .copy h2{font-size:clamp(30px,5vw,42px)!important;max-width:none;}}
+@media(max-width:600px){#nosotros .photo{min-height:320px;background-position:center 30%!important;}#nosotros .copy{padding:34px 6%!important;}}
+
+
+
+/* Identidad: desplaza el segundo logotipo a la esquina superior derecha de la fotografía.
+   El logotipo de la cabecera principal se mantiene intacto. */
+#inicio .hero-brand-seal{display:none!important}
+#introduccion .lex-new-hero{position:relative!important}
+#introduccion .lex-bridge-seal{
+ position:absolute;z-index:5;right:clamp(16px,3.2vw,56px);top:clamp(14px,2.5vw,34px);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ width:156px;min-height:139px;padding:12px 16px 10px;
+ background:linear-gradient(145deg,rgba(23,66,43,.95),rgba(13,45,32,.98));
+ border:1px solid #c9a365;border-bottom:4px solid #672337;border-radius:6px;
+ color:#e8c484;box-shadow:0 6px 23px rgba(17,37,26,.30);
+ text-shadow:0 1px 1px rgba(0,0,0,.10);pointer-events:none
+}
+#introduccion .lex-bridge-letters{font:normal 39px/1 Georgia,serif;letter-spacing:.03em;color:#ebc98b}
+#introduccion .lex-bridge-drawing{height:33px;width:91px;color:#e1b677;margin:5px 0 1px}
+#introduccion .lex-bridge-label{font:700 12px/1.3 Georgia,serif;letter-spacing:.16em;color:#f5e5c9}
+/* Hacer legible y protagonista "Cada detalle cuenta" sin variar la composición. */
+.split.reverse .copy{background:#f1e7d7!important}
+.split.reverse .copy>.eyebrow{color:#723046!important;font-size:13px!important;letter-spacing:.18em!important;font-weight:800!important}
+.split.reverse .copy h2{color:#632337!important;font-size:clamp(45px,4.9vw,71px)!important;font-weight:600!important;
+  letter-spacing:-.025em!important;line-height:1.12!important;opacity:1!important;filter:none!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.6)!important;margin:12px 0 18px!important}
+.split.reverse .copy .gold-rule{background:#bd9654!important;width:95px!important;height:3px!important}
+.split.reverse .copy p{font-size:clamp(16px,1.15vw,19px)!important;line-height:1.75!important;color:#37483e!important}
+.quote .lex-philosophy-credit{color:#e4c28c!important;font:600 15px/1.7 Georgia,serif!important;letter-spacing:.04em}
+@media(max-width:840px){#introduccion .lex-bridge-seal{width:121px;min-height:104px;padding:8px 9px;right:14px;top:12px}
+ #introduccion .lex-bridge-letters{font-size:29px}#introduccion .lex-bridge-drawing{width:74px;height:26px}#introduccion .lex-bridge-label{font-size:10px}}
+@media(max-width:540px){#introduccion .lex-bridge-seal{width:92px;min-height:88px;padding:6px;right:9px;top:7px;opacity:.94}
+ #introduccion .lex-bridge-letters{font-size:22px}#introduccion .lex-bridge-drawing{width:61px;height:21px}
+ #introduccion .lex-bridge-label{font-size:8px;letter-spacing:.08em}
+ .split.reverse .copy h2{font-size:42px!important}}
+
+
+
+/* Cambios exclusivos de color y sello: no se tocan textos, estructura ni Nuestro valor.
+   Granate muestreado de la americana de la fotografía original: vino profundo, no lila. */
+:root{--lp-royal-wine:#640e1c;--lp-royal-wine-dark:#550b16;--lp-royal-forest:#113b27;--lp-royal-gold:#f2cc7b;--lp-royal-gold-bright:#ffe4a0;}
+
+/* 1. Cabecera fotográfica. Dorado brillante + vino real de la americana. */
+#introduccion .lex-intro-kicker{
+ color:#b77d26!important;
+ background:linear-gradient(98deg,#92601b 0%,#eabf69 27%,#986618 58%,#ddaa4c 86%)!important;
+ -webkit-background-clip:text!important;background-clip:text!important;
+ -webkit-text-fill-color:transparent!important;
+ text-shadow:none!important;filter:drop-shadow(0 1px 1px rgba(51,41,15,.40));
+ font-weight:850!important;
+}
+#introduccion .lex-new-hero h1 em{color:var(--lp-royal-wine)!important;-webkit-text-fill-color:var(--lp-royal-wine)!important;text-shadow:0 1px 0 rgba(255,227,186,.26)!important;}
+#introduccion .lex-intro-sub{color:var(--lp-royal-wine)!important;-webkit-text-fill-color:var(--lp-royal-wine)!important;font-weight:700!important;text-shadow:0 1px 0 rgba(252,220,173,.4)!important;}
+#introduccion .lex-intro-short-rule{background:#d5a34d!important;box-shadow:0 0 5px rgba(225,164,66,.38)}
+
+/* 2. Emblema del puente, geometría mejorada con esmalte verde y oro brillante. */
+#introduccion .lex-bridge-seal{background:linear-gradient(150deg,rgba(25,81,50,.97),rgba(8,43,27,.98))!important;
+ border:1px solid #efc471!important;border-bottom:4px solid var(--lp-royal-wine)!important;
+ box-shadow:inset 0 0 0 2px rgba(243,203,117,.16),0 11px 32px rgba(22,26,11,.36)!important;}
+#introduccion .lex-bridge-letters{background:linear-gradient(110deg,#d3a052 0%,#fff3bc 45%,#d9a64f 85%);
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+#introduccion .lex-bridge-drawing{width:112px!important;height:44px!important;color:#f3cf87!important;filter:drop-shadow(0 1px 2px rgba(2,27,9,.25));margin:4px 0 2px!important;}
+#introduccion .lex-bridge-label{color:#f2d392!important;-webkit-text-fill-color:#f2d392!important;letter-spacing:.11em!important;}
+
+/* 3. Introducción verde: prosa dorada, frases protagonistas granates sobre oro. */
+#introduccion .lex-intro-story{background:linear-gradient(110deg,#0b2a1c 0%,#113926 50%,#0b2c1f 100%)!important;}
+#introduccion .lex-intro-chapter{color:#f2c773!important;}
+#introduccion .lex-intro-story h2{color:#f4d59b!important;text-shadow:0 1px 1px rgba(5,27,13,.23)!important;}
+#introduccion .lex-intro-columns > div p{color:#efd19a!important;}
+#introduccion .lex-intro-columns > div .lex-intro-gold{
+ display:inline-block!important;color:var(--lp-royal-wine-dark)!important;
+ background:linear-gradient(110deg,#d5a453 0%,#ffe1a0 48%,#e7bc69 100%)!important;
+ font-weight:700!important;padding:6px 9px!important;border-radius:3px!important;
+ box-decoration-break:clone;-webkit-box-decoration-break:clone;
+ text-shadow:none!important;
+}
+#introduccion .lex-intro-columns .lex-slogan{color:#ffdfa0!important;font-weight:800!important;letter-spacing:.035em!important;}
+#introduccion .lex-intro-columns > div{border-color:rgba(232,180,91,.75)!important;}
+#introduccion .lex-intro-actions a:first-child{border-color:#e7bb69!important;color:#f1ca78!important;}
+#introduccion .lex-intro-actions a:last-child{background:#e7b866!important;color:#5d101b!important;}
+
+/* 4. Presentación de proyecto: retirar violetas y blancos puros de la tipografía. */
+#inicio .eyebrow,#inicio .lex-chapter-heading{color:#eec77f!important;}
+#inicio .hero-new-headline{color:#ffdc94!important;}
+#inicio .hero-emotional{color:#5f101b!important;background:linear-gradient(95deg,#efc879,#f9dc9b)!important;
+ display:inline-block!important;padding:9px 16px!important;border-left:4px solid #6a101b!important;
+ text-shadow:none!important;font-weight:700!important;}
+#inicio .lp-project-prose{color:#efd19b!important;}
+#inicio .lp-project-prose p{color:#efd7ad!important;}
+#inicio .lp-project-prose p strong{color:#ffe2a1!important;}
+#inicio .lp-project-prose .lp-project-lead{color:#ffdfa4!important;border-color:#e5ad54!important;}
+#inicio .lp-project-prose .lp-project-final,#inicio .lp-project-prose .lp-project-final strong{color:#ffd77f!important;}
+#inicio .lex-hero-contact .lex-hero-phone{color:#f6d78c!important;}
+#inicio .lex-hero-contact .lex-hero-wa{background:#e4b767!important;color:#5c0e1b!important;}
+
+/* 5. Quiénes somos: americana color vino; letra oro y verde con contraste suficiente. */
+#nosotros,#nosotros .copy{background:var(--lp-royal-wine)!important;}
+#nosotros .copy h2{color:#ffe3a7!important;}
+#nosotros .copy .lex-about-chapter,#nosotros .copy .eyebrow{color:#f6cc77!important;}
+#nosotros .copy p:not(.lex-chapter-heading){color:#f4d7a0!important;}
+#nosotros .copy p strong,#nosotros .copy .lex-about-signature strong{
+ color:#12442b!important;background:#ebc677!important;padding:1px 5px!important;
+ -webkit-box-decoration-break:clone;box-decoration-break:clone;}
+#nosotros .copy .gold-rule{background:#f1c877!important;}
+#nosotros .copy .outline{border-color:#efc77b!important;color:#ffdb91!important;background:rgba(31,70,43,.4)!important;}
+#nosotros .copy .outline:hover{background:#edc779!important;color:#17422a!important;}
+
+/* 6. Forma de trabajar: mantener panel claro y sustituir el tono lila por granate/verde. */
+.split.reverse .copy{background:#f1e7d7!important;}
+.split.reverse .copy>.eyebrow{color:var(--lp-royal-wine)!important;}
+.split.reverse .copy h2{color:var(--lp-royal-wine)!important;text-shadow:none!important;}
+.split.reverse .copy .gold-rule{background:linear-gradient(90deg,#c68d34,#ffdb83,#c58c34)!important;}
+.split.reverse .copy p{color:var(--lp-royal-forest)!important;}
+
+/* 7. Promesa: una joya dorada para que la cita sea absolutamente granate y legible. */
+.quote{background:linear-gradient(118deg,#d0a050 0%,#f4d186 34%,#e0b96d 68%,#d4a55a 100%)!important;
+ border-top:6px solid #5d0d1a;border-bottom:6px solid #164027;}
+.quote .eyebrow{color:#17452c!important;font-weight:800!important;}
+.quote h2{color:var(--lp-royal-wine-dark)!important;text-shadow:none!important;
+ font-weight:600!important;opacity:1!important;}
+.quote .lex-philosophy-credit{color:#163e28!important;}
+@media(max-width:840px){#introduccion .lex-bridge-drawing{width:86px!important;height:35px!important;}}
+@media(max-width:540px){#introduccion .lex-bridge-drawing{width:67px!important;height:27px!important;}}
+
+
+
+/* Únicamente cabecera: sin cambios de contenido ni de secciones. */
+:root{--lp-menu-royal:#a51a31;--lp-menu-gold:#f2cb76;}
+/* Los rótulos superiores ya no son blancos: son rojo granate intenso con
+   un perfil dorado finísimo que permite distinguirlos sobre el verde oscuro. */
+.lex-organized-header .logo b{
+  color:var(--lp-menu-royal)!important;
+  -webkit-text-fill-color:var(--lp-menu-royal)!important;
+  -webkit-text-stroke:.55px var(--lp-menu-gold)!important;
+  text-shadow:0 1px 0 rgba(255,211,111,.28),0 0 11px rgba(255,211,111,.18)!important;
+}
+.lex-organized-header .lex-primary-nav>a,
+.lex-organized-header .lex-primary-nav>.lex-menu>summary{
+  color:var(--lp-menu-royal)!important;
+  -webkit-text-fill-color:var(--lp-menu-royal)!important;
+  -webkit-text-stroke:.42px var(--lp-menu-gold)!important;
+  text-shadow:0 1px 0 rgba(255,211,111,.18),0 0 8px rgba(242,185,92,.12)!important;
+  font-weight:750!important;
+}
+.lex-organized-header .lex-primary-nav>a:hover,
+.lex-organized-header .lex-primary-nav>.lex-menu>summary:hover,
+.lex-organized-header .lex-primary-nav>a:focus-visible,
+.lex-organized-header .lex-primary-nav>.lex-menu>summary:focus-visible{
+  color:#d5a249!important;-webkit-text-fill-color:#d5a249!important;
+  -webkit-text-stroke:0!important;
+}
+/* Subtítulo bajo el menú: dorado de mayor brillo, relieve y contraste sobre la luz del cielo. */
+#introduccion .lex-new-hero .lex-intro-kicker{
+  font-weight:900!important;
+  font-size:clamp(12px,1.03vw,16px)!important;
+  letter-spacing:.13em!important;
+  color:#ffe39b!important;
+  background:linear-gradient(100deg,#ffe49a 0%,#fff3ba 29%,#edb74a 53%,#ffe9a7 78%,#ffcf64 100%)!important;
+  background-clip:text!important;-webkit-background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  -webkit-text-stroke:.48px #744711!important;
+  text-shadow:none!important;
+  filter:drop-shadow(0 1px 1px rgba(36,41,21,.92)) drop-shadow(0 0 5px rgba(247,191,72,.48))!important;
+}
+#introduccion .lex-intro-short-rule{
+  background:linear-gradient(90deg,#b77920,#ffe79c,#c89136)!important;
+  box-shadow:0 0 6px rgba(238,182,82,.47)!important;
+}
+@media(max-width:600px){
+  #introduccion .lex-new-hero .lex-intro-kicker{
+    font-size:12px!important;letter-spacing:.07em!important;
+  }
+}
+
+
+
+/* ÚNICO CAMBIO: ampliar la tipografía de los cinco elementos del menú horizontal.
+   Mantener los colores royal aprobados, la cabecera y todas las demás secciones. */
+.lex-organized-header .lex-primary-nav > a,
+.lex-organized-header .lex-primary-nav > .lex-menu > summary {
+  font-size: clamp(16px,1.25vw,19px)!important;
+  line-height:1.45!important;
+  letter-spacing:.005em!important;
+}
+@media(max-width:700px){
+  .lex-organized-header .lex-primary-nav > a,
+  .lex-organized-header .lex-primary-nav > .lex-menu > summary {
+    font-size:14px!important;
+    line-height:1.4!important;
+  }
+}
+@media(max-width:380px){
+  .lex-organized-header .lex-primary-nav > a,
+  .lex-organized-header .lex-primary-nav > .lex-menu > summary {
+    font-size:13px!important;
+  }
+}
+
+
+
+/* Nuestros tres colores en NUESTRO VALOR: verde bosque, granate vino y oro. */
+#primer-paso.lex-benefits{
+  background:linear-gradient(125deg,#0c2e1e 0%,#123d2a 56%,#092c1e 100%)!important;
+  color:#f2cc7b!important;
+  border-top:3px solid #e2b566!important;
+  border-bottom:4px solid #640e1c!important;
+}
+#primer-paso .lex-chapter-heading{color:#f2cc7b!important;border-bottom-color:#d6a65d!important;}
+#primer-paso .eyebrow{color:#eec879!important;}
+#primer-paso .lex-benefits-intro h2{color:#ffdc91!important;text-shadow:none!important;}
+#primer-paso .lex-benefits-highlight{
+  display:table!important;max-width:900px!important;
+  background:linear-gradient(100deg,#d9aa5a,#f5d68e 52%,#ddb368)!important;
+  color:#640e1c!important; padding:13px 24px!important;
+  border-left:5px solid #640e1c!important;
+  border-radius:6px!important;box-shadow:0 8px 22px rgba(0,0,0,.16);
+}
+#primer-paso .lex-benefits-description{color:#f6da9c!important;}
+#primer-paso .lex-benefit-mini{
+  background:linear-gradient(135deg,#ebc879 0%,#f4d996 45%,#dfb465 100%)!important;
+  border:1px solid #a86e32!important;border-top:4px solid #640e1c!important;
+  border-radius:12px!important;box-shadow:0 10px 25px rgba(0,0,0,.20)!important;
+}
+#primer-paso .lex-benefit-mini .lex-benefit-num{color:#640e1c!important;}
+#primer-paso .lex-benefit-mini h3{color:#113b27!important;}
+#primer-paso .lex-benefit-mini p{color:#103621!important;}
+#primer-paso .lex-trust{
+  background:linear-gradient(113deg,#5c0d1a 0%,#711724 51%,#4d0b16 100%)!important;
+  border:1px solid #e9bd70!important;box-shadow:0 18px 42px rgba(0,0,0,.25)!important;
+}
+#primer-paso .lex-trust-kicker{color:#ffdc94!important;}
+#primer-paso .lex-trust h2{color:#f4ce7e!important;}
+#primer-paso .lex-trust-copy p{color:#f5d69c!important;}
+@media(max-width:760px){
+ #primer-paso .lex-benefits-highlight{display:block!important;padding:12px 15px!important;}
+ #primer-paso .lex-trust{padding:30px 22px!important;}
+}
+
+
+
+/* LEXPUENTE — EXTENSIÓN EDITORIAL DE LA INTRODUCCIÓN, 17 OCT; NO CAMBIA EL DISEÑO APROBADO */
+#introduccion .lex-vocation-inset{--lex-green:#10281f;--lex-green-royal:#153b28;--lex-burgundy:#640e1c;--lex-gold:#f5cd78;max-width:1250px;margin:12px auto 42px;color:var(--lex-gold);}
+#introduccion .lex-vocation-epigraph{background:linear-gradient(135deg,#5c1020 0%,#751526 55%,#49121a 100%);border:1px solid #ddb463;box-shadow:0 13px 34px rgba(2,10,7,.23);padding:36px clamp(24px,4vw,66px) 29px;text-align:center;position:relative;overflow:hidden;border-radius:2px;}
+#introduccion .lex-vocation-epigraph::before{content:'';position:absolute;inset:10px;border:1px solid rgba(247,210,122,.27);pointer-events:none;}
+#introduccion .lex-vocation-original{font:400 clamp(21px,2.25vw,31px)/1.8 Georgia,'Noto Naskh Arabic',serif;color:#f6d991!important;letter-spacing:0!important;margin:0 0 13px!important;text-align:center!important;}
+#introduccion .lex-vocation-translation{border:0;padding:0;margin:0 auto;max-width:1050px;font:600 clamp(25px,3vw,43px)/1.27 Georgia,'Times New Roman',serif;letter-spacing:-.014em;color:#fff0bd;text-align:center;text-shadow:0 2px 12px rgba(1,5,3,.14);}
+#introduccion .lex-vocation-gold-rule{display:block;background:linear-gradient(90deg,transparent,#f8d68c,transparent);height:2px;width:140px;margin:24px auto 0;}
+#introduccion .lex-vocation-lead{max-width:1100px;margin:31px auto 23px!important;font:600 clamp(24px,2.35vw,37px)/1.27 Georgia,'Times New Roman',serif!important;color:#f6ca72!important;text-align:left;letter-spacing:-.01em;}
+#introduccion .lex-vocation-prose{columns:2;column-gap:clamp(38px,5vw,88px);column-rule:1px solid rgba(247,199,107,.3);max-width:1120px;margin:0 auto 28px;}
+#introduccion .lex-vocation-prose p{break-inside:avoid;font:400 clamp(16px,1.22vw,18px)/1.69 Georgia,serif!important;color:#efcb89!important;margin:0 0 18px!important;}
+#introduccion .lex-vocation-prose strong{font-weight:700;color:#f9dfaa!important;}
+#introduccion .lex-vocation-founder{max-width:1120px;margin:24px auto 0;padding:28px clamp(25px,3.5vw,49px) 21px;background:linear-gradient(125deg,#691021,#531420);border-left:5px solid #f3c877;box-shadow:0 12px 26px rgba(0,0,0,.12);}
+#introduccion .lex-vocation-founder-label{font:750 12px/1.4 'DM Sans',Arial,sans-serif;text-transform:uppercase;letter-spacing:.19em;color:#ffd586;margin-bottom:15px;}
+#introduccion .lex-vocation-founder p{font:400 clamp(17px,1.3vw,20px)/1.62 Georgia,serif!important;color:#f7d6a0!important;margin:0 0 14px!important;}
+#introduccion .lex-vocation-founder strong{font-weight:500;color:#f7d6a0!important;}
+#introduccion .lex-vocation-to-original{display:flex;gap:12px;align-items:center;justify-content:center;margin:35px auto 0;max-width:480px;color:#ecc36a;}
+#introduccion .lex-vocation-to-original span:not(.lex-vocation-gold-point){height:1px;flex:1;background:linear-gradient(90deg,transparent,#c9a25e);}
+#introduccion .lex-vocation-to-original span:last-child{transform:scaleX(-1);}
+#introduccion .lex-vocation-gold-point{font-size:15px;color:#f3cf84;}
+@media(max-width:760px){
+ #introduccion .lex-vocation-inset{margin-top:6px;margin-bottom:30px;}
+ #introduccion .lex-vocation-epigraph{padding:28px 19px 23px;}
+ #introduccion .lex-vocation-epigraph::before{inset:7px;}
+ #introduccion .lex-vocation-translation{font-size:clamp(23px,6vw,30px);line-height:1.29;}
+ #introduccion .lex-vocation-lead{font-size:clamp(23px,5.5vw,29px);margin:24px 0 20px!important;}
+ #introduccion .lex-vocation-prose{columns:1;margin-bottom:20px;}
+ #introduccion .lex-vocation-prose p{font-size:16.5px!important;line-height:1.66!important;}
+ #introduccion .lex-vocation-founder{padding:23px 22px 14px;margin-top:24px;}
+ #introduccion .lex-vocation-founder p{font-size:17px!important;}
+}
+
+
+
+/* Exclusively new approved founder story preceding the unchanged project presentation. */
+#inicio .lp-project-prose .lp-project-human-origin{
+  width:100%;box-sizing:border-box;
+  margin:4px 0 39px;padding:clamp(23px,3vw,37px) clamp(19px,3.1vw,39px);
+  border-left:3px solid #efc879;
+  border-top:1px solid rgba(242,204,123,.34);
+  border-bottom:1px solid rgba(242,204,123,.34);
+  background:linear-gradient(132deg,rgba(14,50,35,.92),rgba(38,42,28,.88) 62%,rgba(99,16,30,.35));
+  box-shadow:0 13px 37px rgba(0,0,0,.17);
+}
+#inicio .lp-project-prose .lp-project-human-origin p{
+  max-width:none!important;margin:0 0 16px!important;
+  line-height:1.78!important;font-size:clamp(15px,1.2vw,17px)!important;
+  color:#f0d2a1!important;text-align:left!important;
+}
+#inicio .lp-project-prose .lp-project-human-origin p strong{
+  color:#ffe1a0!important;font-weight:700;
+}
+#inicio .lp-project-prose .lp-project-human-origin p.lp-story-first{
+  font-family:'Playfair Display',Georgia,serif!important;
+  font-size:clamp(22px,2.05vw,30px)!important;
+  line-height:1.42!important;margin-bottom:26px!important;
+  color:#ffdb8f!important;letter-spacing:-.01em;
+}
+#inicio .lp-project-prose .lp-project-human-origin p.lp-story-first strong{color:#ffdb8f!important;}
+#inicio .lp-project-prose .lp-project-human-origin p.lp-story-ending{
+  margin-top:19px!important;margin-bottom:0!important;
+  padding-top:17px;border-top:1px solid rgba(242,204,123,.4);
+  font-style:italic;color:#ffdd98!important;
+}
+#inicio .lp-project-prose .lp-project-lead{margin-top:8px!important;}
+@media(max-width:700px){
+  #inicio .lp-project-prose .lp-project-human-origin{padding:25px 18px;margin-bottom:32px;}
+  #inicio .lp-project-prose .lp-project-human-origin p.lp-story-first{font-size:24px!important;}
+}
+
+
+
+/* Nueva historia personal aprobada, solo en «Quiénes somos». Mantener la fotografía y toda la copia anterior. */
+#nosotros{align-items:start!important;}
+#nosotros .photo{
+  align-self:start!important;position:sticky!important;top:70px!important;
+  height:min(84vh,840px)!important;min-height:660px!important;
+  background-size:cover!important;
+}
+#nosotros .copy .lex-founder-origin{
+  display:block;width:100%;box-sizing:border-box;margin:26px 0 52px;padding:34px 0 38px;
+  border-top:2px solid #f2cc7b;border-bottom:1px solid rgba(247,208,125,.7);
+  background:linear-gradient(120deg,rgba(5,39,27,.24),rgba(100,14,28,.03) 78%);
+  border-radius:0;
+}
+#nosotros .copy .lex-founder-kicker{
+  font:800 12px/1.6 'DM Sans',Arial,sans-serif!important;
+  letter-spacing:.19em;text-transform:uppercase;
+  color:#153b28!important;background:#f2cc7b!important;
+  display:table;padding:7px 12px;margin:0 0 22px;
+}
+#nosotros .copy .lex-founder-origin h3{
+  font:500 clamp(30px,2.85vw,43px)/1.19 'Playfair Display',Georgia,serif!important;
+  letter-spacing:-.02em;color:#ffde97!important;margin:0 0 30px!important;
+  max-width:100%!important;text-align:left!important;
+}
+#nosotros .copy .lex-founder-origin h3 em{
+  display:block;color:#f5d394!important;font-style:normal;
+}
+#nosotros .copy .lex-founder-story-prose{max-width:900px;}
+#nosotros .copy .lex-founder-origin p{
+  max-width:none!important;margin:0 0 17px!important;
+  font:400 clamp(16px,1.17vw,18px)/1.75 Georgia,'Times New Roman',serif!important;
+  color:#f6d69a!important;text-align:left!important;
+  overflow-wrap:break-word;
+}
+#nosotros .copy .lex-founder-origin p.lex-founder-opening{
+  font:600 clamp(20px,1.9vw,26px)/1.53 Georgia,serif!important;
+  color:#ffe3aa!important;margin-bottom:27px!important;
+}
+#nosotros .copy .lex-founder-origin p.lex-founder-short{
+  font-weight:700!important;color:#ffda88!important;margin:26px 0 15px!important;
+}
+#nosotros .copy .lex-founder-origin p.lex-founder-highlight{
+  font:600 clamp(19px,1.65vw,24px)/1.44 'Playfair Display',Georgia,serif!important;
+  padding:16px 19px!important;margin:26px 0!important;
+  border-left:4px solid #ffe1a0!important;
+  background:linear-gradient(105deg,#15452d,#0b3221)!important;
+  color:#ffe0a0!important;
+}
+#nosotros .copy .lex-founder-origin p.lex-founder-closing{
+  font:600 clamp(20px,1.78vw,26px)/1.43 'Playfair Display',Georgia,serif!important;
+  color:#ffdd9c!important;margin:15px 0!important;
+}
+#nosotros .copy .lex-founder-origin p.lex-founder-conclusion{
+  font:650 clamp(19px,1.65vw,24px)/1.44 'Playfair Display',Georgia,serif!important;
+  color:#17452c!important;background:#f2cc7b!important;
+  padding:19px 22px!important;margin-top:23px!important;margin-bottom:0!important;
+}
+/* Separación editorial antes del texto «Una identidad construida…», que sigue igual. */
+#nosotros .copy .lex-founder-origin + h2{padding-top:5px!important;margin-top:13px!important;}
+@media(max-width:900px){
+  #nosotros{align-items:stretch!important;}
+  #nosotros .photo{position:relative!important;top:auto!important;min-height:350px!important;height:390px!important;}
+  #nosotros .copy .lex-founder-origin{margin:23px 0 35px;padding:28px 0 28px;}
+  #nosotros .copy .lex-founder-origin h3{font-size:clamp(28px,6vw,39px)!important;}
+}
+@media(max-width:540px){
+  #nosotros .photo{height:330px!important;min-height:330px!important;}
+  #nosotros .copy .lex-founder-origin p{font-size:16px!important;line-height:1.7!important;}
+  #nosotros .copy .lex-founder-origin p.lex-founder-highlight{padding:14px 15px!important;}
+  #nosotros .copy .lex-founder-origin p.lex-founder-conclusion{padding:17px!important;}
+}
+
+
+
+
+/* LEXPUENTE · ÁREAS DE ACTIVIDAD · paleta royal · 18 oct 2026 */
+#dos-vertientes.story-dual {
+ background:linear-gradient(153deg,#102f24 0%,#173e2e 56%,#551423 100%)!important;
+ color:#f2c978!important;
+ padding-top:76px!important;padding-bottom:90px!important;
+}
+#dos-vertientes .story-dual-head .lex-chapter-heading,
+#dos-vertientes .story-dual-head .eyebrow{color:#f3c971!important;}
+#dos-vertientes .story-dual-head h2{color:#ffda85!important;}
+#dos-vertientes .story-dual-head > p:not(.lex-chapter-heading){color:#f1d397!important;}
+#dos-vertientes .lex-story-call{background:#f1c56e!important;color:#541224!important;border:1px solid #f7d98d!important;}
+#dos-vertientes .lex-story-whatsapp{background:#661729!important;color:#fbd883!important;border:1px solid #f2c56d!important;}
+#dos-vertientes .story-dual-grid{gap:25px!important;}
+#dos-vertientes .story-panel{position:relative;isolation:isolate;background:#611528!important;color:#fbd78b!important;border:1px solid #e6ad5c!important;border-top:5px solid #ffd780!important;box-shadow:0 14px 32px rgba(7,18,12,.29)!important;transition:transform .18s ease,box-shadow .18s ease;}
+#dos-vertientes .story-panel:nth-child(3n+2){background:#1b4835!important;}
+#dos-vertientes .story-panel:nth-child(3n){background:#f1c66e!important;border-color:#581327!important;border-top-color:#62172a!important;}
+#dos-vertientes .story-panel h3,
+#dos-vertientes .story-panel p:not(.lex-development-status),
+#dos-vertientes .story-panel .story-value,
+#dos-vertientes .story-panel .story-tag,
+#dos-vertientes .story-panel .story-connection,
+#dos-vertientes .story-panel .lex-development-status{color:#fbd88b!important;}
+#dos-vertientes .story-panel:nth-child(3n) h3,
+#dos-vertientes .story-panel:nth-child(3n) p,
+#dos-vertientes .story-panel:nth-child(3n) .story-tag,
+#dos-vertientes .story-panel:nth-child(3n) .story-connection,
+#dos-vertientes .story-panel:nth-child(3n) .lex-development-status{color:#58152a!important;}
+#dos-vertientes .story-panel .story-value{border-color:#ffd780!important;}
+#dos-vertientes .story-panel:nth-child(3n) .story-value{border-color:#641728!important;color:#58152a!important;}
+#dos-vertientes .story-panel .lex-development-status{border-color:currentColor!important;}
+#dos-vertientes .story-panel-animals .lex-story-photo-reserved{min-height:195px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:12px 0 22px!important;padding:20px!important;text-align:center!important;}
+#dos-vertientes .story-panel .lex-story-photo-reserved{background:linear-gradient(140deg,#a84942,#661628)!important;color:#fbd88b!important;border:1px solid #f2c46d!important;}
+#dos-vertientes .story-panel:nth-child(3n) .lex-story-photo-reserved{background:linear-gradient(145deg,#e3b35c,#f6d993)!important;color:#59152a!important;border-color:#6a182b!important;}
+#dos-vertientes .lex-animal-assoc-link{position:relative;z-index:4;color:#fbd884!important;}
+#dos-vertientes .story-panel:nth-child(3n) .lex-animal-assoc-link{color:#551424!important;}
+#dos-vertientes .lex-area-detail-link{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:13px 19px;border-radius:8px;background:#f6ce77;color:#591527!important;font-weight:800;text-decoration:none;border:1px solid #ffdfa0;box-shadow:0 5px 14px rgba(0,0,0,.15);}
+#dos-vertientes .story-panel:nth-child(3n) .lex-area-detail-link{background:#5e1729;color:#ffe096!important;border-color:#591527;}
+#dos-vertientes .lex-area-detail-link::after{content:"";position:absolute;inset:0;z-index:2;cursor:pointer;}
+#dos-vertientes .story-panel:hover{transform:translateY(-4px);box-shadow:0 19px 40px rgba(0,0,0,.35)!important;}
+#dos-vertientes .story-panel:focus-within{outline:3px solid #ffdc84;outline-offset:4px;}
+#dos-vertientes .story-panel:has(.lex-area-detail-link:hover) .lex-area-detail-link{filter:brightness(1.1);}
+@media(max-width:790px){#dos-vertientes.story-dual{padding:55px 18px 64px!important;}}
+
+
+
+/* LEXPUENTE · portada editorial minimalista y nuevas páginas interiores, 18/10/2026 */
+.lex-landing-only{min-height:0!important;}
+.lex-landing-only .lex-new-hero{min-height:min(760px,calc(100svh - 76px));}
+.lex-second-visual{position:relative;isolation:isolate;min-height:clamp(440px,62vw,780px);background:#112d22 url('conversacion-profesional.png') center 46%/cover no-repeat;display:flex;align-items:flex-end;padding:clamp(30px,5vw,76px);}
+.lex-second-visual::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,36,25,0) 30%,rgba(13,35,25,.78) 100%);}
+.lex-second-photo-nav{position:relative;z-index:1;max-width:1120px;width:100%;margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px;}
+.lex-second-photo-nav a{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(15px,1.3vw,18px);font-weight:700;padding:14px 20px;color:#f4c977;background:#183927ed;border:1.5px solid #e8bb63;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.22);transition:background .2s,color .2s,transform .2s;}
+.lex-second-photo-nav a:nth-child(2),.lex-second-photo-nav a:nth-child(3){display:block!important;}
+.lex-second-photo-nav a:hover,.lex-second-photo-nav a:focus-visible{background:#f1ca79;color:#611221;transform:translateY(-2px);}
+.lex-page-breadcrumb{padding:13px max(5.5%,calc((100% - 1200px)/2));background:#102f22;color:#edc271;font-size:14px;letter-spacing:.05em;}
+.lex-page-breadcrumb a{color:#f1cf8c;text-decoration:underline;text-underline-offset:4px;}
+.lex-page-breadcrumb span{color:#e9bf65;margin-inline:8px;}
+.lex-page-content{min-height:56vh;background:#112e22;}
+.lex-page-content #inicio,.lex-page-content #nosotros,.lex-page-content #primer-paso,.lex-page-content #dos-vertientes{scroll-margin-top:90px;}
+.lex-page-content #introduccion{scroll-margin-top:90px;}
+.lex-page-content .lex-intro-story{display:block!important;}
+.lex-page-content section.lex-new-intro{display:block;background:#112e22;}
+.lex-landing-only .lex-new-hero-copy a.lex-intro-cta{display:inline-flex;}
+@media(max-width:700px){.lex-second-visual{min-height:550px;padding:24px 5%;background-position:48% center;}.lex-second-photo-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lex-second-photo-nav a{text-align:center;padding:12px 7px;font-size:13px}.lex-page-breadcrumb{font-size:12px;padding:12px 5%;}}
+
+/* Correccion real 18/10/2026: portada SOLO visual, paginas institucionales independientes */
+.lex-second-visual{background-image:linear-gradient(180deg,rgba(10,31,21,.04),rgba(10,31,21,.12)),url('puente-atardecer-lexpuente.webp')!important;background-position:center center!important;min-height:clamp(410px,56vw,750px)!important;}
+.lex-organized-header .lex-primary-nav{gap:clamp(9px,1.25vw,24px)!important;}
+.lex-organized-header .lex-primary-nav>.lex-direct-home,.lex-organized-header .lex-primary-nav>.lex-about-menu>summary{font-size:clamp(14px,1.12vw,17px)!important;white-space:nowrap;}
+.lex-organized-header .lex-primary-nav>.lex-about-menu>summary{color:#790b24!important;-webkit-text-fill-color:#790b24!important;-webkit-text-stroke:.38px #dfaf58!important;}
+.lex-about-menu{position:relative;}
+.lex-about-dropdown{min-width:250px!important;}
+.lex-about-dropdown a{font-size:15px!important;line-height:1.35!important;}
+@media(max-width:920px){.lex-organized-header .lex-primary-nav{gap:10px!important;}.lex-organized-header .lex-primary-nav>.lex-direct-home,.lex-organized-header .lex-primary-nav>.lex-about-menu>summary{font-size:14px!important;}}
+@media(max-width:700px){.lex-second-visual{min-height:440px!important;background-position:50% center!important;}.lex-organized-header .lex-primary-nav{gap:8px!important;}}
+@media(max-width:420px){.lex-organized-header .lex-primary-nav>.lex-direct-home,.lex-organized-header .lex-primary-nav>.lex-about-menu>summary{font-size:13px!important;}}
+.sr-only{position:absolute!important;clip:rect(0,0,0,0)!important;width:1px!important;height:1px!important;overflow:hidden!important;white-space:nowrap!important;}
+
+/* Barra superior visible en pantallas pequenas: sin desbordamiento horizontal */
+@media(max-width:700px){
+ .lex-organized-header{max-width:100vw!important;width:100%!important;box-sizing:border-box!important;}
+ .lex-organized-header .lex-primary-nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px 3px!important;width:100%!important;max-width:100vw!important;min-width:0!important;box-sizing:border-box!important;padding:7px 6px 12px!important;overflow:visible!important;}
+ .lex-organized-header .lex-primary-nav>a,.lex-organized-header .lex-primary-nav>details{min-width:0!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;text-align:center!important;}
+ .lex-organized-header .lex-primary-nav>a,.lex-organized-header .lex-primary-nav>details>summary{font-size:12.5px!important;line-height:1.25!important;white-space:normal!important;padding:6px 2px!important;text-align:center!important;}
+ .lex-organized-header .lex-primary-nav .lex-about-dropdown{min-width:230px!important;max-width:calc(100vw - 12px)!important;z-index:90!important;}
+}

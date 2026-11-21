@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Asociación SCP · SCP</title><style>
+:root{--green:#103428;--wine:#641a2e;--gold:#f3c96f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--green);color:#ffe1a0;font:16px/1.55 Arial,sans-serif}
+a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #ffe0a0;outline-offset:2px}
+.top{background:#09291f;border-bottom:2px solid #f3c96f;padding:16px max(20px,calc((100% - 1170px)/2));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;position:sticky;top:0;z-index:10}
+.top a{text-decoration:none}.brand{font:700 24px Georgia,serif;color:#eec271;letter-spacing:.05em}.brand b{color:#e38d9e}.links{display:flex;gap:10px;flex-wrap:wrap}.links a{border:1px solid #eac579;border-radius:8px;padding:9px 12px;color:#f9dca0;text-decoration:none}
+.hero{background:linear-gradient(125deg,#471729,#153c2c);padding:54px max(20px,calc((100% - 1160px)/2));border-bottom:1px solid #e6b86e}
+.hero p{color:#ffdb91}.hero h1{font:500 clamp(34px,6vw,58px)/1.1 Georgia,serif;margin:12px 0;color:#ffe0a0}
+footer{text-align:center;padding:30px 20px;border-top:1px solid #eac579;color:#e7c58b}
+
+.society{max-width:1100px;margin:40px auto 80px;padding:24px 22px;color:#ffe1a0}
+.society .lex-pill{font-weight:700;letter-spacing:.2em;color:#ffdf9e}
+.society h2{color:#ffda87;font-size:clamp(32px,4vw,54px);line-height:1.14}
+.society p{color:#f6d7a2;font-size:17px;line-height:1.7;max-width:890px}
+.society .lex-ngo-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0}
+.society .lex-ngo-panels>*,.society .lex-ngo-animals{border-radius:14px;border:1px solid #efc77e;padding:22px;background:#641a2e;color:#ffe1a0}
+.society .lex-ngo-animals{background:#1e503a}.society h3{color:#ffdb8d}
+@media(max-width:700px){.society .lex-ngo-panels{grid-template-columns:1fr}}
+</style><style>
+/* Menú de navegación entre páginas reales · 18 octubre 2026 */
+.lex-multipage-nav{background:#143a2c;border-top:1px solid #cba45f;border-bottom:1px solid #edc778;padding:12px max(16px,calc((100vw - 1200px)/2));color:#ffe2a3;font-family:Arial,sans-serif;position:relative;z-index:8}
+.lex-multipage-nav .lex-multipage-links{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px}
+.lex-multipage-nav a,.lex-multipage-nav summary{display:inline-block;cursor:pointer;color:#ffe2a3!important;text-decoration:none;font-size:14px;font-weight:700;padding:8px 10px;border-radius:8px;border:1px solid transparent}
+.lex-multipage-nav a:hover,.lex-multipage-nav summary:hover{background:#65192e;border-color:#edc778}
+.lex-multipage-nav a:focus-visible,.lex-multipage-nav summary:focus-visible{outline:3px solid #ffe2a3;outline-offset:2px}
+.lex-multipage-nav details{position:relative}
+.lex-multipage-nav summary{list-style:none;white-space:nowrap}
+.lex-multipage-nav summary::-webkit-details-marker{display:none}
+.lex-multipage-nav .lex-multipage-dropdown{display:grid;gap:3px;position:absolute;top:100%;left:0;min-width:300px;max-width:calc(100vw - 28px);background:#113426;border:2px solid #edc778;border-radius:12px;padding:9px;box-shadow:0 10px 24px #0007}
+.lex-multipage-nav .lex-multipage-dropdown a{display:block;white-space:normal}
+.lex-multipage-nav a[aria-current="page"]{color:#0f3227!important;background:#f1ce83;border-color:#f1ce83}
+@media(max-width:680px){.lex-multipage-nav{padding:11px 12px}.lex-multipage-nav .lex-multipage-links{gap:4px}.lex-multipage-nav a,.lex-multipage-nav summary{font-size:13px;padding:7px 8px}.lex-multipage-nav .lex-multipage-dropdown{left:auto;right:-70px;max-width:calc(100vw - 20px);min-width:250px}}
+</style><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0b3023"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SCP"><link rel="apple-touch-icon" href="/assets/app/apple-touch-icon.png"><link rel="stylesheet" href="/assets/lexpuente-mobile.css?v=20261120-escudo-header"><link rel="stylesheet" href="/assets/lexpuente-contact.css"><link rel="stylesheet" href="/assets/lexpuente-header.css?v=20261120-logo-profesor"><link rel="stylesheet" href="/assets/scp-prueba-b.css?v=20261120"></head><body><!--lp-header:start--><header class="lex-organized-header">
+  <a class="logo" href="/index.html" aria-label="Servicios Canal Puente">
+    <img class="lp-brand-emblem" src="/assets/scp-logo-profesor-final.png?v=20261120-logo-profesor" alt="Logotipo Servicios Canal Puente SCP: puente dorado sobre agua, medallón SCP con un pequeño puente interior y lema Encuentra el servicio que necesitas con el especialista adecuado" decoding="async" fetchpriority="high">
+  </a>
+
+  <nav aria-label="Navegación principal" class="lex-primary-nav">
+    <a class="lex-direct-home" href="/index.html">INICIO</a>
+    <details class="lex-menu" id="lex-services-menu">
+        <summary>SERVICIOS</summary>
+      <div class="lex-dropdown-panel lex-service-dropdown">
+        <a class="lex-submenu-link lex-menu-section-index" href="/areas-de-actividad.html">VER TODOS LOS SERVICIOS</a>
+        <a class="lex-submenu-link" href="/ofertas-verificadas.html">OFERTAS VERIFICADAS</a>
+        <div class="lex-dropdown-group">SERVICIOS POR SECTOR</div>
+        <a class="lex-submenu-link" href="/areas/tramites.html">TRÁMITES Y DOCUMENTACIÓN</a>
+        <a class="lex-submenu-link" href="/areas/sanidad.html">SANIDAD</a>
+        <a class="lex-submenu-link" href="/areas/vivienda.html">INMOBILIARIA</a>
+        <a class="lex-submenu-link" href="/areas/academia.html">ACADEMIA</a>
+        <a class="lex-submenu-link" href="/areas/bienestar.html">BIENESTAR INTEGRAL</a>
+        <a class="lex-submenu-link" href="/areas-de-actividad.html">OTROS SERVICIOS</a>
+      </div>
+    </details>
+    <details class="lex-menu lex-about-menu" id="lex-about-menu">
+      <summary>CONOCE SCP</summary>
+      <div class="lex-dropdown-panel lex-about-dropdown">
+        <a class="lex-submenu-link" href="/introduccion.html">INTRODUCCIÓN</a>
+        <a class="lex-submenu-link" href="/presentacion.html">PRESENTACIÓN</a>
+        <a class="lex-submenu-link" href="/quienes-somos.html">QUIÉNES SOMOS</a>
+        <a class="lex-submenu-link" href="/nuestro-valor.html">NUESTRO VALOR</a>
+      </div>
+    </details>
+    <a class="lex-direct-comunica" href="/comunica.html">SCP COMUNICA</a>
+    <a href="/tienda.html">TIENDA</a>
+    <details class="lex-menu lex-association-menu" id="lex-association-menu">
+      <summary>ASOCIACIÓN</summary>
+      <div class="lex-dropdown-panel">
+        <a class="lex-submenu-link" href="/asociacion.html">ASOCIACIÓN SCP</a>
+        <a class="lex-submenu-link" href="/areas/animales.html">PROTECCIÓN ANIMAL</a>
+      </div>
+    </details>
+    <a href="/agenda.html">AGENDA</a>
+    <a href="/contacto.html">CONTACTO</a>
+    <details class="lex-menu lex-language-menu" id="lex-languages-menu">
+      <summary>ES | AR</summary>
+      <div class="lex-dropdown-panel lex-language-dropdown">
+        <p class="lex-i18n-status">MÁS IDIOMAS PRÓXIMAMENTE</p>
+        <button class="lex-language-option" data-language="es" type="button">ESPAÑOL</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="ca" disabled="disabled" type="button">CATALÀ · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="fr" disabled="disabled" type="button">FRANÇAIS · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="en" disabled="disabled" type="button">ENGLISH · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="ar" disabled="disabled" type="button">العربية الفصحى · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="ary" disabled="disabled" type="button">الدارجة المغربية · PRÓXIMAMENTE</button>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="lex-account-access" aria-label="Acceso a tu perfil y recorridos SCP">
+    <a class="lex-account-signin" href="/iniciar-sesion.html">Iniciar sesión</a>
+    <a class="lex-account-membership" href="/planes.html">Membresías</a>
+    <a class="lex-account-special" href="/acceso-scp.html">Acceso reservado SCP</a>
+    <a class="lex-service-registration" href="/registro.html?tipo=titular&amp;solicitud=servicio">Registra tu servicio</a>
+    <a class="lex-service-offer" href="/registro.html?tipo=especialista">Ofrece tus servicios</a>
+  </nav>
+
+  <div class="lex-header-contact" aria-label="Contacto SCP">
+    <a aria-label="Llamar a SCP: +34 673 735 059" class="lex-phone-link" href="tel:+34673735059">+34 673 735 059</a>
+    <a aria-label="Escribir por WhatsApp a SCP: +34 673 735 059" class="lex-whatsapp-nav" href="https://wa.me/34673735059" rel="noopener noreferrer" target="_blank"><span class="lex-whatsapp-icon-shell" aria-hidden="true"><svg class="lex-whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 3.6A11.6 11.6 0 0 0 2.2 17.2L.8 23.2l6.2-1.4a11.6 11.6 0 0 0 13.4-18.2Z"/><path d="M8.2 6.9c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.8.1-1.1.5-.4.4-1.4 1.4-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.7 4.3 6.6 5.8 3.2 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5s-2.3-1.1-2.6-1.2c-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.8-2.2-2-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.2-1.2-3Z"/></svg></span><span class="lex-whatsapp-label">WhatsApp <span>+34 673 735 059</span></span></a>
+  </div>
+</header><!--lp-header:end--><div class="hero"><h1>Asociación SCP</h1><p>Proyecto solidario separado de los servicios comerciales.</p></div><main class="society"><span class="lex-pill" data-ar="الالتزام الاجتماعي" data-es="COMPROMISO SOCIAL">COMPROMISO SOCIAL</span><h2 data-ar="جمعية ليكسبوينتي: نبني جسوراً للمساعدة أيضاً" data-es="Asociación SCP: conectar también para ayudar">Asociación SCP: conectar también para ayudar</h2><p data-ar="نطمح إلى تطوير مبادرة اجتماعية تقرّب المعلومات والتوجيه وشبكات الدعم للأشخاص الذين يواجهون صعوبات في الوصول إلى الموارد. هذا تصور للمشروع، والجمعية لم تُؤسس بعد." data-es="Queremos explorar una iniciativa social que acerque información, orientación y redes de apoyo a personas que encuentran obstáculos para acceder a recursos. Este espacio presenta la visión del proyecto; la asociación todavía no está constituida.">Queremos explorar una iniciativa social que acerque información, orientación y redes de apoyo a personas que encuentran obstáculos para acceder a recursos. Este espacio presenta la visión del proyecto; la asociación todavía no está constituida.</p><div class="lex-ngo-panels"><div class="lex-ngo-panel"><h3 data-ar="معلومات ميسّرة" data-es="Información accesible">Información accesible</h3><p data-ar="أدلة عملية وموارد مشروحة بوضوح." data-es="Guías prácticas y recursos explicados con claridad.">Guías prácticas y recursos explicados con claridad.</p></div><div class="lex-ngo-panel"><h3 data-ar="شبكة تعاون" data-es="Red de colaboración">Red de colaboración</h3><p data-ar="التواصل مع جمعيات ومهنيين راغبين في التعاون." data-es="Conexión con entidades y profesionales dispuestos a colaborar.">Conexión con entidades y profesionales dispuestos a colaborar.</p></div><div class="lex-ngo-panel"><h3 data-ar="مشاريع ذات أثر" data-es="Proyectos de impacto">Proyectos de impacto</h3><p data-ar="مبادرات مستقبلية للإدماج والاستقلالية والرفاه." data-es="Acciones futuras en inclusión, autonomía y bienestar.">Acciones futuras en inclusión, autonomía y bienestar.</p></div></div><div class="lex-ngo-animals" id="proteccion-animal" style="scroll-margin-top:110px"><span class="lex-animal-badge" style="display:inline-block;border:1px solid #efc77e;border-radius:30px;padding:6px 14px;font-weight:bold">Próximamente · En desarrollo</span><figure style="margin:22px 0"><img src="/assets/proteccion-animal-gatos.webp" alt="Ilustración de dos gatos acogidos en un hogar tranquilo" width="1200" height="800" loading="lazy" style="width:100%;max-height:380px;object-fit:cover;border-radius:12px"><figcaption style="font-size:13px">Imagen ilustrativa de la futura iniciativa de protección animal.</figcaption></figure><p>Esta iniciativa social se lanzará más adelante, cuando dispongamos de la estructura y las colaboraciones necesarias. No se están recogiendo donaciones ni ofreciendo rescates o acogidas desde esta página.</p><h3 data-ar="رفاه الحيوانات ورعاية القطط" data-ary="العناية بالحيوانات والقطط" data-ca="Benestar animal i protecció dels gats" data-en="Animal welfare and cat protection" data-es="Bienestar animal y protección de gatos" data-fr="Bien-être animal et protection des chats">Bienestar animal y protección de gatos</h3><p data-ar="مبادرة تطوعية مستقبلية للتوعية والتعاون مع جمعيات حماية الحيوانات. لا توجد خدمات مدفوعة أو جمعية مسجلة حتى الآن." data-ary="مشروع تطوعي للمساعدة والتعاون مع جمعيات حماية الحيوانات. ما كايناش خدمة بفلوس وما زال ما كايناش جمعية مسجلة." data-ca="Una futura línia solidària per promoure informació responsable, sensibilització, ajuda comunitària i col·laboració amb entitats de protecció animal. En fase de projecte, sense servei comercial ni associació registrada." data-en="A future community initiative focused on animal welfare awareness and cooperation with animal rescue groups. Not a paid service or registered organization." data-es="Una futura línea solidaria para promover información responsable, sensibilización, ayuda comunitaria y colaboración con entidades de protección animal. En fase de proyecto, sin servicio comercial ni asociación registrada." data-fr="Un futur projet solidaire de sensibilisation et de coopération avec des associations de protection animale, sans activité commerciale ni association constituée à ce jour.">Una futura línea solidaria para promover información responsable, sensibilización, ayuda comunitaria y colaboración con entidades de protección animal. En fase de proyecto, sin servicio comercial ni asociación registrada.</p></div></main><footer>SCP · Barcelona · 673 735 059<nav class="lp-legal-footer" aria-label="Información legal"><a href="/aviso-legal.html">Aviso Legal</a><a href="/privacidad.html">Política de Privacidad</a><a href="/cookies.html">Política de Cookies</a><a href="/condiciones.html">Condiciones de Contratación</a></nav></footer><script src="/assets/lexpuente-chat.js" defer></script><script src="/assets/lexpuente-app.js" defer></script><script src="/assets/lexpuente-mobile.js?v=20261120-escudo-header" defer></script><script src="/assets/lexpuente-contact.js" defer></script><script src="/assets/lexpuente-social.js" defer></script><script src="/assets/lexpuente-header.js" defer></script></body></html>

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';import worker from '../dist/server/index.js';
+const values=new Map(),BUCKET={async put(k,v){values.set(k,v)},async get(k){return values.has(k)?{json:async()=>JSON.parse(values.get(k))}:null}};let calls=[],order;globalThis.fetch=async(url,opt={})=>{calls.push(url);if(url.endsWith('oauth2/token'))return Response.json({access_token:'test-token',expires_in:3600});if(url.endsWith('/orders')){const d=JSON.parse(opt.body);assert.equal(d.purchase_units[0].amount.value,'50.00');order={...d,id:'TESTORDER123456',status:'CREATED'};return Response.json(order)}if(url.endsWith('/capture')){order.status='COMPLETED';order.purchase_units[0].payments={captures:[{id:'CAPTURE123',status:'COMPLETED',amount:{value:'50.00',currency_code:'EUR'}}]};return Response.json(order)}return Response.json(order)};
+const env={PAYPAL_CLIENT_ID:'test',PAYPAL_CLIENT_SECRET:'test',PAYPAL_ENVIRONMENT:'sandbox',BUCKET};
+const req=(p,b,c,origin='https://lex.test')=>new Request('https://lex.test'+p,{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(c?{Cookie:c}:{})},body:JSON.stringify(b)});
+let r=await worker.fetch(req('/api/paypal/orders',{itemId:'analisis'},null,'https://evil.test'),env);assert.equal(r.status,403);assert.equal(calls.length,0);
+r=await worker.fetch(req('/api/paypal/orders',{itemId:'absent'}),env);assert.equal(r.status,400);
+r=await worker.fetch(req('/api/paypal/orders',{itemId:'analisis',amount:'1.00'}),env);assert.equal(r.status,200);const cookie=r.headers.get('set-cookie').split(';')[0];assert.equal((await r.json()).id,'TESTORDER123456');
+r=await worker.fetch(req('/api/paypal/capture',{orderId:'TESTORDER123456'}),env);assert.equal(r.status,404);
+r=await worker.fetch(req('/api/paypal/capture',{orderId:'TESTORDER123456'},cookie),env);assert.equal((await r.json()).status,'COMPLETED');let n=calls.length;
+r=await worker.fetch(req('/api/paypal/capture',{orderId:'TESTORDER123456'},cookie),env);assert.equal((await r.json()).status,'COMPLETED');assert.equal(calls.length,n);
+const rec=JSON.parse([...values.values()][0]);rec.status='CREATED';await BUCKET.put('paypal/orders/TESTORDER123456.json',JSON.stringify(rec));order.purchase_units[0].payments.captures[0].amount.value='1.00';r=await worker.fetch(req('/api/paypal/status',{orderId:'TESTORDER123456'},cookie),env);assert.equal(r.status,502);
+r=await worker.fetch(new Request('https://lex.test/index.html'),env);assert.equal(r.status,200);assert((await r.text()).includes('Tu puente'));
+r=await worker.fetch(new Request('https://lex.test/servicios/analisis-documental.html'),env);assert((await r.text()).includes('/contratar?servicio=analisis'));
+r=await worker.fetch(new Request('https://lex.test/assets/lexpuente-servicio-7-logos-unificados.webp'),env);assert.equal(r.status,200);assert.equal(r.headers.get('content-type'),'image/webp');
+console.log('OK: precio validado, sesión, origen, captura idempotente, verificación de importe y contenido conservado. Sin dinero real.');

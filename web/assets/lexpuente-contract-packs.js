@@ -1,0 +1,1 @@
+window.lexpuenteContractPacksReady=(async()=>{const r=await fetch('/assets/lexpuente-contract-packs.json.gz');if(!r.ok)throw Error('No se pudieron cargar las plantillas originales.');const data=await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).json();window.lexpuenteContractPacks=data;return data})().catch(()=>null);

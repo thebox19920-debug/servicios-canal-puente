@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Emblema SCP con puente">
+  <defs><linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f3d890"/><stop offset=".52" stop-color="#c9a66a"/><stop offset="1" stop-color="#f0d28d"/></linearGradient></defs>
+  <circle cx="80" cy="80" r="75" fill="#06291e" stroke="url(#gold)" stroke-width="4"/>
+  <circle cx="80" cy="80" r="68" fill="none" stroke="#c9a66a" stroke-opacity=".55" stroke-width="1.2"/>
+  <text x="80" y="78" text-anchor="middle" fill="url(#gold)" stroke="#7c5a24" stroke-width=".65" paint-order="stroke fill" font-family="Georgia,serif" font-size="43" font-weight="700" letter-spacing="-2">SCP</text>
+  <path d="M25 111 Q80 72 135 111" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M22 115 H138" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M42 105 V115 M61 94 V115 M80 88 V115 M99 94 V115 M118 105 V115" fill="none" stroke="#d5b777" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M33 116 Q80 123 127 116" fill="none" stroke="#641b32" stroke-width="2"/>
+</svg>

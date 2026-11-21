@@ -1,0 +1,91 @@
+{
+  "labels": {
+    "tramites": "LEXPUENTE TRÁMITES Y DOCUMENTACIÓN",
+    "sanidad": "LEXPUENTE SANIDAD",
+    "vivienda": "LEXPUENTE INMOBILIARIA",
+    "bienestar": "LEXPUENTE BIENESTAR Y ACOMPAÑAMIENTO",
+    "comunica": "LEXPUENTE COMUNICA",
+    "academia": "LEXPUENTE ACADEMIA"
+  },
+  "new_payments": {
+    "inmo-estancias": {
+      "name": "Búsqueda de alojamientos y estancias",
+      "amount": "35.00",
+      "scope": "Una búsqueda para un destino y unas fechas, hasta tres opciones y un ajuste. Confirma el encargo antes de pagar. No incluye reserva, estancia ni garantía de disponibilidad.",
+      "area": "vivienda"
+    },
+    "inmo-recursos": {
+      "name": "Información sobre recursos de vivienda",
+      "amount": "35.00",
+      "scope": "Una sesión informativa de 45 minutos. No incluye solicitud, representación ni garantía de adjudicación. Confirma la cita antes de pagar.",
+      "area": "vivienda"
+    },
+    "bienestar-escucha": {
+      "name": "Escucha y acompañamiento no clínico",
+      "amount": "35.00",
+      "scope": "Una sesión de 45 minutos, online o modalidad acordada. No incluye atención psicológica, diagnóstico ni atención a urgencias. Confirma la cita antes de pagar.",
+      "area": "bienestar"
+    },
+    "bienestar-objetivos": {
+      "name": "Organización de objetivos",
+      "amount": "45.00",
+      "scope": "Una sesión de 60 minutos y un plan escrito de prioridades y siguientes pasos. Servicio práctico no clínico. Confirma fecha y modalidad antes de pagar.",
+      "area": "bienestar"
+    },
+    "bienestar-recursos": {
+      "name": "Información de recursos de apoyo",
+      "amount": "25.00",
+      "scope": "Una sesión de 30 minutos y hasta tres recursos con datos de contacto. No incluye admisión, tratamiento ni gestión de solicitudes. Confirma la cita antes de pagar.",
+      "area": "bienestar"
+    },
+    "comunica-web": {
+      "name": "Web informativa inicial",
+      "amount": "490.00",
+      "scope": "Una página web informativa con hasta cinco secciones, adaptación móvil, contacto y una revisión. No incluye tienda online, dominio, alojamiento de pago ni campañas. Confirma materiales, alcance y plazo antes de pagar.",
+      "area": "comunica"
+    },
+    "comunica-campana": {
+      "name": "Campaña puntual de comunicación",
+      "amount": "200.00",
+      "scope": "Una pieza visual, texto, dos formatos y una revisión. Confirma el encargo y materiales antes de pagar. Inversión publicitaria, grabación y publicación en medios aparte.",
+      "area": "comunica"
+    },
+    "academia-castellano": {
+      "name": "Clase individual de Español / castellano",
+      "amount": "25.00",
+      "scope": "Una clase individual de 60 minutos. Confirma docente, nivel y horario antes de pagar. Formación no reglada, sin título oficial.",
+      "area": "academia"
+    },
+    "academia-catalan": {
+      "name": "Clase individual de Catalán",
+      "amount": "25.00",
+      "scope": "Una clase individual de 60 minutos. Confirma docente, nivel y horario antes de pagar. Formación no reglada, sin título oficial.",
+      "area": "academia"
+    },
+    "academia-arabe": {
+      "name": "Clase individual de Árabe estándar",
+      "amount": "25.00",
+      "scope": "Una clase individual de 60 minutos. Confirma docente, nivel y horario antes de pagar. Formación no reglada, sin título oficial.",
+      "area": "academia"
+    },
+    "academia-darija": {
+      "name": "Clase individual de Darija marroquí",
+      "amount": "25.00",
+      "scope": "Una clase individual de 60 minutos. Confirma docente, nivel y horario antes de pagar. Formación no reglada, sin título oficial.",
+      "area": "academia"
+    },
+    "academia-taller": {
+      "name": "Apoyo lingüístico individual",
+      "amount": "30.00",
+      "scope": "Una sesión individual de 60 minutos sobre una situación de comunicación acordada. Confirma docente, idioma, nivel y fecha antes de pagar. Talleres de grupo aparte. Sin titulación oficial.",
+      "area": "academia"
+    }
+  },
+  "image_rule": "Use founder identity from foto-original-lexpuente.png. Never hands touching face, chin, cheek, mouth or hair. No other woman as founder.",
+  "cards": {
+    "vivienda": 5,
+    "bienestar": 4,
+    "comunica": 2,
+    "academia": 6
+  }
+}

@@ -1,0 +1,27 @@
+.demo-flow-nav{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.demo-flow-nav a{display:block;padding:12px 18px;border:1px solid #c6a266;border-radius:12px;background:#173e2f;color:#f6dfaa;text-decoration:none;font-weight:bold}.demo-flow-nav a[href="#demo-signing"],.demo-flow-nav a[href="#demo-result"]{background:#681e34;color:#fff2d5}.demo-signature-grid{display:grid;grid-template-columns:1fr;gap:24px}.demo-signature{padding:18px;border:1px solid #ba985b;border-radius:12px}.demo-signature h3{margin:0 0 10px}.demo-signature canvas,#demo-pad,#demo-founder-pad{display:block;box-sizing:border-box;width:100%;max-width:900px;height:220px;aspect-ratio:auto;background:#efdbab;border:2px solid #bc9652;border-radius:12px;touch-action:none;user-select:none;-webkit-user-select:none}.demo-signature .portal-actions{margin-top:12px}.demo-optional{margin:18px 0}.demo-optional>summary{padding:12px;cursor:pointer;border:1px solid #a68a58;border-radius:8px}#demo-result{border:2px solid #c7a05b}#demo-register{display:block;width:100%;padding:18px;font-size:19px;font-weight:bold;margin:16px 0}#demo-feedback{padding:14px;background:#153f30;border-radius:10px;line-height:1.6}#demo-signing,#demo-result,#demo-contract-section{scroll-margin-top:24px}@media(max-width:650px){.demo-signature{padding:12px}.demo-signature canvas,#demo-pad,#demo-founder-pad{height:200px}.demo-flow-nav a{padding:10px 12px;font-size:14px}.demo-signature .portal-actions button{width:100%;margin:0}#demo-result{padding:16px!important}}
+
+/* A completed registration is a separate confirmation screen. */
+main.demo-completed>form,main.demo-completed>.demo-banner,main.demo-completed>.demo-flow-nav,main.demo-completed>#demo-progress,main.demo-completed>#demo-status,main.demo-completed>#demo-signing{display:none!important}
+main.demo-completed #demo-result>p:not(#demo-feedback),main.demo-completed #demo-again,main.demo-completed #demo-result>.demo-optional{display:none}
+main.demo-completed #demo-registration-result{display:grid;gap:16px}
+main.demo-completed #demo-result{outline:none}
+
+main[data-step="1"]:not(.demo-completed)>#demo-signing,main[data-step="1"]:not(.demo-completed)>#demo-result{display:none}
+main[data-step="2"]:not(.demo-completed)>#portal-invite{display:none}
+.demo-signature canvas{cursor:crosshair}
+
+/* One continuous form: contract, signature and registration stay together. */
+main:not(.demo-completed)>#demo-contract-section,main:not(.demo-completed)>#demo-signing,main:not(.demo-completed)>#demo-result{display:block}
+main.demo-completed>#demo-contract-section{display:none!important}
+.demo-signature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#demo-contract-section .contract-scroll{max-height:360px;overflow:auto}
+#demo-signing{margin-top:12px}#demo-signing>h2{margin-top:0}
+@media(max-width:760px){.demo-signature-grid{grid-template-columns:1fr}#demo-contract-section .contract-scroll{max-height:280px}}
+
+body.demo-embedded>header,body.demo-embedded>footer,body.demo-embedded main>h1,body.demo-embedded main>.demo-banner,body.demo-embedded main>.demo-flow-nav,body.demo-embedded main>#demo-progress,body.demo-embedded main>#demo-status,body.demo-embedded main>#portal-invite,body.demo-embedded main>#demo-contract-section,body.demo-embedded #demo-signing>a,body.demo-embedded #demo-signing>p:has(a){display:none!important}
+body.demo-embedded main{width:100%;max-width:none;margin:0;padding:0}body.demo-embedded{margin:0}body.demo-embedded #demo-signing,body.demo-embedded #demo-result{margin:0 0 12px}
+body.demo-embedded.lp-access-layout>header.lex-organized-header{display:none!important}
+body.demo-embedded.lp-access-layout>main{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;box-sizing:border-box}
+body.demo-embedded{overflow:hidden!important;min-height:0!important}
+
+body.demo-embedded main:not(.demo-completed)>#demo-contract-section{display:block!important}

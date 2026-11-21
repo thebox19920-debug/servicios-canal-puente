@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {oppReleaseEligible,oppPolicy} from '../worker/opp.mjs';
+import worker from '../dist/server/index.js';
+const now=Date.now(),r={provider:'opp',providerPaymentVerified:true,amountCents:140000,heldAmountCents:140000,state:'held',serviceKey:'implante',crownCompletedAt:new Date(now-10*86400000).toISOString(),patientConfirmedAt:new Date(now).toISOString(),clinicalReviewedAt:new Date(now-86400000).toISOString(),paidAt:new Date(now-20*86400000).toISOString(),holdDeadline:new Date(now+180*86400000).toISOString(),treatmentCompleted:true,clinicalReviewVerified:true,patientConfirmed:true,openIncident:false};
+assert(oppReleaseEligible(r,now));for(const patch of [{patientConfirmed:false},{clinicalReviewVerified:false},{treatmentCompleted:false},{openIncident:true},{heldAmountCents:56000},{providerPaymentVerified:false},{state:'released'},{holdDeadline:new Date(now-1).toISOString()},{holdDeadline:new Date(now+366*86400000).toISOString()}]) assert(!oppReleaseEligible({...r,...patch},now));
+for(const [serviceKey,eventField,hours] of [['curetaje','serviceCompletedAt',48],['extraccion','serviceCompletedAt',168],['implante','crownCompletedAt',168]]) {const event=now-hours*3600000;const sample={...r,serviceKey,[eventField]:new Date(event).toISOString()};assert(oppReleaseEligible(sample,now));assert(!oppReleaseEligible({...sample,[eventField]:new Date(event+1).toISOString()},now));assert(!oppReleaseEligible({...sample,patientConfirmedAt:new Date(event).toISOString()},now));}
+assert(!oppReleaseEligible({...r,serviceKey:'unknown'},now));assert(!oppReleaseEligible({...r,crownCompletedAt:undefined},now));
+const resolve=async(id,modality)=>{const response=await worker.fetch(new Request('https://lex.test/api/checkout/resolve?servicio='+id+(modality?'&modalidad='+modality:'')),{});return {status:response.status,body:await response.json()}};
+for(const [id,key,hours] of [['sanidad-periodoncia','curetaje',48],['sanidad-cirugia-oral','extraccion',168],['sanidad-implantologia','implante',168]]) {const result=await resolve(id,key);assert.equal(result.body.payment.provider,'opp');assert.equal(result.body.payment.enabled,false);assert.equal(result.body.payment.rule.waitHours,hours);assert.equal(result.body.action,'quote');}
+assert.equal((await resolve('sanidad-periodoncia','implante')).status,400);
+let calls=0;globalThis.fetch=async()=>{calls++;throw Error('No external calls')};
+for(const path of ['payments','release','webhook']){const response=await worker.fetch(new Request('https://lex.test/api/opp/'+path,{method:'POST',body:JSON.stringify(r)}),{});assert.equal(response.status,503)}
+assert.equal(calls,0);assert.equal(oppPolicy.enabled,false);assert.equal(oppPolicy.retainedPercent,100);assert.equal(oppPolicy.partialRelease,false);assert.equal(oppPolicy.automaticRelease,false);
+const config=await(await worker.fetch(new Request('https://lex.test/api/opp/config'),{})).json();assert.equal(config.provider,'opp');assert.equal(config.maxHoldingDays,365);
+console.log('OK OPP: retención íntegra, tres confirmaciones, incidencias y vencimiento bloquean elegibilidad; cobros y liberaciones inactivos.');

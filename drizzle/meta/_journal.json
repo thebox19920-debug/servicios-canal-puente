@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1794390000000,
+      "tag": "0000_agenda_bookings",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794696600000,
+      "tag": "0001_site_pageviews",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1794780000000,
+      "tag": "0002_private_portal",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1794790000000,
+      "tag": "0003_admin_access",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1795208400000,
+      "tag": "0004_marketplace_circuits",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1795208401000,
+      "tag": "0005_marketplace_admin_notes",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1795208402000,
+      "tag": "0006_module_a_core",
+      "breakpoints": true
+    }
+  ]
+}

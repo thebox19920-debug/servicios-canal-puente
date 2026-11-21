@@ -1,0 +1,110 @@
+{
+  "tool": "built-in image_gen",
+  "style": "Portrait 2:3, premium burgundy, forest green and gold; founder identity preserved; hands never touching face.",
+  "identity": "web/assets/foto-original-lexpuente.png",
+  "style_reference": "web/assets/sanidad/seleccion-profesionales.webp",
+  "assets": {
+    "ventas": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-957c3185-0158-4f19-a35a-64f32a90af9d.png",
+      "title": "Ventas de inmuebles",
+      "area": "INMOBILIARIA",
+      "scene": "founder presenting keys and a bright elegant Barcelona apartment"
+    },
+    "traspasos": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-c07b0cc1-a76c-46d4-93a5-877fd0bcbe29.png",
+      "title": "Traspasos de negocios",
+      "area": "INMOBILIARIA",
+      "scene": "founder discussing a commercial premises floor plan in an elegant small restaurant"
+    },
+    "alquileres": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-58b127cb-6263-495d-9322-f362e0f87af5.png",
+      "title": "Alquileres",
+      "area": "INMOBILIARIA",
+      "scene": "founder welcoming a client to a bright apartment, rental papers on table"
+    },
+    "estancias": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-521bd3f0-15e6-4126-91bb-16535d7a20c7.png",
+      "title": "Alojamientos y estancias",
+      "area": "INMOBILIARIA",
+      "scene": "an inviting refined hotel reception with room key, luggage and warm architectural interiors; no people"
+    },
+    "recursos-vivienda": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-215c4b5e-735f-474b-a337-3c628662cc7f.png",
+      "title": "Información sobre recursos",
+      "area": "INMOBILIARIA",
+      "scene": "founder explaining housing information on a laptop across a desk"
+    },
+    "escucha": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-d4c2b99e-dc22-413d-9956-4fc3506b3e98.png",
+      "title": "Escucha y acompañamiento no clínico",
+      "area": "BIENESTAR",
+      "scene": "founder listening to another woman across a comfortable sitting room, natural hands on lap"
+    },
+    "objetivos": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-c08c3d88-73d2-4231-a6af-f6df2a9dee83.png",
+      "title": "Organización de objetivos",
+      "area": "BIENESTAR",
+      "scene": "founder planning a weekly planner with notebook and a client, hands on table"
+    },
+    "recursos-bienestar": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-a45cb86f-ebf0-4b1f-b1c0-605671aafbb0.png",
+      "title": "Información de recursos",
+      "area": "BIENESTAR",
+      "scene": "founder showing community resources on a tablet to a client"
+    },
+    "psicologos": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-4937ad56-30b4-403f-a2b6-b6bd2a202ea6.png",
+      "title": "Profesionales de psicología",
+      "area": "BIENESTAR",
+      "scene": "a peaceful consultation room with two comfortable chairs and notebook, plants, no people"
+    },
+    "programa": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-8f9eaa42-b185-4441-bb71-c8ecdc3b3c9a.png",
+      "title": "LEXPUENTE en primera persona",
+      "area": "COMUNICA",
+      "scene": "founder is the television host in a premium intimate broadcast studio, looking at camera with desk microphone, recording camera and warm lights. Include prominent extra Spanish headline PRÓXIMAMENTE and subtitle Entrevistas · Historias · Nuevas oportunidades"
+    },
+    "web-digital": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-8289fc6d-5c9b-4b4f-b46a-7e18696b1c89.png",
+      "title": "Web y comunicación digital",
+      "area": "COMUNICA",
+      "scene": "founder presenting an elegant website on desktop monitor with social media planning materials on desk"
+    },
+    "castellano": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-ac6a70a9-86c9-47ff-aa07-ba15ca3b88d2.png",
+      "title": "Español / castellano",
+      "area": "ACADEMIA",
+      "scene": "founder teaching a small adult class, welcoming classroom with notebook and books"
+    },
+    "catalan": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-71e30a5d-dec0-4f67-bcd7-fc27c5f59559.png",
+      "title": "Catalán",
+      "area": "ACADEMIA",
+      "scene": "warm classroom with Catalan language books, notebook and Barcelona architectural view, no people"
+    },
+    "arabe": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-ed7283ff-7055-4f54-95b5-1ec6a2a1e8f4.png",
+      "title": "Árabe estándar",
+      "area": "ACADEMIA",
+      "scene": "elegant study desk with an Arabic calligraphy learning book, notebook and fountain pen, no people"
+    },
+    "darija": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-408cd343-01b1-490d-9743-87b688e7ff8f.png",
+      "title": "Darija marroquí",
+      "area": "ACADEMIA",
+      "scene": "founder teaching adult communication at a desk, warm Moroccan arch architecture through window"
+    },
+    "talleres": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-a7027c3a-643c-4635-b477-df2c01ebb8cd.png",
+      "title": "Talleres y apoyo lingüístico",
+      "area": "ACADEMIA",
+      "scene": "founder guiding an adult small group language workshop with notebooks"
+    },
+    "fp": {
+      "path": "/workspace/scratch/c52702213702/generated_images/exec-13e239a6-7256-419f-9a6a-47c6581b1e40.png",
+      "title": "Formación Profesional · FP",
+      "area": "ACADEMIA",
+      "scene": "bright practical learning space with technical books, laptop and professional training equipment, no people"
+    }
+  }
+}

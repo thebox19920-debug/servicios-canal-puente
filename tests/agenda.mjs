@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import fs from 'node:fs';
+import {agendaApi,agendaSlots,agendaEpoch} from '../worker/agenda.mjs';
+const sqlite=new DatabaseSync(':memory:');sqlite.exec(fs.readFileSync('drizzle/0000_agenda_bookings.sql','utf8'));
+const DB={prepare(sql){return {bind(...args){return {async first(){return sqlite.prepare(sql).get(...args)||null},async all(){return {results:sqlite.prepare(sql).all(...args)}}}}}}};
+const hours={1:[['09:00','18:00']],2:[['09:00','18:00']],3:[['09:00','18:00']],4:[['09:00','18:00']],5:[['09:00','18:00']]},env={DB,AGENDA_HOURS_JSON:JSON.stringify(hours)},now=Date.parse('2026-11-12T08:00:00Z');
+assert.equal(new Date(agendaEpoch('2026-03-30','09:00')).toISOString(),'2026-03-30T07:00:00.000Z');assert.equal(new Date(agendaEpoch('2026-11-12','09:00')).toISOString(),'2026-11-12T08:00:00.000Z');
+assert.deepEqual(agendaSlots('2026-11-12',now,hours).map(x=>x.time),['14:00','15:00','16:00','17:00']);assert.equal(agendaSlots('2026-11-15',now,hours).length,0);
+const req=(path,body,cookie,origin='https://lex.test')=>new Request('https://lex.test/api/agenda/'+path,{method:body?'POST':'GET',headers:{...(body?{'Content-Type':'application/json',Origin:origin}:{}),...(cookie?{Cookie:cookie}:{})},...(body?{body:JSON.stringify(body)}:{})});
+let r=await agendaApi(req('availability?date=2026-11-12'),{DB},now);assert.equal((await r.json()).enabled,false);
+for(const time of ['08:00','09:00','13:00','14:30','18:00','23:00']){r=await agendaApi(req('book',{day:'2026-11-12',time}),env,now);assert.equal(r.status,400,time)}
+r=await agendaApi(req('book',{day:'2026-11-15',time:'14:00'}),env,now);assert.equal(r.status,400);
+r=await agendaApi(req('book',{day:'2026-11-12',time:'14:00'},null,'https://evil.test'),env,now);assert.equal(r.status,403);
+const candidates=await Promise.all(Array.from({length:8},()=>agendaApi(req('book',{day:'2026-11-12',time:'14:00'}),env,now)));assert.equal(candidates.filter(r=>r.status===201).length,1);assert.equal(candidates.filter(r=>r.status===409).length,7);
+const success=candidates.find(r=>r.status===201),cookie=success.headers.get('set-cookie').split(';')[0],record=await success.json();
+r=await agendaApi(req('availability?date=2026-11-12',null,cookie),env,now);let data=await r.json();assert(!data.slots.some(s=>s.time==='14:00'));assert.equal(data.mine.id,record.id);
+r=await agendaApi(req('cancel',{id:record.id}),env,now);assert.equal(r.status,404);
+r=await agendaApi(req('book',{day:'2026-11-12',time:'15:00'},cookie),env,now);assert.equal(r.status,409);
+r=await agendaApi(req('cancel',{id:record.id},cookie),env,now);assert.equal(r.status,200);
+r=await agendaApi(req('availability?date=2026-11-12'),env,now);data=await r.json();assert(data.slots.some(s=>s.time==='14:00'));
+assert.equal(sqlite.prepare('SELECT count(*) AS n FROM agenda_bookings').get().n,0);
+console.log('OK: mínimo de cinco horas, horario y días de cierre, cambio de hora Madrid, ocho reservas concurrentes con una sola aceptada, cancelación privada y cierre seguro sin horario. Solo base de datos local de pruebas.');

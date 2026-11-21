@@ -1,0 +1,12 @@
+(()=>{const templates=window.lexpuenteOfficialContracts||{};
+function identityFormat(type,value){const n=String(value||'').replace(/[\s-]/g,'').toUpperCase(),letters='TRWAGMYFPDXBNJZSQVHLCKE';if(type==='DNI')return /^\d{8}[A-Z]$/.test(n)&&letters[Number(n.slice(0,8))%23]===n.at(-1);if(type==='NIE')return /^[XYZ]\d{7}[A-Z]$/.test(n)&&letters[Number('XYZ'.indexOf(n[0])+n.slice(1,8))%23]===n.at(-1);return n.length>=5&&!/PRUEBA|FICTICI|NO.?VALIDO/.test(n)}
+function signingDocument(input){const t=templates[input.sector];if(!t)return null;const txt=k=>String(input[k]||'').trim().slice(0,300),parts=new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',day:'numeric',month:'long',year:'numeric'}).formatToParts(new Date()),part=k=>parts.find(p=>p.type===k).value;
+ const values={name:txt('name'),identityNumber:txt('identityNumber'),profession:txt('profession'),business:[txt('businessName'),txt('businessLegalName')].filter(Boolean).join(' / '),businessTaxId:txt('businessTaxId'),businessAddress:txt('businessAddress'),credentials:[txt('college'),txt('collegeNumber'),txt('registrationNumber')].filter(Boolean).join(' · '),day:part('day'),month:part('month'),year:part('year')};
+ let contract=t.text.replace(/\{\{(\w+)\}\}/g,(m,k)=>values[k]||m).replaceAll('[Nombre y Apellidos de la Fundadora]',txt('founderName')||'[Nombre y Apellidos de la Fundadora]').replaceAll('[Nombre Fundadora]',txt('founderName')||'[Nombre Fundadora]').replace('[Número]',txt('founderIdentity')||'[Número]').replace('[Email oficial]',txt('founderEmail')||'[Email oficial]');
+ const htmlEscape=v=>String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+ const html=(t.html||'').replace(/\{\{(\w+)\}\}/g,(m,k)=>values[k]?htmlEscape(values[k]):m).replaceAll('[Nombre y Apellidos de la Fundadora]',htmlEscape(txt('founderName')||'[Nombre y Apellidos de la Fundadora]')).replaceAll('[Nombre Fundadora]',htmlEscape(txt('founderName')||'[Nombre Fundadora]')).replace('[Número]',htmlEscape(txt('founderIdentity')||'[Número]')).replace('[Email oficial]',htmlEscape(txt('founderEmail')||'[Email oficial]'));
+ const catalogue=contract.slice(contract.indexOf('ANEXO I.')).split('Y en prueba de conformidad')[0].trim();
+ return {contract,catalogue,html,templateVersion:t.version,sector:input.sector,pricesConfigured:!contract.includes('[Especificar servicio]')};
+}
+
+window.lexpuenteDocuments={identityFormat,signingDocument};})();

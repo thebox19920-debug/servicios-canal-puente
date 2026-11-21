@@ -1,0 +1,53 @@
+:root{--scp-green:#1a4d3a;--scp-cream:#f7f4eb;--scp-wine:#800020;--scp-gold:#d4af37}
+.scp-market{margin:28px 0;padding:clamp(18px,3vw,32px);border:1px solid #d4af3790;border-radius:20px;background:linear-gradient(145deg,#103b2d,#0a2c22);color:var(--scp-cream);box-shadow:0 18px 42px #061b1450}
+.scp-market h2,.scp-market h3{color:var(--scp-cream)}
+.scp-market__head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+.scp-market__eyebrow{color:#e6cf8c;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700}
+.scp-market__notice{padding:14px 16px;border-left:4px solid var(--scp-gold);border-radius:8px;background:#f7f4eb12;color:#f5ead1}
+.scp-market__notice--blocked{border-color:#d07a8a;background:#80002024}
+.scp-market__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.scp-market__card{padding:20px;border:1px solid #d4af3780;border-radius:14px;background:linear-gradient(145deg,#f7f4eb,#eee8d9);color:#19392d;box-shadow:0 10px 22px #0002}
+.scp-market__card h3{color:#19392d;margin:6px 0 10px}
+.scp-market__card p{margin:8px 0;overflow-wrap:anywhere}
+.scp-market__tag{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#1a4d3a;color:#fff6df;font-size:.82rem;font-weight:700}
+.scp-market__tag--wine{background:#800020}
+.scp-market__price{color:#800020;font-size:1.2rem;font-weight:800}
+.scp-market__form{display:grid;gap:13px;margin:20px 0;padding:20px;border:1px solid #d4af3780;border-radius:14px;background:#f7f4eb;color:#17372b}
+.scp-market__form h3{color:#17372b;margin:0}
+.scp-market__form label{display:grid;gap:6px;font-weight:650}
+.scp-market__form input,.scp-market__form select,.scp-market__form textarea{width:100%;max-width:none;box-sizing:border-box;margin:0;padding:12px;border:1px solid #7c785f;border-radius:8px;background:white;color:#18291f;font:inherit}
+.scp-market__form input[type=checkbox]{width:20px;height:20px;accent-color:#1a4d3a}
+.scp-market__check{display:flex!important;align-items:flex-start;gap:10px;font-weight:500!important}
+.scp-market__form button,.scp-market button{min-height:44px;padding:11px 16px;border:0;border-radius:9px;background:#1a4d3a;color:#fff7e7;font:inherit;font-weight:700;cursor:pointer}
+.scp-market button[data-tone=wine]{background:#800020}
+.scp-market button[data-tone=light]{background:#d4af37;color:#17372b}
+.scp-market button:disabled{opacity:.55;cursor:not-allowed}
+.scp-market__actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.scp-market__status{min-height:1.5em;color:#f1d48b;font-weight:650}
+.scp-market__status:empty{display:none}
+.scp-market__list{display:grid;gap:12px;margin:18px 0}
+.scp-market__case{padding:18px;border:1px solid #d4af3780;border-radius:14px;background:#f7f4eb;color:#18372b}
+.scp-market__case h3{color:#18372b;margin:0 0 8px}
+.scp-market__stages{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:16px 0;padding:0;list-style:none}
+.scp-market__stages li{padding:10px 7px;border:1px solid #b5ad95;border-radius:8px;background:#ede9dd;color:#5e5a4e;text-align:center;font-size:.82rem;line-height:1.3}
+.scp-market__stages li[data-state=done]{border-color:#1a4d3a;background:#1a4d3a;color:#fff5dd}
+.scp-market__stages li[data-state=current]{border:2px solid #800020;background:#fff;color:#800020;font-weight:750}
+.scp-market__muted{color:#5b665d;font-size:.92rem}
+.scp-market__blank{padding:20px;border:1px dashed #d4af3780;border-radius:12px;color:#f5ead1}
+.scp-market__admin-demand{border-left:5px solid #800020}
+.scp-market__admin-offer{border-left:5px solid #1a4d3a}
+.scp-market__admin-form{display:grid;grid-template-columns:minmax(180px,1fr) 150px auto;gap:10px;align-items:end;margin-top:14px}
+.scp-market__admin-form label{display:grid;gap:5px;font-weight:650}
+.scp-market__admin-form input,.scp-market__admin-form select,.scp-market__admin-form textarea{width:100%;max-width:none;margin:0;padding:10px;border:1px solid #8e856c;border-radius:7px;background:white;color:#18372b;font:inherit}
+.scp-market__admin-review{padding:14px;border-left:3px solid #800020;background:#f7f4eb;color:#17372b;border-radius:8px}
+.scp-market__history{margin:12px 0;padding:10px 14px;border-radius:9px;background:#eee9da;color:#18372b}
+.scp-market__history summary{cursor:pointer;font-weight:700}
+.scp-market__history ol{margin:10px 0 0;padding-left:24px}
+.scp-market__history li{margin:6px 0}
+.scp-market__page{max-width:1180px;margin:0 auto;padding:clamp(20px,4vw,48px) 18px 70px}
+.scp-market__page-title{color:#f7f4eb;font:500 clamp(2rem,4vw,3.2rem)/1.12 Georgia,serif}
+.scp-market__page-lead{max-width:760px;color:#f1e9d4;font-size:1.1rem}
+.scp-market__marketplace-actions{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.scp-market__marketplace-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:8px;text-decoration:none;background:#d4af37;color:#163729;font-weight:700}
+.scp-market__marketplace-actions a:last-child{background:#800020;color:#fff7e7}
+@media(max-width:700px){.scp-market__stages{grid-template-columns:1fr}.scp-market__stages li{text-align:left}.scp-market__admin-form{grid-template-columns:1fr}.scp-market__form,.scp-market__card,.scp-market__case{padding:16px}}

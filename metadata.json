@@ -1,6 +1,0 @@
-{
-  "name": "Servicios Canal Puente (SCP)",
-  "description": "Plataforma institucional de intermediación de servicios verificados entre Usuarios Titulares y Especialistas acreditados con Escudo Dual SCP y custodia económica.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

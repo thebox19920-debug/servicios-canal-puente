@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import worker from '../dist/server/index.js';
+import {stripeSignature} from '../worker/stripe.mjs';
+const base='https://example.com';let calls=0;globalThis.fetch=async()=>{calls++;throw Error('No external requests allowed')};
+let r=await worker.fetch(new Request(base+'/api/stripe/config'),{});assert.deepEqual(await r.json(),{subscriptionsEnabled:false,protectedPaymentsEnabled:false,plans:[]});
+for(const path of ['subscriptions','membership','portal','protected/checkout']){r=await worker.fetch(new Request(base+'/api/stripe/'+path,{method:'POST'}),{});assert.equal(r.status,503)}assert.equal(calls,0);
+const t=Math.floor(Date.now()/1000),body=JSON.stringify({id:'evt_verified',type:'payment_intent.succeeded',data:{object:{}}});const key=await crypto.subtle.importKey('raw',new TextEncoder().encode('whsec_test'),{name:'HMAC',hash:'SHA-256'},false,['sign']);const digest=await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(t+'.'+body));const hex=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');const sig='t='+t+',v1='+hex;
+assert.equal(await stripeSignature(body,sig,'whsec_test'),true);assert.equal(await stripeSignature(body+'x',sig,'whsec_test'),false);assert.equal(await stripeSignature(body,'t=1,v1='+hex,'whsec_test'),false);
+const store=new Map(),env={STRIPE_CONNECT_ENABLED:'true',STRIPE_WEBHOOK_SECRET:'whsec_test',BUCKET:{get:async k=>store.has(k)?{}:null,put:async(k,v)=>store.set(k,v)}};
+const req=signature=>new Request(base+'/api/stripe/webhook',{method:'POST',headers:{'stripe-signature':signature},body});assert.equal((await worker.fetch(req('invalid'),env)).status,400);assert.equal((await worker.fetch(req(sig),env)).status,200);assert.equal((await worker.fetch(req(sig),env)).status,200);assert.equal(store.size,1);assert.equal(calls,0);
+console.log('Stripe OK: no admite membresías ni pagos de colaboradores pendientes de activación; eventos firmados e idempotentes. Sin dinero real.');

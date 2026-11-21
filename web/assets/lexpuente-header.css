@@ -1,0 +1,586 @@
+/* Shared LEXPUENTE header, based on the approved home page. */
+html body header.lex-organized-header.lex-organized-header{box-sizing:border-box!important;position:sticky!important;top:0!important;z-index:1200!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;width:100%!important;max-width:none!important;min-height:0!important;height:auto!important;margin:0!important;gap:22px 28px!important;padding:22px clamp(18px,4vw,76px) 0!important;background:linear-gradient(115deg,#062d21,#0c3a2b 65%,#06291f)!important;border:0!important;border-bottom:2px solid #bd9555!important;box-shadow:0 6px 22px #03181038!important;color:#fff2d9!important;font:16px/1.5 Arial,sans-serif!important;text-align:left!important;letter-spacing:normal!important}
+html body header.lex-organized-header.lex-organized-header *{box-sizing:border-box}
+html body header.lex-organized-header.lex-organized-header a{text-decoration:none!important;outline-offset:4px}
+html body header.lex-organized-header.lex-organized-header .logo{grid-column:1;grid-row:1;justify-self:start;display:flex!important;align-items:center!important;gap:18px!important;min-width:0!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;color:#dcbb7d!important}
+html body header.lex-organized-header.lex-organized-header .mark{font:74px/1 Georgia,serif!important;min-width:85px!important;letter-spacing:-15px!important;padding-right:15px!important;color:#dcbb7d!important;text-shadow:2px 0 #103428!important;display:block!important}
+html body header.lex-organized-header.lex-organized-header .lp-brand-words{display:flex!important;flex-direction:column!important;gap:6px!important}
+html body header.lex-organized-header.lex-organized-header .logo b{display:block!important;font:700 34px/1.1 Georgia,serif!important;letter-spacing:.12em!important;color:#f4e5c8!important}
+html body header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{display:block!important;font:12px/1.45 Arial,sans-serif!important;letter-spacing:.07em!important;color:#dcc5a2!important;white-space:normal}
+html body header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{display:block!important;font:17px/1.4 Arial,sans-serif!important;text-align:left!important;letter-spacing:normal!important;color:#dcc5a2!important}
+html body header.lex-organized-header.lex-organized-header .lex-header-contact{grid-column:2;grid-row:1;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:7px!important;min-width:190px!important;background:linear-gradient(125deg,#fff0c6,#edc47e)!important;border:1px solid #f6dc9f!important;border-radius:16px!important;padding:13px 22px!important;box-shadow:0 4px 18px #0002}
+html body header.lex-organized-header.lex-organized-header .lex-phone-link{font:800 22px/1.3 Arial,sans-serif!important;white-space:nowrap!important;color:#641b32!important;-webkit-text-fill-color:#641b32!important;text-shadow:none!important;letter-spacing:.02em!important;border:0!important;padding:0!important}
+html body header.lex-organized-header.lex-organized-header .lex-phone-link:before{content:none!important}
+html body header.lex-organized-header.lex-organized-header .lex-whatsapp-nav{font:800 17px/1.35 Arial,sans-serif!important;letter-spacing:.03em!important;color:#641b32!important;-webkit-text-fill-color:#641b32!important;background:transparent!important;padding:0!important;border:0!important;white-space:nowrap!important}
+html body header.lex-organized-header.lex-organized-header .lex-whatsapp-nav{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important}
+html body header.lex-organized-header.lex-organized-header .lex-whatsapp-icon{width:20px!important;height:20px!important;flex:0 0 20px!important;fill:none!important;stroke:#641b32!important;stroke-width:1.65!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+html body header.lex-organized-header.lex-organized-header .lex-whatsapp-label{display:inline-flex!important;align-items:center!important;gap:6px!important}
+html body header.lex-organized-header.lex-organized-header .lex-header-contact a:hover{text-decoration:underline!important}
+html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav{grid-column:1/-1!important;grid-row:2!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;gap:5px 8px!important;width:100%!important;min-width:0!important;order:unset!important;padding:12px 0!important;margin:0!important;overflow:visible!important;background:transparent!important;border:0!important;border-top:1px solid #b792514d!important;box-shadow:none!important}
+html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>a,html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>.lex-menu>summary{display:block!important;font:600 16px/1.5 Georgia,serif!important;padding:11px 14px!important;border:1px solid transparent!important;border-radius:9px!important;color:#fff2d9!important;-webkit-text-fill-color:#fff2d9!important;-webkit-text-stroke:0!important;white-space:nowrap!important;cursor:pointer!important;letter-spacing:normal!important;background:transparent!important;transition:background .15s ease,border-color .15s ease}
+html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>a:hover,html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>a[aria-current=page],html body header.lex-organized-header.lex-organized-header .lex-menu>summary:hover,html body header.lex-organized-header.lex-organized-header .lex-menu[open]>summary{background:#ecd09a!important;border-color:#d8b16d!important;color:#641b32!important;-webkit-text-fill-color:#641b32!important}
+html body header.lex-organized-header.lex-organized-header .lex-menu{position:relative!important;flex:0 0 auto!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important;z-index:5}
+html body header.lex-organized-header.lex-organized-header summary{list-style:none!important;user-select:none}
+html body header.lex-organized-header.lex-organized-header summary::-webkit-details-marker{display:none}
+html body header.lex-organized-header.lex-organized-header summary:after{content:'⌄';margin-inline-start:7px;color:#d8b777}
+html body header.lex-organized-header.lex-organized-header .lex-menu[open]>summary:after{color:#641b32}
+html body header.lex-organized-header.lex-organized-header .lex-menu:not([open])>.lex-dropdown-panel{display:none!important}
+html body header.lex-organized-header.lex-organized-header .lex-dropdown-panel{display:block!important;position:absolute!important;top:calc(100% + 8px)!important;inset-inline-start:0!important;inset-inline-end:auto!important;width:max-content!important;min-width:235px!important;max-width:min(400px,calc(100vw - 36px))!important;max-height:min(65vh,530px)!important;overflow-y:auto!important;z-index:100!important;box-shadow:0 14px 40px #0006!important;background:#0a3025!important;color:#fff2d9!important;border:1px solid #d0a65f!important;border-radius:13px!important;padding:14px!important;text-align:left!important}
+html body header.lex-organized-header.lex-organized-header .lex-language-menu .lex-dropdown-panel{inset-inline-start:auto!important;inset-inline-end:0!important;min-width:230px!important}
+html body header.lex-organized-header.lex-organized-header .lex-submenu-link{display:block!important;white-space:normal!important;font:15px/1.45 Arial,sans-serif!important;padding:11px 12px!important;border:0!important;border-radius:6px!important;color:#f3e7cf!important;-webkit-text-fill-color:#f3e7cf!important;background:transparent!important}
+html body header.lex-organized-header.lex-organized-header .lex-submenu-link:hover{background:#384838!important;color:#f4d292!important}
+html body header.lex-organized-header.lex-organized-header .lex-dropdown-group{font:800 10px/1.5 Arial,sans-serif!important;letter-spacing:.12em!important;color:#d4b476!important;padding:14px 11px 6px!important;border-top:1px solid #5e5746!important;margin-top:6px!important}
+html body header.lex-organized-header.lex-organized-header .lex-language-option{display:block!important;width:100%!important;text-align:start!important;color:#f1e7d4!important;padding:11px 12px!important;border:0!important;background:transparent!important;font:14px/1.4 Arial,sans-serif!important;border-radius:6px!important;cursor:pointer}
+html body header.lex-organized-header.lex-organized-header .lex-language-option:disabled{opacity:.55!important;cursor:default}
+html body header.lex-organized-header.lex-organized-header .lex-i18n-status{font:13px/1.5 Arial,sans-serif!important;color:#dcc5a2!important;margin:4px 12px 8px!important}
+html body header.lex-organized-header.lex-organized-header :is(a,summary,button):focus-visible{outline:3px solid #f5d18b!important;outline-offset:4px!important}
+@media(min-width:761px) and (max-width:1050px){html body header.lex-organized-header.lex-organized-header{padding-top:18px!important;gap:18px 20px!important}html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>a,html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>.lex-menu>summary{font-size:14px!important;padding:9px 11px!important}}
+@media(max-width:760px){html body header.lex-organized-header.lex-organized-header{display:none!important}}
+@media(prefers-reduced-motion:reduce){html body header.lex-organized-header.lex-organized-header *{transition:none!important}}
+html body header.lex-organized-header.lex-organized-header .logo b{-webkit-text-fill-color:#f4e5c8!important;-webkit-text-stroke:0!important;text-shadow:none!important}
+html body header.lex-organized-header.lex-organized-header .lex-direct-home:before{content:'⌂';margin-inline-end:6px;font-family:Georgia,serif}
+
+html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav>.lex-direct-home:before{content:"⌂"!important;display:inline!important;font:16px/1.5 Georgia,serif!important;margin-inline-end:6px!important;width:auto!important;height:auto!important}
+
+.lp-legal-footer{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:center;padding:24px 16px;margin:24px auto 0;border-top:1px solid #b39458;font:14px/1.6 Arial,sans-serif}.lp-legal-footer a{color:#f3cc85;text-decoration:underline;text-underline-offset:4px}.lp-legal-footer a:focus-visible{outline:3px solid #f3cc85;outline-offset:4px}
+
+/* Home: header and opened menus remain in document flow, above the content. */
+html body.lp-elegant-home header.lex-organized-header.lex-organized-header{position:relative!important;top:auto!important;inset:auto!important;transform:none!important;margin-bottom:0!important}
+html body.lp-elegant-home header.lex-organized-header.lex-organized-header .lex-primary-nav{align-items:flex-start!important}
+html body.lp-elegant-home header.lex-organized-header.lex-organized-header .lex-dropdown-panel{position:static!important;inset:auto!important;top:auto!important;transform:none!important;width:100%!important;min-width:0!important;max-width:350px!important;max-height:none!important;margin:8px 0 16px!important;overflow:visible!important}
+html body.lp-elegant-home header.lex-organized-header.lex-organized-header .lex-menu[open]{max-width:350px!important;flex:1 1 250px!important}
+html body.lp-elegant-home main{position:relative;clear:both;margin-top:0!important}
+@media(max-width:760px){html body.lp-elegant-home header.lex-organized-header.lex-organized-header .lex-menu[open]{flex:1 1 100%!important;max-width:none!important}html body.lp-elegant-home header.lex-organized-header.lex-organized-header .lex-menu[open] .lex-dropdown-panel{max-width:none!important}}
+
+/* Explicit account access beside the contact block, in document flow. */
+html body header.lex-organized-header.lex-organized-header .lex-header-tools{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:flex-end;gap:18px;min-width:0}
+html body header.lex-organized-header.lex-organized-header .lex-account-access{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin:0;padding:0;border:0;background:transparent;box-shadow:none;font-family:Arial,sans-serif}
+html body header.lex-organized-header.lex-organized-header .lex-account-access a{display:block;padding:9px 16px!important;border:1px solid #c9a66a!important;border-radius:9px!important;color:#f5dfb5!important;-webkit-text-fill-color:#f5dfb5!important;background:#103428!important;font:700 15px/1.3 Arial,sans-serif!important;text-align:center;white-space:nowrap}
+html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-register,html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-admin{background:#681c32!important;color:#fff2d5!important;-webkit-text-fill-color:#fff2d5!important}
+html body header.lex-organized-header.lex-organized-header .lex-account-access [hidden]{display:none!important}
+html body header.lex-organized-header.lex-organized-header .lex-account-access a:focus-visible{outline:3px solid #f2c56d!important;outline-offset:3px}
+@media(max-width:760px){html body header.lex-organized-header.lex-organized-header .lex-header-tools{grid-column:1/-1!important;grid-row:2!important;justify-self:stretch;justify-content:center;flex-wrap:wrap;gap:14px}html body header.lex-organized-header.lex-organized-header .lex-primary-nav.lex-primary-nav{grid-row:3!important}html body header.lex-organized-header.lex-organized-header .lex-account-access{flex-direction:row;flex-wrap:wrap;justify-content:center}html body header.lex-organized-header.lex-organized-header .lex-account-access a{font-size:14px!important;padding:10px 14px!important}html body header.lex-organized-header.lex-organized-header .lex-header-tools .lex-header-contact{min-width:0!important;padding:10px 16px!important}}
+
+html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{font-size:12px!important;white-space:normal!important;max-width:180px}
+
+/* Access pages follow the same document flow as the homepage. */
+html body.lp-access-layout header.lex-organized-header.lex-organized-header{position:relative!important;top:auto!important;inset:auto!important;transform:none!important;margin-bottom:0!important}
+html body.lp-access-layout header.lex-organized-header.lex-organized-header .lex-primary-nav{align-items:flex-start!important}
+html body.lp-access-layout header.lex-organized-header.lex-organized-header .lex-dropdown-panel{position:static!important;inset:auto!important;top:auto!important;transform:none!important;width:100%!important;min-width:0!important;max-width:350px!important;max-height:none!important;margin:8px 0 16px!important;overflow:visible!important}
+html body.lp-access-layout header.lex-organized-header.lex-organized-header .lex-menu[open]{max-width:350px!important;flex:1 1 250px!important}
+html body.lp-access-layout main{position:relative;clear:both;margin-top:0!important}
+@media(max-width:760px){html body.lp-access-layout header.lex-organized-header.lex-organized-header .lex-menu[open]{flex:1 1 100%!important;max-width:none!important}html body.lp-access-layout header.lex-organized-header.lex-organized-header .lex-menu[open] .lex-dropdown-panel{max-width:none!important}}
+html body.lp-access-layout main{inset:auto!important;transform:none!important;isolation:isolate}
+
+.lp-analytics-choice{position:relative;clear:both;background:#12382b;color:#fff2d5;border-top:1px solid #c9a66a;padding:18px 24px;font:16px/1.5 Arial,sans-serif}.lp-analytics-choice button{margin:8px 12px 8px 0;padding:10px 16px;background:#681c32;border:1px solid #c9a66a;border-radius:8px;color:#fff2d5;cursor:pointer}.lp-analytics-choice a{color:#f3cc85}
+
+/* One shared, in-flow layout on every page and subpage. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header{position:relative!important;inset:auto!important;top:auto!important;transform:none!important;margin:0!important;height:auto!important;max-height:none!important;overflow:visible!important;z-index:auto!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav{align-items:flex-start!important;height:auto!important;max-height:none!important;overflow:visible!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-dropdown-panel{position:static!important;inset:auto!important;top:auto!important;transform:none!important;width:100%!important;min-width:0!important;max-width:350px!important;max-height:none!important;height:auto!important;margin:8px 0 16px!important;overflow:visible!important;z-index:auto!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-menu[open]{max-width:350px!important;flex:1 1 250px!important}
+html body>main,html body>.hero,html body>.lex-page-content{position:relative!important;inset:auto!important;transform:none!important;clear:both!important;margin-top:0!important}
+html body .lp-mobile-head.lp-mobile-head,html body .lp-mobile-tabs.lp-mobile-tabs,html body .lp-mobile-menu.lp-mobile-menu{display:none!important}
+@media(max-width:760px){
+ html body{padding-top:0!important;padding-bottom:0!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header{display:grid!important;grid-template-columns:minmax(0,1fr)!important;padding:18px 16px 0!important;gap:18px!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{grid-column:1!important;grid-row:1!important;width:100%!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-tools{grid-column:1!important;grid-row:2!important;width:100%!important;justify-content:center!important;flex-wrap:wrap!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav{grid-column:1!important;grid-row:3!important;width:100%!important;display:flex!important;flex-wrap:wrap!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav>a,html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav>details{flex:1 1 100%!important;max-width:none!important;width:100%!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav>a{display:flex!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-menu[open]{flex:1 1 100%!important;max-width:none!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-menu[open] .lex-dropdown-panel{max-width:none!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .mark{min-width:52px!important;font-size:50px!important;letter-spacing:-10px!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo b{font-size:clamp(21px,6vw,30px)!important;letter-spacing:.06em!important}
+ html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{font-size:10px!important;overflow-wrap:anywhere!important}
+}
+
+html body header.lex-organized-header .lex-primary-nav{text-transform:uppercase!important}
+
+/* LEXPUENTE public entry points: client burgundy, specialist forest green. */
+html body header.lex-organized-header.lex-organized-header .lex-account-access{display:grid!important;grid-template-columns:1fr 1fr;gap:7px!important;align-items:stretch!important}
+html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-signin,html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{grid-column:1/-1}
+html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-holder{background:#681c32!important;color:#fff2d5!important;-webkit-text-fill-color:#fff2d5!important}
+html body header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-specialist{background:#103428!important;color:#f5dfb5!important;-webkit-text-fill-color:#f5dfb5!important}
+html body header.lex-organized-header.lex-organized-header .lex-account-access a{white-space:normal!important;min-width:0!important}
+
+/* Header refresh: clear top row for account actions, contact beside the shorter menu. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(340px,380px)!important;
+  grid-template-rows:auto auto!important;
+  grid-template-areas:"brand actions" "menu contact"!important;
+  align-items:center!important;
+  gap:10px clamp(16px,2vw,30px)!important;
+  padding:12px clamp(18px,3.5vw,64px) 9px!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  grid-area:brand!important;grid-column:1!important;grid-row:1!important;
+  gap:14px!important;align-self:center!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .mark{
+  min-width:65px!important;padding-right:10px!important;font-size:59px!important;letter-spacing:-12px!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo b{
+  font-size:29px!important;letter-spacing:.10em!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words{gap:4px!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{font-size:10px!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{font-size:14px!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-tools{display:contents!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access{
+  grid-area:actions!important;grid-column:2!important;grid-row:1!important;
+  display:grid!important;grid-template-columns:repeat(2,minmax(150px,1fr))!important;
+  gap:6px!important;width:min(100%,380px)!important;margin:0!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access a{
+  min-height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:7px 10px!important;border:1px solid #c9a66a!important;border-radius:8px!important;
+  font:700 13px/1.25 Arial,sans-serif!important;text-align:center!important;white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-signin,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{
+  grid-column:auto!important;background:#103428!important;color:#fff2d5!important;-webkit-text-fill-color:#fff2d5!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-holder{
+  background:#681c32!important;color:#fff2d5!important;-webkit-text-fill-color:#fff2d5!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-specialist{
+  background:#103e2d!important;color:#f5dfb5!important;-webkit-text-fill-color:#f5dfb5!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav{
+  grid-area:menu!important;grid-column:1!important;grid-row:2!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  flex-wrap:wrap!important;gap:2px 4px!important;width:100%!important;padding:5px 0 0!important;
+  margin:0!important;border:0!important;min-width:0!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav>a,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav>.lex-menu>summary{
+  font:600 13px/1.3 Georgia,serif!important;padding:7px 8px!important;border-radius:7px!important;
+  white-space:nowrap!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-direct-home:before{
+  content:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-contact{
+  grid-area:contact!important;grid-column:2!important;grid-row:2!important;
+  display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-end!important;
+  gap:14px!important;min-width:0!important;padding:4px 0 0!important;margin:0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-phone-link{
+  color:#f5e6ca!important;-webkit-text-fill-color:#f5e6ca!important;font:700 14px/1.35 Arial,sans-serif!important;
+  letter-spacing:.01em!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-nav{
+  display:inline-flex!important;align-items:center!important;gap:5px!important;padding:7px 10px!important;
+  border:1px solid #c9a66a!important;border-radius:8px!important;background:#0d382a!important;
+  color:#f4d18c!important;-webkit-text-fill-color:#f4d18c!important;font:700 12px/1.3 Arial,sans-serif!important;
+  white-space:nowrap!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-icon{width:18px!important;height:18px!important;flex-basis:18px!important;stroke:#f4d18c!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-nav span{font-weight:600!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-contact a:hover{text-decoration:underline!important}
+
+@media(min-width:761px) and (max-width:1150px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header{
+    grid-template-columns:minmax(0,1fr) minmax(320px,360px)!important;
+    grid-template-areas:"brand actions" "menu menu" "contact contact"!important;
+    row-gap:8px!important;
+  }
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav{
+    grid-column:1/-1!important;grid-row:2!important;justify-content:center!important;border-top:1px solid #b792514d!important;padding-top:8px!important;
+  }
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-contact{
+    grid-column:1/-1!important;grid-row:3!important;justify-self:end!important;padding-top:0!important;
+  }
+}
+@media(min-width:761px) and (max-width:880px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header{
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-areas:"brand" "actions" "menu" "contact"!important;
+    padding-inline:18px!important;
+  }
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo,
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access,
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav,
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-contact{
+    grid-column:1/-1!important;justify-self:center!important;
+  }
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access{grid-row:2!important;width:min(100%,500px)!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-primary-nav{grid-row:3!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-header-contact{grid-row:4!important;justify-content:center!important}
+}
+
+/* Refined WhatsApp contact: a quiet gold seal within the forest-green pill. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-nav{
+  gap:9px!important;padding:5px 12px 5px 6px!important;border:1px solid #c6a66b!important;border-radius:999px!important;
+  background:linear-gradient(135deg,#123b2c,#08291f)!important;box-shadow:0 3px 10px #0003,inset 0 1px #fff2d622!important;
+  text-decoration:none!important;transition:filter .18s ease,transform .18s ease!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-icon-shell{
+  display:grid!important;place-items:center!important;width:27px!important;height:27px!important;flex:0 0 27px!important;
+  border:1px solid #c4a367!important;border-radius:50%!important;background:radial-gradient(circle at 35% 28%,#285440,#0b2e21 72%)!important;
+  box-shadow:inset 0 1px #fff2d633!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-icon{
+  display:block!important;width:15px!important;height:15px!important;flex:0 0 15px!important;fill:none!important;
+  stroke:#f0d28d!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-label{gap:5px!important;color:#f5e6ca!important;-webkit-text-fill-color:#f5e6ca!important;font-weight:700!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-label>span{color:#e2c88f!important;-webkit-text-fill-color:#e2c88f!important;font:500 11px/1.2 Arial,sans-serif!important;letter-spacing:.02em!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-nav:hover{filter:brightness(1.1)!important;transform:translateY(-1px)!important;text-decoration:none!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-whatsapp-nav:focus-visible{outline:3px solid #f2d18b!important;outline-offset:3px!important}
+
+/* Cuatro accesos de cabecera: entrada, registro, administración reservada e inicio. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-register{
+  background:#681c32!important;color:#fff2d5!important;-webkit-text-fill-color:#fff2d5!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{grid-column:auto!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-home{background:linear-gradient(135deg,#e2c88f,#b18b4d)!important;color:#12382b!important;-webkit-text-fill-color:#12382b!important}
+
+/* SCP en el encabezado: fotografía del puente como fondo del espacio de marca. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  width:min(100%,520px)!important;max-width:520px!important;min-height:116px!important;
+  gap:10px!important;padding:10px 15px!important;
+  border:1px solid #c9a66a!important;border-radius:13px!important;
+  background-color:#06291e!important;
+  background-image:linear-gradient(90deg,rgba(3,30,22,.52),rgba(3,30,22,.68)),url('/assets/puente-emblema-20oct.webp')!important;
+  background-size:cover!important;background-position:center 45%!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.24),inset 0 0 0 1px rgba(255,237,196,.16)!important;
+}
+html body header.lex-organized-header.lex-organized-header .logo>*{position:relative!important;z-index:1!important}
+html body header.lex-organized-header.lex-organized-header .logo .mark{
+  flex:0 0 auto!important;min-width:0!important;padding:0!important;margin:0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  color:#681d36!important;-webkit-text-fill-color:#681d36!important;
+  font:700 52px/1 Georgia,serif!important;letter-spacing:-.055em!important;
+  text-shadow:0 0 2px #f1d293,1px 1px 0 #f1d293,-1px -1px 0 #f1d293,0 0 10px rgba(241,210,147,.6)!important;
+}
+html body header.lex-organized-header.lex-organized-header .logo .lp-brand-words{gap:3px!important;min-width:0!important}
+html body header.lex-organized-header.lex-organized-header .logo b{color:#f5e6c6!important;-webkit-text-fill-color:#f5e6c6!important;font:700 clamp(18px,1.65vw,23px)/1.05 Georgia,serif!important;letter-spacing:.07em!important;text-shadow:0 1px 8px rgba(0,0,0,.75)!important;white-space:nowrap!important}
+html body header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{display:block!important;color:#fff1d2!important;font:italic 500 12px/1.35 Georgia,serif!important;letter-spacing:.01em!important;white-space:normal!important;text-shadow:0 1px 6px rgba(0,0,0,.9)!important}
+html body header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{display:block!important;max-width:100%;color:#f1d08d!important;font:italic 500 13px/1.4 "Noto Naskh Arabic","Noto Sans Arabic",Georgia,serif!important;letter-spacing:0!important;text-align:right!important;direction:rtl!important;text-shadow:0 1px 6px rgba(0,0,0,.95)!important}
+@media(min-width:761px) and (max-width:1050px){
+  html body header.lex-organized-header.lex-organized-header .logo{width:min(100%,450px)!important;min-height:120px!important;padding:8px 11px!important}
+  html body header.lex-organized-header.lex-organized-header .logo .mark{font-size:46px!important}
+  html body header.lex-organized-header.lex-organized-header .logo b{font-size:18px!important}
+  html body header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{font-size:11px!important}
+  html body header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{font-size:12px!important}
+}
+@media(max-width:760px){html body header.lex-organized-header.lex-organized-header .logo{display:none!important}}
+
+/* Marca SCP en composición vertical: nombre a la izquierda, sigla centrada y lema bilingüe. */
+html body header.lex-organized-header.lex-organized-header .logo{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto auto auto!important;justify-items:stretch!important;
+  align-items:center!important;gap:5px!important;
+  width:min(100%,560px)!important;max-width:560px!important;min-height:208px!important;
+  padding:14px 22px!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words{
+  display:block!important;grid-column:1!important;grid-row:1!important;
+  justify-self:center!important;width:100%!important;min-width:0!important;text-align:center!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo b{
+  display:block!important;color:#c7dfcc!important;-webkit-text-fill-color:#c7dfcc!important;
+  font-size:clamp(18px,1.65vw,22px)!important;letter-spacing:.09em!important;
+  line-height:1.15!important;white-space:normal!important;text-align:center!important;text-shadow:0 1px 8px rgba(0,0,0,.8)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .mark{
+  grid-column:1!important;grid-row:2!important;justify-self:center!important;align-self:center!important;
+  font-size:58px!important;line-height:1!important;margin:0!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-taglines{
+  grid-column:1!important;grid-row:3!important;justify-self:center!important;display:flex!important;
+  flex-direction:column!important;align-items:center!important;gap:5px!important;width:100%!important;min-width:0!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-taglines:before{
+  content:"";display:block;width:54px;height:1px;margin:0 auto 2px;
+  background:linear-gradient(90deg,transparent,#d4b26d,transparent);
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{
+  font-size:14px!important;line-height:1.4!important;text-align:center!important;max-width:100%!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{
+  font-size:16px!important;line-height:1.45!important;text-align:center!important;max-width:100%!important;
+}
+@media(min-width:761px) and (max-width:1050px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{width:min(100%,500px)!important;max-width:500px!important;min-height:210px!important;padding:13px 18px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo b{font-size:18px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{font-size:13px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{font-size:15px!important}
+}
+
+/* Marca SCP en granate sobre la fotografía del puente, dentro de la paleta original. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  background-color:#06291e!important;
+  background-image:linear-gradient(120deg,rgba(3,30,22,.08),rgba(8,30,25,.10)),url('/assets/puente-emblema-20oct.webp')!important;
+  background-size:cover!important;background-position:center 45%!important;
+  border-color:#c9a66a!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,237,196,.2)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo b,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .mark,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{
+  color:#641b32!important;-webkit-text-fill-color:#641b32!important;
+  -webkit-text-stroke:.55px rgba(233,199,126,.96)!important;
+  text-shadow:0 1px 1px rgba(0,0,0,.92),0 0 8px rgba(0,0,0,.68)!important;
+}
+
+/* Logo principal horizontal: sello SCP, nombre y lema sobre el puente. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;
+  gap:20px!important;width:min(100%,700px)!important;max-width:700px!important;min-height:144px!important;
+  padding:12px 19px!important;border:1px solid #c9a66a!important;border-radius:17px!important;
+  background-color:#06291e!important;
+  background-image:linear-gradient(90deg,rgba(3,30,22,.10),rgba(8,30,25,.16)),url('/assets/puente-emblema-20oct.webp')!important;
+  background-size:cover!important;background-position:center 48%!important;
+  box-shadow:0 6px 20px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,237,196,.2)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  display:block!important;flex:0 0 112px!important;width:112px!important;height:112px!important;max-width:none!important;
+  border-radius:50%!important;box-shadow:0 3px 13px rgba(0,0,0,.4)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-copy{
+  display:flex!important;flex:1 1 auto!important;flex-direction:column!important;align-items:flex-start!important;
+  justify-content:center!important;gap:9px!important;min-width:0!important;text-align:left!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words{
+  display:block!important;width:100%!important;min-width:0!important;text-align:left!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words b{
+  display:block!important;color:#641b32!important;-webkit-text-fill-color:#641b32!important;
+  -webkit-text-stroke:.45px rgba(232,198,121,.98)!important;
+  font:700 clamp(20px,2vw,29px)/1.08 Georgia,serif!important;letter-spacing:.065em!important;
+  text-shadow:0 1px 5px rgba(0,0,0,.9)!important;white-space:normal!important;text-wrap:balance!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-taglines{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:5px!important;
+  width:100%!important;min-width:0!important;text-align:left!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{
+  display:block!important;max-width:100%!important;color:#f0d28d!important;-webkit-text-fill-color:#f0d28d!important;
+  font:italic 500 14px/1.35 Georgia,serif!important;letter-spacing:0!important;white-space:normal!important;
+  text-shadow:0 1px 5px rgba(0,0,0,.95)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-ar{
+  display:block!important;align-self:flex-end!important;max-width:100%!important;color:#e6c67f!important;-webkit-text-fill-color:#e6c67f!important;
+  font:italic 500 14px/1.35 "Noto Naskh Arabic","Noto Sans Arabic",Georgia,serif!important;
+  text-align:right!important;direction:rtl!important;letter-spacing:0!important;text-shadow:0 1px 5px rgba(0,0,0,.95)!important;
+}
+@media(min-width:761px) and (max-width:1150px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{width:100%!important;max-width:680px!important;min-height:136px!important;gap:16px!important;padding:10px 15px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{flex-basis:100px!important;width:100px!important;height:100px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words b{font-size:clamp(19px,2.4vw,26px)!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-subtitle{font-size:13px!important}
+}
+
+/* SCP logo: keep the name centered in the dark water below the bridge, clear of its gold arch. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  display:block!important;position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  width:min(100%,700px)!important;max-width:700px!important;height:174px!important;min-height:174px!important;
+  padding:0!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  position:absolute!important;z-index:2!important;left:17px!important;top:50%!important;transform:translateY(-50%)!important;
+  width:100px!important;height:100px!important;flex:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-copy{
+  position:absolute!important;z-index:2!important;left:14px!important;right:14px!important;bottom:10px!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  width:auto!important;min-width:0!important;padding:5px 14px!important;border-radius:10px!important;
+  background:linear-gradient(90deg,transparent 0%,rgba(3,28,20,.76) 12%,rgba(3,28,20,.76) 88%,transparent 100%)!important;
+  text-align:center!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words{
+  display:block!important;width:100%!important;min-width:0!important;text-align:center!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words b{
+  display:block!important;width:100%!important;text-align:center!important;white-space:nowrap!important;
+  font-size:clamp(20px,1.8vw,25px)!important;line-height:1.12!important;letter-spacing:.045em!important;
+}
+@media(min-width:761px) and (max-width:1150px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{height:164px!important;min-height:164px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words b{font-size:clamp(20px,2.15vw,24px)!important}
+}
+
+/* Give the reserved access button the full width of both account buttons above it. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{
+  grid-column:1 / -1!important;justify-self:stretch!important;width:100%!important;max-width:none!important;
+}
+
+/* Marca SCP: sigla dorada en el emblema y nombre granate con borde dorado legible. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words b{
+  color:#581010!important;-webkit-text-fill-color:#581010!important;
+  -webkit-text-stroke:1px #e0c27e!important;paint-order:stroke fill!important;
+  text-shadow:0 1px 4px rgba(0,0,0,.9)!important;
+}
+
+/* Primary conversion actions inspired by service marketplaces. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:auto auto auto!important;
+  align-content:start!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-signin{
+  grid-column:1!important;grid-row:1!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-register{
+  grid-column:2!important;grid-row:1!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{
+  grid-column:1/-1!important;grid-row:2!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer{
+  display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:42px!important;
+  padding:8px 10px!important;border:1px solid #d4b26d!important;border-radius:9px!important;
+  color:#fff4df!important;-webkit-text-fill-color:#fff4df!important;text-align:center!important;
+  font:700 12px/1.2 Arial,sans-serif!important;white-space:normal!important;text-wrap:balance!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration{
+  grid-column:1!important;grid-row:3!important;background:linear-gradient(135deg,#701d37,#4f1228)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer{
+  grid-column:2!important;grid-row:3!important;background:linear-gradient(135deg,#174936,#0b3023)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration:hover,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer:hover{
+  filter:brightness(1.12)!important;transform:translateY(-1px)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration:focus-visible,
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer:focus-visible{
+  outline:3px solid #f2d18b!important;outline-offset:3px!important;
+}
+@media(max-width:520px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration,
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer{
+    min-height:44px!important;padding:7px 6px!important;font-size:11px!important;
+  }
+}
+@media(max-width:760px){
+  html body header.lp-mobile-head .lp-mobile-brand .lp-mobile-brand-copy b,
+  html body header.lp-mobile-head .lp-mobile-brand b{
+    color:#581010!important;-webkit-text-fill-color:#581010!important;
+    -webkit-text-stroke:.9px #e0c27e!important;paint-order:stroke fill!important;
+    text-shadow:0 1px 4px rgba(0,0,0,.9)!important;
+  }
+}
+
+/* Un único acceso común y dos recorridos de alta, sin un tercer botón redundante. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto auto auto!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-signin{grid-column:1/-1!important;grid-row:1!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration{grid-column:1!important;grid-row:2!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer{grid-column:2!important;grid-row:2!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{grid-column:1/-1!important;grid-row:3!important}
+
+/* Membresías comparte el grupo de accesos de cabecera y sale de la barra principal. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto auto auto!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-signin{grid-column:1!important;grid-row:1!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-membership{grid-column:2!important;grid-row:1!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-registration{grid-column:1!important;grid-row:2!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-service-offer{grid-column:2!important;grid-row:2!important}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .lex-account-access .lex-account-special{grid-column:1/-1!important;grid-row:3!important}
+
+/* Nuevo emblema SCP: recorte centrado del escudo suministrado; se conserva el nombre y el fondo del puente. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  display:block!important;flex:0 0 116px!important;width:116px!important;height:103px!important;max-width:none!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  background-color:transparent!important;background-image:url('/assets/scp-escudo-logo-original.jpeg')!important;
+  background-repeat:no-repeat!important;background-size:257px auto!important;background-position:50% 0!important;
+  clip-path:polygon(50% 5%,62% 14%,80% 14%,97% 28%,100% 48%,95% 75%,92% 90%,75% 97%,50% 100%,25% 97%,8% 90%,5% 75%,0 48%,3% 28%,20% 14%,38% 14%)!important;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.38))!important;
+}
+@media(min-width:761px) and (max-width:1150px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{flex-basis:104px!important;width:104px!important;height:92px!important;background-size:231px auto!important}
+}
+
+/* Escudo SCP limpio, ampliado y con el lema integrado sobre el nombre. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  display:block!important;position:absolute!important;z-index:3!important;left:17px!important;top:50%!important;
+  transform:translateY(-50%)!important;flex:none!important;width:138px!important;height:138px!important;max-width:none!important;
+  object-fit:contain!important;object-position:center!important;background:none!important;clip-path:none!important;
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.38))!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-tagline{
+  display:block!important;margin:0 0 3px!important;width:100%!important;
+  color:#f1dbad!important;-webkit-text-fill-color:#f1dbad!important;
+  font:italic 400 clamp(11px,.94vw,13px)/1.24 Georgia,serif!important;letter-spacing:.035em!important;
+  text-align:center!important;white-space:normal!important;text-wrap:balance!important;
+  text-shadow:0 1px 5px rgba(0,0,0,.96)!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-copy{gap:1px!important;padding:6px 14px 7px!important}
+@media(min-width:761px) and (max-width:1150px){
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{flex-basis:130px!important;width:130px!important;height:136px!important}
+  html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-tagline{font-size:12px!important}
+}
+
+/* Identidad SCP simplificada: puente y medallón arriba; nombre y lema legibles debajo. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  display:flex!important;position:relative!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:1px!important;width:min(100%,700px)!important;max-width:700px!important;height:auto!important;min-height:0!important;
+  padding:0!important;overflow:visible!important;background:transparent!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  display:block!important;position:static!important;inset:auto!important;transform:none!important;z-index:auto!important;
+  flex:none!important;width:100%!important;max-width:700px!important;height:auto!important;aspect-ratio:4.9 / 1!important;
+  object-fit:cover!important;object-position:center 50%!important;clip-path:none!important;border:0!important;border-radius:0!important;
+  background:transparent!important;box-shadow:none!important;filter:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-copy{
+  display:flex!important;position:static!important;flex:0 0 auto!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:2px!important;width:100%!important;min-width:0!important;padding:0!important;margin:0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;text-align:center!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words{
+  display:block!important;order:0!important;width:100%!important;min-width:0!important;text-align:center!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-words b{
+  display:block!important;color:#e8ca83!important;-webkit-text-fill-color:#e8ca83!important;-webkit-text-stroke:0!important;
+  font:700 clamp(19px,2vw,28px)/1.08 Georgia,serif!important;letter-spacing:.075em!important;text-shadow:0 1px 4px rgba(0,0,0,.5)!important;
+  white-space:normal!important;text-wrap:balance!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-tagline{
+  display:block!important;order:1!important;width:100%!important;max-width:100%!important;margin:0!important;padding:0 4px!important;
+  color:#f1dbad!important;-webkit-text-fill-color:#f1dbad!important;font:italic 400 clamp(11px,1.05vw,14px)/1.3 Georgia,serif!important;
+  letter-spacing:.01em!important;text-align:center!important;white-space:normal!important;text-wrap:balance!important;text-shadow:none!important;
+}
+
+/* Logotipo definitivo SCP: puente, agua y medallón en una sola pieza visual. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  display:block!important;position:relative!important;width:min(100%,680px)!important;max-width:680px!important;
+  height:auto!important;min-height:0!important;padding:0!important;overflow:visible!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  display:block!important;position:static!important;inset:auto!important;transform:none!important;z-index:auto!important;
+  width:100%!important;max-width:680px!important;height:auto!important;aspect-ratio:2170 / 725!important;
+  object-fit:contain!important;object-position:center!important;clip-path:none!important;border:0!important;border-radius:0!important;
+  background:transparent!important;box-shadow:none!important;filter:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-copy{display:none!important}
+
+/* Marco fino de la tarjeta del logotipo, según la captura de referencia. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  border:1px solid rgba(212,175,55,.88)!important;
+  border-radius:10px!important;
+  overflow:hidden!important;
+  box-shadow:inset 0 0 0 1px rgba(246,224,173,.28)!important;
+}
+@media(max-width:760px){
+  html body header.lp-mobile-head .lp-mobile-brand{
+    border:1px solid rgba(212,175,55,.88)!important;
+    border-radius:10px!important;
+    overflow:hidden!important;
+    box-shadow:inset 0 0 0 1px rgba(246,224,173,.28)!important;
+  }
+}

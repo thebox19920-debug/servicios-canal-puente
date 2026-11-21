@@ -1,0 +1,24 @@
+LEXPUENTE — PORTADA LIMPIA Y PÁGINAS INDEPENDIENTES
+
+Versión: LEXPUENTE-PORTADA-4-CAPITULOS-2026-10-18-V2
+
+ESTRUCTURA:
+- index.html: SOLO portada, fotografía original y puente grande debajo.
+- introduccion.html: Introducción independiente.
+- presentacion.html: Presentación del proyecto independiente.
+- quienes-somos.html: Historia de la fundadora y Quiénes somos.
+- nuestro-valor.html: Nuestro valor.
+- areas-de-actividad.html: las siete ramas de actividad.
+- areas/: páginas independientes para cada rama.
+- tienda.html, asociacion.html, agenda.html y contacto.html: independientes.
+
+NO SE HA CAMBIADO LA FOTOGRAFÍA PRINCIPAL, EL TEXTO APROBADO NI LAS RAMAS.
+
+COMPROBACIÓN DEL DESPLIEGUE ONLINE:
+Después de subir ESTE ZIP en «Despliegues» del proyecto NETLIFY ya existente,
+visita https://spiffy-paprenjak-f1b951.netlify.app/comprobar-version.html
+Si esa página no existe, NO se ha publicado este paquete en ese sitio.
+
+ESTE ZIP YA TIENE index.html EN LA RAÍZ. Netlify Drop admite ZIP.
+
+VERSIONES ANTERIORES: se han conservado por separado.

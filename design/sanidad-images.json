@@ -1,0 +1,146 @@
+[
+  {
+    "id": "agenda-recepcion",
+    "title": "Gestión de agenda y recepción",
+    "scene": "Recepcionista atendiendo llamada con auriculares y una agenda en una clínica dental elegante",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "historial-seguimiento",
+    "title": "Historial y seguimiento del paciente",
+    "scene": "Profesional administrativa organizando fichas de pacientes en un ordenador sin datos legibles, documentos protegidos en clínica",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "visibilidad-clinica",
+    "title": "Visibilidad para tu clínica",
+    "scene": "Grabación profesional de una entrevista a una odontóloga con cámara y luz suave en una clínica",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "presupuestos-clinica",
+    "title": "Venta y explicación de presupuestos",
+    "scene": "Coordinadora explicando con calma un presupuesto impreso sin texto legible a una paciente en recepción dental",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "higienes-gabinete",
+    "title": "Higienes y blanqueamiento en tu gabinete",
+    "scene": "Higienista dental con guantes y mascarilla trabajando en un gabinete luminoso, escena no invasiva",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "material-consumibles",
+    "title": "Provisión de material y consumibles",
+    "scene": "Bandeja impecable con guantes vasos baberos algodones y material dental pequeño empaquetado",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen."
+  },
+  {
+    "id": "material-pesado",
+    "title": "Provisión de material pesado",
+    "scene": "Sillón dental moderno en clínica luminosa con equipo radiológico al fondo",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen."
+  },
+  {
+    "id": "seleccion-profesionales",
+    "title": "Colocación de profesionales",
+    "scene": "Entrevista profesional entre directora de clínica y odontóloga con carpeta de acreditaciones",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "higiene-prevencion",
+    "title": "Higiene y prevención",
+    "scene": "Primer plano elegante de sonrisa natural y espejo dental sostenido por mano con guante",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "ortodoncia",
+    "title": "Ortodoncia",
+    "scene": "Alineador transparente y modelo dental con brackets en mesa clínica",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen."
+  },
+  {
+    "id": "implantologia",
+    "title": "Implantología",
+    "scene": "Modelo didáctico limpio de implante dental con corona y pantalla de imagen 3D desenfocada",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen."
+  },
+  {
+    "id": "cirugia-oral",
+    "title": "Cirugía oral",
+    "scene": "Odontólogo con mascarilla en gabinete preparando instrumental estéril, sin cirugía ni sangre",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "conservadora",
+    "title": "Conservadora y odontología general",
+    "scene": "Odontóloga explicando a paciente un modelo de muela y restauración dental",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "periodoncia",
+    "title": "Periodoncia y periodontología",
+    "scene": "Modelo didáctico de encías sanas y dientes con instrumento periodontal, imagen limpia y delicada",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen."
+  },
+  {
+    "id": "odontopediatria",
+    "title": "Odontopediatría",
+    "scene": "Odontóloga amable explicando cepillado a niña acompañada de madre en consulta luminosa",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "estetica-dental",
+    "title": "Estética dental",
+    "scene": "Sonrisa natural elegante junto a guía de tonos dentales en mano con guante",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  },
+  {
+    "id": "protesis",
+    "title": "Prótesis",
+    "scene": "Prótesis dental y coronas cerámicas sobre mesa de laboratorio dental limpia",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen."
+  },
+  {
+    "id": "acompanamiento-consulta",
+    "title": "Acompañamiento e interpretación en consulta",
+    "scene": "Mujer intérprete acompañando a otra mujer durante conversación con médico en consulta, clima tranquilo",
+    "style": "Cartel vertical 2:3, panel granate curvo, verde profundo, dorado, tipografía serif crema, monograma LP y puente; referencia del catálogo de Trámites. Sin precios ni botones dentro de la imagen.",
+    "identity_reference": "web/assets/foto-original-lexpuente.png",
+    "identity_rule": "Usar el rostro y el cabello de la fundadora ya presentes en Trámites. No sustituirla por una modelo genérica. Mantener a pacientes y acompañantes secundarios distintos.",
+    "pose_rule": "La fundadora no debe tocarse la cara, barbilla, mejilla ni boca, ni apoyar la cabeza en la mano. Usar conversación natural con manos sobre mesa o carpeta, alejadas del rostro."
+  }
+]

@@ -1,0 +1,13 @@
+# Área privada LEXPUENTE
+Acceso /mi-cuenta.html y /administracion.html mediante identidad autenticada de Sites/ChatGPT. No hay contraseña propia ni registro independiente por correo. Crear cuenta de ChatGPT no crea perfil LEXPUENTE: el usuario completa nombre y lectura de privacidad. Clientes autoalta; colaboradores exclusivamente autorizados por administradora, con contrato PDF archivado y acreditaciones confirmadas. No se envían correos/invitaciones automáticamente.
+
+La administradora se autoriza mediante STATISTICS_OWNER_EMAIL y cabeceras verificadas de Sites. D1 registra perfiles, autorizaciones, contratos (metadatos), encargos y eventos. Cada lectura y descarga comprueba identidad, pertenencia y estado. Contratos PDF R2 privados, sin URLs públicas, con huella SHA256 y descarga forzada. No se verifica criptográficamente la firma: la administradora confirma que ambas partes han firmado. La firma electrónica externa todavía no se integra.
+
+OPP sigue inactivo. Encargos manuales siempre not_collected; no se inventan saldos, cobros ni retenciones. Incidencias registradas en el servidor; confirmación de liberación bloqueada hasta proveedor y revisiones verificadas. No hay encuestas de finalización habilitadas. Documentos médicos desactivados hasta definir canal, base jurídica, información y permisos profesionales específicos.
+
+Suscripciones: se muestran registros PayPal existentes (máximo 100 por lectura, aviso si truncado), con estado y última comprobación; no consultar al proveedor automáticamente en este panel. ownerUserId se adjunta a nuevas suscripciones cuando el comprador esté autenticado; antiguas sin vínculo son «sin vincular». Ninguna cuenta se clasifica como pagada por el mero registro. Cobros recurrentes continúan desactivados. Los pagos puntuales anteriores siguen en su circuito PayPal y no se importan al panel automáticamente.
+
+No almacenar datos clínicos en títulos/notas de encargos o incidencias. Completar identificación del responsable y documentos de privacidad antes de recoger información clínica.
+
+## Acceso adicional por código
+La administración, descargas administrativas y estadísticas requieren cuenta de propietaria verificada y cookie de desbloqueo firmada. /acceso-lexpuente.html solicita código; /api/portal/admin/unlock comprueba su hash secreto en servidor, aplica máximo cinco intentos por ventana de 15 minutos y emite cookie HttpOnly/Secure/SameSite=Strict de 30 minutos ligada al ID autenticado. ADMIN_CODE_HASH y ADMIN_SESSION_SECRET se gestionan como secretos de Sites; no se incluyen en fuentes ni HTML. El código no crea perfiles ni otorga rol de administradora. La firma de cookies no utiliza el código como clave.

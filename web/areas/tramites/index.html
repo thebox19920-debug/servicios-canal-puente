@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><base href="/areas/"><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>SCP TRÁMITES Y DOCUMENTACIÓN</title><meta content="Apoyo práctico para comprender gestiones, preparar documentos y avanzar con claridad." name="description"/>
+<style>
+:root{--green:#103428;--green2:#1c4a37;--wine:#63172a;--gold:#f2c56d;--gold2:#ffdb88;--gold3:#e4b661;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--green);color:var(--gold2);font-family:Arial,'Helvetica Neue',sans-serif;line-height:1.65}
+a{color:inherit}a:focus-visible{outline:3px solid var(--gold2);outline-offset:4px}
+header{position:sticky;top:0;z-index:10;background:#09291f;border-bottom:2px solid var(--gold);box-shadow:0 8px 25px #07160d66}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 24px}.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--gold)}.lp{display:grid;place-items:center;width:43px;height:43px;background:var(--wine);border:1px solid var(--gold);border-radius:50%;font-family:Georgia,serif;font-weight:bold;font-size:22px}.brandname{font-family:Georgia,serif;font-size:22px;font-weight:bold;letter-spacing:.08em}
+.back{padding:9px 14px;border:1px solid var(--gold);border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px}.back:hover{background:var(--wine)}
+.hero{padding:70px 24px 70px;background:radial-gradient(circle at 90% 10%,#902643 0%,#58182b 34%,#103428 78%);border-bottom:1px solid #d9a85d;}.wrap{max-width:1100px;margin:0 auto}.kicker{font-size:12px;letter-spacing:.2em;font-weight:bold;color:var(--gold2);text-transform:uppercase}h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.22}h1{font-size:clamp(38px,6vw,68px);max-width:900px;margin:16px 0;color:#ffda87}h2{font-size:clamp(28px,3vw,38px);margin:0 0 10px}.lead{font-size:clamp(17px,1.7vw,21px);max-width:780px;margin:0;color:#ffdaa0}
+main{padding:55px 24px 75px}.intro{max-width:840px;margin:0 auto 34px}.intro p{margin:0}.intro .caption{margin-top:15px;font-weight:bold;color:#f5cf80}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0}
+.service{background:var(--wine);border:1px solid var(--gold);border-top:4px solid var(--gold2);padding:24px;border-radius:12px;min-height:170px}.service:nth-child(even){background:var(--green2)}.service h3{font-size:24px;margin:0 0 12px;color:var(--gold2)}.service p{margin:0 0 20px;font-size:15px}.price{font-size:14px;border-top:1px solid #efc57580;padding-top:13px;color:var(--gold2);font-weight:bold}
+.notice{border:1px solid var(--gold);border-radius:10px;padding:20px 24px;color:var(--gold2);background:#1b4433}.cta{margin-top:38px;background:var(--gold);color:#511726;padding:26px 32px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:20px}.cta h2{font-size:26px}.cta p{margin:0}.action{display:inline-flex;align-items:center;padding:14px 19px;border-radius:9px;background:var(--wine);color:var(--gold2);text-decoration:none;font-weight:bold;text-align:center}.action:hover{background:#86223d}.other{padding:0 24px 60px}.other h2{font-size:27px}.otherlinks{display:flex;gap:10px;flex-wrap:wrap}.otherlinks a{border:1px solid var(--gold);text-decoration:none;padding:9px 12px;border-radius:8px;font-size:14px}.otherlinks a:hover{background:var(--wine)}footer{padding:24px;text-align:center;border-top:1px solid #d0a85b;color:#e8c887;font-size:13px}
+@media(max-width:740px){.nav{padding:12px 16px}.brandname{font-size:17px}.hero{padding:55px 18px}main{padding:42px 18px}.list{grid-template-columns:1fr}.cta{display:block;padding:25px}.action{margin-top:20px}.other{padding:0 18px 35px}}
+
+/* Catálogos de SCP · distribuidos por rama */
+.catalog-entry{padding:26px 0 8px;border-top:1px solid rgba(255,213,128,.65);margin-top:24px;scroll-margin-top:94px}
+.catalog-entry .eyebrow,.catalog-entry .kicker{color:#ffdd96;letter-spacing:.13em;font-size:12px;font-weight:700}
+.catalog-entry h2{font-size:clamp(26px,4vw,38px);color:#ffda87;margin:10px 0 14px}
+.catalog-entry>p{font-size:16px;color:#f4d5a1;max-width:890px}
+.catalog-entry .catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}
+.catalog-entry .catalog-item,.catalog-entry .lex-price-item,.catalog-entry .lex-detail{background:#681b30;border:1px solid #e9b76e;border-radius:13px;padding:22px;color:#ffe1a0}
+.catalog-entry .catalog-item:nth-child(even),.catalog-entry .lex-price-item:nth-child(even){background:#204a37}
+.catalog-entry .catalog-item h3,.catalog-entry .lex-price-item h3,.catalog-entry .lex-detail h4{font-size:21px;color:#ffe1a0;margin:0 0 9px}
+.catalog-entry .catalog-item p,.catalog-entry .lex-price-item p{color:#f7dcaa;margin:0}
+.catalog-entry .lex-price-item strong,.catalog-entry .price{display:inline-block;margin-top:14px;color:#ffdb87;font-size:19px}
+.catalog-entry .lex-tariff-group{margin:13px 0;border:1px solid #e8b86d;border-radius:12px;overflow:hidden;background:#5f182d}
+.catalog-entry .lex-tariff-group[open]{background:#411a2c}
+.catalog-entry .lex-tariff-group summary{padding:16px 20px;color:#ffe0a2;font-size:18px;font-weight:700;cursor:pointer;background:#204832}
+.catalog-entry .lex-tariff-row{padding:11px 20px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid rgba(244,194,117,.2);color:#ffe0a2}
+.catalog-entry .lex-tariff-row b{white-space:nowrap;color:#ffe0a2}
+.catalog-entry .lex-biz-grid,.catalog-entry .lex-price-grid,.catalog-entry .lex-ngo-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:22px 0}
+.catalog-entry .lex-biz-grid article,.catalog-entry .lex-ngo-panels article,.catalog-entry .lex-biz-pricing,.catalog-entry .lex-ngo-animals{padding:22px;border-radius:12px;background:#681b30;color:#ffe0a0;border:1px solid #e9b76e}
+.catalog-entry .lex-biz-grid article:nth-child(even){background:#204a37}
+.catalog-entry .lex-biz-grid h3,.catalog-entry .lex-biz-pricing h3,.catalog-entry .lex-ngo-animals h3{color:#ffdf93;margin:7px 0}
+.catalog-entry .lex-biz-grid p{margin:0;color:#f7dcaa}.catalog-entry .lex-offer-price{font-size:24px;font-weight:bold;color:#ffdf93}
+.catalog-entry .lex-pill,.catalog-entry .lex-offer-tag{color:#ffdf93;font-size:12px;letter-spacing:.13em;font-weight:bold}
+.catalog-entry .lex-biz-pricing,.catalog-entry .lex-ngo-animals{margin-top:18px}.catalog-entry .lex-biz-pricing>*,.catalog-entry .lex-ngo-animals>*{max-width:100%}
+.catalog-entry .catalog-note{border-left:4px solid #ffe0a0;padding:12px 16px;background:#1c4933;color:#ffe0a0;margin:24px 0;border-radius:4px}
+.catalog-entry .lex-detail ul{margin-left:0;padding-left:18px}.catalog-entry .lex-detail li{margin-bottom:7px}.catalog-entry a{color:#ffe1a0}
+.catalog-entry .catalog-buttons{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.catalog-entry .catalog-buttons a{display:inline-block;border:1px solid #ffdb87;border-radius:8px;padding:10px 14px;text-decoration:none}
+.catalog-entry .lex-biz-pricing strong{color:#ffe0a0}.catalog-entry .lex-biz-pricing table{width:100%}
+@media(max-width:740px){.catalog-entry .catalog-grid,.catalog-entry .lex-biz-grid,.catalog-entry .lex-price-grid,.catalog-entry .lex-ngo-panels{grid-template-columns:1fr}.catalog-entry .lex-tariff-row{font-size:14px}}
+</style><style>
+/* Menú de navegación entre páginas reales · 18 octubre 2026 */
+.lex-multipage-nav{background:#143a2c;border-top:1px solid #cba45f;border-bottom:1px solid #edc778;padding:12px max(16px,calc((100vw - 1200px)/2));color:#ffe2a3;font-family:Arial,sans-serif;position:relative;z-index:8}
+.lex-multipage-nav .lex-multipage-links{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px}
+.lex-multipage-nav a,.lex-multipage-nav summary{display:inline-block;cursor:pointer;color:#ffe2a3!important;text-decoration:none;font-size:14px;font-weight:700;padding:8px 10px;border-radius:8px;border:1px solid transparent}
+.lex-multipage-nav a:hover,.lex-multipage-nav summary:hover{background:#65192e;border-color:#edc778}
+.lex-multipage-nav a:focus-visible,.lex-multipage-nav summary:focus-visible{outline:3px solid #ffe2a3;outline-offset:2px}
+.lex-multipage-nav details{position:relative}
+.lex-multipage-nav summary{list-style:none;white-space:nowrap}
+.lex-multipage-nav summary::-webkit-details-marker{display:none}
+.lex-multipage-nav .lex-multipage-dropdown{display:grid;gap:3px;position:absolute;top:100%;left:0;min-width:300px;max-width:calc(100vw - 28px);background:#113426;border:2px solid #edc778;border-radius:12px;padding:9px;box-shadow:0 10px 24px #0007}
+.lex-multipage-nav .lex-multipage-dropdown a{display:block;white-space:normal}
+.lex-multipage-nav a[aria-current="page"]{color:#0f3227!important;background:#f1ce83;border-color:#f1ce83}
+@media(max-width:680px){.lex-multipage-nav{padding:11px 12px}.lex-multipage-nav .lex-multipage-links{gap:4px}.lex-multipage-nav a,.lex-multipage-nav summary{font-size:13px;padding:7px 8px}.lex-multipage-nav .lex-multipage-dropdown{left:auto;right:-70px;max-width:calc(100vw - 20px);min-width:250px}}
+</style><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0b3023"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SCP"><link rel="apple-touch-icon" href="/assets/app/apple-touch-icon.png"><link rel="stylesheet" href="/assets/lexpuente-mobile.css?v=20261120-escudo-header"><link rel="stylesheet" href="/assets/lexpuente-area-titles.css"><link rel="stylesheet" href="/assets/lexpuente-contact.css"><link rel="stylesheet" href="/assets/lexpuente-cards.css"><link rel="stylesheet" href="/assets/lexpuente-header.css?v=20261120-logo-profesor"><link rel="stylesheet" href="/assets/scp-prueba-b.css?v=20261120"></head>
+<body><!--lp-header:start--><header class="lex-organized-header">
+  <a class="logo" href="/index.html" aria-label="Servicios Canal Puente">
+    <img class="lp-brand-emblem" src="/assets/scp-logo-profesor-final.png?v=20261120-logo-profesor" alt="Logotipo Servicios Canal Puente SCP: puente dorado sobre agua, medallón SCP con un pequeño puente interior y lema Encuentra el servicio que necesitas con el especialista adecuado" decoding="async" fetchpriority="high">
+  </a>
+
+  <nav aria-label="Navegación principal" class="lex-primary-nav">
+    <a class="lex-direct-home" href="/index.html">INICIO</a>
+    <details class="lex-menu" id="lex-services-menu">
+        <summary>SERVICIOS</summary>
+      <div class="lex-dropdown-panel lex-service-dropdown">
+        <a class="lex-submenu-link lex-menu-section-index" href="/areas-de-actividad.html">VER TODOS LOS SERVICIOS</a>
+        <a class="lex-submenu-link" href="/ofertas-verificadas.html">OFERTAS VERIFICADAS</a>
+        <div class="lex-dropdown-group">SERVICIOS POR SECTOR</div>
+        <a class="lex-submenu-link" href="/areas/tramites.html">TRÁMITES Y DOCUMENTACIÓN</a>
+        <a class="lex-submenu-link" href="/areas/sanidad.html">SANIDAD</a>
+        <a class="lex-submenu-link" href="/areas/vivienda.html">INMOBILIARIA</a>
+        <a class="lex-submenu-link" href="/areas/academia.html">ACADEMIA</a>
+        <a class="lex-submenu-link" href="/areas/bienestar.html">BIENESTAR INTEGRAL</a>
+        <a class="lex-submenu-link" href="/areas-de-actividad.html">OTROS SERVICIOS</a>
+      </div>
+    </details>
+    <details class="lex-menu lex-about-menu" id="lex-about-menu">
+      <summary>CONOCE SCP</summary>
+      <div class="lex-dropdown-panel lex-about-dropdown">
+        <a class="lex-submenu-link" href="/introduccion.html">INTRODUCCIÓN</a>
+        <a class="lex-submenu-link" href="/presentacion.html">PRESENTACIÓN</a>
+        <a class="lex-submenu-link" href="/quienes-somos.html">QUIÉNES SOMOS</a>
+        <a class="lex-submenu-link" href="/nuestro-valor.html">NUESTRO VALOR</a>
+      </div>
+    </details>
+    <a class="lex-direct-comunica" href="/comunica.html">SCP COMUNICA</a>
+    <a href="/tienda.html">TIENDA</a>
+    <details class="lex-menu lex-association-menu" id="lex-association-menu">
+      <summary>ASOCIACIÓN</summary>
+      <div class="lex-dropdown-panel">
+        <a class="lex-submenu-link" href="/asociacion.html">ASOCIACIÓN SCP</a>
+        <a class="lex-submenu-link" href="/areas/animales.html">PROTECCIÓN ANIMAL</a>
+      </div>
+    </details>
+    <a href="/agenda.html">AGENDA</a>
+    <a href="/contacto.html">CONTACTO</a>
+    <details class="lex-menu lex-language-menu" id="lex-languages-menu">
+      <summary>ES | AR</summary>
+      <div class="lex-dropdown-panel lex-language-dropdown">
+        <p class="lex-i18n-status">MÁS IDIOMAS PRÓXIMAMENTE</p>
+        <button class="lex-language-option" data-language="es" type="button">ESPAÑOL</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="ca" disabled="disabled" type="button">CATALÀ · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="fr" disabled="disabled" type="button">FRANÇAIS · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="en" disabled="disabled" type="button">ENGLISH · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="ar" disabled="disabled" type="button">العربية الفصحى · PRÓXIMAMENTE</button>
+        <button aria-disabled="true" class="lex-language-option" data-language="ary" disabled="disabled" type="button">الدارجة المغربية · PRÓXIMAMENTE</button>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="lex-account-access" aria-label="Acceso a tu perfil y recorridos SCP">
+    <a class="lex-account-signin" href="/iniciar-sesion.html">Iniciar sesión</a>
+    <a class="lex-account-membership" href="/planes.html">Membresías</a>
+    <a class="lex-account-special" href="/acceso-scp.html">Acceso reservado SCP</a>
+    <a class="lex-service-registration" href="/registro.html?tipo=titular&amp;solicitud=servicio">Registra tu servicio</a>
+    <a class="lex-service-offer" href="/registro.html?tipo=especialista">Ofrece tus servicios</a>
+  </nav>
+
+  <div class="lex-header-contact" aria-label="Contacto SCP">
+    <a aria-label="Llamar a SCP: +34 673 735 059" class="lex-phone-link" href="tel:+34673735059">+34 673 735 059</a>
+    <a aria-label="Escribir por WhatsApp a SCP: +34 673 735 059" class="lex-whatsapp-nav" href="https://wa.me/34673735059" rel="noopener noreferrer" target="_blank"><span class="lex-whatsapp-icon-shell" aria-hidden="true"><svg class="lex-whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 3.6A11.6 11.6 0 0 0 2.2 17.2L.8 23.2l6.2-1.4a11.6 11.6 0 0 0 13.4-18.2Z"/><path d="M8.2 6.9c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.8.1-1.1.5-.4.4-1.4 1.4-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.7 4.3 6.6 5.8 3.2 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5s-2.3-1.1-2.6-1.2c-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.8-2.2-2-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.2-1.2-3Z"/></svg></span><span class="lex-whatsapp-label">WhatsApp <span>+34 673 735 059</span></span></a>
+  </div>
+</header><!--lp-header:end-->
+<section class="hero"><div class="wrap"><div class="kicker">SCP · ÁREAS DE ACTIVIDAD</div><h1>SCP TRÁMITES Y DOCUMENTACIÓN</h1><p class="lead">Organización y orientación documental</p></div></section>
+<main><div class="wrap"><div class="intro"><h2>Servicios de esta rama</h2><p>Apoyo práctico para comprender gestiones, preparar documentos y avanzar con claridad.</p><p class="caption">Siete servicios · consulta las modalidades y tarifas</p></div><div class="list" id="tarifas"><article id="analisis-documental" class="service lp-analysis-ad lp-v1" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/analisis-documental.html" aria-label="Análisis documental, desde 50 euros. Ver servicio y contratación"><img src="../assets/analisis-documental-completo-logos-unificados.webp" width="1122" height="1402" alt="Análisis documental SCP. Desde 50 €. Hasta 1 hora de revisión y explicación. Atención en castellano, catalán y árabe." style="display:block;width:100%;height:auto" loading="eager"></a><div style="padding:24px"><h3>Análisis documental</h3><p>Estudio personalizado de tu documentación, explicación de su contenido e identificación de las próximas necesidades de gestión.</p><div class="price">Desde 50 € · hasta 1 hora total</div><p style="margin-top:20px"><a class="action" href="../servicios/analisis-documental.html">Solicita tu análisis documental →</a></p></div></article><article id="solicitudes-y-tramites-administrativos" class="service lp-requests-ad lp-v1" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/solicitudes-tramites-administrativos.html" aria-label="Solicitudes y trámites administrativos. Desde 75 euros por trámite. Ver servicio y solicitud"><img src="../assets/solicitudes-tramites-logos-unificados.webp" width="1024" height="1536" alt="Solicitudes y trámites administrativos de SCP. Desde 75 euros por trámite." style="display:block;width:100%;height:auto;object-fit:contain" loading="lazy"></a><div style="padding:24px"><h3>Solicitudes y trámites administrativos</h3><p>Tu gestión, preparada y acompañada de principio a fin.</p><div class="price">Desde 75 € por trámite</div><p style="margin-top:20px"><a class="action" href="../servicios/solicitudes-tramites-administrativos.html">Solicita tu trámite administrativo →</a></p></div></article><article id="preparacion-de-expedientes-completos" class="service lp-dossier-ad lp-v1" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/preparacion-expedientes-completos.html" aria-label="Preparación de expedientes completos. Desde 300 euros por expediente. Ver servicio y solicitud"><img src="../assets/expedientes-completos-logos-unificados.webp" width="1024" height="1536" alt="Preparación de expedientes completos de SCP. Desde 300 euros por expediente." style="display:block;width:100%;height:auto;object-fit:contain" loading="lazy"></a><div style="padding:24px"><h3>Preparación de expedientes completos</h3><p>De los documentos pendientes a un expediente preparado para presentar.</p><div class="price">Desde 300 € por expediente</div><p style="margin-top:20px"><a class="action" href="../servicios/preparacion-expedientes-completos.html">Solicita la preparación de tu expediente →</a></p></div></article><article class="service lp-accompaniment-ad lp-v1" id="acompanamiento-presencial" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/acompanamiento-presencial-interpretacion.html" aria-label="Acompañamiento presencial e interpretación lingüística. Ver servicio y solicitud"><img src="../assets/lexpuente-servicio-4-logos-unificados.webp" width="1024" height="1536" alt="SCP: acompañamiento presencial e interpretación lingüística, sin interpretación desde 100 euros y con interpretación desde 150 euros." style="display:block;width:100%;height:auto;object-fit:contain" loading="lazy"></a><div style="padding:24px"><h3>Acompañamiento presencial e interpretación lingüística</h3><p>Acude a tus citas con preparación, apoyo y confianza.</p><p>Acompañamiento personalizado en oficinas, administraciones, centros y reuniones.</p><div class="price">Sin interpretación · desde 100 €<br>Con interpretación · desde 150 €<br>Hasta dos horas de atención presencial</div><p style="margin-top:20px">El presupuesto especificará desplazamiento, tiempo de espera y precio de las ampliaciones.</p><p><a class="action" href="../servicios/acompanamiento-presencial-interpretacion.html">Solicita tu acompañamiento →</a></p></div></article><article id="redaccion-de-escritos-y-comunicaciones" class="service lp-redaccion-escritos-comunicaciones lp-v1" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/redaccion-escritos-comunicaciones.html" aria-label="Redacción de escritos y comunicaciones. Ver servicio y solicitud"><img src="../assets/lexpuente-servicio-5-logos-unificados.webp" width="1024" height="1536" alt="Tarjeta visual de SCP: Redacción de escritos y comunicaciones." style="display:block;width:100%;height:auto;object-fit:contain" loading="lazy"></a><div style="padding:24px"><h3>Redacción de escritos y comunicaciones</h3><p>Expresa lo que necesitas con claridad, precisión y una presentación profesional.</p><div class="price">Desde 80 € por escrito</div><p style="margin-top:15px">Para escritos de hasta dos páginas. Presentación administrativa e idiomas adicionales aparte.</p><p><a class="action" href="../servicios/redaccion-escritos-comunicaciones.html">Solicita la redacción de tu escrito →</a></p></div></article><article id="citas-previas-y-asistencia-digital" class="service lp-citas-previas-asistencia-digital lp-v1" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/citas-previas-asistencia-digital.html" aria-label="Citas previas y asistencia digital. Ver servicio y solicitud"><img src="../assets/lexpuente-servicio-6-logos-unificados.webp" width="1024" height="1536" alt="Tarjeta visual de SCP: Citas previas y asistencia digital." style="display:block;width:100%;height:auto;object-fit:contain" loading="lazy"></a><div style="padding:24px"><h3>Citas previas y asistencia digital</h3><p>Accede a tus gestiones digitales con atención personalizada.</p><div class="price">Cita previa: desde 35 € · Asistencia digital: desde 60 €</div><p style="margin-top:15px">Sesión digital de hasta una hora. Disponibilidad de citas según el organismo.</p><p><a class="action" href="../servicios/citas-previas-asistencia-digital.html">Solicita asistencia digital →</a></p></div></article><article id="coordinacion-con-profesionales-especializados" class="service lp-coordinacion-profesionales-especializados lp-v1" style="padding:0;overflow:hidden"><span class="lp-service-code lp-service-code-1" aria-label="Referencia LP-01">LP‑01</span><a href="../servicios/coordinacion-profesionales-especializados.html" aria-label="Coordinación con profesionales especializados. Ver servicio y solicitud"><img src="../assets/lexpuente-servicio-7-logos-unificados.webp" width="1024" height="1536" alt="Tarjeta visual de SCP: Coordinación con profesionales especializados." style="display:block;width:100%;height:auto;object-fit:contain" loading="lazy"></a><div style="padding:24px"><h3>Coordinación con profesionales especializados</h3><p>Conecta con el profesional adecuado y prepara tu consulta.</p><div class="price">Desde 90 € por coordinación</div><p style="margin-top:15px">Los honorarios del profesional externo se contratan y presupuestan por separado.</p><p><a class="action" href="../servicios/coordinacion-profesionales-especializados.html">Solicita una coordinación →</a></p></div></article></div>
+<div class="notice"><strong>Información importante:</strong> Los trámites sujetos a asesoramiento jurídico especializado se derivarán a profesionales habilitados. Las descripciones son propuestas en desarrollo; precios, disponibilidad y condiciones se confirmarán antes de ofrecer cada servicio.</div>
+<div class="cta"><div><h2>¿Necesitas orientación o un presupuesto?</h2><p>Cuéntanos qué necesitas y te confirmaremos si podemos ayudarte y en qué condiciones.</p></div><a class="action" href="https://wa.me/34673735059?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Tr%C3%A1mites%20y%20documentaci%C3%B3n%20en%20SSP." rel="noopener noreferrer" target="_blank">Consultar por WhatsApp ↗</a></div>
+</div></main><div class="other"><div class="wrap"><h2>Explora las demás áreas</h2><div class="otherlinks"><a href="sanidad.html">SCP SANIDAD</a><a href="vivienda.html">SCP INMOBILIARIA</a><a href="/areas/sanidad.html#bienestar-integral">SCP SANIDAD · BIENESTAR INTEGRAL</a><a href="comunica.html">SCP COMUNICA</a><a href="academia.html">SCP ACADEMIA</a><a href="animales.html">Compromiso con los animales</a></div></div></div>
+<footer>SCP · Profesionalidad con identidad, cercanía con propósito. · <a href="../contacto.html">Contacto</a><nav class="lp-legal-footer" aria-label="Información legal"><a href="/aviso-legal.html">Aviso Legal</a><a href="/privacidad.html">Política de Privacidad</a><a href="/cookies.html">Política de Cookies</a><a href="/condiciones.html">Condiciones de Contratación</a></nav></footer><script src="/assets/lexpuente-chat.js" defer></script><script src="/assets/lexpuente-app.js" defer></script><script src="/assets/lexpuente-mobile.js?v=20261120-escudo-header" defer></script><script src="/assets/lexpuente-contact.js" defer></script><script src="/assets/lexpuente-social.js" defer></script><script src="/assets/lexpuente-header.js" defer></script></body></html>

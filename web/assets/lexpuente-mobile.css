@@ -1,0 +1,301 @@
+.lp-mobile-head,.lp-mobile-tabs,.lp-mobile-menu{display:none}
+@media(max-width:760px){
+html{width:100%;scroll-padding-top:80px}body{width:100%;min-width:0!important;margin:0!important;padding-top:64px!important;padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))!important;overflow-wrap:anywhere}body>header:not(.lp-mobile-head),.lex-multipage-nav{display:none!important}body,main,section,article,div{min-width:0}main{max-width:100%!important}img{max-width:100%;height:auto}input,select,textarea{max-width:100%;font-size:16px!important}h1{font-size:clamp(28px,8vw,36px)!important;line-height:1.18!important;overflow-wrap:normal;word-break:normal}h2{font-size:clamp(23px,6vw,29px)!important;line-height:1.25!important}h3{line-height:1.3!important}p,li{line-height:1.6}a,button{overflow-wrap:anywhere}button,.button,.action,.cta{white-space:normal!important;max-width:100%;line-height:1.4!important}main>.wrap,.wrap,.hub,.store,.lex-page-content{max-width:100%!important;padding-left:16px!important;padding-right:16px!important}.layout,.list,.grid,.steps,.lex-catalog-grid,.contact{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}.intro{padding:20px 0!important}.hero{padding:25px 18px!important}.service{border-radius:18px!important}.service>div{padding:20px!important}.art{border-radius:14px!important}table{display:block;max-width:100%;overflow-x:auto}.panel{padding:20px!important}.lex-page-breadcrumb{font-size:14px!important}.price,.tarifa{font-size:clamp(25px,7.6vw,38px)!important}footer{padding:24px 18px!important}footer nav{flex-wrap:wrap!important}
+.lp-mobile-head{position:fixed!important;z-index:9990;top:0;left:0;right:0;height:64px;padding:8px 16px!important;display:flex!important;align-items:center;justify-content:space-between;gap:12px;background:#0b3023!important;color:#f1ce86;border-bottom:1px solid #d5b77b55;box-shadow:0 3px 16px #0002}.lp-mobile-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#edca83!important;min-width:0}.lp-mobile-brand img{width:38px;height:38px;border-radius:10px}.lp-mobile-brand b{font:700 21px Georgia,serif;letter-spacing:.07em}.lp-mobile-back{width:40px;height:40px;border-radius:12px;border:1px solid #edca8355;background:transparent;color:#edca83;font:26px Arial;padding:0;flex-shrink:0}.lp-mobile-head-spacer{width:40px}.lp-mobile-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;z-index:9990;bottom:0;left:0;right:0;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px));background:#fffaf0;border-top:1px solid #d8c7a4;box-shadow:0 -4px 20px #0002;gap:2px}.lp-mobile-tabs a,.lp-mobile-tabs button{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;color:#40564a!important;background:none;border:0;border-radius:12px;padding:6px 0;text-decoration:none;font:12px/1.3 Arial,sans-serif!important;min-height:49px;min-width:0}.lp-mobile-tabs svg{width:23px;height:23px}.lp-mobile-tabs [aria-current=page]{background:#f1e5d2;color:#68192b!important;font-weight:700!important}.lp-mobile-menu[open]{display:block;position:fixed;inset:0 0 0 auto;width:min(100%,430px);height:100dvh;max-height:100dvh;max-width:100%;margin:0;padding:24px 20px calc(35px + env(safe-area-inset-bottom,0px));border:0;border-left:1px solid #edca83;background:#0b3023;color:#fff3db;overflow-y:auto;z-index:2147483646}.lp-mobile-menu::backdrop{background:#001b15aa}.lp-mobile-menu h2{color:#edca83;font-family:Georgia,serif}.lp-mobile-menu button{float:right;background:transparent;border:1px solid #edca83;color:#edca83;border-radius:12px;width:42px;height:42px;font-size:26px;padding:0}.lp-mobile-menu a{display:block;padding:13px 8px;border-bottom:1px solid #edca8322;text-decoration:none;color:#fff3db;font:16px/1.45 Arial,sans-serif}.lp-mobile-menu small{display:block;color:#edca83;margin:25px 0 6px;letter-spacing:.08em;font-size:12px}.lp-mobile-menu p{font-size:14px}.lp-mobile-tabs a:focus-visible,.lp-mobile-tabs button:focus-visible,.lp-mobile-head a:focus-visible,.lp-mobile-head button:focus-visible,.lp-mobile-menu a:focus-visible,.lp-mobile-menu button:focus-visible{outline:3px solid #cc9d47;outline-offset:2px}
+body.lp-elegant-home .lp-home-hero{display:flex!important;flex-direction:column!important;min-height:0!important;height:auto!important;aspect-ratio:auto!important;padding:0!important;isolation:isolate}body.lp-elegant-home .lp-home-photo{position:relative!important;inset:auto!important;order:0!important;display:block!important;width:100%!important;height:clamp(190px,60vw,300px)!important;object-fit:cover!important;object-position:center!important;margin:0!important}body.lp-elegant-home .lp-home-shade{display:none!important}body.lp-elegant-home .lp-home-copy{position:relative!important;order:1!important;width:100%!important;max-width:none!important;margin:0!important;padding:24px 20px!important;background:#06281e!important}body.lp-elegant-home .lp-home-copy h1{font-size:clamp(30px,8.7vw,38px)!important;line-height:1.12!important;margin:14px 0 18px!important;letter-spacing:-.02em!important}body.lp-elegant-home .lp-home-kicker{font-size:10px!important;letter-spacing:.12em!important;line-height:1.7!important}body.lp-elegant-home .lp-home-intro{font-size:16px!important;line-height:1.6!important;max-width:100%!important}body.lp-elegant-home .lp-home-features{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin:22px 0!important}body.lp-elegant-home .lp-home-feature{font-size:13px!important;line-height:1.4!important;display:flex!important;align-items:flex-start!important;gap:8px!important;background:#ffffff08;border:1px solid #edca8330;border-radius:12px;padding:12px 9px!important;min-width:0}body.lp-elegant-home .lp-home-feature svg{width:21px!important;height:21px!important;flex:0 0 21px}body.lp-elegant-home .lp-home-actions{display:flex!important;flex-direction:column!important;gap:10px!important}body.lp-elegant-home .lp-home-actions a{display:flex!important;justify-content:center!important;padding:14px!important;width:100%!important;min-width:0!important;font-size:15px!important;white-space:normal!important}body.lp-elegant-home .lp-home-handwritten{display:none!important}body.lp-elegant-home .lp-home-bridge{height:auto!important;min-height:150px!important;padding-bottom:85px!important}body.lp-elegant-home .lp-home-bridge-text{font-size:19px!important}
+}
+
+/* Keep the mobile homepage visually continuous with the desktop hero. */
+@media(max-width:760px){
+  html body.lp-elegant-home .lp-home-hero{
+    position:relative!important;display:flex!important;flex-direction:column!important;
+    justify-content:flex-end!important;align-items:stretch!important;isolation:isolate!important;
+    width:100%!important;height:auto!important;min-height:clamp(500px,136vw,620px)!important;
+    aspect-ratio:auto!important;padding:0!important;overflow:hidden!important;background:#06281e!important;
+  }
+  html body.lp-elegant-home .lp-home-photo{
+    position:absolute!important;inset:0!important;z-index:-3!important;display:block!important;
+    order:0!important;width:100%!important;height:100%!important;min-height:100%!important;max-width:none!important;
+    margin:0!important;object-fit:cover!important;object-position:64% center!important;
+  }
+  html body.lp-elegant-home .lp-home-shade{
+    display:block!important;position:absolute!important;inset:0!important;z-index:-2!important;
+    background:linear-gradient(180deg,rgba(4,31,23,.05) 0%,rgba(4,31,23,.04) 42%,rgba(4,31,23,.48) 65%,rgba(4,31,23,.9) 100%)!important;
+  }
+  html body.lp-elegant-home .lp-home-copy{
+    position:relative!important;z-index:1!important;order:1!important;width:100%!important;max-width:100%!important;
+    margin:0!important;padding:30px 20px 28px!important;
+    background:linear-gradient(180deg,rgba(4,31,23,.15) 0%,rgba(4,31,23,.87) 22%,rgba(4,31,23,.98) 100%)!important;
+  }
+  html body.lp-elegant-home .lp-home-copy h2{
+    margin:12px 0 14px!important;color:#fff8e9!important;
+    font:500 clamp(32px,8.2vw,40px)/1.08 Georgia,serif!important;letter-spacing:-.02em!important;
+    text-shadow:0 2px 10px rgba(0,0,0,.36)!important;
+  }
+  html body.lp-elegant-home .lp-home-kicker{font-size:10px!important;letter-spacing:.12em!important;line-height:1.55!important}
+  html body.lp-elegant-home .lp-home-intro{
+    max-width:100%!important;margin:0!important;color:#fff5df!important;font:400 16px/1.55 Arial,sans-serif!important;
+  }
+}
+@media(max-width:350px){body.lp-elegant-home .lp-home-features{grid-template-columns:1fr!important}.lp-mobile-brand b{font-size:19px}.lp-mobile-tabs a,.lp-mobile-tabs button{font-size:11px!important}}
+@media(max-width:760px){body.lp-elegant-home>header.lex-organized-header{display:none!important}.lp-mobile-tabs a:nth-child(n){display:flex!important}.lp-mobile-head{flex-direction:row!important;flex-wrap:nowrap!important}}
+
+@media(max-width:760px){.lp-mobile-tabs a,.lp-mobile-tabs button{font-size:10px!important;line-height:1.3!important;padding-inline:3px!important}.lp-mobile-tabs span{max-width:100%;text-align:center}.lp-mobile-menu a[aria-current=page]{color:#edca83!important}}
+
+@media(max-width:760px){html body{padding-top:0!important}html body .lp-mobile-head{position:relative!important;inset:auto!important;height:auto!important;min-height:64px;flex-wrap:wrap!important;padding:10px 16px!important}.lp-mobile-account{display:flex;flex:1 0 100%;gap:10px;justify-content:center;padding:4px 0;margin:0;border:0;background:transparent}.lp-mobile-account a{padding:9px 14px;border:1px solid #c9a66a;border-radius:9px;background:#103428;color:#fff2d5!important;text-decoration:none;font:700 14px/1.3 Arial,sans-serif}.lp-mobile-account .lex-account-register,.lp-mobile-account .lex-account-admin{background:#681c32}.lp-mobile-account [hidden]{display:none!important}}
+@media(max-width:760px){html body .lp-mobile-head .lp-mobile-account a:not([hidden]){display:block!important}html body .lp-mobile-head .lp-mobile-account [hidden]{display:none!important}}
+
+@media(max-width:760px){.lp-mobile-account{flex-wrap:wrap}.lp-mobile-account .lex-account-special{flex-basis:100%;text-align:center;font-size:12px!important;padding:7px!important}}
+
+@media(max-width:760px){
+  html body .lp-mobile-head{gap:10px!important;padding:10px 16px 12px!important}
+  html body .lp-mobile-account{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    flex:1 0 100%!important;gap:7px!important;padding:4px 0 0!important;
+  }
+  html body .lp-mobile-account a{
+    display:flex!important;align-items:center;justify-content:center;min-width:0!important;min-height:38px;
+    padding:8px 7px!important;border:1px solid #c9a66a!important;border-radius:9px!important;
+    background:#103428!important;color:#fff2d5!important;text-align:center;text-decoration:none!important;
+    font:700 12px/1.25 Arial,sans-serif!important;white-space:normal!important;overflow-wrap:anywhere!important;
+  }
+  html body .lp-mobile-account .lex-account-holder{background:#681c32!important}
+  html body .lp-mobile-account .lex-account-specialist{background:#103e2d!important}
+  html body .lp-mobile-account .lex-account-special{grid-column:1/-1!important;font-size:11px!important}
+  html body .lp-mobile-contact{
+    display:flex!important;flex:1 0 100%!important;align-items:center;justify-content:center;flex-wrap:wrap;
+    gap:8px 14px;margin-top:2px;padding:8px 4px 0;border-top:1px solid #edca8330;
+  }
+  html body .lp-mobile-contact a{color:#f3d18e!important;text-decoration:none!important;font:700 13px/1.35 Arial,sans-serif!important}
+  html body .lp-mobile-contact .lp-mobile-phone{color:#fff2d5!important}
+  html body .lp-mobile-contact .lp-mobile-whatsapp{display:inline-flex!important;align-items:center!important;gap:7px!important;padding:7px 10px!important;border:1px solid #c9a66a!important;border-radius:9px!important;background:#12382b!important;color:#f3d18e!important}
+  html body .lp-mobile-contact .lex-whatsapp-icon{width:18px!important;height:18px!important;fill:none!important;stroke:#f3d18e!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important;flex:0 0 18px!important}
+  html body .lp-mobile-contact a:focus-visible{outline:3px solid #cc9d47;outline-offset:3px}
+  html body .lp-mobile-menu .lp-mobile-menu-contact{display:block;margin:8px 0;padding:12px 8px;border:1px solid #edca8344;border-radius:9px;color:#f3d18e;text-decoration:none}
+}
+
+@media(max-width:760px){
+  html body .lp-mobile-contact .lp-mobile-whatsapp{gap:9px!important;padding:5px 12px 5px 6px!important;border:1px solid #c6a66b!important;border-radius:999px!important;background:linear-gradient(135deg,#123b2c,#08291f)!important;box-shadow:0 3px 10px #0003,inset 0 1px #fff2d622!important}
+  html body .lp-mobile-contact .lex-whatsapp-icon-shell{display:grid!important;place-items:center!important;width:27px!important;height:27px!important;flex:0 0 27px!important;border:1px solid #c4a367!important;border-radius:50%!important;background:radial-gradient(circle at 35% 28%,#285440,#0b2e21 72%)!important;box-shadow:inset 0 1px #fff2d633!important}
+  html body .lp-mobile-contact .lex-whatsapp-icon{display:block!important;width:15px!important;height:15px!important;flex:0 0 15px!important;fill:none!important;stroke:#f0d28d!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+}
+
+@media(max-width:760px){
+  html body .lp-mobile-account .lex-account-register{background:#681c32!important;color:#fff2d5!important}
+  html body .lp-mobile-account .lex-account-special{grid-column:auto!important}
+  html body .lp-mobile-account .lex-account-home{background:linear-gradient(135deg,#e2c88f,#b18b4d)!important;color:#12382b!important}
+}
+
+/* Membresías junto a Iniciar sesión en el grupo superior móvil. */
+@media(max-width:760px){
+  html body .lp-mobile-account .lex-account-signin{grid-column:1!important;grid-row:1!important}
+  html body .lp-mobile-account .lex-account-membership{grid-column:2!important;grid-row:1!important}
+  html body .lp-mobile-account .lex-service-registration{grid-column:1!important;grid-row:2!important}
+  html body .lp-mobile-account .lex-service-offer{grid-column:2!important;grid-row:2!important}
+  html body .lp-mobile-account .lex-account-special{grid-column:1/-1!important;grid-row:3!important}
+}
+
+@media(max-width:760px){
+  html body .lp-mobile-head{gap:10px!important;padding:10px 12px 12px!important}
+  html body .lp-mobile-brand{
+    display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto auto!important;
+    justify-items:stretch!important;align-items:center!important;flex:1 0 100%!important;min-width:0!important;min-height:174px!important;
+    gap:3px!important;padding:10px 14px!important;
+    overflow:hidden!important;border:1px solid #c9a66a!important;border-radius:12px!important;
+    background-color:#06291e!important;
+    background-image:linear-gradient(90deg,rgba(3,30,22,.42),rgba(3,30,22,.62)),url('/assets/puente-emblema-20oct.webp')!important;
+    background-size:cover!important;background-position:center 50%!important;
+    box-shadow:0 4px 14px #0003,inset 0 0 0 1px #fff2d622!important;
+  }
+  html body .lp-mobile-brand img{display:none!important}
+  html body .lp-mobile-monogram{
+    grid-column:1!important;grid-row:2!important;justify-self:center!important;display:grid!important;place-items:center!important;
+    min-width:0!important;min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#681d36!important;
+    font:700 47px/1 Georgia,serif!important;letter-spacing:-.055em!important;
+    text-shadow:0 0 2px #f1d293,1px 1px 0 #f1d293,-1px -1px 0 #f1d293,0 0 9px rgba(241,210,147,.6);
+  }
+  html body .lp-mobile-brand-copy{grid-column:1!important;grid-row:1!important;display:block!important;justify-self:start!important;width:100%!important;min-width:0!important}
+  html body .lp-mobile-brand b{color:#c7dfcc!important;font:700 clamp(16px,4.8vw,20px)/1.15 Georgia,serif!important;letter-spacing:.065em!important;text-shadow:0 1px 6px #000b;white-space:normal!important}
+  html body .lp-mobile-brand-taglines{grid-column:1!important;grid-row:3!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:3px!important;width:100%!important;min-width:0!important}
+  html body .lp-mobile-brand-subtitle{color:#fff1d2;font:italic 500 12px/1.35 Georgia,serif;letter-spacing:0;text-align:center;white-space:normal;text-shadow:0 1px 5px #000b}
+  html body .lp-mobile-brand-ar{color:#f1d08d;font:italic 500 14px/1.35 "Noto Naskh Arabic","Noto Sans Arabic",Georgia,serif;text-align:center;direction:rtl;text-shadow:0 1px 5px #000b;white-space:normal}
+  html body .lp-mobile-head-spacer{display:none!important}
+}
+
+@media(max-width:760px){
+  html body .lp-mobile-brand{
+    background-color:#06291e!important;
+    background-image:linear-gradient(120deg,rgba(3,30,22,.08),rgba(8,30,25,.10)),url('/assets/puente-emblema-20oct.webp')!important;
+    background-size:cover!important;background-position:center 45%!important;
+    border-color:#c9a66a!important;
+    box-shadow:0 7px 18px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,237,196,.2)!important;
+  }
+  html body .lp-mobile-brand b,
+  html body .lp-mobile-monogram,
+  html body .lp-mobile-brand-subtitle,
+  html body .lp-mobile-brand-ar{
+    color:#641b32!important;-webkit-text-fill-color:#641b32!important;
+    -webkit-text-stroke:.55px rgba(233,199,126,.96)!important;
+    text-shadow:0 1px 1px rgba(0,0,0,.92),0 0 8px rgba(0,0,0,.68)!important;
+  }
+}
+
+/* Firma visual móvil: sello SCP compacto junto al nombre y sus dos lemas. */
+@media(max-width:760px){
+  html body .lp-mobile-brand{
+    display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;grid-template-rows:auto!important;
+    align-items:center!important;justify-items:stretch!important;gap:12px!important;flex:1 0 100%!important;
+    min-width:0!important;min-height:124px!important;padding:11px 13px!important;
+    border:1px solid #c9a66a!important;border-radius:14px!important;overflow:hidden!important;
+    background-color:#06291e!important;
+    background-image:linear-gradient(90deg,rgba(3,30,22,.10),rgba(8,30,25,.16)),url('/assets/puente-emblema-20oct.webp')!important;
+    background-size:cover!important;background-position:center 48%!important;
+    box-shadow:0 5px 15px rgba(0,0,0,.3),inset 0 0 0 1px rgba(255,237,196,.18)!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    display:block!important;grid-column:1!important;grid-row:1!important;justify-self:center!important;
+    width:72px!important;height:72px!important;max-width:72px!important;border-radius:50%!important;
+    box-shadow:0 3px 10px rgba(0,0,0,.4)!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-copy{
+    grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;
+    justify-content:center!important;align-items:flex-start!important;gap:6px!important;width:100%!important;min-width:0!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-copy b{
+    display:block!important;color:#641b32!important;-webkit-text-fill-color:#641b32!important;
+    -webkit-text-stroke:.35px rgba(232,198,121,.98)!important;
+    font:700 clamp(15px,4.2vw,19px)/1.1 Georgia,serif!important;letter-spacing:.04em!important;
+    text-shadow:0 1px 4px rgba(0,0,0,.95)!important;white-space:normal!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-taglines{
+    display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;
+    width:100%!important;min-width:0!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-subtitle{
+    display:block!important;color:#f0d28d!important;-webkit-text-fill-color:#f0d28d!important;
+    font:italic 500 11px/1.3 Georgia,serif!important;text-align:left!important;white-space:normal!important;
+    text-shadow:0 1px 4px rgba(0,0,0,.95)!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-ar{
+    display:block!important;align-self:flex-end!important;color:#e6c67f!important;-webkit-text-fill-color:#e6c67f!important;
+    font:italic 500 12px/1.3 "Noto Naskh Arabic","Noto Sans Arabic",Georgia,serif!important;
+    direction:rtl!important;text-align:right!important;white-space:normal!important;text-shadow:0 1px 4px rgba(0,0,0,.95)!important;
+  }
+  @media(max-width:380px){
+    html body .lp-mobile-brand{grid-template-columns:64px minmax(0,1fr)!important;gap:9px!important;padding-inline:10px!important}
+    html body .lp-mobile-brand .lp-mobile-emblem{width:62px!important;height:62px!important;max-width:62px!important}
+    html body .lp-mobile-brand .lp-mobile-brand-copy b{font-size:15px!important}
+    html body .lp-mobile-brand .lp-mobile-brand-subtitle{font-size:10px!important}
+  }
+}
+
+/* Móvil: los accesos de perfil y los dos recorridos de alta. */
+@media(max-width:760px){
+  html body .lp-mobile-account .lex-account-signin{grid-column:1/-1!important}
+  html body .lp-mobile-account .lex-service-registration,
+  html body .lp-mobile-account .lex-service-offer{display:flex!important;align-items:center;justify-content:center;min-width:0;min-height:40px;padding:8px 6px!important;border:1px solid #c9a66a!important;border-radius:9px!important;color:#fff2d5!important;text-decoration:none!important;text-align:center;font:700 11px/1.25 Arial,sans-serif!important;white-space:normal!important}
+  html body .lp-mobile-account .lex-service-registration{grid-column:1!important;background:#681c32!important}
+  html body .lp-mobile-account .lex-service-offer{grid-column:2!important;background:#103e2d!important}
+  html body .lp-mobile-account .lex-account-special{grid-column:1/-1!important}
+}
+
+/* Emblema nuevo también en la cabecera móvil, recortado del mismo original. */
+@media(max-width:760px){
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    display:block!important;width:72px!important;height:66px!important;max-width:72px!important;flex:0 0 72px!important;
+    border:0!important;border-radius:0!important;box-shadow:none!important;
+    background-color:transparent!important;background-image:url('/assets/scp-escudo-logo-original.jpeg')!important;
+    background-repeat:no-repeat!important;background-size:160px auto!important;background-position:50% 0!important;
+    clip-path:polygon(50% 5%,62% 14%,80% 14%,97% 28%,100% 48%,95% 75%,92% 90%,75% 97%,50% 100%,25% 97%,8% 90%,5% 75%,0 48%,3% 28%,20% 14%,38% 14%)!important;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.38))!important;
+  }
+}
+@media(max-width:380px){
+  html body .lp-mobile-brand .lp-mobile-emblem{width:62px!important;height:57px!important;max-width:62px!important;flex-basis:62px!important;background-size:138px auto!important}
+}
+
+/* Sello SCP ampliado y lema breve en la cabecera móvil. */
+@media(max-width:760px){
+  html body .lp-mobile-brand{grid-template-columns:96px minmax(0,1fr)!important;min-height:142px!important;gap:10px!important}
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    display:block!important;position:static!important;transform:none!important;
+    width:92px!important;height:112px!important;max-width:92px!important;flex-basis:92px!important;
+    object-fit:contain!important;object-position:center!important;background:none!important;clip-path:none!important;
+    filter:drop-shadow(0 2px 5px rgba(0,0,0,.38))!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-copy{gap:5px!important}
+  html body .lp-mobile-brand .lp-mobile-brand-tagline{
+    display:block!important;color:#f1dbad!important;-webkit-text-fill-color:#f1dbad!important;
+    font:italic 400 10px/1.3 Georgia,serif!important;letter-spacing:.01em!important;
+    text-align:left!important;white-space:normal!important;text-shadow:0 1px 4px rgba(0,0,0,.9)!important;
+  }
+}
+@media(max-width:380px){
+  html body .lp-mobile-brand{grid-template-columns:80px minmax(0,1fr)!important;gap:8px!important}
+  html body .lp-mobile-brand .lp-mobile-emblem{width:78px!important;height:98px!important;max-width:78px!important;flex-basis:78px!important}
+  html body .lp-mobile-brand .lp-mobile-brand-tagline{font-size:9px!important}
+}
+
+/* Cabecera móvil SCP: misma pieza completa del logotipo, sin duplicar el lema. */
+@media(max-width:760px){
+  html body .lp-mobile-head{
+    position:relative!important;height:auto!important;min-height:0!important;flex-wrap:wrap!important;align-items:center!important;
+    gap:8px!important;padding:8px 12px 10px!important;
+  }
+  html body .lp-mobile-brand{
+    display:flex!important;flex:1 0 100%!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    gap:0!important;width:100%!important;min-width:0!important;min-height:0!important;padding:0!important;overflow:visible!important;
+    border:0!important;border-radius:0!important;background:transparent!important;background-image:none!important;box-shadow:none!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    display:block!important;position:static!important;inset:auto!important;transform:none!important;flex:none!important;
+    width:100%!important;max-width:640px!important;height:auto!important;aspect-ratio:2170 / 725!important;
+    object-fit:contain!important;object-position:center!important;clip-path:none!important;border:0!important;border-radius:0!important;
+    background:transparent!important;box-shadow:none!important;filter:none!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-copy{display:none!important}
+}
+
+/* Marca SCP simplificada en móvil: mismo puente y lema, adaptados al ancho disponible. */
+@media(max-width:760px){
+  html body .lp-mobile-head{
+    position:relative!important;height:auto!important;min-height:0!important;flex-wrap:wrap!important;align-items:center!important;
+    gap:8px!important;padding:8px 12px 10px!important;
+  }
+  html body .lp-mobile-brand{
+    display:flex!important;flex:1 0 100%!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    gap:1px!important;width:100%!important;min-width:0!important;min-height:0!important;padding:0 2px!important;overflow:visible!important;
+    border:0!important;border-radius:0!important;background:transparent!important;background-image:none!important;box-shadow:none!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    display:block!important;position:static!important;inset:auto!important;transform:none!important;flex:none!important;
+    width:100%!important;max-width:640px!important;height:auto!important;aspect-ratio:4.9 / 1!important;
+    object-fit:cover!important;object-position:center 50%!important;clip-path:none!important;border:0!important;border-radius:0!important;
+    background:transparent!important;box-shadow:none!important;filter:none!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-copy{
+    display:flex!important;position:static!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    gap:2px!important;width:100%!important;min-width:0!important;padding:0!important;margin:0!important;text-align:center!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-copy b{
+    display:block!important;order:0!important;color:#e8ca83!important;-webkit-text-fill-color:#e8ca83!important;-webkit-text-stroke:0!important;
+    font:700 clamp(16px,4.8vw,21px)/1.08 Georgia,serif!important;letter-spacing:.055em!important;text-align:center!important;
+    text-shadow:0 1px 4px rgba(0,0,0,.45)!important;white-space:normal!important;text-wrap:balance!important;
+  }
+  html body .lp-mobile-brand .lp-mobile-brand-tagline{
+    display:block!important;order:1!important;width:100%!important;max-width:100%!important;margin:0!important;padding:0 4px!important;
+    color:#f1dbad!important;-webkit-text-fill-color:#f1dbad!important;-webkit-text-stroke:0!important;
+    font:italic 400 11px/1.28 Georgia,serif!important;letter-spacing:0!important;text-align:center!important;
+    text-shadow:none!important;white-space:normal!important;text-wrap:balance!important;
+  }
+}
+
+
+/* Orden final de los cinco accesos móviles: Membresías junto a Iniciar sesión. */
+@media(max-width:760px){
+  html body .lp-mobile-account .lex-account-signin{grid-column:1!important;grid-row:1!important}
+  html body .lp-mobile-account .lex-account-membership{grid-column:2!important;grid-row:1!important}
+  html body .lp-mobile-account .lex-service-registration{grid-column:1!important;grid-row:2!important}
+  html body .lp-mobile-account .lex-service-offer{grid-column:2!important;grid-row:2!important}
+  html body .lp-mobile-account .lex-account-special{grid-column:1/-1!important;grid-row:3!important}
+}

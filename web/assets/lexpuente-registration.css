@@ -1,0 +1,61 @@
+.lp-onboarding-shell{max-width:1120px;margin:0 auto;padding:clamp(24px,5vw,64px) clamp(16px,4vw,36px);color:#f5e8cb}
+.lp-onboarding-intro{text-align:center;max-width:790px;margin:0 auto 30px}
+.lp-onboarding-intro h1{font:clamp(34px,5vw,56px)/1.08 Georgia,serif;color:#f6e3b4;margin:10px 0 16px}
+.lp-onboarding-intro>p:not(.eyebrow){font-size:clamp(16px,2vw,19px);line-height:1.6;color:#e6d5b5}
+.lp-entry-assurance{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:10px 18px;border:1px solid #bc9b60;border-radius:999px;background:linear-gradient(110deg,#132f25,#251623);color:#f5d89e;font:600 14px Arial,sans-serif}
+.lp-entry-assurance span:first-child{color:#e7c778}
+.lp-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:970px;margin:32px auto}
+.lp-choice-card{position:relative;display:flex;flex-direction:column;padding:clamp(23px,4vw,36px);border:1px solid #b99b66;border-radius:20px;background:linear-gradient(145deg,#12372b,#0b281f 70%);box-shadow:0 18px 44px #0004;overflow:hidden}
+.lp-choice-card:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:#6b2036}
+.lp-choice-specialist:before{background:#c9a766}
+.lp-choice-kicker,.lp-step-label{font:700 12px/1.4 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#d6bd84}
+.lp-choice-card h2,.lp-onboarding-panel h2{font:clamp(25px,3vw,34px)/1.15 Georgia,serif;color:#f6e5c1;margin:12px 0}
+.lp-choice-card p,.lp-flow-lead{line-height:1.65;color:#e2d5be}
+.lp-choice-card ul{padding-left:20px;margin:10px 0 24px;line-height:1.8;color:#e5d9c5}
+.lp-entry-button{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:12px 20px;border:1px solid #d1b779;border-radius:11px;background:linear-gradient(120deg,#682036,#4c172c);color:#fff1d5!important;text-align:center;text-decoration:none;font:700 15px/1.35 Arial,sans-serif;cursor:pointer;box-shadow:0 8px 18px #0003;transition:transform .18s ease,filter .18s ease}
+.lp-choice-holder .lp-entry-button,.lp-flow-holder .lp-entry-button{background:linear-gradient(120deg,#6d2038,#4d172b)}
+.lp-choice-specialist .lp-entry-button,.lp-flow-specialist .lp-entry-button{background:linear-gradient(120deg,#174b39,#0d3328)}
+.lp-entry-button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.lp-choice-card .lp-entry-button{margin-top:auto}
+.lp-onboarding-panel,.lp-security-note{max-width:950px;margin:28px auto;padding:clamp(22px,4vw,38px);border:1px solid #b99b66;border-radius:20px;background:linear-gradient(145deg,#12372b,#0b281f 72%);box-shadow:0 18px 44px #0003}
+.lp-flow-holder{border-top:4px solid #6b2036}.lp-flow-specialist{border-top:4px solid #c9a766}
+.lp-back-link{display:inline-block;color:#e9d398;text-decoration:none;margin-bottom:22px}
+.lp-account-chip{display:inline-block;padding:9px 14px;border:1px solid #b99b66;border-radius:999px;background:#071e17;color:#eed69d;font:14px Arial,sans-serif;overflow-wrap:anywhere}
+.lp-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;margin-top:24px}
+.lp-form-grid>label{display:block;color:#f0dfbd;font:600 14px/1.45 Arial,sans-serif}
+.lp-form-grid input:not([type=checkbox]),.lp-form-grid select,.lp-form-grid textarea{box-sizing:border-box;width:100%;max-width:none;margin:8px 0 0;padding:12px 13px;border:1px solid #b99b66;border-radius:10px;background:#08271e;color:#fff2d5;font:16px Arial,sans-serif}
+.lp-form-grid input[type=file]{font-size:14px;padding:10px}
+.lp-form-grid select option{background:#092b21;color:#fff2d5}
+.lp-form-grid textarea{resize:vertical}
+.lp-wide{grid-column:1/-1}
+.lp-form-section{min-width:0;padding:22px;border:1px solid #94784c;border-radius:15px;background:#0b2d22}
+.lp-form-section legend{padding:0 10px;color:#e9d398;font:bold 17px Georgia,serif}
+.lp-form-section>p{color:#decfb4;line-height:1.6}
+.lp-form-section label{display:block;margin:14px 0;color:#f0dfbd;font:600 14px/1.45 Arial,sans-serif}
+.lp-form-section .lp-check-row{display:flex;align-items:flex-start;gap:10px;font-weight:500}
+.lp-check-row input,.lp-consent input{width:18px;height:18px;flex:0 0 auto;accent-color:#b79a62}
+.lp-consent{display:flex;align-items:flex-start;gap:11px;color:#e9dcc2;font:14px/1.55 Arial,sans-serif}
+.lp-consent a{color:#f2d593}
+.lp-submit-button{width:100%;margin-top:8px}
+.lp-privacy-note{color:#d6c8ad;font:13px/1.6 Arial,sans-serif}
+.lp-security-note h2{font:24px Georgia,serif;color:#f0d89d;margin-top:0}
+.lp-security-note ol{padding-left:23px;line-height:1.8;color:#e3d5bc}
+.lp-form-status{max-width:900px;margin:10px auto;color:#f2d799;text-align:center}
+.lp-result-card{margin-top:24px;padding:24px;border:1px solid #d2b16e;border-radius:15px;background:linear-gradient(135deg,#173e30,#271622);color:#ffedc8;line-height:1.65}
+.lp-result-card h3{margin-top:0;font:24px Georgia,serif;color:#f3d991}
+.lp-result-card a{color:#f3d991}
+body.lp-access-layout footer{clear:both;text-align:center;color:#d8c8a6}
+@media(max-width:720px){.lp-choice-grid{grid-template-columns:1fr}.lp-form-grid{grid-template-columns:1fr}.lp-wide{grid-column:auto}.lp-form-section{padding:17px}.lp-onboarding-shell{padding-top:30px}}
+.lp-login-explainer{max-width:760px;margin:18px auto;padding:14px 18px;border:1px solid #8c7449;border-radius:12px;background:linear-gradient(120deg,#102f24,#251722);color:#e8d9ba;font:14px/1.6 Arial,sans-serif;text-align:left}.lp-login-explainer strong{color:#f2d89b}
+.portal-pending-status{margin:22px 0;padding:24px;border:1px solid #b99b66;border-radius:16px;background:linear-gradient(145deg,#12372b,#241622);color:#f4e5c4}.portal-pending-status h2{margin-top:0;color:#f6dda5}.portal-pending-status p{line-height:1.65}.portal-pending-status .button{display:inline-flex;margin:8px 12px 4px 0}
+.lp-login-required .portal-actions{margin-top:18px}
+
+.lp-single-login .lp-login-action{max-width:560px;margin:26px auto 0;text-align:center}.lp-single-login .lp-login-action .lp-entry-button{min-width:min(100%,320px)}.lp-single-login .lp-login-action p{margin-top:18px;color:#e6d5b5;line-height:1.6}.lp-single-login .lp-login-action p a{color:#f3d991}
+
+/* En el acceso, cada alta empieza por el recorrido elegido. */
+.lp-single-login .lp-login-registration-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px auto 0;max-width:560px}
+.lp-single-login .lp-login-registration-paths p{grid-column:1/-1;margin:0 0 3px;color:#e6d5b5}
+.lp-single-login .lp-login-registration-paths .lp-entry-button{min-width:0;min-height:48px;padding:10px 12px;font-size:13px}
+.lp-single-login .lp-login-registration-paths .lp-login-holder{background:linear-gradient(120deg,#6d2038,#4d172b)}
+.lp-single-login .lp-login-registration-paths .lp-login-specialist{background:linear-gradient(120deg,#174b39,#0d3328)}
+@media(max-width:560px){.lp-single-login .lp-login-registration-paths{grid-template-columns:1fr}}
