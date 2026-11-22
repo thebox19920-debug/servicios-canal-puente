@@ -22,8 +22,8 @@
   document.body.prepend(head);
   const mobileLanguage=document.querySelector('.lex-language-menu');
   if(mobileLanguage)head.querySelector('.lp-mobile-language-slot').append(mobileLanguage.cloneNode(true));
-  const search=document.querySelector('#lp-service-search');
-  if(search)head.append(search);
+  let search=document.querySelector('#lp-service-search');
+  if(search&&window.matchMedia('(max-width:760px)').matches)head.append(search);
 
   const account=document.createElement('nav');
   account.className='lp-mobile-account';
@@ -41,6 +41,19 @@
   contact.innerHTML='<a class="lp-mobile-phone" aria-label="Llamar a SCP: +34 673 735 059" href="tel:+34673735059">+34 673 735 059</a>'+
     '<a class="lp-mobile-whatsapp" aria-label="Escribir por WhatsApp a SCP: +34 673 735 059" href="https://wa.me/34673735059" target="_blank" rel="noopener noreferrer"><span class="lex-whatsapp-icon-shell" aria-hidden="true"><svg class="lex-whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 3.6A11.6 11.6 0 0 0 2.2 17.2L.8 23.2l6.2-1.4a11.6 11.6 0 0 0 13.4-18.2Z"/><path d="M8.2 6.9c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.8.1-1.1.5-.4.4-1.4 1.4-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.7 4.3 6.6 5.8 3.2 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5s-2.3-1.1-2.6-1.2c-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.8-2.2-2-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.2-1.2-3Z"/></svg></span><span>WhatsApp · +34 673 735 059</span></a>';
   head.append(contact);
+
+  const placeSearch=()=>{
+    search=document.querySelector('#lp-service-search');
+    if(!search)return;
+    if(window.matchMedia('(max-width:760px)').matches){
+      if(search.parentElement!==head)head.insertBefore(search,account);
+    }else{
+      const desktop=document.querySelector('.scp-header-main');
+      const utilities=desktop?.querySelector('.scp-header-utilities');
+      if(desktop&&search.parentElement!==desktop)desktop.insertBefore(search,utilities||null);
+    }
+  };
+  window.matchMedia('(max-width:760px)').addEventListener?.('change',placeSearch);
 
   head.querySelector('.lp-mobile-back')?.addEventListener('click',()=>{
     if(path.includes('/servicios/')||path==='/pagar'||path==='/pagar.html'){
