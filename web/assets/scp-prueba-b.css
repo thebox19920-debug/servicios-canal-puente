@@ -355,3 +355,10 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
 @media(max-width:380px){
  html body .lp-mobile-topline{grid-template-columns:minmax(130px,1fr) minmax(105px,auto)!important}
 }
+
+/* El archivo original ocupa todo el marco ampliado para ocultar por completo la frase inferior. */
+@media(min-width:761px){
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo .lp-brand-emblem{
+  max-width:360px!important;width:100%!important;height:100%!important;
+ }
+}
