@@ -304,3 +304,14 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
  }
  html body header.lp-mobile-head .lp-mobile-account>a{width:auto!important;flex:0 1 auto!important;grid-column:auto!important;grid-row:auto!important}
 }
+
+/* La búsqueda mantiene el fondo dorado también en el encabezado móvil. */
+@media(max-width:760px){
+ html body header.lp-mobile-head #lp-service-search{
+  background:linear-gradient(135deg,#e7d39f,#c9a66a)!important;border-color:#f0dfb7!important;
+  box-shadow:0 3px 11px rgba(2,27,19,.22)!important;
+ }
+ html body header.lp-mobile-head #lp-service-search label{color:#173b2e!important}
+ html body header.lp-mobile-head #lp-service-search input{background:#fff7e4!important;border-color:#aa8547!important;color:#173b2e!important}
+ html body header.lp-mobile-head #lp-service-search input::placeholder{color:#776b55!important;opacity:1!important}
+}
