@@ -232,3 +232,75 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
   position:absolute!important;top:0!important;left:0!important;width:100%!important;height:72px!important;
   object-fit:cover!important;object-position:center top!important;clip-path:none!important;
 }
+
+/* Corrección solicitada: logo a la izquierda; categorías en la fila de accesos; búsqueda dorada. */
+@media(min-width:761px){
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined{
+  display:grid!important;position:relative!important;grid-template-columns:minmax(190px,280px) minmax(320px,1fr) auto!important;
+  grid-template-rows:76px 42px!important;align-items:center!important;column-gap:18px!important;row-gap:8px!important;
+  padding:7px clamp(14px,2.4vw,34px) 10px!important;min-height:0!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .scp-header-main{
+  display:contents!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo{
+  grid-column:1!important;grid-row:1!important;justify-self:start!important;align-self:center!important;
+  width:min(100%,280px)!important;max-width:280px!important;height:72px!important;margin:0!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo .lp-brand-emblem{
+  position:absolute!important;top:0!important;left:0!important;width:100%!important;height:72px!important;
+  object-fit:cover!important;object-position:center top!important;clip-path:none!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined #lp-service-search{
+  grid-column:2!important;grid-row:1!important;align-self:center!important;
+  background:linear-gradient(135deg,#e7d39f,#c9a66a)!important;border:1px solid #f0dfb7!important;
+  border-radius:11px!important;padding:7px 9px!important;box-shadow:0 3px 11px rgba(2,27,19,.22)!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined #lp-service-search label{
+  color:#173b2e!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined #lp-service-search input{
+  background:#fff7e4!important;border-color:#aa8547!important;color:#173b2e!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined #lp-service-search input::placeholder{
+  color:#776b55!important;opacity:1!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .scp-header-utilities{
+  grid-column:3!important;grid-row:1!important;justify-self:end!important;align-self:center!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .scp-categories-menu{
+  grid-column:1!important;grid-row:2!important;position:relative!important;justify-self:start!important;align-self:center!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{
+  grid-column:2/4!important;grid-row:2!important;align-self:center!important;justify-content:flex-end!important;
+ }
+}
+@media(min-width:761px) and (max-width:1180px){
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined{
+  grid-template-columns:minmax(150px,210px) minmax(260px,1fr) auto!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo{
+  width:min(100%,210px)!important;max-width:210px!important;
+ }
+}
+@media(max-width:760px){
+ html body .lp-mobile-topline{
+  grid-template-columns:minmax(95px,160px) minmax(0,1fr)!important;grid-template-rows:auto!important;
+ }
+ html body header.lp-mobile-head .scp-categories-trigger{display:none!important}
+ html body header.lp-mobile-head .lp-mobile-brand{
+  grid-column:1!important;grid-row:1!important;justify-content:flex-start!important;justify-self:start!important;
+ }
+ html body .lp-mobile-quicklinks{
+  grid-column:2!important;grid-row:1!important;justify-content:flex-end!important;padding-top:0!important;
+ }
+ html body header.lp-mobile-head .lp-mobile-account{
+  display:flex!important;flex-flow:row wrap!important;align-items:center!important;justify-content:center!important;gap:6px!important;
+ }
+ html body header.lp-mobile-head .lp-mobile-account .scp-categories-trigger{
+  display:flex!important;order:0!important;min-height:34px!important;padding:6px 8px!important;
+  border:1px solid #c9a66a!important;border-radius:8px!important;background:#103428!important;color:#fff2d5!important;
+  font:700 11px/1.2 Arial,sans-serif!important;white-space:nowrap!important;
+ }
+ html body header.lp-mobile-head .lp-mobile-account>a{width:auto!important;flex:0 1 auto!important;grid-column:auto!important;grid-row:auto!important}
+}
