@@ -54,3 +54,12 @@ html body.lp-prueba-b .scp-prueba-b-area b{grid-column:1/-1;color:#681d36;font:7
 }
 @media(max-width:460px){html body.lp-prueba-b .scp-prueba-b-area-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html body.lp-prueba-b .scp-prueba-b-role,html body.lp-prueba-b .scp-prueba-b-area{transition:none}}
+
+/* Portada Prueba B: logo compacto para dar protagonismo al contenido. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo{
+  width:min(100%,380px)!important;max-width:380px!important;flex:0 1 380px!important;
+}
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  width:100%!important;max-width:380px!important;height:auto!important;
+  aspect-ratio:2170 / 725!important;object-fit:contain!important;
+}
