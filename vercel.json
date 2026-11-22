@@ -4,6 +4,13 @@
   "buildCommand": null,
   "outputDirectory": "web",
   "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/acceso-scp.html",
+      "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/acceso-scp.html",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {"source": "/contratar", "destination": "/contratar.html"},
     {"source": "/pagar", "destination": "/pagar.html"}
