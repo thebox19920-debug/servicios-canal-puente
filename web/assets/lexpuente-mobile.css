@@ -307,3 +307,12 @@ body.lp-elegant-home .lp-home-hero{display:flex!important;flex-direction:column!
     aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:center!important;
   }
 }
+
+
+/* En móvil, el emblema acompaña la cabecera sin competir con el contenido. */
+@media(max-width:760px){
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    width:min(100%,230px)!important;max-width:230px!important;height:auto!important;
+    aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:center!important;
+  }
+}

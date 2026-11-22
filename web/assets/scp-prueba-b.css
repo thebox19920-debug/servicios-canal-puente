@@ -63,3 +63,12 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp
   width:100%!important;max-width:380px!important;height:auto!important;
   aspect-ratio:2170 / 725!important;object-fit:contain!important;
 }
+
+
+/* Portada SCP: el logotipo queda como firma y deja protagonismo al contenido. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo{
+  width:min(100%,280px)!important;max-width:280px!important;flex:0 1 280px!important;
+}
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  width:100%!important;max-width:280px!important;height:auto!important;
+}
