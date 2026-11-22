@@ -299,3 +299,11 @@ body.lp-elegant-home .lp-home-hero{display:flex!important;flex-direction:column!
   html body .lp-mobile-account .lex-service-offer{grid-column:2!important;grid-row:2!important}
   html body .lp-mobile-account .lex-account-special{grid-column:1/-1!important;grid-row:3!important}
 }
+
+/* En móvil, el mismo logotipo ocupa menos ancho y conserva su proporción. */
+@media(max-width:760px){
+  html body .lp-mobile-brand .lp-mobile-emblem{
+    width:min(100%,320px)!important;max-width:320px!important;height:auto!important;
+    aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:center!important;
+  }
+}
