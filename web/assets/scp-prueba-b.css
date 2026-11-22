@@ -570,3 +570,9 @@ html body.lp-elegant-home .lp-scp-carousel-dots button[aria-current="true"]{
  html body.lp-elegant-home .lp-scp-carousel-arrow,
  html body.lp-elegant-home .lp-scp-carousel-dots button{transition:none!important}
 }
+
+
+/* La flecha izquierda queda en el margen y deja el texto libre. */
+@media(min-width:761px){
+ html body.lp-elegant-home .lp-scp-carousel-prev{left:calc(-1 * clamp(22px,7vw,112px) + 14px)!important}
+}
