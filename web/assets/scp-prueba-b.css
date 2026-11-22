@@ -72,3 +72,13 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo{
 html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
   width:100%!important;max-width:280px!important;height:auto!important;
 }
+
+
+/* Firma visual SCP: conserva intacto el logotipo y deja más aire a los servicios. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo{
+  width:min(100%,240px)!important;max-width:240px!important;flex:0 1 240px!important;
+}
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  width:100%!important;max-width:240px!important;height:auto!important;
+  aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:left center!important;
+}
