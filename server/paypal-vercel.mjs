@@ -104,6 +104,28 @@ function receipt(order,orderId,purchase){
   return {status:'COMPLETED',id:orderId,amount:purchase.item.amount,item:purchase.item.name,captureId:capture.id};
 }
 
+function checkoutUrls(req,itemId){
+  const host=String(req.headers['x-forwarded-host']||req.headers.host||'').split(',')[0].trim();
+  const protocol=String(req.headers['x-forwarded-proto']||'https').split(',')[0].trim();
+  const base=`${protocol}://${host}`;
+  const returnUrl=new URL('/pagar.html',base);
+  returnUrl.searchParams.set('servicio',itemId);
+  returnUrl.searchParams.set('paypal_return','1');
+  const cancelUrl=new URL('/pagar.html',base);
+  cancelUrl.searchParams.set('servicio',itemId);
+  cancelUrl.searchParams.set('paypal_cancel','1');
+  return {returnUrl:returnUrl.toString(),cancelUrl:cancelUrl.toString()};
+}
+
+function approvalUrl(order,env){
+  const link=order.links?.find(value=>value.rel==='approve'||value.rel==='payer-action');
+  if(!link?.href)throw new Error('missing_approval_link');
+  const url=new URL(link.href);
+  const expectedHost=String(env.PAYPAL_ENVIRONMENT).toLowerCase()==='sandbox'?'www.sandbox.paypal.com':'www.paypal.com';
+  if(url.protocol!=='https:'||url.hostname!==expectedHost)throw new Error('invalid_approval_link');
+  return url.toString();
+}
+
 async function config(req,res,env){
   if(req.method!=='GET')return send(res,405,{error:'Método no permitido'});
   const enabled=checkoutEnabled(env);
@@ -120,14 +142,15 @@ async function orders(req,res,env){
   if(!item)return send(res,400,{error:'Servicio no disponible para pago en línea'});
   try{
     const requestId=randomUUID();
+    const urls=checkoutUrls(req,itemId);
     const order=await paypalRequest(env,'/v2/checkout/orders',{method:'POST',requestId,body:{
       intent:'CAPTURE',
       purchase_units:[{reference_id:requestId,custom_id:itemId,description:item.name,amount:{currency_code:CURRENCY,value:item.amount}}],
-      payment_source:{paypal:{experience_context:{brand_name:'Servicios Canal Puente SCP',shipping_preference:'NO_SHIPPING',user_action:'PAY_NOW'}}}
+      payment_source:{paypal:{experience_context:{brand_name:'Servicios Canal Puente SCP',shipping_preference:'NO_SHIPPING',user_action:'PAY_NOW',return_url:urls.returnUrl,cancel_url:urls.cancelUrl}}}
     }});
     if(!/^[A-Z0-9-]{10,64}$/.test(String(order.id||'')))throw new Error('invalid_order');
     const forwardedProto=String(req.headers['x-forwarded-proto']||'https').split(',')[0].trim();
-    return send(res,200,{id:order.id},{'Set-Cookie':makeOrderCookie(order.id,env.PAYPAL_CLIENT_SECRET,forwardedProto==='https')});
+    return send(res,200,{id:order.id,approvalUrl:approvalUrl(order,env)},{'Set-Cookie':makeOrderCookie(order.id,env.PAYPAL_CLIENT_SECRET,forwardedProto==='https')});
   }catch(error){
     return send(res,502,{error:'PayPal no ha podido preparar el pedido. No se ha confirmado ningún cobro.',code:'PAYMENT_SETUP_ERROR'});
   }
