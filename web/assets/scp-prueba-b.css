@@ -582,3 +582,25 @@ html body.lp-elegant-home .lp-scp-carousel-dots button[aria-current="true"]{
 @media(min-width:761px){
  html body.lp-elegant-home .lp-scp-carousel-slide .lp-scp-intro-copy{transform:translateY(-18px)!important}
 }
+
+
+/* Control manual centrado para pausar y reanudar el escaparate. */
+html body.lp-elegant-home .lp-scp-carousel-controls{
+ display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+ gap:0!important;margin:0 auto 8px!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-controls .lp-scp-carousel-dots{
+ min-height:24px!important;margin:0!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-toggle{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;
+ min-height:28px!important;padding:4px 11px!important;border:1px solid #c9a66a!important;border-radius:999px!important;
+ background:#0b3023!important;color:#f5e9ce!important;box-shadow:0 3px 9px rgba(19,47,36,.12)!important;
+ font:700 11px/1.15 Arial,sans-serif!important;cursor:pointer!important;transition:background .18s ease,color .18s ease,transform .18s ease!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-toggle:hover{transform:translateY(-1px)!important;background:#174334!important}
+html body.lp-elegant-home .lp-scp-carousel-toggle[aria-pressed="true"]{background:#681d36!important;color:#fff2d8!important}
+html body.lp-elegant-home .lp-scp-carousel-toggle-icon{font:700 14px/1 Arial,sans-serif!important}
+html body.lp-elegant-home .lp-scp-carousel-toggle:focus-visible{outline:3px solid rgba(105,33,56,.38)!important;outline-offset:3px!important}
+@media(max-width:760px){html body.lp-elegant-home .lp-scp-carousel-toggle{min-height:30px!important}}
+@media(prefers-reduced-motion:reduce){html body.lp-elegant-home .lp-scp-carousel-toggle{transition:none!important}}

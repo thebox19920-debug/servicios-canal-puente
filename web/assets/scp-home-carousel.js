@@ -6,15 +6,19 @@
   const dots=Array.from(carousel.querySelectorAll('[data-scp-dot]'));
   const previous=carousel.querySelector('.lp-scp-carousel-prev');
   const next=carousel.querySelector('.lp-scp-carousel-next');
-  if(slides.length!==4||dots.length!==4||!previous||!next)return;
+  const playback=carousel.querySelector('.lp-scp-carousel-toggle');
+  const playbackIcon=playback?.querySelector('.lp-scp-carousel-toggle-icon');
+  const playbackLabel=playback?.querySelector('.lp-scp-carousel-toggle-label');
+  if(slides.length!==4||dots.length!==4||!previous||!next||!playback||!playbackIcon||!playbackLabel)return;
   let active=0;
   let timer=null;
   let touchTimer=null;
+  let userPaused=false;
   const pauses=new Set();
   const duration=()=>Number(slides[active].dataset.scpDuration)||6000;
   const schedule=()=>{
     window.clearTimeout(timer);
-    if(pauses.size||document.hidden)return;
+    if(userPaused||pauses.size||document.hidden)return;
     timer=window.setTimeout(()=>show(active+1),duration());
   };
   const pause=reason=>{pauses.add(reason);window.clearTimeout(timer);};
@@ -30,6 +34,18 @@
     dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===active)));
     schedule();
   }
+  const updatePlayback=()=>{
+    playback.setAttribute('aria-pressed',String(userPaused));
+    playback.setAttribute('aria-label',userPaused?'Reanudar el carrusel':'Pausar el carrusel');
+    playbackIcon.textContent=userPaused?'▶':'Ⅱ';
+    playbackLabel.textContent=userPaused?'Reproducir':'Pausar';
+  };
+  playback.addEventListener('click',()=>{
+    userPaused=!userPaused;
+    updatePlayback();
+    if(userPaused)window.clearTimeout(timer);else schedule();
+  });
+  updatePlayback();
   previous.addEventListener('click',()=>show(active-1));
   next.addEventListener('click',()=>show(active+1));
   dots.forEach((dot,i)=>dot.addEventListener('click',()=>show(i)));
