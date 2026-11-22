@@ -15,17 +15,23 @@
 
   const head=document.createElement('header');
   head.className='lp-mobile-head';
-  head.innerHTML=(home?'':'<button type="button" class="lp-mobile-back" aria-label="Volver a servicios">‹</button>')+
-    '<a class="lp-mobile-brand" href="/index.html" aria-label="Servicios Canal Puente"><img class="lp-mobile-emblem" src="/assets/scp-logo-profesor-final.png?v=20261120-logo-profesor" alt="Logotipo Servicios Canal Puente SCP: puente dorado sobre agua, medallón SCP con un pequeño puente interior y lema Encuentra el servicio que necesitas con el especialista adecuado" decoding="async" fetchpriority="high"></a><span class="lp-mobile-head-spacer"></span>';
+  head.innerHTML='<div class="lp-mobile-topline">'+
+    '<button type="button" class="scp-categories-trigger" aria-haspopup="dialog"><span aria-hidden="true">☰</span><span>Todas las categorías</span></button>'+
+    '<a class="lp-mobile-brand" href="/index.html" aria-label="Servicios Canal Puente SCP"><img class="lp-mobile-emblem" src="/assets/scp-logo-profesor-final.png?v=20261120-logo-profesor" alt="Logotipo de Servicios Canal Puente SCP con su puente dorado y sus iniciales SCP" decoding="async" fetchpriority="high"></a>'+
+    '<nav class="lp-mobile-quicklinks" aria-label="Accesos rápidos"><a href="/agenda.html">Agenda</a><a href="/contacto.html">Contacto</a><span class="lp-mobile-language-slot"></span></nav></div>';
   document.body.prepend(head);
+  const mobileLanguage=document.querySelector('.lex-language-menu');
+  if(mobileLanguage)head.querySelector('.lp-mobile-language-slot').append(mobileLanguage.cloneNode(true));
+  const search=document.querySelector('#lp-service-search');
+  if(search)head.append(search);
 
   const account=document.createElement('nav');
   account.className='lp-mobile-account';
   account.setAttribute('aria-label','Acceso a tu cuenta');
   account.innerHTML='<a class="lex-account-signin" href="/iniciar-sesion.html">Iniciar sesión</a>'+
     '<a class="lex-account-membership" href="/planes.html">Membresías</a>'+
-    '<a class="lex-service-registration" href="/registro.html?tipo=titular&solicitud=servicio">Registra tu servicio</a>'+
-    '<a class="lex-service-offer" href="/registro.html?tipo=especialista">Ofrece tus servicios</a>'+
+    '<a class="lex-service-registration" href="/registro.html?tipo=titular&solicitud=servicio"><span aria-hidden="true">＋</span> Registra tu servicio</a>'+
+    '<a class="lex-service-offer" href="/registro.html?tipo=especialista"><span aria-hidden="true">＋</span> Ofrece tus servicios</a>'+
     '<a class="lex-account-special" href="/acceso-scp.html">Acceso reservado SCP</a>';
   head.append(account);
 
@@ -72,12 +78,13 @@
   const menu=document.createElement('dialog');
   menu.className='lp-mobile-menu';
   menu.setAttribute('aria-label','Menú de SCP');
-  menu.innerHTML='<button type="button" aria-label="Cerrar menú">×</button><h2>Tu SCP</h2>'+groups.map(([title,links])=>
+  menu.innerHTML='<button type="button" aria-label="Cerrar menú">×</button><h2>Todas las categorías</h2>'+groups.map(([title,links])=>
     '<small>'+title+'</small>'+links.map(([label,url])=>'<a href="'+url+'">'+label+'</a>').join('')
   ).join('')+
     '<small>CONTACTO INTERNACIONAL</small><a class="lp-mobile-menu-contact" href="tel:+34673735059">Llamar · +34 673 735 059</a><a class="lp-mobile-menu-contact" href="https://wa.me/34673735059" target="_blank" rel="noopener noreferrer">WhatsApp · +34 673 735 059</a>'+
     '<small>IDIOMAS</small><p>Español · Más idiomas próximamente</p>';
   menu.querySelector('button').onclick=()=>menu.close();
+  head.querySelector('.scp-categories-trigger').onclick=()=>menu.showModal();
   menu.addEventListener('click',event=>{if(event.target===menu&&event.clientX<menu.getBoundingClientRect().left)menu.close()});
   document.body.append(menu);
 
@@ -91,7 +98,6 @@
   nav.innerHTML=tabs.map(([icon,label,url])=>{
     const active=icon==='home'?home:icon==='services'?/\/areas|\/servicios|\/pagar/.test(path):path.startsWith(url.replace('.html',''));
     return '<a href="'+url+'"'+(active?' aria-current="page"':'')+'>'+svg(icon)+'<span>'+label+'</span></a>';
-  }).join('')+'<button type="button" aria-label="Abrir menú de SCP" aria-haspopup="dialog">'+svg('menu')+'<span>Menú</span></button>';
-  nav.querySelector('button').onclick=()=>menu.showModal();
+  }).join('');
   document.body.append(nav);
 })();
