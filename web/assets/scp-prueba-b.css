@@ -225,3 +225,10 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
 html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{
   flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important;
 }
+
+/* Encuadre del logo: se conserva el original y el encabezado omite solo su lema inferior. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo{height:72px!important}
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo .lp-brand-emblem{
+  position:absolute!important;top:0!important;left:0!important;width:100%!important;height:72px!important;
+  object-fit:cover!important;object-position:center top!important;clip-path:none!important;
+}
