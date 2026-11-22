@@ -576,3 +576,9 @@ html body.lp-elegant-home .lp-scp-carousel-dots button[aria-current="true"]{
 @media(min-width:761px){
  html body.lp-elegant-home .lp-scp-carousel-prev{left:calc(-1 * clamp(22px,7vw,112px) + 14px)!important}
 }
+
+
+/* Sube ligeramente el bloque de texto del escaparate blanco. */
+@media(min-width:761px){
+ html body.lp-elegant-home .lp-scp-carousel-slide .lp-scp-intro-copy{transform:translateY(-18px)!important}
+}
