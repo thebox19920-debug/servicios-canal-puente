@@ -584,3 +584,12 @@ html body header.lex-organized-header.lex-organized-header.lex-organized-header 
     box-shadow:inset 0 0 0 1px rgba(246,224,173,.28)!important;
   }
 }
+
+/* Logotipo SCP compacto: se conserva el archivo y la identidad visual. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  width:min(100%,380px)!important;max-width:380px!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  width:100%!important;max-width:380px!important;height:auto!important;
+  aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:center!important;
+}
