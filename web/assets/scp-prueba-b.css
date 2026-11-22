@@ -74,11 +74,105 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp
 }
 
 
-/* Firma visual SCP: conserva intacto el logotipo y deja más aire a los servicios. */
-html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo{
-  width:min(100%,240px)!important;max-width:240px!important;flex:0 1 240px!important;
+
+/* Cabecera refinada SCP: marca y buscador guían hacia los servicios. */
+html body.lp-prueba-b header.scp-header-refined{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:9px!important;
+  padding:7px clamp(14px,2.4vw,34px) 10px!important;
 }
-html body.lp-prueba-b header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
-  width:100%!important;max-width:240px!important;height:auto!important;
-  aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:left center!important;
+html body.lp-prueba-b header.scp-header-refined .scp-header-main{
+  display:grid!important;grid-template-columns:auto minmax(170px,280px) minmax(280px,1fr) auto!important;
+  align-items:center!important;gap:12px 18px!important;width:100%!important;min-width:0!important;
+}
+html body.lp-prueba-b header.scp-header-refined .scp-categories-menu{position:relative!important;grid-column:1;grid-row:1;min-width:0}
+html body.lp-prueba-b header.scp-header-refined .scp-categories-menu>summary,
+html body header.lp-mobile-head .scp-categories-trigger{
+  display:flex;align-items:center;justify-content:center;gap:9px;min-height:42px;padding:9px 12px;
+  border:1px solid rgba(223,194,129,.62);border-radius:9px;background:rgba(255,255,255,.055);
+  color:#f6e8c9;font:700 13px/1.2 Arial,sans-serif;cursor:pointer;list-style:none;white-space:nowrap;
+}
+html body .scp-categories-menu>summary::-webkit-details-marker{display:none}
+html body .scp-hamburger{font:22px/1 Arial,sans-serif;color:#e6ca88}
+html body.lp-prueba-b header.scp-header-refined .scp-categories-menu[open]>summary{background:#174334}
+html body.lp-prueba-b header.scp-header-refined .scp-categories-panel{
+  position:absolute!important;z-index:1300!important;top:calc(100% + 10px)!important;left:0!important;
+  display:grid!important;grid-template-columns:1fr!important;gap:2px!important;width:min(310px,90vw)!important;
+  max-height:min(72vh,600px)!important;overflow:auto!important;padding:10px!important;
+  border:1px solid #c9a66a!important;border-radius:12px!important;background:#0b3023!important;
+  box-shadow:0 16px 36px #0005!important;
+}
+html body.lp-prueba-b header.scp-header-refined .scp-categories-panel a{
+  display:block!important;padding:10px 12px!important;border-radius:7px!important;color:#f5e9ce!important;
+  font:600 13px/1.35 Arial,sans-serif!important;text-decoration:none!important;
+}
+html body.lp-prueba-b header.scp-header-refined .scp-categories-panel a:hover,
+html body.lp-prueba-b header.scp-header-refined .scp-categories-panel a:focus-visible{background:#ffffff13!important}
+html body.lp-prueba-b header.scp-header-refined .logo{
+  grid-column:2!important;grid-row:1!important;position:relative!important;display:block!important;
+  width:min(100%,280px)!important;max-width:280px!important;height:76px!important;overflow:hidden!important;
+  margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+html body.lp-prueba-b header.scp-header-refined .logo .lp-brand-emblem{
+  display:block!important;position:absolute!important;inset:0 auto auto 0!important;width:100%!important;max-width:280px!important;
+  height:auto!important;aspect-ratio:2170/725!important;object-fit:contain!important;object-position:center top!important;
+  clip-path:inset(0 0 20% 0)!important;
+}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search{
+  grid-column:3!important;grid-row:1!important;display:grid!important;grid-template-columns:minmax(130px,1.1fr) minmax(120px,.8fr) auto!important;
+  gap:8px!important;align-items:end!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;
+}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .lp-search-field{min-width:0!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search label{
+  display:block!important;margin:0 0 4px!important;color:#f2dfb7!important;font:700 11px/1.25 Arial,sans-serif!important;
+}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search input{
+  width:100%!important;min-width:0!important;height:39px!important;padding:8px 10px!important;
+  border:1px solid #b89558!important;border-radius:8px!important;background:#fffdf7!important;color:#193a2d!important;
+  font:14px/1.25 Arial,sans-serif!important;
+}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search button{
+  min-height:39px!important;padding:8px 12px!important;border:1px solid #d4b66f!important;border-radius:8px!important;
+  background:#681d36!important;color:#fff2d5!important;font:700 13px/1.2 Arial,sans-serif!important;white-space:nowrap!important;
+}
+html body.lp-prueba-b header.scp-header-refined .scp-header-utilities{
+  grid-column:4!important;grid-row:1!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  flex-wrap:wrap!important;gap:7px 10px!important;min-width:0!important;
+}
+html body.lp-prueba-b header.scp-header-refined .scp-header-utilities>a{
+  color:#f3dfb5!important;font:700 12px/1.2 Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;
+}
+html body.lp-prueba-b header.scp-header-refined .scp-header-utilities .lex-language-menu{position:relative!important}
+html body.lp-prueba-b header.scp-header-refined .scp-header-utilities .lex-language-menu>summary{
+  color:#f3dfb5!important;font:700 12px/1.2 Arial,sans-serif!important;list-style:none!important;cursor:pointer
+}
+html body.lp-prueba-b header.scp-header-refined .scp-header-utilities .lex-language-menu>summary::-webkit-details-marker{display:none}
+html body.lp-prueba-b header.scp-header-refined .scp-header-utilities .lex-language-dropdown{
+  position:absolute!important;z-index:1301!important;right:0!important;top:calc(100% + 9px)!important;
+  min-width:210px!important;padding:10px!important;border:1px solid #c9a66a!important;border-radius:10px!important;
+  background:#0b3023!important;box-shadow:0 12px 28px #0005!important;
+}
+html body.lp-prueba-b header.scp-header-refined .lex-account-access{
+  display:flex!important;grid-column:auto!important;grid-row:auto!important;align-self:center!important;justify-content:flex-end!important;
+  flex-wrap:wrap!important;gap:7px!important;width:100%!important;margin:0!important;padding:0!important;
+}
+html body.lp-prueba-b header.scp-header-refined .lex-account-access>a{
+  min-height:32px!important;padding:6px 11px!important;font-size:12px!important;line-height:1.2!important;
+}
+html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-registration,
+html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-offer{display:inline-flex!important;align-items:center!important;gap:5px!important}
+html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-registration>span,
+html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-offer>span{font-size:17px;line-height:1}
+@media(max-width:1180px) and (min-width:761px){
+  html body.lp-prueba-b header.scp-header-refined .scp-header-main{
+    grid-template-columns:auto minmax(150px,240px) minmax(260px,1fr)!important;
+    grid-template-rows:auto auto!important;
+  }
+  html body.lp-prueba-b header.scp-header-refined .logo{grid-column:2!important;grid-row:1!important}
+  html body.lp-prueba-b header.scp-header-refined #lp-service-search{grid-column:3!important;grid-row:1!important}
+  html body.lp-prueba-b header.scp-header-refined .scp-header-utilities{grid-column:2/4!important;grid-row:2!important;justify-content:flex-end!important}
+  html body.lp-prueba-b header.scp-header-refined .scp-categories-menu{grid-column:1!important;grid-row:1/3!important}
+}
+@media(max-width:760px){
+  html body.lp-prueba-b header.scp-header-refined{display:none!important}
+  html body.lp-prueba-b .lp-scp-hero{margin-top:0!important}
 }
