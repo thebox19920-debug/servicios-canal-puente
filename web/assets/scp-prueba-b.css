@@ -207,3 +207,16 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
  html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined #lp-service-search{grid-column:3!important;grid-row:1!important}
  html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .scp-header-utilities{grid-column:2/4!important;grid-row:2!important}
 }
+/* Acabado: grupo de cuenta en una sola fila y lema fuera del área visible. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{
+  display:flex!important;grid-template-columns:none!important;grid-auto-flow:column!important;align-items:center!important;
+  justify-content:flex-end!important;flex-wrap:wrap!important;gap:7px!important;
+}
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access>a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:auto!important;max-width:max-content!important;min-width:0!important;flex:0 1 auto!important;
+  grid-column:auto!important;grid-row:auto!important;justify-self:auto!important;white-space:nowrap!important;
+}
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo .lp-brand-emblem{
+  clip-path:inset(0 0 28% 0)!important;
+}
