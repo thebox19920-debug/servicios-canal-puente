@@ -509,3 +509,11 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
   min-height:36px!important;padding:7px 9px!important;font-size:13px!important;
  }
 }
+
+
+/* Sube ligeramente la fotografía de portada hasta el borde superior del área clara. */
+@media(min-width:761px){
+ html body.lp-elegant-home .lp-scp-intro-photo{
+  position:relative!important;top:calc(-1 * clamp(18px,4.5vw,60px))!important;
+ }
+}
