@@ -4,6 +4,16 @@
   "buildCommand": null,
   "outputDirectory": "web",
   "cleanUrls": false,
+  "redirects": [
+    {"source": "/acceso-scp.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/acceso-scp.html", "permanent": false},
+    {"source": "/administracion.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/administracion.html", "permanent": false},
+    {"source": "/mi-cuenta.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/mi-cuenta.html", "permanent": false},
+    {"source": "/iniciar-sesion.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/iniciar-sesion.html", "permanent": false},
+    {"source": "/registro.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/registro.html", "permanent": false},
+    {"source": "/firmar-contrato.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/firmar-contrato.html", "permanent": false},
+    {"source": "/prueba-alta.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/prueba-alta.html", "permanent": false},
+    {"source": "/prueba-alta-titular.html", "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/prueba-alta-titular.html", "permanent": false}
+  ],
   "rewrites": [
     {"source": "/contratar", "destination": "/contratar.html"},
     {"source": "/pagar", "destination": "/pagar.html"}
