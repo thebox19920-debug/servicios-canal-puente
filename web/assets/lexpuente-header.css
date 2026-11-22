@@ -593,3 +593,25 @@ html body header.lex-organized-header.lex-organized-header.lex-organized-header 
   width:100%!important;max-width:380px!important;height:auto!important;
   aspect-ratio:2170 / 725!important;object-fit:contain!important;object-position:center!important;
 }
+
+/* El logo se integra con el verde de la cabecera, sin marco de tarjeta. */
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo{
+  border:0!important;border-radius:0!important;overflow:visible!important;
+  background:transparent!important;box-shadow:none!important;
+}
+html body header.lex-organized-header.lex-organized-header.lex-organized-header .logo .lp-brand-emblem{
+  mix-blend-mode:lighten!important;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 1.4%,#000 98.6%,transparent 100%)!important;
+  mask-image:linear-gradient(to right,transparent 0%,#000 1.4%,#000 98.6%,transparent 100%)!important;
+}
+@media(max-width:760px){
+  html body header.lp-mobile-head .lp-mobile-brand{
+    border:0!important;border-radius:0!important;overflow:visible!important;
+    background:transparent!important;box-shadow:none!important;
+  }
+  html body header.lp-mobile-head .lp-mobile-brand .lp-mobile-emblem{
+    mix-blend-mode:lighten!important;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 1.5%,#000 98.5%,transparent 100%)!important;
+    mask-image:linear-gradient(to right,transparent 0%,#000 1.5%,#000 98.5%,transparent 100%)!important;
+  }
+}
