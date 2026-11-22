@@ -495,3 +495,17 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
   grid-column:1/-1!important;grid-row:4!important;justify-self:start!important;width:max-content!important;max-width:100%!important;
  }
 }
+
+
+/* Botones de acceso un poco más grandes y legibles. */
+@media(min-width:761px){
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{gap:7px!important}
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access>a{
+  min-height:36px!important;padding:7px 8px!important;font-size:13px!important;
+ }
+}
+@media(max-width:760px){
+ html body.lp-prueba-b header.lp-mobile-head .lp-mobile-account>a{
+  min-height:36px!important;padding:7px 9px!important;font-size:13px!important;
+ }
+}
