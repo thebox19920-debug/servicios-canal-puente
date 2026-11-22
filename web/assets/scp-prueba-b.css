@@ -517,3 +517,56 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
   position:relative!important;top:calc(-1 * clamp(18px,4.5vw,60px))!important;
  }
 }
+
+
+/* Escaparate superior SCP: cuatro diapositivas, con controles y puntos. */
+html body.lp-elegant-home .lp-scp-carousel{position:relative!important;width:100%!important;margin:0 auto!important}
+html body.lp-elegant-home .lp-scp-carousel-stage{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;align-items:stretch!important;width:100%!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-slide{
+ grid-area:1/1!important;min-width:0!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;
+ transition:opacity .45s ease,visibility .45s ease!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-slide.is-active{
+ position:relative!important;z-index:1!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-slide:not(.is-active){z-index:0!important}
+html body.lp-elegant-home .lp-scp-carousel-slide .lp-scp-intro-grid{width:100%!important}
+html body.lp-elegant-home .lp-scp-carousel-description{max-width:660px!important;font-size:clamp(15px,1.08vw,17px)!important;line-height:1.58!important}
+html body.lp-elegant-home .lp-scp-carousel-arrow{
+ position:absolute!important;z-index:5!important;top:47%!important;display:grid!important;place-items:center!important;
+ width:46px!important;height:46px!important;padding:0!important;border:1px solid rgba(201,166,106,.84)!important;
+ border-radius:50%!important;background:rgba(255,252,245,.94)!important;color:#0b3023!important;
+ box-shadow:0 5px 16px rgba(19,47,36,.16)!important;backdrop-filter:blur(5px)!important;
+ font:400 34px/1 Georgia,serif!important;cursor:pointer!important;transition:transform .18s ease,background .18s ease!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-prev{left:4px!important}
+html body.lp-elegant-home .lp-scp-carousel-next{right:4px!important}
+html body.lp-elegant-home .lp-scp-carousel-arrow:hover{transform:scale(1.06)!important;background:#fff!important}
+html body.lp-elegant-home .lp-scp-carousel-arrow:focus-visible,
+html body.lp-elegant-home .lp-scp-carousel-dots button:focus-visible{outline:3px solid rgba(105,33,56,.38)!important;outline-offset:3px!important}
+html body.lp-elegant-home .lp-scp-carousel-dots{
+ display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;
+ min-height:30px!important;margin:0 auto 10px!important;padding:0!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-dots button{
+ display:block!important;width:9px!important;height:9px!important;min-width:9px!important;min-height:9px!important;
+ padding:0!important;border:0!important;border-radius:999px!important;background:#c6b995!important;
+ cursor:pointer!important;transition:width .2s ease,background .2s ease!important;
+}
+html body.lp-elegant-home .lp-scp-carousel-dots button[aria-current="true"]{
+ width:26px!important;background:#0b3023!important;box-shadow:0 0 0 1px #c9a66a!important;
+}
+@media(max-width:760px){
+ html body.lp-elegant-home .lp-scp-carousel-arrow{top:auto!important;bottom:48px!important;width:40px!important;height:40px!important;font-size:30px!important}
+ html body.lp-elegant-home .lp-scp-carousel-prev{left:6px!important}
+ html body.lp-elegant-home .lp-scp-carousel-next{right:6px!important}
+ html body.lp-elegant-home .lp-scp-carousel-description{font-size:15px!important;line-height:1.55!important}
+ html body.lp-elegant-home .lp-scp-carousel-dots{margin-top:0!important;margin-bottom:8px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html body.lp-elegant-home .lp-scp-carousel-slide,
+ html body.lp-elegant-home .lp-scp-carousel-arrow,
+ html body.lp-elegant-home .lp-scp-carousel-dots button{transition:none!important}
+}
