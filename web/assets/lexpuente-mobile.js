@@ -30,7 +30,7 @@
   account.setAttribute('aria-label','Acceso a tu cuenta');
   const categoriesTrigger=head.querySelector('.scp-categories-trigger');
   account.innerHTML='<a class="lex-account-signin" href="/iniciar-sesion.html">Iniciar sesión</a>'+
-    '<a class="lex-account-membership" href="/planes.html">Membresías</a>'+
+    '<a class="lex-account-membership" href="/planes.html">Suscripciones</a>'+
     '<a class="lex-service-registration" href="/registro.html?tipo=titular&solicitud=servicio"><span aria-hidden="true">＋</span> Registra tu servicio</a>'+
     '<a class="lex-service-offer" href="/registro.html?tipo=especialista"><span aria-hidden="true">＋</span> Ofrece tus servicios</a>'+
     '<a class="lex-account-special" href="/acceso-scp.html">Acceso reservado SCP</a>';
