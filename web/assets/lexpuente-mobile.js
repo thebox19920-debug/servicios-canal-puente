@@ -17,7 +17,7 @@
   head.className='lp-mobile-head';
   head.innerHTML='<div class="lp-mobile-topline">'+
     '<button type="button" class="scp-categories-trigger" aria-haspopup="dialog"><span aria-hidden="true">☰</span><span>Todas las categorías</span></button>'+
-    '<a class="lp-mobile-brand" href="/index.html" aria-label="Servicios Canal Puente SCP"><img class="lp-mobile-emblem" src="/assets/scp-logo-profesor-final.png?v=20261120-logo-profesor" alt="Logotipo de Servicios Canal Puente SCP con su puente dorado y sus iniciales SCP" decoding="async" fetchpriority="high"></a>'+
+    '<a class="lp-mobile-brand" href="/index.html" aria-label="Servicios Canal Puente SCP"><img class="lp-mobile-emblem" src="/assets/scp-logo-profesor-final.png?v=20261122-logo-completo" alt="Logotipo de Servicios Canal Puente SCP con su puente dorado y sus iniciales SCP" decoding="async" fetchpriority="high"></a>'+
     '<nav class="lp-mobile-quicklinks" aria-label="Accesos rápidos"><a href="/agenda.html">Agenda</a><a href="/contacto.html">Contacto</a><span class="lp-mobile-language-slot"></span></nav></div>';
   document.body.prepend(head);
   const mobileLanguage=document.querySelector('.lex-language-menu');
