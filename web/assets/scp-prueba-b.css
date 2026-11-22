@@ -220,3 +220,8 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
 html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo .lp-brand-emblem{
   clip-path:inset(0 0 28% 0)!important;
 }
+
+/* Mantener los accesos de perfil en una fila bajo la cabecera principal. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{
+  flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important;
+}
