@@ -315,3 +315,43 @@ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organ
  html body header.lp-mobile-head #lp-service-search input{background:#fff7e4!important;border-color:#aa8547!important;color:#173b2e!important}
  html body header.lp-mobile-head #lp-service-search input::placeholder{color:#776b55!important;opacity:1!important}
 }
+
+/* Logo SCP más legible, sin deformar la imagen ni mostrar el lema pequeño. */
+@media(min-width:761px){
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined{
+  grid-template-columns:minmax(240px,360px) minmax(280px,1fr) auto!important;
+  grid-template-rows:minmax(58px,auto) 42px!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo{
+  width:min(100%,360px)!important;max-width:360px!important;height:clamp(58px,6.6vw,90px)!important;
+  aspect-ratio:4/1!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo .lp-brand-emblem{
+  width:100%!important;height:100%!important;object-fit:cover!important;object-position:center top!important;
+  clip-path:none!important;
+ }
+}
+@media(min-width:761px) and (max-width:1180px){
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined{
+  grid-template-columns:minmax(180px,260px) minmax(230px,1fr) auto!important;
+ }
+ html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .logo{
+  width:min(100%,260px)!important;max-width:260px!important;height:clamp(58px,7.2vw,78px)!important;
+ }
+}
+@media(max-width:760px){
+ html body .lp-mobile-topline{
+  grid-template-columns:minmax(130px,200px) minmax(105px,1fr)!important;
+ }
+ html body header.lp-mobile-head .lp-mobile-brand{
+  width:min(100%,200px)!important;max-width:200px!important;height:auto!important;aspect-ratio:4/1!important;
+  overflow:hidden!important;
+ }
+ html body header.lp-mobile-head .lp-mobile-brand .lp-mobile-emblem{
+  width:100%!important;max-width:200px!important;height:100%!important;aspect-ratio:auto!important;
+  object-fit:cover!important;object-position:center top!important;clip-path:none!important;
+ }
+}
+@media(max-width:380px){
+ html body .lp-mobile-topline{grid-template-columns:minmax(130px,1fr) minmax(105px,auto)!important}
+}
