@@ -28,11 +28,13 @@
   const account=document.createElement('nav');
   account.className='lp-mobile-account';
   account.setAttribute('aria-label','Acceso a tu cuenta');
+  const categoriesTrigger=head.querySelector('.scp-categories-trigger');
   account.innerHTML='<a class="lex-account-signin" href="/iniciar-sesion.html">Iniciar sesión</a>'+
     '<a class="lex-account-membership" href="/planes.html">Membresías</a>'+
     '<a class="lex-service-registration" href="/registro.html?tipo=titular&solicitud=servicio"><span aria-hidden="true">＋</span> Registra tu servicio</a>'+
     '<a class="lex-service-offer" href="/registro.html?tipo=especialista"><span aria-hidden="true">＋</span> Ofrece tus servicios</a>'+
     '<a class="lex-account-special" href="/acceso-scp.html">Acceso reservado SCP</a>';
+  if(categoriesTrigger)account.prepend(categoriesTrigger);
   head.append(account);
 
   const contact=document.createElement('div');
@@ -97,7 +99,7 @@
     '<small>CONTACTO INTERNACIONAL</small><a class="lp-mobile-menu-contact" href="tel:+34673735059">Llamar · +34 673 735 059</a><a class="lp-mobile-menu-contact" href="https://wa.me/34673735059" target="_blank" rel="noopener noreferrer">WhatsApp · +34 673 735 059</a>'+
     '<small>IDIOMAS</small><p>Español · Más idiomas próximamente</p>';
   menu.querySelector('button').onclick=()=>menu.close();
-  head.querySelector('.scp-categories-trigger').onclick=()=>menu.showModal();
+  categoriesTrigger?.addEventListener('click',()=>menu.showModal());
   menu.addEventListener('click',event=>{if(event.target===menu&&event.clientX<menu.getBoundingClientRect().left)menu.close()});
   document.body.append(menu);
 
