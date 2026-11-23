@@ -45,3 +45,19 @@
 .scp-demo-marketplace__quick-area a{display:inline-flex;align-items:center;min-height:42px;padding:9px 14px;border:1px solid #c9a66a;border-radius:999px;background:#fffdf8;color:#173d30;text-decoration:none;font:700 .92rem/1.3 Arial,sans-serif}
 .scp-demo-marketplace__quick-area a:hover{background:#f4ead2}
 @media(max-width:680px){.scp-demo-marketplace__quick-area a{text-align:center}}
+
+/* Motor de Conexión: fichas ilustrativas, sin datos de actividad real. */
+.scp-demo-card{gap:9px;padding:18px;border-top-color:#c9a66a}
+.scp-demo-card__top{align-items:flex-start}
+.scp-demo-card__code{color:#254a3a;font:700 .8rem/1.35 Arial,sans-serif;letter-spacing:.02em}
+.scp-demo-card__demo{flex:none;padding:5px 8px;background:#f2e5c8;color:#654d24;font:700 .7rem/1.2 Arial,sans-serif;letter-spacing:.06em}
+.scp-demo-card__title{margin:0;color:#153a2d;font:600 1.2rem/1.3 Georgia,serif}
+.scp-demo-card__specialty{margin:0;color:#775c31;font:700 .91rem/1.4 Arial,sans-serif}
+.scp-demo-card__location{margin:0;color:#4f6258;font:500 .95rem/1.4 Arial,sans-serif}
+.scp-demo-card__price{margin:0;padding:9px 11px;border-radius:8px;background:#f5efdf;color:#153a2d;font:700 .95rem/1.4 Arial,sans-serif}
+.scp-demo-card__description{display:-webkit-box;overflow:hidden;margin:0;color:#4f6258;font:400 .94rem/1.5 Arial,sans-serif;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.scp-demo-card__rating{margin:0;color:#52665a;font:400 .86rem/1.4 Arial,sans-serif}
+.scp-demo-card__verification{margin:0;color:#775c31;font:600 .84rem/1.4 Arial,sans-serif}
+.scp-demo-card--offer{border-top-color:#0b3023}
+.scp-demo-card--offer .scp-demo-card__button{background:#153d2e}
+@media(max-width:680px){.scp-demo-card__top{gap:6px}.scp-demo-card__title{font-size:1.18rem}}
