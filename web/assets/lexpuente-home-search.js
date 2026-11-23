@@ -1,8 +1,8 @@
 (() => {
 'use strict';
-const form=document.getElementById('lp-service-search'),serviceInput=document.getElementById('lp-service-need'),locationInput=document.getElementById('lp-service-location'),servicePicker=document.getElementById('scp-service-picker-options'),locationPicker=document.getElementById('scp-location-picker-options'),market=document.getElementById('scp-demo-marketplace');
+const form=document.getElementById('lp-service-search'),serviceInput=document.getElementById('lp-service-need'),locationInput=document.getElementById('lp-service-location'),servicePickerDetails=document.getElementById('scp-service-picker'),servicePicker=document.getElementById('scp-service-picker-options'),locationPicker=document.getElementById('scp-location-picker-options'),market=document.getElementById('scp-demo-marketplace');
 const demandsRoot=document.getElementById('scp-demo-demands'),offersRoot=document.getElementById('scp-demo-offers'),areaRoot=document.getElementById('scp-area-options'),serviceRoot=document.getElementById('scp-service-options');
-if(!form||!serviceInput||!locationInput||!servicePicker||!locationPicker||!market||!demandsRoot||!offersRoot||!areaRoot||!serviceRoot)return;
+if(!form||!serviceInput||!locationInput||!servicePickerDetails||!servicePicker||!locationPicker||!market||!demandsRoot||!offersRoot||!areaRoot||!serviceRoot)return;
 const areas=[
 {id:'tramites',label:'Trámites y documentación',href:'/areas/tramites.html',aliases:['tramites','extranjeria','homologacion','nacionalidad','residencia','documentacion','abogado']},
 {id:'salud',label:'Salud y odontología',href:'/areas/sanidad.html',aliases:['salud','odontologia','dental','dentista','ortodoncia','fisioterapia','cuidados a domicilio']},
@@ -213,8 +213,10 @@ status.textContent='Mostrando '+total+' solicitudes y servicios de referencia SC
 }
 let scrollTimer;const scrollToMarket=()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>market.scrollIntoView({behavior:'smooth',block:'start'}),180)};
 form.addEventListener('submit',event=>{event.preventDefault();render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-serviceInput.addEventListener('input',()=>{manualArea=null;manualService=null;render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
+serviceInput.addEventListener('focus',()=>{servicePickerDetails.open=true;renderServicePicker()});
+serviceInput.addEventListener('input',()=>{servicePickerDetails.open=true;manualArea=null;manualService=null;render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
 locationInput.addEventListener('input',()=>{selectedCountryFilter='';render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
 clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;selectedCountryFilter='';render();market.scrollIntoView({behavior:'smooth',block:'start'})});
+document.addEventListener('click',event=>{if(!servicePickerDetails.contains(event.target)&&event.target!==serviceInput)servicePickerDetails.open=false});
 document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});renderServicePicker();renderLocationPicker();render()
 })();
