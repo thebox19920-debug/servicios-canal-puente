@@ -1,8 +1,8 @@
 (() => {
 'use strict';
-const form=document.getElementById('lp-service-search'),serviceInput=document.getElementById('lp-service-need'),locationInput=document.getElementById('lp-service-location'),market=document.getElementById('scp-demo-marketplace');
+const form=document.getElementById('lp-service-search'),serviceInput=document.getElementById('lp-service-need'),locationInput=document.getElementById('lp-service-location'),countryInput=document.getElementById('scp-search-country'),taxonomyRoot=document.getElementById('scp-search-taxonomy-options'),market=document.getElementById('scp-demo-marketplace');
 const demandsRoot=document.getElementById('scp-demo-demands'),offersRoot=document.getElementById('scp-demo-offers'),areaRoot=document.getElementById('scp-area-options'),serviceRoot=document.getElementById('scp-service-options');
-if(!form||!serviceInput||!locationInput||!market||!demandsRoot||!offersRoot||!areaRoot||!serviceRoot)return;
+if(!form||!serviceInput||!locationInput||!countryInput||!taxonomyRoot||!market||!demandsRoot||!offersRoot||!areaRoot||!serviceRoot)return;
 const areas=[
 {id:'tramites',label:'Trámites y documentación',href:'/areas/tramites.html',aliases:['tramites','extranjeria','homologacion','nacionalidad','residencia','documentacion','abogado']},
 {id:'salud',label:'Salud y odontología',href:'/areas/sanidad.html',aliases:['salud','odontologia','dental','dentista','ortodoncia','fisioterapia','cuidados a domicilio']},
@@ -62,10 +62,20 @@ const specialists=[
 {name:'Orientación Cercana SCP',areaId:'otros',serviceId:'asesoria-general',ubicacion:'Lisboa, Portugal · Online',tarifa:'85 € (orientativa)',keywords:'asesoría general orientación acompañamiento'}
 ];
 const normalize=value=>String(value||'').toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[\/-]/g,' ').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+const rootAreas=[
+{id:'tramites',label:'Trámites y documentación',categoryIds:['tramites'],serviceIds:['abogado','extranjeria','nacionalidad','homologacion','gestion-documental','asesoria-general']},
+{id:'salud',label:'Salud y odontología',categoryIds:['salud','bienestar'],serviceIds:['limpieza-dental','odontologia','ortodoncia','fisioterapia','cuidados','psicologia','nutricion','acompanamiento']},
+{id:'vivienda',label:'Vivienda e inmobiliaria',categoryIds:['vivienda'],serviceIds:['alquiler','contratos','tasacion','reformas']},
+{id:'academia',label:'Academia y formación',categoryIds:['academia','otros'],serviceIds:['idiomas','refuerzo','examenes','digital','web-comunicacion','a-medida']}
+];
+const placeSuggestions={'españa':['Barcelona','Madrid','Valencia','Sevilla','Málaga','Bilbao','Zaragoza'],'bélgica':['Bruselas','Amberes','Gante','Lieja'],'francia':['París','Lyon','Marsella'],'portugal':['Lisboa','Oporto'],'reino unido':['Londres','Manchester','Birmingham'],'marruecos':['Tánger','Casablanca','Rabat'],'alemania':['Berlín','Hamburgo','Múnich'],'italia':['Roma','Milán','Nápoles'],'países bajos':['Ámsterdam','Róterdam','La Haya'],'argentina':['Buenos Aires','Córdoba','Rosario'],'colombia':['Bogotá','Medellín','Cali'],'méxico':['Ciudad de México','Guadalajara','Monterrey'],'estados unidos':['Nueva York','Miami','Los Ángeles'],'online internacional':['Online / Internacional','Online']};
+
 const areaById=id=>areas.find(area=>area.id===id),serviceById=id=>services.find(service=>service.id===id);
+const serviceDatalist=document.getElementById('scp-service-suggestions'),locationDatalist=document.getElementById('scp-location-suggestions');
 const status=document.getElementById('scp-demo-search-status'),demandCount=document.getElementById('scp-demo-demand-count'),offerCount=document.getElementById('scp-demo-offer-count'),empty=document.getElementById('scp-demo-empty'),clearButton=document.getElementById('scp-clear-filters'),serviceTitle=document.getElementById('scp-service-list-title'),areaPageLink=document.getElementById('scp-area-page-link');
 const dialog=document.getElementById('scp-demo-dialog'),dialogTitle=document.getElementById('scp-demo-dialog-title'),dialogCopy=document.getElementById('scp-demo-dialog-copy'),dialogCta=document.getElementById('scp-demo-dialog-cta');
-let manualArea=null,manualService=null;
+let manualArea=null,manualService=null,manualRootArea=null;
+function resolveRootArea(query){return rootAreas.find(area=>query===normalize(area.label)||area.categoryIds.some(id=>query===normalize(id)))||null}
 function resolveArea(query){return areas.find(area=>area.aliases.some(alias=>query===normalize(alias)||query.includes(normalize(alias))))||null}
 function resolveService(query,areaId){
 const candidates=services.filter(service=>!areaId||service.area===areaId).sort((a,b)=>Math.max(...b.aliases.map(x=>x.length))-Math.max(...a.aliases.map(x=>x.length)));
@@ -73,22 +83,38 @@ return candidates.find(service=>[service.label,...service.aliases].some(term=>{c
 }
 function queryState(){
 const query=normalize(serviceInput.value);
-if(query){const area=resolveArea(query),service=resolveService(query,area?.id||null);return {areaId:service?.area||area?.id||null,serviceId:service?.id||null,freeQuery:service||area?'':query}}
-return {areaId:manualService?serviceById(manualService)?.area:manualArea,serviceId:manualService,freeQuery:''}
+if(query){const rootArea=resolveRootArea(query),service=resolveService(query,null),area=resolveArea(query);return {rootAreaId:service?rootAreas.find(root=>root.serviceIds.includes(service.id))?.id:(rootArea?.id||null),areaIds:service?[service.area]:rootArea?.categoryIds||(area?[area.id]:null),areaId:service?.area||area?.id||null,serviceId:service?.id||null,freeQuery:service||area||rootArea?'':query}}
+const selectedService=manualService?serviceById(manualService):null,selectedRoot=manualRootArea?rootAreas.find(area=>area.id===manualRootArea):null;return {rootAreaId:selectedRoot?.id||null,areaIds:selectedService?[selectedService.area]:selectedRoot?.categoryIds||(manualArea?[manualArea]:null),areaId:selectedService?.area||manualArea,serviceId:manualService,freeQuery:''}
 }
 function cardMatches(item,state,location){
-if(state.areaId&&item.areaId!==state.areaId)return false;if(state.serviceId&&item.serviceId!==state.serviceId)return false;
+if(state.areaIds&&state.areaIds.length&&!state.areaIds.includes(item.areaId))return false;if(state.serviceId&&item.serviceId!==state.serviceId)return false;
 if(state.freeQuery){const searchable=normalize([item.title||'',item.name||'',item.areaId,item.serviceId,item.keywords||'',serviceById(item.serviceId)?.label||'',areaById(item.areaId)?.label||''].join(' '));const words=state.freeQuery.split(' ').filter(word=>word.length>2);if(words.length&&!words.every(word=>searchable.includes(word)))return false}
 const place=normalize(item.ubicacion);if(location&&!place.includes(location)&&!(location==='internacional'&&/online|francia|colombia|portugal/.test(place)))return false;return true
 }
+function populateSearchSuggestions(){
+  serviceDatalist.replaceChildren(...services.map(service=>{const option=document.createElement('option');option.value=service.label;return option}));
+  const updateZones=()=>{const country=normalize(countryInput.value);locationInput.disabled=!country;locationInput.value='';const suggestions=placeSuggestions[country]||(/online|internacional/.test(country)?placeSuggestions['online internacional']:[]);locationDatalist.replaceChildren(...suggestions.map(label=>{const option=document.createElement('option');option.value=label;return option}));locationInput.placeholder=country?'2. Después, elige ciudad o zona':'2. Selecciona primero un país';render()};
+  countryInput.addEventListener('input',updateZones);countryInput.addEventListener('change',updateZones);
+}
+function renderSearchTaxonomy(){
+ taxonomyRoot.replaceChildren();
+ rootAreas.forEach(rootArea=>{
+  const group=document.createElement('section');group.className='scp-search-taxonomy__group';
+  const heading=document.createElement('button');heading.type='button';heading.className='scp-search-taxonomy__area';heading.textContent=rootArea.label+' · Ver todo';heading.addEventListener('click',()=>{manualRootArea=rootArea.id;manualArea=null;manualService=null;serviceInput.value=rootArea.label;render();market.scrollIntoView({behavior:'smooth',block:'start'})});group.append(heading);
+  const list=document.createElement('div');list.className='scp-search-taxonomy__services';
+  services.filter(service=>rootArea.serviceIds.includes(service.id)).forEach(service=>{const button=document.createElement('button');button.type='button';button.className='scp-search-taxonomy__service';button.textContent=service.label;button.addEventListener('click',()=>{manualRootArea=rootArea.id;manualArea=null;manualService=service.id;serviceInput.value=service.label;render();market.scrollIntoView({behavior:'smooth',block:'start'})});list.append(button)});
+  group.append(list);taxonomyRoot.append(group)
+ });
+ const clear=document.createElement('button');clear.type='button';clear.className='scp-search-taxonomy__clear';clear.textContent='Ver todas las áreas y servicios';clear.addEventListener('click',()=>{serviceInput.value='';manualArea=null;manualService=null;manualRootArea=null;render()});taxonomyRoot.append(clear)
+}
 function renderAreaOptions(state){
 areaRoot.replaceChildren();
-areas.forEach(area=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__area-button';button.textContent=area.label;button.setAttribute('aria-pressed',String(state.areaId===area.id));button.addEventListener('click',()=>{manualArea=area.id;manualService=null;serviceInput.value='';render();market.scrollIntoView({behavior:'smooth',block:'start'})});areaRoot.append(button)});
-const all=document.createElement('button');all.type='button';all.className='scp-architecture__area-button scp-architecture__area-button--all';all.textContent='Ver todas';all.setAttribute('aria-pressed',String(!state.areaId));all.addEventListener('click',()=>{manualArea=null;manualService=null;serviceInput.value='';render()});areaRoot.append(all)
+areas.forEach(area=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__area-button';button.textContent=area.label;button.setAttribute('aria-pressed',String(state.areaId===area.id));button.addEventListener('click',()=>{manualArea=area.id;manualService=null;manualRootArea=null;serviceInput.value='';render();market.scrollIntoView({behavior:'smooth',block:'start'})});areaRoot.append(button)});
+const all=document.createElement('button');all.type='button';all.className='scp-architecture__area-button scp-architecture__area-button--all';all.textContent='Ver todas';all.setAttribute('aria-pressed',String(!state.areaId));all.addEventListener('click',()=>{manualArea=null;manualService=null;manualRootArea=null;serviceInput.value='';render()});areaRoot.append(all)
 }
 function renderServiceOptions(state){
-serviceRoot.replaceChildren();const visible=services.filter(service=>!state.areaId||service.area===state.areaId);
-serviceTitle.textContent=state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
+serviceRoot.replaceChildren();const visible=services.filter(service=>!state.areaIds||!state.areaIds.length||state.areaIds.includes(service.area));
+serviceTitle.textContent=state.rootAreaId?rootAreas.find(area=>area.id===state.rootAreaId).label+' · Servicios':state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
 visible.forEach(service=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__service-button';button.textContent=state.areaId?service.label:service.label+' · '+areaById(service.area).label;button.setAttribute('aria-pressed',String(state.serviceId===service.id));button.addEventListener('click',()=>{manualArea=service.area;manualService=service.id;serviceInput.value=service.label;render();market.scrollIntoView({behavior:'smooth',block:'start'})});serviceRoot.append(button)});
 if(state.areaId){areaPageLink.hidden=false;areaPageLink.href=areaById(state.areaId).href;areaPageLink.textContent='Abrir página completa de '+areaById(state.areaId).label}else{areaPageLink.hidden=true;areaPageLink.removeAttribute('href')}
 }
@@ -107,9 +133,16 @@ function openDetails(item,type){
 const area=areaById(item.areaId),service=serviceById(item.serviceId);dialogTitle.textContent=type==='demand'?item.title:item.name;dialogCopy.textContent=area.label+' · '+service.label+' · '+item.ubicacion+'. '+(type==='demand'?item.description:'Tarifa orientativa: '+item.tarifa+'. La disponibilidad se confirma con el especialista.');
 dialogCta.textContent=type==='demand'?'Registrar solicitud':'Presentar servicio';dialogCta.href=type==='demand'?'/registro.html?tipo=titular&solicitud=servicio':'/registro.html?tipo=especialista';if(typeof dialog.showModal==='function')dialog.showModal()
 }
+function cardMatchesCountry(item,country){
+ if(!country)return true;
+ const place=normalize(item.ubicacion);
+ if(/online|internacional/.test(country))return /online|internacional/.test(place);
+ const map={'espana':['barcelona','madrid','valencia','sevilla','malaga','bilbao','zaragoza','espana'],'belgica':['bruselas','amberes','gante','lieja','belgica'],'francia':['paris','lyon','marsella','francia'],'portugal':['lisboa','oporto','portugal'],'reino unido':['londres','manchester','birmingham','reino unido'],'marruecos':['tanger','casablanca','rabat','marruecos'],'alemania':['berlin','hamburgo','munich','alemania'],'italia':['roma','milan','napoles','italia'],'paises bajos':['amsterdam','roterdam','la haya','paises bajos'],'argentina':['buenos aires','cordoba','rosario','argentina'],'colombia':['bogota','medellin','cali','colombia'],'mexico':['ciudad de mexico','guadalajara','monterrey','mexico'],'estados unidos':['nueva york','miami','los angeles','estados unidos']};
+ return (map[country]||[country]).some(name=>place.includes(normalize(name)))
+}
 function render(){
-const state=queryState(),location=normalize(locationInput.value);renderAreaOptions(state);renderServiceOptions(state);
-const ds=demands.filter(item=>cardMatches(item,state,location)),ss=specialists.filter(item=>cardMatches(item,state,location));
+const state=queryState(),location=normalize(locationInput.value),country=normalize(countryInput.value);renderAreaOptions(state);renderServiceOptions(state);
+const ds=demands.filter(item=>cardMatches(item,state,location)&&cardMatchesCountry(item,country)),ss=specialists.filter(item=>cardMatches(item,state,location)&&cardMatchesCountry(item,country));
 demandsRoot.replaceChildren(...ds.map(item=>createCard(item,'demand')));offersRoot.replaceChildren(...ss.map(item=>createCard(item,'offer')));
 demandCount.textContent='('+ds.length+')';offerCount.textContent='('+ss.length+')';const total=ds.length+ss.length;
 status.textContent='Mostrando '+total+' solicitudes y servicios de referencia SCP.';empty.hidden=total>0
@@ -118,6 +151,7 @@ let scrollTimer;const scrollToMarket=()=>{clearTimeout(scrollTimer);scrollTimer=
 form.addEventListener('submit',event=>{event.preventDefault();render();market.scrollIntoView({behavior:'smooth',block:'start'})});
 serviceInput.addEventListener('input',()=>{manualArea=null;manualService=null;render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
 locationInput.addEventListener('input',()=>{render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
-clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});render()
+countryInput.addEventListener('input',()=>{render();if(serviceInput.value.trim()||countryInput.value.trim())scrollToMarket()});
+clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';countryInput.value='';locationInput.disabled=true;manualArea=null;manualService=null;manualRootArea=null;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
+document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});populateSearchSuggestions();renderSearchTaxonomy();render()
 })();
