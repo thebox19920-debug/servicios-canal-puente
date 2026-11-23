@@ -33,7 +33,7 @@
   ];
   const normalize = value => String(value || '').toLocaleLowerCase('es')
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s/-]/g, ' ').replace(/\s+/g, ' ').trim();
+    .replace(/[\/-]/g, ' ').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
   const status = document.getElementById('scp-demo-search-status');
   const demandCount = document.getElementById('scp-demo-demand-count');
   const offerCount = document.getElementById('scp-demo-offer-count');
