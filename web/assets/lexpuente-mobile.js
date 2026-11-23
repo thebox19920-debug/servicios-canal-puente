@@ -70,7 +70,7 @@
       ['Iniciar sesión','/iniciar-sesion.html'],
       ['+ Publica el servicio que buscas','/registro.html?tipo=titular&solicitud=servicio'],
       ['+ Publica los servicios que ofreces','/registro.html?tipo=especialista'],
-      ['Acceso reservado SCP','/acceso-scp.html'],
+      
       ['Inicio','/index.html']
     ]],
     ['CONOCE SCP',[
