@@ -472,3 +472,28 @@ html body.lp-elegant-home .lp-scp-intro-copy .lp-scp-promo-lead{
 @media(max-width:760px){
   html body.lp-elegant-home .lp-scp-intro-copy .lp-scp-promo-lead{margin-top:11px!important;font-size:21px!important;line-height:1.32!important}
 }
+
+
+/* Acciones principales de portada: jerarquía corporativa, altura uniforme y lectura clara. */
+html body.lp-elegant-home .lp-scp-intro-actions{gap:12px!important}
+html body.lp-elegant-home .lp-scp-intro-actions a{
+ box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ height:44px!important;min-height:44px!important;padding:10px 14px!important;border-radius:9px!important;
+ font:600 14px/1.15 Arial,sans-serif!important;white-space:nowrap!important
+}
+html body.lp-elegant-home .lp-scp-intro-action-primary{background:#0b3023!important;border:1px solid #0b3023!important;color:#fff!important}
+html body.lp-elegant-home .lp-scp-intro-action-secondary{background:#fff!important;border:1px solid #0b3023!important;color:#0b3023!important}
+html body.lp-elegant-home .lp-scp-entry-choices{gap:12px!important}
+html body.lp-elegant-home .lp-scp-entry-link{
+ box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ width:100%!important;height:44px!important;min-height:44px!important;padding:10px 14px!important;gap:7px!important;
+ font:600 14px/1.15 Arial,sans-serif!important;white-space:nowrap!important
+}
+html body.lp-elegant-home .lp-scp-entry-holder .lp-scp-entry-link{background:#0b3023!important;border:1px solid #0b3023!important;color:#fff!important}
+html body.lp-elegant-home .lp-scp-entry-specialist .lp-scp-entry-link{background:#fff!important;border:1px solid #0b3023!important;color:#0b3023!important}
+@media(max-width:760px){
+ html body.lp-elegant-home .lp-scp-intro-actions{display:flex!important;flex-direction:column!important;gap:12px!important}
+ html body.lp-elegant-home .lp-scp-intro-actions a{width:100%!important;white-space:normal!important}
+ html body.lp-elegant-home .lp-scp-entry-choices{grid-template-columns:1fr!important}
+ html body.lp-elegant-home .lp-scp-entry-link{white-space:normal!important}
+}

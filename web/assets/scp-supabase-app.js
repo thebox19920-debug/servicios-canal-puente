@@ -98,7 +98,7 @@ async function loginPage(){const user=await currentUser().catch(()=>null);if(use
 function appendProfileDetails(target,items){if(!target)return;target.replaceChildren();const dl=make('dl');for(const [k,v]of items){if(!String(v||'').trim())continue;dl.append(make('dt','',k),make('dd','',v))}target.append(dl)}
 async function loadMyAccount(){const status=$('portal-status'),login=$('portal-login'),account=$('portal-account');let user;try{user=await currentUser()}catch(e){setStatus(e.message);return}
   if(!user){if(login)login.hidden=false;addLoginForm(login);setStatus('Inicia sesión con la cuenta de correo y contraseña vinculada a tu perfil SCP.');return}
-  const profile=await getMyProfile(user);if(!profile){setStatus('No hay perfil SCP asociado. Empieza desde Registra tu servicio u Ofrece tus servicios.');if(login)login.hidden=false;return}
+  const profile=await getMyProfile(user);if(!profile){setStatus('No hay perfil SCP asociado. Empieza desde «Publica el servicio que buscas» o «Publica los servicios que ofreces».');if(login)login.hidden=false;return}
   if(login)login.hidden=true;if(account)account.hidden=false;authNavigation();safe($('portal-greeting'),'Hola, '+(profile.display_name||user.email));safe($('portal-role'),roleLabel(profile.role)+' · '+profile.approval_status);
   if(profile.role==='ADMIN'){if($('portal-admin-link')){$('portal-admin-link').hidden=false;$('portal-admin-link').href='/administracion.html';$('portal-admin-link').textContent='Entrar en Administración SCP'}if($('portal-own-content'))$('portal-own-content').hidden=true;setStatus('Cuenta de administración reconocida.');return}
   if($('portal-own-content'))$('portal-own-content').hidden=false;
