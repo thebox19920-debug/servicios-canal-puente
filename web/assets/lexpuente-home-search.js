@@ -1,81 +1,123 @@
 (() => {
 'use strict';
-const form=document.getElementById('lp-service-search'),serviceInput=document.getElementById('lp-service-need'),locationInput=document.getElementById('lp-service-location');
-const demandsRoot=document.getElementById('scp-demo-demands'),offersRoot=document.getElementById('scp-demo-offers'),market=document.getElementById('scp-demo-marketplace');
-if(!form||!serviceInput||!locationInput||!demandsRoot||!offersRoot||!market)return;
+const form=document.getElementById('lp-service-search'),serviceInput=document.getElementById('lp-service-need'),locationInput=document.getElementById('lp-service-location'),market=document.getElementById('scp-demo-marketplace');
+const demandsRoot=document.getElementById('scp-demo-demands'),offersRoot=document.getElementById('scp-demo-offers'),areaRoot=document.getElementById('scp-area-options'),serviceRoot=document.getElementById('scp-service-options');
+if(!form||!serviceInput||!locationInput||!market||!demandsRoot||!offersRoot||!areaRoot||!serviceRoot)return;
+const areas=[
+{id:'tramites',label:'Trámites y documentación',href:'/areas/tramites.html',aliases:['tramites','extranjeria','homologacion','nacionalidad','residencia','documentacion','abogado']},
+{id:'salud',label:'Salud y odontología',href:'/areas/sanidad.html',aliases:['salud','odontologia','dental','dentista','ortodoncia','fisioterapia','cuidados a domicilio']},
+{id:'vivienda',label:'Vivienda e inmobiliaria',href:'/areas/vivienda.html',aliases:['vivienda','inmobiliaria','alquiler','tasacion','contratos','reformas','mantenimiento']},
+{id:'academia',label:'Academia y formación',href:'/areas/academia.html',aliases:['academia','formacion','clases','idiomas','refuerzo escolar','examenes']},
+{id:'bienestar',label:'Bienestar integral',href:'/areas/bienestar.html',aliases:['bienestar','psicologia','psicologica','nutricion','acompanamiento personal']},
+{id:'otros',label:'Otros servicios',href:'/areas-de-actividad.html',aliases:['otros servicios','asesoria general','diseno web','comunicacion','servicios a medida']}
+];
+const services=[
+{id:'abogado',area:'tramites',label:'Abogado',aliases:['abogado','abogada','asesoria juridica','asesoria legal']},
+{id:'extranjeria',area:'tramites',label:'Trámite de extranjería',aliases:['tramite de extranjeria','tramites de extranjeria','extranjeria','permiso de residencia']},
+{id:'nacionalidad',area:'tramites',label:'Nacionalidad y residencia',aliases:['nacionalidad','residencia','nacionalidad y residencia']},
+{id:'homologacion',area:'tramites',label:'Homologación de títulos',aliases:['homologacion','homologacion de titulos']},
+{id:'gestion-documental',area:'tramites',label:'Gestión documental',aliases:['gestion documental','documentacion','documental']},
+{id:'limpieza-dental',area:'salud',label:'Limpieza dental',aliases:['limpieza dental','limpieza','higiene dental']},
+{id:'odontologia',area:'salud',label:'Odontología general',aliases:['odontologia general','odontologia','dentista','dental']},
+{id:'ortodoncia',area:'salud',label:'Ortodoncia',aliases:['ortodoncia','brackets']},
+{id:'fisioterapia',area:'salud',label:'Fisioterapia',aliases:['fisioterapia','rehabilitacion']},
+{id:'cuidados',area:'salud',label:'Cuidados a domicilio',aliases:['cuidados a domicilio','cuidados','cuidadora','cuidador','sad','atencion a mayores']},
+{id:'alquiler',area:'vivienda',label:'Alquiler de vivienda',aliases:['alquiler de vivienda','alquiler','vivienda de alquiler']},
+{id:'contratos',area:'vivienda',label:'Revisión de contratos',aliases:['revision de contratos','contratos','contrato de alquiler']},
+{id:'tasacion',area:'vivienda',label:'Tasación',aliases:['tasacion','valoracion inmobiliaria']},
+{id:'reformas',area:'vivienda',label:'Reformas y mantenimiento',aliases:['reformas','mantenimiento']},
+{id:'idiomas',area:'academia',label:'Clases de idiomas',aliases:['clases de idiomas','idiomas','ingles','frances']},
+{id:'refuerzo',area:'academia',label:'Refuerzo escolar',aliases:['refuerzo escolar','refuerzo','clases particulares']},
+{id:'examenes',area:'academia',label:'Preparación de exámenes',aliases:['preparacion de examenes','examenes','pau']},
+{id:'digital',area:'academia',label:'Formación digital',aliases:['formacion digital','competencias digitales']},
+{id:'psicologia',area:'bienestar',label:'Atención psicológica',aliases:['atencion psicologica','psicologia','psicologo','psicologa']},
+{id:'nutricion',area:'bienestar',label:'Nutrición',aliases:['nutricion','nutricionista']},
+{id:'acompanamiento',area:'bienestar',label:'Acompañamiento personal',aliases:['acompanamiento personal','acompanamiento emocional']},
+{id:'asesoria-general',area:'otros',label:'Asesoría general',aliases:['asesoria general','asesoria']},
+{id:'web-comunicacion',area:'otros',label:'Diseño web y comunicación',aliases:['diseno web y comunicacion','diseno web','comunicacion','redes sociales']},
+{id:'a-medida',area:'otros',label:'Servicios a medida',aliases:['servicios a medida','servicio a medida']}
+];
 const demands=[
-{code:'SCP-TIT-88401',title:'Atención integral a mayores',sector:'Salud y bienestar',city:'Barcelona, Gràcia',budget:'15–20 €/h',description:'Acompañamiento cotidiano y apoyo en tareas personales. Preferencia por atención cercana y horario acordado.',terms:'mayores cuidadora sad salud bienestar atención acompañamiento'},
-{code:'SCP-TIT-88402',title:'Limpieza dental y revisión preventiva',sector:'Salud y odontología',city:'Madrid, Centro',budget:'80–130 €',description:'Busca una primera valoración y conocer por escrito el alcance y el precio antes de reservar.',terms:'odontología dentista dental higiene limpieza revisión'},
-{code:'SCP-TIT-88403',title:'Renovación de autorización de residencia',sector:'Trámites y documentación',city:'Valencia, Extramurs',budget:'120–180 €',description:'Necesita revisar documentación, plazos y pasos para presentar una renovación correctamente.',terms:'trámites extranjería residencia documentación renovación inmigración'},
-{code:'SCP-TIT-88404',title:'Búsqueda de vivienda de alquiler',sector:'Vivienda e inmobiliaria',city:'Sevilla, Triana',budget:'180–260 €',description:'Solicita apoyo para localizar opciones adecuadas y ordenar la documentación del alquiler.',terms:'vivienda alquiler inmobiliaria piso búsqueda'},
-{code:'SCP-TIT-88405',title:'Clases de matemáticas para la PAU',sector:'Academia y formación',city:'Zaragoza, Universidad',budget:'20–30 €/h',description:'Refuerzo individual con planificación semanal y ejercicios adaptados al temario de acceso.',terms:'clases particulares academia formación matemáticas pau'},
-{code:'SCP-TIT-88406',title:'Fisioterapia para recuperar movilidad',sector:'Bienestar y salud',city:'Bilbao, Abando',budget:'40–55 €/sesión',description:'Busca una valoración inicial y un plan progresivo de sesiones, con horarios por acordar.',terms:'fisioterapia bienestar salud movilidad rehabilitación'},
-{code:'SCP-TIT-88407',title:'Homologación y organización documental',sector:'Trámites y documentación',city:'Online / Internacional',budget:'180–240 €',description:'Necesita organizar títulos y justificantes para recibir orientación sobre el proceso de homologación.',terms:'gestión documental documentación homologación estudios extranjería trámites online internacional'},
-{code:'SCP-TIT-88408',title:'Página web para pequeño negocio',sector:'Comunicación y visibilidad',city:'Bogotá, Colombia · Online',budget:'400–700 €',description:'Solicita una web clara para presentar servicios, con estructura sencilla y diseño adaptable a móvil.',terms:'diseño web página internet comunicación digital online'},
-{code:'SCP-TIT-88409',title:'Traducción para una cita administrativa',sector:'Trámites y documentación',city:'París, Francia · Online',budget:'80–110 €',description:'Busca apoyo lingüístico para preparar una cita y comprender la documentación asociada.',terms:'traducción interpretación trámites acompañamiento Francia París'},
-{code:'SCP-TIT-88410',title:'Asesoramiento para compra de vivienda',sector:'Vivienda e inmobiliaria',city:'Lisboa, Portugal · Online',budget:'100–180 €',description:'Quiere ordenar dudas y revisar los pasos iniciales antes de avanzar con una posible compra.',terms:'asesoría inmobiliaria vivienda compra piso valoración Lisboa'}
+{code:'SCP-T-41001',title:'Consulta inicial con abogado de extranjería',areaId:'tramites',serviceId:'abogado',ubicacion:'Barcelona, Gràcia',importe:'80–130 €',description:'Orientación inicial para revisar una consulta de extranjería y ordenar la documentación disponible.',keywords:'abogada legal abogado inmigracion'},
+{code:'SCP-T-41002',title:'Trámite de renovación de residencia',areaId:'tramites',serviceId:'extranjeria',ubicacion:'Madrid, Centro',importe:'120–180 €',description:'Apoyo para comprobar los documentos y pasos de una renovación antes de presentar la solicitud.',keywords:'permiso residencia tramite extranjeria renovacion'},
+{code:'SCP-T-41003',title:'Limpieza dental y revisión preventiva',areaId:'salud',serviceId:'limpieza-dental',ubicacion:'Valencia, Extramurs',importe:'80–130 €',description:'Busca una valoración inicial y conocer por escrito el alcance antes de reservar.',keywords:'dentista higiene dental boca'},
+{code:'SCP-T-41004',title:'Cuidados de apoyo a domicilio',areaId:'salud',serviceId:'cuidados',ubicacion:'Barcelona, Sant Andreu',importe:'15–20 €/h',description:'Acompañamiento cotidiano y apoyo personal con horarios que se acordarán previamente.',keywords:'mayores cuidado cuidadora cuidador sad'},
+{code:'SCP-T-41005',title:'Búsqueda de vivienda de alquiler',areaId:'vivienda',serviceId:'alquiler',ubicacion:'Sevilla, Triana',importe:'180–260 €',description:'Apoyo para localizar opciones adecuadas y organizar los documentos del alquiler.',keywords:'piso inmobiliaria alquiler casa'},
+{code:'SCP-T-41006',title:'Clases de idiomas para conversación',areaId:'academia',serviceId:'idiomas',ubicacion:'Online / Internacional',importe:'18–28 €/h',description:'Busca clases prácticas con objetivos personalizados y disponibilidad por acordar.',keywords:'idiomas inglés francés formación'},
+{code:'SCP-T-41007',title:'Primera consulta de atención psicológica',areaId:'bienestar',serviceId:'psicologia',ubicacion:'Madrid, Retiro · Online',importe:'45–65 €/sesión',description:'Busca conocer opciones de atención y las condiciones del acompañamiento profesional.',keywords:'salud mental psicologo psicologa terapia'},
+{code:'SCP-T-41008',title:'Orientación nutricional personalizada',areaId:'bienestar',serviceId:'nutricion',ubicacion:'París, Francia · Online',importe:'40–70 €/consulta',description:'Consulta orientativa sobre hábitos y planificación alimentaria individual.',keywords:'nutricionista alimentación dieta'},
+{code:'SCP-T-41009',title:'Diseño web para pequeño negocio',areaId:'otros',serviceId:'web-comunicacion',ubicacion:'Bogotá, Colombia · Online',importe:'400–700 €',description:'Página sencilla para presentar la actividad, servicios y vías de contacto.',keywords:'diseño digital internet comunicación'},
+{code:'SCP-T-41010',title:'Asesoría general para una gestión personal',areaId:'otros',serviceId:'asesoria-general',ubicacion:'Lisboa, Portugal · Online',importe:'60–100 €',description:'Orientación inicial para identificar opciones y ordenar los siguientes pasos.',keywords:'asesoría orientación servicios a medida'}
 ];
 const specialists=[
-{name:'Red Cuida Cercana',sector:'Atención a mayores · SAD',city:'Barcelona, Gràcia',price:'20 €/h (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'cuidadora cuidador sad mayores salud bienestar acompañamiento'},
-{name:'Clínica Dental Riu',sector:'Odontología preventiva',city:'Madrid, Centro',price:'115 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'odontología dentista dental higiene limpieza revisión'},
-{name:'Marina Soler · Gestiones',sector:'Extranjería y documentación',city:'Valencia, Extramurs',price:'160 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'trámites extranjería residencia documentación asesoría legal'},
-{name:'Puerta Abierta Vivienda',sector:'Alquiler residencial',city:'Sevilla, Triana',price:'230 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'vivienda alquiler inmobiliaria piso asesoría'},
-{name:'Aula Norte',sector:'Refuerzo de matemáticas',city:'Zaragoza, Universidad',price:'25 €/h (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'clases particulares academia formación matemáticas pau'},
-{name:'Centro Brújula',sector:'Fisioterapia y movilidad',city:'Bilbao, Abando',price:'48 €/sesión (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'fisioterapia bienestar salud movilidad rehabilitación'},
-{name:'Carpeta Clara',sector:'Homologación documental',city:'Online / Internacional',price:'210 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'gestión documental documentación homologación estudios trámites online internacional'},
-{name:'Estudio Lumen',sector:'Diseño web',city:'Bogotá, Colombia · Online',price:'580 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'diseño web página internet comunicación digital online'},
-{name:'Ponte Lingua',sector:'Traducción e interpretación',city:'París, Francia · Online',price:'95 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'traducción interpretación trámites documentación París Francia'},
-{name:'Casa Serena',sector:'Orientación inmobiliaria',city:'Lisboa, Portugal · Online',price:'145 € (orientativo)',response:'Plazo por confirmar',rating:'Valoraciones no disponibles',terms:'asesoría inmobiliaria vivienda compra piso valoración Lisboa'}
+{name:'Gabinete Puente Legal',areaId:'tramites',serviceId:'abogado',ubicacion:'Barcelona, Gràcia',tarifa:'110 € (orientativa)',keywords:'abogada abogado extranjeria residencia inmigracion'},
+{name:'Gestiones Clara',areaId:'tramites',serviceId:'extranjeria',ubicacion:'Madrid, Centro',tarifa:'155 € (orientativa)',keywords:'tramites extranjeria permiso residencia renovación'},
+{name:'Clínica Sonrisa Valencia',areaId:'salud',serviceId:'limpieza-dental',ubicacion:'Valencia, Extramurs',tarifa:'105 € (orientativa)',keywords:'limpieza dental odontologia dentista'},
+{name:'Red Cuidados Cercanos',areaId:'salud',serviceId:'cuidados',ubicacion:'Barcelona, Sant Andreu',tarifa:'19 €/h (orientativa)',keywords:'cuidadora cuidados domicilio sad mayores'},
+{name:'Puerta Abierta Vivienda',areaId:'vivienda',serviceId:'alquiler',ubicacion:'Sevilla, Triana',tarifa:'220 € (orientativa)',keywords:'vivienda alquiler inmobiliaria piso'},
+{name:'Aula Norte Idiomas',areaId:'academia',serviceId:'idiomas',ubicacion:'Online / Internacional',tarifa:'24 €/h (orientativa)',keywords:'clases idiomas inglés francés formación'},
+{name:'Centro Serena',areaId:'bienestar',serviceId:'psicologia',ubicacion:'Madrid, Retiro · Online',tarifa:'55 €/sesión (orientativa)',keywords:'psicologia psicologo atencion salud emocional'},
+{name:'Nutrición Horizonte',areaId:'bienestar',serviceId:'nutricion',ubicacion:'París, Francia · Online',tarifa:'58 €/consulta (orientativa)',keywords:'nutrición nutricionista alimentación bienestar'},
+{name:'Estudio Lumen Digital',areaId:'otros',serviceId:'web-comunicacion',ubicacion:'Bogotá, Colombia · Online',tarifa:'560 € (orientativa)',keywords:'diseño web comunicación digital internet'},
+{name:'Orientación Cercana SCP',areaId:'otros',serviceId:'asesoria-general',ubicacion:'Lisboa, Portugal · Online',tarifa:'85 € (orientativa)',keywords:'asesoría general orientación acompañamiento'}
 ];
 const normalize=value=>String(value||'').toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[\/-]/g,' ').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
-const status=document.getElementById('scp-demo-search-status'),demandCount=document.getElementById('scp-demo-demand-count'),offerCount=document.getElementById('scp-demo-offer-count'),empty=document.getElementById('scp-demo-empty'),quickArea=document.getElementById('scp-demo-quick-area'),quickAreaLink=document.getElementById('scp-demo-quick-area-link');
+const areaById=id=>areas.find(area=>area.id===id),serviceById=id=>services.find(service=>service.id===id);
+const status=document.getElementById('scp-demo-search-status'),demandCount=document.getElementById('scp-demo-demand-count'),offerCount=document.getElementById('scp-demo-offer-count'),empty=document.getElementById('scp-demo-empty'),clearButton=document.getElementById('scp-clear-filters'),serviceTitle=document.getElementById('scp-service-list-title'),areaPageLink=document.getElementById('scp-area-page-link');
 const dialog=document.getElementById('scp-demo-dialog'),dialogTitle=document.getElementById('scp-demo-dialog-title'),dialogCopy=document.getElementById('scp-demo-dialog-copy'),dialogCta=document.getElementById('scp-demo-dialog-cta');
-const areaLinks=[
-{label:'Salud y Odontología',href:'/areas/sanidad.html',terms:['odontologia','dental','dentista','limpieza','salud','fisioterapia']},
-{label:'Trámites y documentación',href:'/areas/tramites.html',terms:['tramites','extranjeria','documental','documentacion','residencia','homologacion','traduccion']},
-{label:'Vivienda e inmobiliaria',href:'/areas/vivienda.html',terms:['vivienda','inmobiliaria','alquiler','piso','inmueble']},
-{label:'Academia y formación',href:'/areas/academia.html',terms:['academia','clases','formacion','matematicas','pau']},
-{label:'Bienestar integral',href:'/areas/bienestar.html',terms:['bienestar','emocional','movilidad','rehabilitacion']},
-{label:'Comunicación y visibilidad',href:'/comunica.html',terms:['comunicacion','redes sociales','diseno web','web','digital']}
-];
-const getArea=query=>areaLinks.find(area=>area.terms.some(term=>query.includes(normalize(term))))||null;
-const match=(item,service,location)=>{
-const searchable=normalize([item.title,item.sector,item.name||'',item.terms].join(' ')),place=normalize(item.city),words=service.split(' ').filter(word=>word.length>2);
-const serviceMatch=!words.length||words.every(word=>searchable.includes(word));
-const locationMatch=!location||place.includes(location)||(location==='online'&&searchable.includes('online'))||(location==='internacional'&&/internacional|online|francia|colombia|portugal/.test(place))||(location==='mexico'&&place.includes('mexico'));
-return serviceMatch&&locationMatch;
-};
+let manualArea=null,manualService=null;
+function resolveArea(query){return areas.find(area=>area.aliases.some(alias=>query===normalize(alias)||query.includes(normalize(alias))))||null}
+function resolveService(query,areaId){
+const candidates=services.filter(service=>!areaId||service.area===areaId).sort((a,b)=>Math.max(...b.aliases.map(x=>x.length))-Math.max(...a.aliases.map(x=>x.length)));
+return candidates.find(service=>[service.label,...service.aliases].some(term=>{const n=normalize(term);return query===n||query.includes(n)}))||null
+}
+function queryState(){
+const query=normalize(serviceInput.value);
+if(query){const area=resolveArea(query),service=resolveService(query,area?.id||null);return {areaId:service?.area||area?.id||null,serviceId:service?.id||null,freeQuery:service||area?'':query}}
+return {areaId:manualService?serviceById(manualService)?.area:manualArea,serviceId:manualService,freeQuery:''}
+}
+function cardMatches(item,state,location){
+if(state.areaId&&item.areaId!==state.areaId)return false;if(state.serviceId&&item.serviceId!==state.serviceId)return false;
+if(state.freeQuery){const searchable=normalize([item.title||'',item.name||'',item.areaId,item.serviceId,item.keywords||'',serviceById(item.serviceId)?.label||'',areaById(item.areaId)?.label||''].join(' '));const words=state.freeQuery.split(' ').filter(word=>word.length>2);if(words.length&&!words.every(word=>searchable.includes(word)))return false}
+const place=normalize(item.ubicacion);if(location&&!place.includes(location)&&!(location==='internacional'&&/online|francia|colombia|portugal/.test(place)))return false;return true
+}
+function renderAreaOptions(state){
+areaRoot.replaceChildren();
+areas.forEach(area=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__area-button';button.textContent=area.label;button.setAttribute('aria-pressed',String(state.areaId===area.id));button.addEventListener('click',()=>{manualArea=area.id;manualService=null;serviceInput.value='';render();market.scrollIntoView({behavior:'smooth',block:'start'})});areaRoot.append(button)});
+const all=document.createElement('button');all.type='button';all.className='scp-architecture__area-button scp-architecture__area-button--all';all.textContent='Ver todas';all.setAttribute('aria-pressed',String(!state.areaId));all.addEventListener('click',()=>{manualArea=null;manualService=null;serviceInput.value='';render()});areaRoot.append(all)
+}
+function renderServiceOptions(state){
+serviceRoot.replaceChildren();const visible=services.filter(service=>!state.areaId||service.area===state.areaId);
+serviceTitle.textContent=state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
+visible.forEach(service=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__service-button';button.textContent=state.areaId?service.label:service.label+' · '+areaById(service.area).label;button.setAttribute('aria-pressed',String(state.serviceId===service.id));button.addEventListener('click',()=>{manualArea=service.area;manualService=service.id;serviceInput.value=service.label;render();market.scrollIntoView({behavior:'smooth',block:'start'})});serviceRoot.append(button)});
+if(state.areaId){areaPageLink.hidden=false;areaPageLink.href=areaById(state.areaId).href;areaPageLink.textContent='Abrir página completa de '+areaById(state.areaId).label}else{areaPageLink.hidden=true;areaPageLink.removeAttribute('href')}
+}
 function createCard(item,type){
 const card=document.createElement('article');card.className='scp-demo-card scp-demo-card--'+type;
-const top=document.createElement('div');top.className='scp-demo-card__top';
-const code=document.createElement('span');code.className='scp-demo-card__code';code.textContent=type==='demand'?'ID · '+item.code:'Perfil ilustrativo';
-const sample=document.createElement('span');sample.className='scp-demo-card__demo';sample.textContent='EJEMPLO';top.append(code,sample);
-const title=document.createElement('h4');title.className='scp-demo-card__title';title.textContent=type==='offer'?item.name:item.title;
-const specialty=document.createElement('p');specialty.className='scp-demo-card__specialty';specialty.textContent=type==='offer'?item.sector+' · '+item.response:item.sector;
-const place=document.createElement('p');place.className='scp-demo-card__location';place.textContent=item.city;
-const price=document.createElement('p');price.className='scp-demo-card__price';price.textContent=type==='offer'?'Precio orientativo de ejemplo: '+item.price:'Presupuesto estimado de ejemplo: '+item.budget;
-const meta=document.createElement('p');meta.className='scp-demo-card__rating';meta.textContent=type==='offer'?item.rating:'Estado: ejemplo de solicitud, sin publicación real.';
-if(type==='demand'){const description=document.createElement('p');description.className='scp-demo-card__description';description.textContent=item.description;card.append(top,title,specialty,place,price,description)}else card.append(top,title,specialty,place,price,meta);
-const disclosure=document.createElement('p');disclosure.className='scp-demo-card__verification';disclosure.textContent=type==='offer'?'Perfil de muestra · no verificado por SCP':'Solicitud de muestra · sin trazabilidad real';
-const button=document.createElement('button');button.className='scp-demo-card__button';button.type='button';button.textContent=type==='offer'?'Ver ficha de ejemplo':'Ver trazabilidad (demo)';button.addEventListener('click',()=>openDetails(item,type));
-card.append(disclosure,button);return card;
+const top=document.createElement('div');top.className='scp-demo-card__top';const identity=document.createElement('span');identity.className='scp-demo-card__code';identity.textContent=type==='demand'?'Solicitud · '+item.code:item.name;const sample=document.createElement('span');sample.className='scp-demo-card__demo';sample.textContent='MUESTRA';top.append(identity,sample);
+const area=areaById(item.areaId),service=serviceById(item.serviceId),title=document.createElement('h4');title.className='scp-demo-card__title';title.textContent=type==='demand'?item.title:item.name;
+const specialty=document.createElement('p');specialty.className='scp-demo-card__specialty';specialty.textContent=area.label+' · '+service.label;
+const location=document.createElement('p');location.className='scp-demo-card__location';location.textContent=item.ubicacion;
+const price=document.createElement('p');price.className='scp-demo-card__price';price.textContent=type==='demand'?'Presupuesto orientativo: '+item.importe:'Tarifa orientativa: '+item.tarifa;
+const summary=document.createElement('p');summary.className=type==='demand'?'scp-demo-card__description':'scp-demo-card__rating';summary.textContent=type==='demand'?item.description:'Especialidad de referencia · Disponibilidad por confirmar';
+const button=document.createElement('button');button.type='button';button.className='scp-demo-card__button';button.textContent=type==='demand'?'Ver ficha':'Consultar servicio';button.addEventListener('click',()=>openDetails(item,type));
+card.append(top,title,specialty,location,price,summary,button);return card
 }
 function openDetails(item,type){
-dialogTitle.textContent=type==='offer'?item.name:item.title;
-dialogCopy.textContent=type==='offer'?item.sector+' · '+item.city+' · '+item.price+'. Este perfil es un ejemplo ilustrativo, no ha sido verificado por SCP y no representa una oferta disponible.':item.sector+' · '+item.city+' · '+item.description+' Presupuesto de ejemplo: '+item.budget+'. Esta solicitud no pertenece a una persona real y no tiene trazabilidad activa.';
-dialogCta.textContent=type==='offer'?'Solicitar información a SCP':'Registrar solicitud';dialogCta.href=type==='offer'?'/registro.html?tipo=especialista':'/registro.html?tipo=titular&solicitud=servicio';
-if(typeof dialog.showModal==='function')dialog.showModal();
+const area=areaById(item.areaId),service=serviceById(item.serviceId);dialogTitle.textContent=type==='demand'?item.title:item.name;dialogCopy.textContent=area.label+' · '+service.label+' · '+item.ubicacion+'. '+(type==='demand'?item.description:'Tarifa orientativa: '+item.tarifa+'. La disponibilidad se confirma con el especialista.');
+dialogCta.textContent=type==='demand'?'Registrar solicitud':'Presentar servicio';dialogCta.href=type==='demand'?'/registro.html?tipo=titular&solicitud=servicio':'/registro.html?tipo=especialista';if(typeof dialog.showModal==='function')dialog.showModal()
 }
 function render(){
-const service=normalize(serviceInput.value),location=normalize(locationInput.value),filteredDemands=demands.filter(item=>match(item,service,location)),filteredSpecialists=specialists.filter(item=>match(item,service,location));
-demandsRoot.replaceChildren(...filteredDemands.map(item=>createCard(item,'demand')));offersRoot.replaceChildren(...filteredSpecialists.map(item=>createCard(item,'offer')));
-if(demandCount)demandCount.textContent='('+filteredDemands.length+')';if(offerCount)offerCount.textContent='('+filteredSpecialists.length+')';
-const total=filteredDemands.length+filteredSpecialists.length;
-if(status)status.textContent='Mostrando '+total+' ejemplos ilustrativos ('+filteredDemands.length+' solicitudes y '+filteredSpecialists.length+' perfiles).';if(empty)empty.hidden=total>0;
-const area=getArea(service);if(area&&quickArea&&quickAreaLink){quickArea.hidden=false;quickAreaLink.href=area.href;quickAreaLink.textContent='Explorar también el área completa de '+area.label+' →'}else if(quickArea&&quickAreaLink){quickArea.hidden=true;quickAreaLink.removeAttribute('href');quickAreaLink.textContent=''}
+const state=queryState(),location=normalize(locationInput.value);renderAreaOptions(state);renderServiceOptions(state);
+const ds=demands.filter(item=>cardMatches(item,state,location)),ss=specialists.filter(item=>cardMatches(item,state,location));
+demandsRoot.replaceChildren(...ds.map(item=>createCard(item,'demand')));offersRoot.replaceChildren(...ss.map(item=>createCard(item,'offer')));
+demandCount.textContent='('+ds.length+')';offerCount.textContent='('+ss.length+')';const total=ds.length+ss.length;
+status.textContent='Mostrando '+total+' solicitudes y servicios de referencia SCP.';empty.hidden=total>0
 }
 let scrollTimer;const scrollToMarket=()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>market.scrollIntoView({behavior:'smooth',block:'start'}),180)};
 form.addEventListener('submit',event=>{event.preventDefault();render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-const onInput=()=>{render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()};serviceInput.addEventListener('input',onInput);locationInput.addEventListener('input',onInput);
-document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});render();
+serviceInput.addEventListener('input',()=>{manualArea=null;manualService=null;render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
+locationInput.addEventListener('input',()=>{render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
+clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
+document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});render()
 })();
