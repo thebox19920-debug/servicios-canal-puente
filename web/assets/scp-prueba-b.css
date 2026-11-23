@@ -629,3 +629,15 @@ html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-t
 }
 
 html body.lp-prueba-b header.scp-header-refined #lp-service-search button{background:#D4AF37!important;border-color:#D4AF37!important;color:#193a2d!important}
+
+/* Picker refinements: each area/country has its own expandable sublist. */
+html body.lp-prueba-b header.scp-header-refined #lp-service-search button{background:#681d36!important;border-color:#d4b66f!important;color:#fff2d5!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-group{border-bottom:1px solid #eee2c6!important;padding:2px 0!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-row{display:flex!important;align-items:center!important;gap:4px!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-area{flex:1!important;width:auto!important;padding:9px 10px!important;border:0!important;background:transparent!important;color:#193a2d!important;text-align:left!important;font:700 13px/1.25 Arial,sans-serif!important;cursor:pointer!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-toggle{flex:none!important;width:29px!important;min-height:29px!important;padding:0!important;border:1px solid #D4AF37!important;border-radius:6px!important;background:#fffdf7!important;color:#193a2d!important;font:700 15px/1 Arial,sans-serif!important;cursor:pointer!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-toggle:hover,
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-area:hover{background:#f4ead0!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-children{display:grid!important;grid-template-columns:1fr!important;gap:3px!important;margin:0 0 7px 13px!important;padding-left:9px!important;border-left:2px solid #D4AF37!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-option{width:100%!important;padding:7px 9px!important;border:0!important;border-radius:6px!important;background:transparent!important;color:#193a2d!important;text-align:left!important;font:500 12px/1.25 Arial,sans-serif!important;cursor:pointer!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-option:hover{background:#f4ead0!important}

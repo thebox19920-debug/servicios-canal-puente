@@ -97,13 +97,14 @@ return candidates.find(service=>[service.label,...service.aliases].some(term=>{c
 }
 function queryState(){
 const query=normalize(serviceInput.value);
+if(query==='odontologia'||query==='dental'||query==='dentista')return {areaIds:['salud'],serviceIds:['limpieza-dental','odontologia','ortodoncia'],areaId:'salud',serviceId:null,freeQuery:''};
 if(query){const group=resolveSearchArea(query),service=group?null:resolveService(query,null),area=resolveArea(query);return {areaIds:service?[service.area]:group?.categoryIds||(area?[area.id]:null),areaId:service?.area||group?.categoryIds?.[0]||area?.id||null,serviceId:service?.id||null,freeQuery:service||area||group?'':query}}
 return {areaIds:manualService?[serviceById(manualService)?.area]:(manualArea?[manualArea]:null),areaId:manualService?serviceById(manualService)?.area:manualArea,serviceId:manualService,freeQuery:''}
 }
 function cardMatches(item,state,location,country){
-if(state.areaIds&&state.areaIds.length&&!state.areaIds.includes(item.areaId))return false;if(state.serviceId&&item.serviceId!==state.serviceId)return false;
+if(state.areaIds&&state.areaIds.length&&!state.areaIds.includes(item.areaId))return false;if(state.serviceIds&&state.serviceIds.length&&!state.serviceIds.includes(item.serviceId))return false;if(state.serviceId&&item.serviceId!==state.serviceId)return false;
 if(state.freeQuery){const searchable=normalize([item.title||'',item.name||'',item.areaId,item.serviceId,item.keywords||'',serviceById(item.serviceId)?.label||'',areaById(item.areaId)?.label||''].join(' '));const words=state.freeQuery.split(' ').filter(word=>word.length>2);if(words.length&&!words.every(word=>searchable.includes(word)))return false}
-const place=normalize(item.ubicacion);if(location&&!place.includes(location)&&!(location==='internacional'&&/online|francia|colombia|portugal/.test(place)))return false;if(country&&!countryMatch(place,country))return false;return true
+const place=normalize(item.ubicacion),countryOnly=Boolean(country&&location===country);if(location&&!countryOnly&&!place.includes(location)&&!(location==='internacional'&&/online|francia|colombia|portugal/.test(place)))return false;if(country&&!countryMatch(place,country))return false;return true
 }
 function countryMatch(place,country){
  const terms={espana:['barcelona','madrid','valencia','sevilla','malaga','bilbao','zaragoza','espana'],belgica:['bruselas','amberes','gante','lieja','belgica'],francia:['paris','lyon','marsella','francia'],portugal:['lisboa','oporto','portugal'],'reino unido':['londres','manchester','birmingham','reino unido'],marruecos:['tanger','casablanca','rabat','marruecos'],alemania:['berlin','hamburgo','munich','alemania'],italia:['roma','milan','napoles','italia'],'paises bajos':['amsterdam','roterdam','la haya','paises bajos'],argentina:['buenos aires','cordoba','rosario','argentina'],colombia:['bogota','medellin','cali','colombia'],mexico:['ciudad de mexico','guadalajara','monterrey','mexico'],'estados unidos':['nueva york','miami','los angeles','estados unidos'],'online internacional':['online','internacional']};
@@ -111,25 +112,35 @@ function countryMatch(place,country){
 }
 function renderServicePicker(){
  servicePicker.replaceChildren();
- if(activeServiceArea){
-  const area=searchAreas.find(item=>item.id===activeServiceArea);
-  const back=document.createElement('button');back.type='button';back.className='scp-picker-back';back.textContent='‹ Áreas de actividad';back.addEventListener('click',()=>{activeServiceArea=null;renderServicePicker()});servicePicker.append(back);
-  const title=document.createElement('p');title.className='scp-picker-title';title.textContent=area.label;servicePicker.append(title);
-  services.filter(service=>area.serviceIds.includes(service.id)).forEach(service=>{const button=document.createElement('button');button.type='button';button.className='scp-picker-option';button.textContent=service.label;button.addEventListener('click',()=>{serviceInput.value=service.label;manualArea=null;manualService=service.id;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});servicePicker.append(button)});
-  return
- }
- searchAreas.forEach(area=>{const button=document.createElement('button');button.type='button';button.className='scp-picker-area';button.textContent=area.label+'  ›';button.addEventListener('click',()=>{activeServiceArea=area.id;renderServicePicker()});servicePicker.append(button)})
+ searchAreas.forEach(area=>{
+  const group=document.createElement('div');group.className='scp-picker-group';
+  const row=document.createElement('div');row.className='scp-picker-row';
+  const select=document.createElement('button');select.type='button';select.className='scp-picker-area';select.textContent=area.label;select.addEventListener('click',()=>{serviceInput.value=area.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-picker-toggle';toggle.textContent=activeServiceArea===area.id?'⌃':'⌄';toggle.setAttribute('aria-label',(activeServiceArea===area.id?'Ocultar':'Mostrar')+' servicios de '+area.label);toggle.setAttribute('aria-expanded',String(activeServiceArea===area.id));toggle.addEventListener('click',()=>{activeServiceArea=activeServiceArea===area.id?null:area.id;renderServicePicker()});
+  row.append(select,toggle);group.append(row);
+  if(activeServiceArea===area.id){
+   const children=document.createElement('div');children.className='scp-picker-children';
+   services.filter(service=>area.serviceIds.includes(service.id)).forEach(service=>{const option=document.createElement('button');option.type='button';option.className='scp-picker-option';option.textContent=service.label;option.addEventListener('click',()=>{serviceInput.value=service.label;manualArea=null;manualService=service.id;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});children.append(option)});
+   group.append(children)
+  }
+  servicePicker.append(group)
+ })
 }
 function renderLocationPicker(){
  locationPicker.replaceChildren();
- if(activeLocationCountry){
-  const country=placeOptions.find(item=>item.key===activeLocationCountry);
-  const back=document.createElement('button');back.type='button';back.className='scp-picker-back';back.textContent='‹ Países';back.addEventListener('click',()=>{activeLocationCountry=null;renderLocationPicker()});locationPicker.append(back);
-  const title=document.createElement('p');title.className='scp-picker-title';title.textContent=country.label;locationPicker.append(title);
-  country.zones.forEach(zone=>{const button=document.createElement('button');button.type='button';button.className='scp-picker-option';button.textContent=zone;button.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=zone;document.getElementById('scp-location-picker').open=false;activeLocationCountry=null;render();scrollToMarket()});locationPicker.append(button)});
-  return
- }
- placeOptions.forEach(country=>{const button=document.createElement('button');button.type='button';button.className='scp-picker-area';button.textContent=country.label+'  ›';button.addEventListener('click',()=>{activeLocationCountry=country.key;selectedCountryFilter=country.key;locationInput.value='';renderLocationPicker();render()});locationPicker.append(button)})
+ placeOptions.forEach(country=>{
+  const group=document.createElement('div');group.className='scp-picker-group';
+  const row=document.createElement('div');row.className='scp-picker-row';
+  const select=document.createElement('button');select.type='button';select.className='scp-picker-area';select.textContent=country.label;select.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=country.label;render();scrollToMarket()});
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-picker-toggle';toggle.textContent=activeLocationCountry===country.key?'⌃':'⌄';toggle.setAttribute('aria-label',(activeLocationCountry===country.key?'Ocultar':'Mostrar')+' ciudades de '+country.label);toggle.setAttribute('aria-expanded',String(activeLocationCountry===country.key));toggle.addEventListener('click',()=>{activeLocationCountry=activeLocationCountry===country.key?null:country.key;renderLocationPicker()});
+  row.append(select,toggle);group.append(row);
+  if(activeLocationCountry===country.key){
+   const children=document.createElement('div');children.className='scp-picker-children';
+   country.zones.forEach(zone=>{const option=document.createElement('button');option.type='button';option.className='scp-picker-option';option.textContent=zone;option.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=zone;document.getElementById('scp-location-picker').open=false;render();scrollToMarket()});children.append(option)});
+   group.append(children)
+  }
+  locationPicker.append(group)
+ })
 }
 function renderAreaOptions(state){
 areaRoot.replaceChildren();
@@ -137,8 +148,8 @@ areas.forEach(area=>{const button=document.createElement('button');button.type='
 const all=document.createElement('button');all.type='button';all.className='scp-architecture__area-button scp-architecture__area-button--all';all.textContent='Ver todas';all.setAttribute('aria-pressed',String(!state.areaId));all.addEventListener('click',()=>{manualArea=null;manualService=null;serviceInput.value='';render()});areaRoot.append(all)
 }
 function renderServiceOptions(state){
-serviceRoot.replaceChildren();const visible=services.filter(service=>!state.areaIds||!state.areaIds.length||state.areaIds.includes(service.area));
-serviceTitle.textContent=state.areaIds?.length>1?searchAreas.find(area=>area.categoryIds.every(id=>state.areaIds.includes(id)))?.label+' · Servicios':state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
+serviceRoot.replaceChildren();const visible=services.filter(service=>(!state.areaIds||!state.areaIds.length||state.areaIds.includes(service.area))&&(!state.serviceIds||!state.serviceIds.length||state.serviceIds.includes(service.id)));
+serviceTitle.textContent=state.serviceIds?.length?'Odontología · Servicios':state.areaIds?.length>1?searchAreas.find(area=>area.categoryIds.every(id=>state.areaIds.includes(id)))?.label+' · Servicios':state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
 visible.forEach(service=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__service-button';button.textContent=state.areaId?service.label:service.label+' · '+areaById(service.area).label;button.setAttribute('aria-pressed',String(state.serviceId===service.id));button.addEventListener('click',()=>{manualArea=service.area;manualService=service.id;serviceInput.value=service.label;render();market.scrollIntoView({behavior:'smooth',block:'start'})});serviceRoot.append(button)});
 if(state.areaId){areaPageLink.hidden=false;areaPageLink.href=areaById(state.areaId).href;areaPageLink.textContent='Abrir página completa de '+areaById(state.areaId).label}else{areaPageLink.hidden=true;areaPageLink.removeAttribute('href')}
 }
