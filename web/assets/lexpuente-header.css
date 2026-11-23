@@ -673,3 +673,9 @@ html body header.lex-organized-header.lex-organized-header .lex-account-access .
  width:100%!important;max-width:100%!important;height:auto!important;min-height:48px!important;white-space:normal!important;
  overflow-wrap:break-word!important;text-wrap:balance!important;line-height:1.25!important
 }
+
+/* Fallback para la cabecera original si no se construye lp-mobile-head. */
+html body header.lex-organized-header .lex-account-access>a{
+ box-sizing:border-box!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:44px!important;
+ white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important;text-wrap:balance!important;line-height:1.25!important
+}
