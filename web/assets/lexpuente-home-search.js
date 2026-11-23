@@ -114,7 +114,7 @@ const placeOptions=[
 const areaById=id=>areas.find(area=>area.id===id),serviceById=id=>services.find(service=>service.id===id);
 const status=document.getElementById('scp-demo-search-status'),demandCount=document.getElementById('scp-demo-demand-count'),offerCount=document.getElementById('scp-demo-offer-count'),empty=document.getElementById('scp-demo-empty'),clearButton=document.getElementById('scp-clear-filters'),serviceTitle=document.getElementById('scp-service-list-title'),areaPageLink=document.getElementById('scp-area-page-link');
 const dialog=document.getElementById('scp-demo-dialog'),dialogTitle=document.getElementById('scp-demo-dialog-title'),dialogCopy=document.getElementById('scp-demo-dialog-copy'),dialogCta=document.getElementById('scp-demo-dialog-cta');
-let manualArea=null,manualService=null,activeServiceArea=null,activeLocationCountry=null,selectedCountryFilter='';
+let manualArea=null,manualService=null,selectedCountryFilter='';
 function resolveSearchArea(query){return searchAreas.find(area=>[area.label,...area.aliases].some(term=>query===normalize(term)||query.includes(normalize(term))))||null}
 function resolvePickerService(query){
  const items=searchAreas.flatMap(area=>area.services);
@@ -159,37 +159,23 @@ function countryMatch(place,country){
 function renderServicePicker(){
  servicePicker.replaceChildren();
  searchAreas.forEach(area=>{
-  const group=document.createElement('div');group.className='scp-cascade-group';
-  const row=document.createElement('div');row.className='scp-cascade-row';
-  const select=document.createElement('button');select.type='button';select.className='scp-cascade-label';select.textContent=area.label;
-  select.addEventListener('click',()=>{serviceInput.value=area.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;activeServiceArea=null;render();scrollToMarket()});
-  const arrow=document.createElement('button');arrow.type='button';arrow.className='scp-cascade-arrow';arrow.textContent=activeServiceArea===area.id?'▾':'▸';arrow.setAttribute('aria-label','Mostrar servicios de '+area.label);arrow.setAttribute('aria-expanded',String(activeServiceArea===area.id));
-  arrow.addEventListener('click',()=>{activeServiceArea=activeServiceArea===area.id?null:area.id;renderServicePicker()});
-  row.append(select,arrow);group.append(row);
-  if(activeServiceArea===area.id){
-   const childList=document.createElement('div');childList.className='scp-cascade-children';
-   area.services.forEach(item=>{const option=document.createElement('button');option.type='button';option.className='scp-cascade-option';option.textContent=item.label;option.addEventListener('click',()=>{serviceInput.value=item.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;activeServiceArea=null;render();scrollToMarket()});childList.append(option)});
-   group.append(childList)
-  }
-  servicePicker.append(group)
+  const group=document.createElement('section');group.className='scp-cascade-group';
+  const heading=document.createElement('button');heading.type='button';heading.className='scp-cascade-label scp-cascade-area';heading.textContent=area.label;
+  heading.addEventListener('click',()=>{serviceInput.value=area.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});
+  const children=document.createElement('div');children.className='scp-cascade-children';
+  area.services.forEach(item=>{const option=document.createElement('button');option.type='button';option.className='scp-cascade-option';option.textContent=item.label;option.addEventListener('click',()=>{serviceInput.value=item.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});children.append(option)});
+  group.append(heading,children);servicePicker.append(group)
  })
 }
 function renderLocationPicker(){
  locationPicker.replaceChildren();
  placeOptions.forEach(country=>{
-  const group=document.createElement('div');group.className='scp-cascade-group';
-  const row=document.createElement('div');row.className='scp-cascade-row';
-  const select=document.createElement('button');select.type='button';select.className='scp-cascade-label';select.textContent=country.label;
-  select.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=country.label;document.getElementById('scp-location-picker').open=false;activeLocationCountry=null;render();scrollToMarket()});
-  const arrow=document.createElement('button');arrow.type='button';arrow.className='scp-cascade-arrow';arrow.textContent=activeLocationCountry===country.key?'▾':'▸';arrow.setAttribute('aria-label','Mostrar opciones de '+country.label);arrow.setAttribute('aria-expanded',String(activeLocationCountry===country.key));
-  arrow.addEventListener('click',()=>{activeLocationCountry=activeLocationCountry===country.key?null:country.key;renderLocationPicker()});
-  row.append(select,arrow);group.append(row);
-  if(activeLocationCountry===country.key){
-   const childList=document.createElement('div');childList.className='scp-cascade-children';
-   country.zones.forEach(item=>{const option=document.createElement('button');option.type='button';option.className='scp-cascade-option';option.textContent=item.label;option.addEventListener('click',()=>{selectedCountryFilter=item.key;locationInput.value=item.label;document.getElementById('scp-location-picker').open=false;activeLocationCountry=null;render();scrollToMarket()});childList.append(option)});
-   group.append(childList)
-  }
-  locationPicker.append(group)
+  const group=document.createElement('section');group.className='scp-cascade-group';
+  const heading=document.createElement('button');heading.type='button';heading.className='scp-cascade-label scp-cascade-area';heading.textContent=country.label;
+  heading.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=country.label;document.getElementById('scp-location-picker').open=false;render();scrollToMarket()});
+  const children=document.createElement('div');children.className='scp-cascade-children';
+  country.zones.forEach(item=>{const option=document.createElement('button');option.type='button';option.className='scp-cascade-option';option.textContent=item.label;option.addEventListener('click',()=>{selectedCountryFilter=item.key;locationInput.value=item.label;document.getElementById('scp-location-picker').open=false;render();scrollToMarket()});children.append(option)});
+  group.append(heading,children);locationPicker.append(group)
  })
 }
 function renderAreaOptions(state){
@@ -228,7 +214,7 @@ status.textContent='Mostrando '+total+' solicitudes y servicios de referencia SC
 let scrollTimer;const scrollToMarket=()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>market.scrollIntoView({behavior:'smooth',block:'start'}),180)};
 form.addEventListener('submit',event=>{event.preventDefault();render();market.scrollIntoView({behavior:'smooth',block:'start'})});
 serviceInput.addEventListener('input',()=>{manualArea=null;manualService=null;render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
-locationInput.addEventListener('input',()=>{selectedCountryFilter='';activeLocationCountry=null;render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
-clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;selectedCountryFilter='';activeServiceArea=null;activeLocationCountry=null;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
+locationInput.addEventListener('input',()=>{selectedCountryFilter='';render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
+clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;selectedCountryFilter='';render();market.scrollIntoView({behavior:'smooth',block:'start'})});
 document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});renderServicePicker();renderLocationPicker();render()
 })();
