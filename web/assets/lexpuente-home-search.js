@@ -165,7 +165,7 @@ function cardMatches(item,state,location){
  return true
 }
 function selectCatalogService(service){
- selectedCatalogService=service;serviceInput.value=service.label;closeServicePicker({smooth:true});render();scrollToMarket()
+ selectedCatalogService=service;serviceInput.value=service.label;servicePickerDetails.open=false;render();scrollToMarket()
 }
 function highlightMatch(element,label,query){
  const source=String(label||''),needle=normalize(query);if(!needle){element.textContent=source;return}
@@ -238,31 +238,13 @@ demandCount.textContent='('+ds.length+')';offerCount.textContent='('+ss.length+'
 status.textContent='Mostrando '+total+' solicitudes y servicios de referencia SCP.';empty.hidden=total>0
 }
 let scrollTimer;const scrollToMarket=()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>market.scrollIntoView({behavior:'smooth',block:'start'}),180)};
-form.addEventListener('submit',event=>{event.preventDefault();closeServicePicker();render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-serviceInput.addEventListener('focus',()=>{clearTimeout(servicePickerCloseTimer);servicePicker.classList.remove('scp-is-closing');servicePickerDetails.open=true;renderServicePicker();positionServicePicker()});
-servicePickerDetails.addEventListener('toggle',()=>{if(servicePickerDetails.open){clearTimeout(servicePickerCloseTimer);servicePicker.classList.remove('scp-is-closing');renderServicePicker();positionServicePicker()}});
-serviceInput.addEventListener('input',()=>{selectedCatalogService=null;manualArea=null;manualService=null;servicePickerDetails.open=true;renderServicePicker();render();positionServicePicker()});
+form.addEventListener('submit',event=>{event.preventDefault();servicePickerDetails.open=false;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
+serviceInput.addEventListener('focus',()=>{servicePickerDetails.open=true;renderServicePicker()});
+servicePickerDetails.addEventListener('toggle',()=>{if(servicePickerDetails.open)renderServicePicker()});
+serviceInput.addEventListener('input',()=>{selectedCatalogService=null;manualArea=null;manualService=null;servicePickerDetails.open=true;renderServicePicker();render()});
 locationInput.addEventListener('input',()=>{render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
 clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;selectedCatalogService=null;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-let servicePickerCloseTimer;
-function positionServicePicker(){
- if(!servicePickerDetails.open)return;
- const inputRect=serviceInput.getBoundingClientRect(),formRect=form.getBoundingClientRect(),available=Math.max(0,window.innerWidth-24);
- const width=Math.min(available,Math.min(680,Math.max(Math.min(360,available),inputRect.width)));
- const left=Math.max(12,Math.min(inputRect.left,window.innerWidth-width-12));
- let top=formRect.bottom+6,availableHeight=window.innerHeight-top-12;
- if(availableHeight<180){const aboveSpace=formRect.top-12;if(aboveSpace>availableHeight){availableHeight=aboveSpace;top=Math.max(12,formRect.top-Math.min(420,aboveSpace)-6)}}
- const maxHeight=Math.max(120,Math.min(420,availableHeight));
- servicePicker.style.position='fixed';servicePicker.style.left=Math.round(left)+'px';servicePicker.style.top=Math.round(top)+'px';servicePicker.style.width=Math.round(width)+'px';servicePicker.style.maxWidth='calc(100vw - 24px)';servicePicker.style.maxHeight=Math.round(maxHeight)+'px'
-}
-function closeServicePicker({smooth=false}={}){
- clearTimeout(servicePickerCloseTimer);
- if(smooth&&servicePickerDetails.open){servicePicker.classList.add('scp-is-closing');servicePickerCloseTimer=setTimeout(()=>{servicePickerDetails.open=false;servicePicker.classList.remove('scp-is-closing')},140)}
- else{servicePickerDetails.open=false;servicePicker.classList.remove('scp-is-closing')}
-}
-window.addEventListener('resize',positionServicePicker,{passive:true});
-window.addEventListener('scroll',positionServicePicker,{passive:true});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&servicePickerDetails.open){closeServicePicker();serviceInput.blur()}});
-document.addEventListener('click',event=>{if(!servicePickerDetails.contains(event.target)&&event.target!==serviceInput)closeServicePicker()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&servicePickerDetails.open){servicePickerDetails.open=false;serviceInput.blur()}});
+document.addEventListener('click',event=>{if(!servicePickerDetails.contains(event.target)&&event.target!==serviceInput)servicePickerDetails.open=false});
 document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});renderServicePicker();render()
 })();
