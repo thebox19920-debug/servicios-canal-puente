@@ -497,3 +497,10 @@ html body.lp-elegant-home .lp-scp-entry-specialist .lp-scp-entry-link{background
  html body.lp-elegant-home .lp-scp-entry-choices{grid-template-columns:1fr!important}
  html body.lp-elegant-home .lp-scp-entry-link{white-space:normal!important}
 }
+
+/* En la portada el texto se ajusta dentro del botón, sin recortes ni desbordamientos. */
+html body.lp-elegant-home .lp-scp-intro-actions a,
+html body.lp-elegant-home .lp-scp-entry-link{
+ height:auto!important;min-height:48px!important;max-width:100%!important;white-space:normal!important;
+ line-height:1.25!important;text-wrap:balance!important;overflow-wrap:break-word!important
+}

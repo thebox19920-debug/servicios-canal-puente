@@ -650,3 +650,10 @@ html body header.lex-organized-header .lex-account-access .lex-service-registrat
 html body header.lex-organized-header .lex-account-access .lex-service-offer{
  background:#fff!important;border:1px solid #0b3023!important;color:#0b3023!important;-webkit-text-fill-color:#0b3023!important
 }
+
+/* Permite dos líneas dentro de los botones, manteniendo el texto contenido. */
+html body header.lex-organized-header .lex-account-access .lex-service-registration,
+html body header.lex-organized-header .lex-account-access .lex-service-offer{
+ height:auto!important;min-height:44px!important;max-width:100%!important;white-space:normal!important;
+ line-height:1.25!important;text-wrap:balance!important;overflow-wrap:break-word!important
+}

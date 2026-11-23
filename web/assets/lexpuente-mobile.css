@@ -422,3 +422,12 @@ body.lp-elegant-home .lp-home-hero{display:flex!important;flex-direction:column!
   background:#fff!important;border:1px solid #0b3023!important;color:#0b3023!important;-webkit-text-fill-color:#0b3023!important
  }
 }
+
+/* El texto de los CTA puede ocupar dos líneas sin salirse del botón. */
+@media(max-width:760px){
+ html body header.lp-mobile-head .lp-mobile-account .lex-service-registration,
+ html body header.lp-mobile-head .lp-mobile-account .lex-service-offer{
+  height:auto!important;min-height:48px!important;white-space:normal!important;
+  line-height:1.25!important;text-wrap:balance!important;overflow-wrap:break-word!important
+ }
+}

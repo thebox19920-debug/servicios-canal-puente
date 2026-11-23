@@ -663,3 +663,16 @@ html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service
   width:100%!important;max-width:100%!important;height:auto!important;min-height:44px!important;white-space:normal!important
  }
 }
+
+/* Ajuste de contención para los CTA de la cabecera refinada. */
+html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-registration,
+html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-offer{
+ height:auto!important;min-height:48px!important;max-width:100%!important;white-space:normal!important;
+ line-height:1.25!important;text-wrap:balance!important;overflow-wrap:break-word!important
+}
+@media(max-width:760px){
+ html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-registration,
+ html body.lp-prueba-b header.scp-header-refined .lex-account-access .lex-service-offer{
+  width:100%!important;height:auto!important;min-height:48px!important;white-space:normal!important
+ }
+}
