@@ -104,3 +104,10 @@ html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-service strong{font-weight:700!important}
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-empty{margin:0!important;padding:12px!important;color:#f5e9ce!important;font:400 12px/1.35 Arial,sans-serif!important}
 @media(max-width:680px){html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker--service .scp-header-picker__panel{width:min(420px,90vw)!important;max-width:calc(100vw - 24px)!important}}
+
+/* Mantiene el desplegable del buscador por encima del escaparate superior. */
+html body.lp-prueba-b header.scp-header-refined{position:relative!important;z-index:10000!important;overflow:visible!important;isolation:isolate!important}
+html body.lp-prueba-b header.scp-header-refined .scp-header-main{position:relative!important;z-index:10001!important;overflow:visible!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search{position:relative!important;z-index:10002!important;overflow:visible!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker--service{z-index:10003!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker--service .scp-header-picker__panel{z-index:10004!important}
