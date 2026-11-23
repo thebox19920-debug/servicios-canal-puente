@@ -111,3 +111,6 @@ html body.lp-prueba-b header.scp-header-refined .scp-header-main{position:relati
 html body.lp-prueba-b header.scp-header-refined #lp-service-search{position:relative!important;z-index:10002!important;overflow:visible!important}
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker--service{z-index:10003!important}
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker--service .scp-header-picker__panel{z-index:10004!important}
+
+/* Corrige la regla compartida de cabecera, que mantenía z-index:auto. */
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined{z-index:10000!important}
