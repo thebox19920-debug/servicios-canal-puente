@@ -33,7 +33,7 @@
     '<a class="lex-account-membership" href="/planes.html">Suscripciones</a>'+
     '<a class="lex-service-registration" href="/registro.html?tipo=titular&solicitud=servicio"><span aria-hidden="true">+</span> Publica el servicio que buscas</a>'+
     '<a class="lex-service-offer" href="/registro.html?tipo=especialista"><span aria-hidden="true">+</span> Publica los servicios que ofreces</a>'+
-    '<a class="lex-account-special" href="/acceso-scp.html">Acceso reservado SCP</a>';
+
   if(categoriesTrigger)account.prepend(categoriesTrigger);
   head.append(account);
 
