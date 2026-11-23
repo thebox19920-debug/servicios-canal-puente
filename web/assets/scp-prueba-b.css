@@ -736,7 +736,7 @@ html body.lp-prueba-b header.lp-mobile-head .lp-mobile-account .lex-service-offe
 
 
 /* Ajuste final de los botones del encabezado SCP: etiquetas siempre dentro de sus cajas. */
-html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access{
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{
   box-sizing:border-box!important;
   display:flex!important;
   flex-flow:row wrap!important;
@@ -748,7 +748,7 @@ html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-accoun
   min-width:0!important;
   margin-left:auto!important;
 }
-html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access>a{
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access>a{
   box-sizing:border-box!important;
   display:flex!important;
   flex:0 1 auto!important;
@@ -766,8 +766,8 @@ html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-accoun
   text-wrap:balance!important;
   line-height:1.25!important;
 }
-html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-registration,
-html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-offer{
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-registration,
+html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-offer{
   flex:1 1 190px!important;
   width:auto!important;
   min-width:170px!important;
@@ -780,13 +780,13 @@ html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-accoun
   text-wrap:balance!important;
 }
 @media(max-width:760px){
-  html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access{
+  html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access{
     width:100%!important;
     max-width:100%!important;
     justify-content:stretch!important;
   }
-  html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-registration,
-  html body.lp-prueba-b header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-offer{
+  html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-registration,
+  html body.lp-prueba-b header.lex-organized-header.lex-organized-header.lex-organized-header.lex-organized-header.scp-header-refined .lex-account-access .lex-service-offer{
     flex:1 1 100%!important;
     width:100%!important;
     min-width:0!important;
