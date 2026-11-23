@@ -7,12 +7,22 @@
   "redirects": [
     {
       "source": "/acceso-scp.html",
-      "destination": "https://servicios-canal-puente-scp.plumdegu13.chatgpt.site/acceso-scp.html",
+      "destination": "/butaina",
       "permanent": false
     }
   ],
   "rewrites": [
-    {"source": "/contratar", "destination": "/contratar.html"},
-    {"source": "/pagar", "destination": "/pagar.html"}
+    {
+      "source": "/butaina",
+      "destination": "/butaina/index.html"
+    },
+    {
+      "source": "/contratar",
+      "destination": "/contratar.html"
+    },
+    {
+      "source": "/pagar",
+      "destination": "/pagar.html"
+    }
   ]
 }
