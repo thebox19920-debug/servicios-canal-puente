@@ -294,8 +294,8 @@ function renderLocationCountry(country,container,query){
  toggle.append(arrow,title);toggle.addEventListener('click',()=>{
   if(expanded){scpLocationExpanded.delete(key);if(scpSelectedLocationCountry===country.code)scpSelectedLocationCountry=null}
   else{scpSelectedLocationCountry=country.code;locationInput.value='';scpLocationExpanded.add(key);scpLocationCityLimits.clear()}
-  renderLocationPicker();
-  if(!expanded&&!scpWorldCountryCache.has(country.code))loadLocationCountry(country.code)
+  if(!expanded&&!scpWorldCountryCache.has(country.code))loadLocationCountry(country.code);
+  renderLocationPicker()
  });wrap.append(toggle);
  if(expanded){
   const children=document.createElement('div');children.className='scp-taxonomy-children';
