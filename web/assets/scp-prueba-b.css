@@ -605,33 +605,27 @@ html body.lp-elegant-home .lp-scp-carousel-toggle:focus-visible{outline:3px soli
 @media(max-width:760px){html body.lp-elegant-home .lp-scp-carousel-toggle{min-height:30px!important}}
 @media(prefers-reduced-motion:reduce){html body.lp-elegant-home .lp-scp-carousel-toggle{transition:none!important}}
 
-/* SCP search refinement · gold accent and hierarchical discovery */
-html body.lp-prueba-b header.scp-header-refined #lp-service-search .lp-search-field--service{position:relative!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search{grid-template-columns:minmax(200px,1.15fr) minmax(210px,1fr) auto!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search label{color:#D4AF37!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search input{border-color:#D4AF37!important}
+/* Ajuste del buscador: flechas de áreas/servicios y país/ciudad */
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .lp-search-field{position:relative!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search input{padding-right:34px!important;border-color:#D4AF37!important}
 html body.lp-prueba-b header.scp-header-refined #lp-service-search input:focus{outline:2px solid #D4AF37!important;outline-offset:1px!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search button{background:#D4AF37!important;border-color:#D4AF37!important;color:#193a2d!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-search-taxonomy{position:absolute!important;top:calc(100% + 5px)!important;left:0!important;z-index:120!important;width:min(560px,88vw)!important;color:#193a2d!important;font:13px/1.35 Arial,sans-serif!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-search-taxonomy>summary{display:inline-flex!important;gap:7px!important;align-items:center!important;padding:4px 0!important;cursor:pointer!important;color:#D4AF37!important;font:700 11px/1.2 Arial,sans-serif!important;list-style:none!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-search-taxonomy>summary::-webkit-details-marker{display:none!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-search-taxonomy[open] .scp-search-taxonomy__panel{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;max-height:min(65vh,520px)!important;overflow:auto!important;padding:14px!important;border:1px solid #D4AF37!important;border-radius:12px!important;background:#fffdf7!important;box-shadow:0 12px 28px rgba(8,30,21,.24)!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__group{min-width:0!important;padding:10px!important;border:1px solid #eadbb4!important;border-radius:9px!important;background:#fbf7ec!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__area,
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__service,
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__clear{border:0!important;background:transparent!important;color:#193a2d!important;text-align:left!important;font:600 12px/1.3 Arial,sans-serif!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__area{width:100%!important;margin:0 0 7px!important;padding:0 0 7px!important;border-bottom:1px solid #D4AF37!important;font-weight:700!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__services{display:flex!important;flex-wrap:wrap!important;gap:5px!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__service{padding:5px 7px!important;border:1px solid #e6d5a6!important;border-radius:999px!important;background:#fff!important;cursor:pointer!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__service:hover,
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__clear:hover{background:#f3e7c4!important}
-html body.lp-prueba-b header.scp-header-refined .scp-search-taxonomy__clear{grid-column:1/-1!important;padding:8px!important;border-radius:7px!important;background:#f3e7c4!important;text-align:center!important;cursor:pointer!important}
-html body.lp-prueba-b header.scp-header-refined #scp-search-country,
-html body.lp-prueba-b header.scp-header-refined #lp-service-location{height:35px!important;margin:0 0 4px!important}
-html body.lp-prueba-b header.scp-header-refined #lp-service-location:disabled{opacity:.68!important;cursor:not-allowed!important}
-@media(max-width:900px){html body.lp-prueba-b header.scp-header-refined #lp-service-search{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto!important}}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search label{color:#D4AF37!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker{position:absolute!important;right:5px!important;top:20px!important;z-index:150!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker>summary{display:flex!important;align-items:center!important;justify-content:center!important;width:25px!important;height:27px!important;border-radius:5px!important;color:#D4AF37!important;font:700 17px/1 Arial,sans-serif!important;cursor:pointer!important;list-style:none!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker>summary::-webkit-details-marker{display:none!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker[open]>summary{background:#f4ead0!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker__panel{position:absolute!important;top:calc(100% + 5px)!important;right:0!important;display:grid!important;grid-template-columns:1fr!important;gap:5px!important;width:min(310px,84vw)!important;max-height:min(60vh,420px)!important;overflow:auto!important;padding:10px!important;border:1px solid #D4AF37!important;border-radius:10px!important;background:#fffdf7!important;color:#193a2d!important;box-shadow:0 10px 25px rgba(8,30,21,.24)!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-area,
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-option,
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-back{width:100%!important;padding:9px 10px!important;border:0!important;border-radius:7px!important;background:transparent!important;color:#193a2d!important;text-align:left!important;font:600 13px/1.25 Arial,sans-serif!important;cursor:pointer!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-area{border-bottom:1px solid #eee2c6!important;font-weight:700!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-option{padding-left:18px!important;font-weight:500!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-area:hover,
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-option:hover,
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-back:hover{background:#f4ead0!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-picker-title{margin:3px 8px!important;color:#193a2d!important;font:700 14px/1.3 Arial,sans-serif!important}
 @media(max-width:680px){
- html body.lp-prueba-b header.scp-header-refined #lp-service-search{grid-template-columns:1fr!important;gap:8px!important}
- html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-search-taxonomy{position:relative!important;top:auto!important;left:auto!important;width:100%!important}
- html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-search-taxonomy[open] .scp-search-taxonomy__panel{grid-template-columns:1fr!important;max-height:45vh!important}
+ html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-header-picker__panel{position:fixed!important;top:auto!important;right:5vw!important;bottom:10px!important;width:90vw!important;max-height:65vh!important}
 }
+
+html body.lp-prueba-b header.scp-header-refined #lp-service-search button{background:#D4AF37!important;border-color:#D4AF37!important;color:#193a2d!important}
