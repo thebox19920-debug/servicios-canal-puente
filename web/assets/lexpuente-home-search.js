@@ -63,65 +63,113 @@ const specialists=[
 ];
 const normalize=value=>String(value||'').toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[\/-]/g,' ').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
 const searchAreas=[
-{id:'tramites',label:'Trámites y documentación',aliases:['tramites','documentacion','extranjeria'],categoryIds:['tramites'],serviceIds:['abogado','extranjeria','nacionalidad','homologacion','gestion-documental','asesoria-general']},
-{id:'salud',label:'Salud y odontología',aliases:['salud','odontologia','dental'],categoryIds:['salud','bienestar'],serviceIds:['limpieza-dental','odontologia','ortodoncia','fisioterapia','cuidados','psicologia','nutricion','acompanamiento']},
-{id:'vivienda',label:'Vivienda e inmobiliaria',aliases:['vivienda','inmobiliaria'],categoryIds:['vivienda'],serviceIds:['alquiler','contratos','tasacion','reformas']},
-{id:'academia',label:'Academia y formación',aliases:['academia','formacion'],categoryIds:['academia','otros'],serviceIds:['idiomas','refuerzo','examenes','digital','web-comunicacion','a-medida']}
+{id:'tramites',label:'Trámites y documentación',aliases:['tramites','documentacion'],categoryIds:['tramites'],services:[
+{label:'Extranjería',filterIds:['extranjeria'],aliases:['extranjeria','tramite de extranjeria','permiso de residencia']},
+{label:'Laboral y abogado',filterIds:['abogado'],aliases:['abogado','abogada','laboral','asesoria juridica','asesoria legal']},
+{label:'Tramitación de documentación',filterIds:['gestion-documental','extranjeria'],aliases:['tramitacion de documentacion','gestion documental','documentacion']},
+{label:'Nacionalidad y residencia',filterIds:['nacionalidad'],aliases:['nacionalidad','residencia']},
+{label:'Homologación de títulos',filterIds:['homologacion'],aliases:['homologacion','homologacion de titulos']}
+]},
+{id:'salud',label:'Salud y odontología',aliases:['salud'],categoryIds:['salud'],services:[
+{label:'Limpieza dental',filterIds:['limpieza-dental'],aliases:['limpieza dental','higiene dental']},
+{label:'Odontología general',filterIds:['limpieza-dental','odontologia','ortodoncia'],aliases:['odontologia','dentista','dental']},
+{label:'Ortodoncia',filterIds:['ortodoncia'],aliases:['ortodoncia','brackets']},
+{label:'Fisioterapia',filterIds:['fisioterapia'],aliases:['fisioterapia','rehabilitacion']},
+{label:'Cuidados a domicilio',filterIds:['cuidados'],aliases:['cuidados a domicilio','cuidados','cuidadora','cuidador','sad']}
+]},
+{id:'vivienda',label:'Vivienda e inmobiliaria',aliases:['vivienda','inmobiliaria'],categoryIds:['vivienda'],services:[
+{label:'Alquiler de vivienda',filterIds:['alquiler'],aliases:['alquiler','alquiler de vivienda']},
+{label:'Revisión de contratos',filterIds:['contratos'],aliases:['revision de contratos','contrato de alquiler']},
+{label:'Tasación',filterIds:['tasacion'],aliases:['tasacion','valoracion inmobiliaria']},
+{label:'Reformas y mantenimiento',filterIds:['reformas'],aliases:['reformas','mantenimiento']}
+]},
+{id:'academia',label:'Academia y formación',aliases:['academia','formacion'],categoryIds:['academia'],services:[
+{label:'Clases de idiomas',filterIds:['idiomas'],aliases:['clases de idiomas','idiomas','ingles','frances']},
+{label:'Refuerzo escolar',filterIds:['refuerzo'],aliases:['refuerzo escolar','refuerzo','clases particulares']},
+{label:'Preparación de exámenes',filterIds:['examenes'],aliases:['preparacion de examenes','examenes','pau']},
+{label:'Formación digital',filterIds:['digital'],aliases:['formacion digital','competencias digitales']}
+]},
+{id:'bienestar',label:'Bienestar integral',aliases:['bienestar','integral'],categoryIds:['bienestar'],services:[
+{label:'Atención psicológica',filterIds:['psicologia'],aliases:['atencion psicologica','psicologia','psicologo','psicologa']},
+{label:'Nutrición',filterIds:['nutricion'],aliases:['nutricion','nutricionista']},
+{label:'Acompañamiento personal',filterIds:['acompanamiento'],aliases:['acompanamiento personal','acompanamiento emocional']}
+]},
+{id:'otros',label:'Otros servicios',aliases:['otros servicios','otros'],categoryIds:['otros'],services:[
+{label:'Asesoría general',filterIds:['asesoria-general'],aliases:['asesoria general','asesoria']},
+{label:'Diseño y comunicación',filterIds:['web-comunicacion'],aliases:['diseno y comunicacion','diseno web','comunicacion','redes sociales']},
+{label:'Servicios a medida',filterIds:['a-medida'],aliases:['servicios a medida','servicio a medida']}
+]}
 ];
 const placeOptions=[
-{label:'España',key:'espana',zones:['Barcelona','Madrid','Valencia','Sevilla','Málaga','Bilbao','Zaragoza']},
-{label:'Bélgica',key:'belgica',zones:['Bruselas','Amberes','Gante','Lieja']},
-{label:'Francia',key:'francia',zones:['París','Lyon','Marsella']},
-{label:'Portugal',key:'portugal',zones:['Lisboa','Oporto']},
-{label:'Reino Unido',key:'reino unido',zones:['Londres','Manchester','Birmingham']},
-{label:'Marruecos',key:'marruecos',zones:['Tánger','Casablanca','Rabat']},
-{label:'Alemania',key:'alemania',zones:['Berlín','Hamburgo','Múnich']},
-{label:'Italia',key:'italia',zones:['Roma','Milán','Nápoles']},
-{label:'Países Bajos',key:'paises bajos',zones:['Ámsterdam','Róterdam','La Haya']},
-{label:'Argentina',key:'argentina',zones:['Buenos Aires','Córdoba','Rosario']},
-{label:'Colombia',key:'colombia',zones:['Bogotá','Medellín','Cali']},
-{label:'México',key:'mexico',zones:['Ciudad de México','Guadalajara','Monterrey']},
-{label:'Estados Unidos',key:'estados unidos',zones:['Nueva York','Miami','Los Ángeles']},
-{label:'Online / Internacional',key:'online internacional',zones:['Online / Internacional']}
+{label:'España',key:'espana',zones:[{label:'Toda España',key:'espana',city:''},...['Barcelona','Madrid','Valencia','Sevilla','Málaga','Bilbao','Zaragoza'].map(city=>({label:city,key:'espana',city}))]},
+{label:'Internacional / Online',key:'internacional',zones:[
+{label:'Online (sin desplazamiento)',key:'online',city:'online'},
+{label:'Marruecos',key:'marruecos',city:'marruecos'},
+{label:'Francia',key:'francia',city:'francia'},
+{label:'Alemania',key:'alemania',city:'alemania'},
+{label:'Latinoamérica',key:'latinoamerica',city:'latinoamerica'}
+]}
 ];
 
 const areaById=id=>areas.find(area=>area.id===id),serviceById=id=>services.find(service=>service.id===id);
 const status=document.getElementById('scp-demo-search-status'),demandCount=document.getElementById('scp-demo-demand-count'),offerCount=document.getElementById('scp-demo-offer-count'),empty=document.getElementById('scp-demo-empty'),clearButton=document.getElementById('scp-clear-filters'),serviceTitle=document.getElementById('scp-service-list-title'),areaPageLink=document.getElementById('scp-area-page-link');
 const dialog=document.getElementById('scp-demo-dialog'),dialogTitle=document.getElementById('scp-demo-dialog-title'),dialogCopy=document.getElementById('scp-demo-dialog-copy'),dialogCta=document.getElementById('scp-demo-dialog-cta');
 let manualArea=null,manualService=null,activeServiceArea=null,activeLocationCountry=null,selectedCountryFilter='';
-function resolveSearchArea(query){return searchAreas.find(area=>[area.label,...area.aliases].some(term=>query===normalize(term)))||null}
+function resolveSearchArea(query){return searchAreas.find(area=>[area.label,...area.aliases].some(term=>query===normalize(term)||query.includes(normalize(term))))||null}
+function resolvePickerService(query){
+ const items=searchAreas.flatMap(area=>area.services);
+ return items.sort((a,b)=>Math.max(...b.aliases.map(x=>normalize(x).length))-Math.max(...a.aliases.map(x=>normalize(x).length))).find(item=>[item.label,...item.aliases].some(term=>{const n=normalize(term);return query===n||query.includes(n)}))||null
+}
 function resolveArea(query){return areas.find(area=>area.aliases.some(alias=>query===normalize(alias)||query.includes(normalize(alias))))||null}
 function resolveService(query,areaId){
-const candidates=services.filter(service=>!areaId||service.area===areaId).sort((a,b)=>Math.max(...b.aliases.map(x=>x.length))-Math.max(...a.aliases.map(x=>x.length)));
-return candidates.find(service=>[service.label,...service.aliases].some(term=>{const n=normalize(term);return query===n||query.includes(n)}))||null
+ const candidates=services.filter(service=>!areaId||service.area===areaId).sort((a,b)=>Math.max(...b.aliases.map(x=>x.length))-Math.max(...a.aliases.map(x=>x.length)));
+ return candidates.find(service=>[service.label,...service.aliases].some(term=>{const n=normalize(term);return query===n||query.includes(n)}))||null
 }
 function queryState(){
-const query=normalize(serviceInput.value);
-if(query==='odontologia'||query==='dental'||query==='dentista')return {areaIds:['salud'],serviceIds:['limpieza-dental','odontologia','ortodoncia'],areaId:'salud',serviceId:null,freeQuery:''};
-if(query){const group=resolveSearchArea(query),service=group?null:resolveService(query,null),area=resolveArea(query);return {areaIds:service?[service.area]:group?.categoryIds||(area?[area.id]:null),areaId:service?.area||group?.categoryIds?.[0]||area?.id||null,serviceId:service?.id||null,freeQuery:service||area||group?'':query}}
-return {areaIds:manualService?[serviceById(manualService)?.area]:(manualArea?[manualArea]:null),areaId:manualService?serviceById(manualService)?.area:manualArea,serviceId:manualService,freeQuery:''}
+ const query=normalize(serviceInput.value);
+ if(query){
+  const exactGroup=searchAreas.find(area=>normalize(area.label)===query);
+  if(exactGroup)return {areaIds:exactGroup.categoryIds,areaId:exactGroup.categoryIds[0],serviceId:null,freeQuery:''};
+  const item=resolvePickerService(query);
+  if(item){const parent=searchAreas.find(area=>area.services.includes(item));return {areaIds:parent.categoryIds,serviceIds:item.filterIds,areaId:parent.categoryIds[0],serviceId:null,freeQuery:''}}
+  const group=resolveSearchArea(query);
+  if(group)return {areaIds:group.categoryIds,areaId:group.categoryIds[0],serviceId:null,freeQuery:''};
+  const area=resolveArea(query),service=resolveService(query,area?.id||null);
+  return {areaIds:service?[service.area]:(area?[area.id]:null),areaId:service?.area||area?.id||null,serviceId:service?.id||null,freeQuery:service||area?'':query}
+ }
+ return {areaIds:manualService?[serviceById(manualService)?.area]:(manualArea?[manualArea]:null),areaId:manualService?serviceById(manualService)?.area:manualArea,serviceId:manualService,freeQuery:''}
 }
 function cardMatches(item,state,location,country){
 if(state.areaIds&&state.areaIds.length&&!state.areaIds.includes(item.areaId))return false;if(state.serviceIds&&state.serviceIds.length&&!state.serviceIds.includes(item.serviceId))return false;if(state.serviceId&&item.serviceId!==state.serviceId)return false;
 if(state.freeQuery){const searchable=normalize([item.title||'',item.name||'',item.areaId,item.serviceId,item.keywords||'',serviceById(item.serviceId)?.label||'',areaById(item.areaId)?.label||''].join(' '));const words=state.freeQuery.split(' ').filter(word=>word.length>2);if(words.length&&!words.every(word=>searchable.includes(word)))return false}
-const place=normalize(item.ubicacion),countryOnly=Boolean(country&&location===country);if(location&&!countryOnly&&!place.includes(location)&&!(location==='internacional'&&/online|francia|colombia|portugal/.test(place)))return false;if(country&&!countryMatch(place,country))return false;return true
+const place=normalize(item.ubicacion),countryOnly=Boolean(country&&(location===country||location==='toda espana'||location==='internacional online'||location==='online sin desplazamiento'||location===normalize(country)));if(location&&!countryOnly&&!place.includes(location)&&!(location==='internacional'&&/online|francia|colombia|portugal/.test(place)))return false;if(country&&!countryMatch(place,country))return false;return true
 }
 function countryMatch(place,country){
- const terms={espana:['barcelona','madrid','valencia','sevilla','malaga','bilbao','zaragoza','espana'],belgica:['bruselas','amberes','gante','lieja','belgica'],francia:['paris','lyon','marsella','francia'],portugal:['lisboa','oporto','portugal'],'reino unido':['londres','manchester','birmingham','reino unido'],marruecos:['tanger','casablanca','rabat','marruecos'],alemania:['berlin','hamburgo','munich','alemania'],italia:['roma','milan','napoles','italia'],'paises bajos':['amsterdam','roterdam','la haya','paises bajos'],argentina:['buenos aires','cordoba','rosario','argentina'],colombia:['bogota','medellin','cali','colombia'],mexico:['ciudad de mexico','guadalajara','monterrey','mexico'],'estados unidos':['nueva york','miami','los angeles','estados unidos'],'online internacional':['online','internacional']};
+ const terms={
+  espana:['barcelona','madrid','valencia','sevilla','malaga','bilbao','zaragoza','espana'],
+  internacional:['online','internacional','francia','paris','colombia','bogota','portugal','lisboa','argentina','buenos aires','mexico','marruecos','alemania'],
+  online:['online'],
+  marruecos:['marruecos','tanger','casablanca','rabat'],
+  francia:['francia','paris','lyon','marsella'],
+  alemania:['alemania','berlin','hamburgo','munich'],
+  latinoamerica:['colombia','bogota','medellin','cali','argentina','buenos aires','cordoba','rosario','mexico','ciudad de mexico','guadalajara','monterrey']
+ };
  return (terms[country]||[country]).some(term=>place.includes(normalize(term)))
 }
 function renderServicePicker(){
  servicePicker.replaceChildren();
  searchAreas.forEach(area=>{
-  const group=document.createElement('div');group.className='scp-picker-group';
-  const row=document.createElement('div');row.className='scp-picker-row';
-  const select=document.createElement('button');select.type='button';select.className='scp-picker-area';select.textContent=area.label;select.addEventListener('click',()=>{serviceInput.value=area.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});
-  const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-picker-toggle';toggle.textContent=activeServiceArea===area.id?'⌃':'⌄';toggle.setAttribute('aria-label',(activeServiceArea===area.id?'Ocultar':'Mostrar')+' servicios de '+area.label);toggle.setAttribute('aria-expanded',String(activeServiceArea===area.id));toggle.addEventListener('click',()=>{activeServiceArea=activeServiceArea===area.id?null:area.id;renderServicePicker()});
-  row.append(select,toggle);group.append(row);
+  const group=document.createElement('div');group.className='scp-cascade-group';
+  const row=document.createElement('div');row.className='scp-cascade-row';
+  const select=document.createElement('button');select.type='button';select.className='scp-cascade-label';select.textContent=area.label;
+  select.addEventListener('click',()=>{serviceInput.value=area.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;activeServiceArea=null;render();scrollToMarket()});
+  const arrow=document.createElement('button');arrow.type='button';arrow.className='scp-cascade-arrow';arrow.textContent=activeServiceArea===area.id?'▾':'▸';arrow.setAttribute('aria-label','Mostrar servicios de '+area.label);arrow.setAttribute('aria-expanded',String(activeServiceArea===area.id));
+  arrow.addEventListener('click',()=>{activeServiceArea=activeServiceArea===area.id?null:area.id;renderServicePicker()});
+  row.append(select,arrow);group.append(row);
   if(activeServiceArea===area.id){
-   const children=document.createElement('div');children.className='scp-picker-children';
-   services.filter(service=>area.serviceIds.includes(service.id)).forEach(service=>{const option=document.createElement('button');option.type='button';option.className='scp-picker-option';option.textContent=service.label;option.addEventListener('click',()=>{serviceInput.value=service.label;manualArea=null;manualService=service.id;document.getElementById('scp-service-picker').open=false;render();scrollToMarket()});children.append(option)});
-   group.append(children)
+   const childList=document.createElement('div');childList.className='scp-cascade-children';
+   area.services.forEach(item=>{const option=document.createElement('button');option.type='button';option.className='scp-cascade-option';option.textContent=item.label;option.addEventListener('click',()=>{serviceInput.value=item.label;manualArea=null;manualService=null;document.getElementById('scp-service-picker').open=false;activeServiceArea=null;render();scrollToMarket()});childList.append(option)});
+   group.append(childList)
   }
   servicePicker.append(group)
  })
@@ -129,15 +177,17 @@ function renderServicePicker(){
 function renderLocationPicker(){
  locationPicker.replaceChildren();
  placeOptions.forEach(country=>{
-  const group=document.createElement('div');group.className='scp-picker-group';
-  const row=document.createElement('div');row.className='scp-picker-row';
-  const select=document.createElement('button');select.type='button';select.className='scp-picker-area';select.textContent=country.label;select.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=country.label;render();scrollToMarket()});
-  const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-picker-toggle';toggle.textContent=activeLocationCountry===country.key?'⌃':'⌄';toggle.setAttribute('aria-label',(activeLocationCountry===country.key?'Ocultar':'Mostrar')+' ciudades de '+country.label);toggle.setAttribute('aria-expanded',String(activeLocationCountry===country.key));toggle.addEventListener('click',()=>{activeLocationCountry=activeLocationCountry===country.key?null:country.key;renderLocationPicker()});
-  row.append(select,toggle);group.append(row);
+  const group=document.createElement('div');group.className='scp-cascade-group';
+  const row=document.createElement('div');row.className='scp-cascade-row';
+  const select=document.createElement('button');select.type='button';select.className='scp-cascade-label';select.textContent=country.label;
+  select.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=country.label;document.getElementById('scp-location-picker').open=false;activeLocationCountry=null;render();scrollToMarket()});
+  const arrow=document.createElement('button');arrow.type='button';arrow.className='scp-cascade-arrow';arrow.textContent=activeLocationCountry===country.key?'▾':'▸';arrow.setAttribute('aria-label','Mostrar opciones de '+country.label);arrow.setAttribute('aria-expanded',String(activeLocationCountry===country.key));
+  arrow.addEventListener('click',()=>{activeLocationCountry=activeLocationCountry===country.key?null:country.key;renderLocationPicker()});
+  row.append(select,arrow);group.append(row);
   if(activeLocationCountry===country.key){
-   const children=document.createElement('div');children.className='scp-picker-children';
-   country.zones.forEach(zone=>{const option=document.createElement('button');option.type='button';option.className='scp-picker-option';option.textContent=zone;option.addEventListener('click',()=>{selectedCountryFilter=country.key;locationInput.value=zone;document.getElementById('scp-location-picker').open=false;render();scrollToMarket()});children.append(option)});
-   group.append(children)
+   const childList=document.createElement('div');childList.className='scp-cascade-children';
+   country.zones.forEach(item=>{const option=document.createElement('button');option.type='button';option.className='scp-cascade-option';option.textContent=item.label;option.addEventListener('click',()=>{selectedCountryFilter=item.key;locationInput.value=item.label;document.getElementById('scp-location-picker').open=false;activeLocationCountry=null;render();scrollToMarket()});childList.append(option)});
+   group.append(childList)
   }
   locationPicker.append(group)
  })
@@ -149,7 +199,7 @@ const all=document.createElement('button');all.type='button';all.className='scp-
 }
 function renderServiceOptions(state){
 serviceRoot.replaceChildren();const visible=services.filter(service=>(!state.areaIds||!state.areaIds.length||state.areaIds.includes(service.area))&&(!state.serviceIds||!state.serviceIds.length||state.serviceIds.includes(service.id)));
-serviceTitle.textContent=state.serviceIds?.length?'Odontología · Servicios':state.areaIds?.length>1?searchAreas.find(area=>area.categoryIds.every(id=>state.areaIds.includes(id)))?.label+' · Servicios':state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
+const selectedPickerService=resolvePickerService(normalize(serviceInput.value));serviceTitle.textContent=selectedPickerService?selectedPickerService.label+' · Servicios':state.areaIds?.length>1?searchAreas.find(area=>area.categoryIds.every(id=>state.areaIds.includes(id)))?.label+' · Servicios':state.areaId?areaById(state.areaId).label+' · Servicios':'Servicios del catálogo · '+visible.length;
 visible.forEach(service=>{const button=document.createElement('button');button.type='button';button.className='scp-architecture__service-button';button.textContent=state.areaId?service.label:service.label+' · '+areaById(service.area).label;button.setAttribute('aria-pressed',String(state.serviceId===service.id));button.addEventListener('click',()=>{manualArea=service.area;manualService=service.id;serviceInput.value=service.label;render();market.scrollIntoView({behavior:'smooth',block:'start'})});serviceRoot.append(button)});
 if(state.areaId){areaPageLink.hidden=false;areaPageLink.href=areaById(state.areaId).href;areaPageLink.textContent='Abrir página completa de '+areaById(state.areaId).label}else{areaPageLink.hidden=true;areaPageLink.removeAttribute('href')}
 }
