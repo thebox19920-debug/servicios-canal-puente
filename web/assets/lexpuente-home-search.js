@@ -165,35 +165,44 @@ function cardMatches(item,state,location){
  return true
 }
 function selectCatalogService(service){
- selectedCatalogService=service;serviceInput.value=service.label;servicePickerDetails.open=false;render();scrollToMarket()
+ selectedCatalogService=service;serviceInput.value=service.label;closeServicePicker({smooth:true});render();scrollToMarket()
 }
-function renderTaxonomyNodes(nodes,container,depth=[],path=[]){
+function highlightMatch(element,label,query){
+ const source=String(label||''),needle=normalize(query);if(!needle){element.textContent=source;return}
+ const normalized=normalize(source),at=normalized.indexOf(needle);if(at<0){element.textContent=source;return}
+ const offsets=[];let normalizedOffset=0;
+ for(let i=0;i<source.length;i++){const folded=normalize(source[i]);for(let j=0;j<folded.length;j++)offsets[normalizedOffset++]=i}
+ const from=offsets[at]??0,to=offsets[at+needle.length-1];if(to===undefined){element.textContent=source;return}
+ element.append(document.createTextNode(source.slice(0,from)));const strong=document.createElement('strong');strong.textContent=source.slice(from,to+1);element.append(strong,document.createTextNode(source.slice(to+1)))
+}
+function taxonomyHasMatch(node,query){
+ if(!query||normalize(node.label).includes(query))return true;
+ return Array.isArray(node.children)&&node.children.some(child=>taxonomyHasMatch(child,query))
+}
+function renderTaxonomyNodes(nodes,container,depth=[],path=[],query='',revealAll=false){
  nodes.forEach((node,index)=>{
-  const key=depth.concat(index).join('.'),fullPath=path.concat(node.label);
-  if(node.children&&node.children.length){
-   const group=document.createElement('div');group.className='scp-taxonomy-node scp-taxonomy-node--level-'+(depth.length+1);
-   const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-taxonomy-toggle';toggle.setAttribute('aria-expanded',String(expandedTaxonomyNodes.has(key)));
-   const label=document.createElement('span');label.className='scp-taxonomy-label';label.textContent=node.label;
-   const arrow=document.createElement('span');arrow.className='scp-taxonomy-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent=expandedTaxonomyNodes.has(key)?'▾':'▸';
-   toggle.append(label,arrow);toggle.addEventListener('click',()=>{if(expandedTaxonomyNodes.has(key))expandedTaxonomyNodes.delete(key);else expandedTaxonomyNodes.add(key);renderServicePicker()});group.append(toggle);
-   if(expandedTaxonomyNodes.has(key)){const children=document.createElement('div');children.className='scp-taxonomy-children';renderTaxonomyNodes(node.children,children,depth.concat(index),fullPath);group.append(children)}
-   container.append(group)
+  const key=depth.concat(index).join('.'),fullPath=path.concat(node.label),level=depth.length+1;
+  const hasChildren=Array.isArray(node.children)&&node.children.length>0,matchesLabel=Boolean(query)&&normalize(node.label).includes(query);
+  const hasMatchingDescendant=hasChildren&&query&&node.children.some(child=>taxonomyHasMatch(child,query));
+  if(query&&!revealAll&&!matchesLabel&&!hasMatchingDescendant)return;
+  const group=document.createElement('div');group.className='scp-taxonomy-node scp-taxonomy-node--level-'+level;
+  if(hasChildren){
+   const expanded=Boolean(query?(revealAll||matchesLabel||hasMatchingDescendant):expandedTaxonomyNodes.has(key));
+   const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-taxonomy-toggle';toggle.setAttribute('aria-expanded',String(expanded));
+   const arrow=document.createElement('span');arrow.className='scp-taxonomy-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent=expanded?'▾':'▸';
+   const label=document.createElement('span');label.className='scp-taxonomy-label';highlightMatch(label,node.label,query);toggle.append(arrow,label);
+   toggle.addEventListener('click',()=>{if(query){serviceInput.value='';selectedCatalogService=null;expandedTaxonomyNodes.clear()}if(expandedTaxonomyNodes.has(key))expandedTaxonomyNodes.delete(key);else expandedTaxonomyNodes.add(key);renderServicePicker()});
+   group.append(toggle);
+   if(expanded){const children=document.createElement('div');children.className='scp-taxonomy-children';renderTaxonomyNodes(node.children,children,depth.concat(index),fullPath,query,revealAll||matchesLabel);group.append(children)}
   }else{
-   const service={label:node.label,path};const button=document.createElement('button');button.type='button';button.className='scp-taxonomy-service';button.textContent=node.label;button.addEventListener('click',()=>selectCatalogService(service));container.append(button)
+   const service={label:node.label,path:fullPath},button=document.createElement('button');button.type='button';button.className='scp-taxonomy-service';button.setAttribute('aria-label',service.path.join(' > '));highlightMatch(button,node.label,query);button.addEventListener('click',()=>selectCatalogService(service));group.append(button)
   }
+  container.append(group)
  })
 }
 function renderServicePicker(){
- servicePicker.replaceChildren();const query=normalize(serviceInput.value);
- if(query&&!selectedCatalogService){
-  scpTaxonomyServices.filter(service=>normalize(service.label).includes(query)).forEach(service=>{
-   const result=document.createElement('button');result.type='button';result.className='scp-taxonomy-result';
-   const title=document.createElement('span');title.className='scp-taxonomy-result__title';title.textContent=service.label;
-   const route=document.createElement('small');route.className='scp-taxonomy-result__route';route.textContent=service.path.join(' > ');
-   result.append(title,route);result.addEventListener('click',()=>selectCatalogService(service));servicePicker.append(result)
-  });return
- }
- renderTaxonomyNodes(scpServiceTaxonomy,servicePicker)
+ servicePicker.replaceChildren();const query=normalize(serviceInput.value);renderTaxonomyNodes(scpServiceTaxonomy,servicePicker,[],[],query,false);
+ if(query&&!servicePicker.children.length){const emptyMessage=document.createElement('p');emptyMessage.className='scp-taxonomy-empty';emptyMessage.textContent='No se encontraron servicios coincidentes.';servicePicker.append(emptyMessage)}
 }
 function renderAreaOptions(state){
 areaRoot.replaceChildren();
@@ -229,12 +238,31 @@ demandCount.textContent='('+ds.length+')';offerCount.textContent='('+ss.length+'
 status.textContent='Mostrando '+total+' solicitudes y servicios de referencia SCP.';empty.hidden=total>0
 }
 let scrollTimer;const scrollToMarket=()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>market.scrollIntoView({behavior:'smooth',block:'start'}),180)};
-form.addEventListener('submit',event=>{event.preventDefault();servicePickerDetails.open=false;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-serviceInput.addEventListener('focus',()=>{servicePickerDetails.open=true;renderServicePicker()});
-servicePickerDetails.addEventListener('toggle',()=>{if(servicePickerDetails.open)renderServicePicker()});
-serviceInput.addEventListener('input',()=>{selectedCatalogService=null;manualArea=null;manualService=null;servicePickerDetails.open=true;renderServicePicker();render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
+form.addEventListener('submit',event=>{event.preventDefault();closeServicePicker();render();market.scrollIntoView({behavior:'smooth',block:'start'})});
+serviceInput.addEventListener('focus',()=>{clearTimeout(servicePickerCloseTimer);servicePicker.classList.remove('scp-is-closing');servicePickerDetails.open=true;renderServicePicker();positionServicePicker()});
+servicePickerDetails.addEventListener('toggle',()=>{if(servicePickerDetails.open){clearTimeout(servicePickerCloseTimer);servicePicker.classList.remove('scp-is-closing');renderServicePicker();positionServicePicker()}});
+serviceInput.addEventListener('input',()=>{selectedCatalogService=null;manualArea=null;manualService=null;servicePickerDetails.open=true;renderServicePicker();render();positionServicePicker()});
 locationInput.addEventListener('input',()=>{render();if(serviceInput.value.trim()||locationInput.value.trim())scrollToMarket()});
 clearButton.addEventListener('click',()=>{serviceInput.value='';locationInput.value='';manualArea=null;manualService=null;selectedCatalogService=null;render();market.scrollIntoView({behavior:'smooth',block:'start'})});
-document.addEventListener('click',event=>{if(!servicePickerDetails.contains(event.target)&&event.target!==serviceInput)servicePickerDetails.open=false});
+let servicePickerCloseTimer;
+function positionServicePicker(){
+ if(!servicePickerDetails.open)return;
+ const inputRect=serviceInput.getBoundingClientRect(),formRect=form.getBoundingClientRect(),available=Math.max(0,window.innerWidth-24);
+ const width=Math.min(available,Math.min(680,Math.max(Math.min(360,available),inputRect.width)));
+ const left=Math.max(12,Math.min(inputRect.left,window.innerWidth-width-12));
+ let top=formRect.bottom+6,availableHeight=window.innerHeight-top-12;
+ if(availableHeight<180){const aboveSpace=formRect.top-12;if(aboveSpace>availableHeight){availableHeight=aboveSpace;top=Math.max(12,formRect.top-Math.min(420,aboveSpace)-6)}}
+ const maxHeight=Math.max(120,Math.min(420,availableHeight));
+ servicePicker.style.position='fixed';servicePicker.style.left=Math.round(left)+'px';servicePicker.style.top=Math.round(top)+'px';servicePicker.style.width=Math.round(width)+'px';servicePicker.style.maxWidth='calc(100vw - 24px)';servicePicker.style.maxHeight=Math.round(maxHeight)+'px'
+}
+function closeServicePicker({smooth=false}={}){
+ clearTimeout(servicePickerCloseTimer);
+ if(smooth&&servicePickerDetails.open){servicePicker.classList.add('scp-is-closing');servicePickerCloseTimer=setTimeout(()=>{servicePickerDetails.open=false;servicePicker.classList.remove('scp-is-closing')},140)}
+ else{servicePickerDetails.open=false;servicePicker.classList.remove('scp-is-closing')}
+}
+window.addEventListener('resize',positionServicePicker,{passive:true});
+window.addEventListener('scroll',positionServicePicker,{passive:true});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&servicePickerDetails.open){closeServicePicker();serviceInput.blur()}});
+document.addEventListener('click',event=>{if(!servicePickerDetails.contains(event.target)&&event.target!==serviceInput)closeServicePicker()});
 document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});renderServicePicker();render()
 })();
