@@ -32,7 +32,7 @@
  if (newPage) window.location.replace(newPage);
 })();
 </script>
-<link href="/assets/homepage-elegante.css?v=20261120" rel="stylesheet"/><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0b3023"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SCP"><link rel="apple-touch-icon" href="/assets/app/apple-touch-icon.png"><link rel="stylesheet" href="/assets/lexpuente-mobile.css?v=20261122-header-refined9"><meta name="lexpuente-release" content="2026-11-20"><link rel="stylesheet" href="/assets/lexpuente-contact.css"><link rel="stylesheet" href="/assets/lexpuente-trust.css"><link rel="stylesheet" href="/assets/scp-ad-video.css"><link rel="stylesheet" href="/assets/scp-account-pathways.css?v=20261120-pathways"><link rel="stylesheet" href="/assets/lexpuente-header.css?v=20261122-header-refined9"><link rel="stylesheet" href="/assets/scp-prueba-b.css?v=20261122-header-refined18"></head>
+<link href="/assets/homepage-elegante.css?v=20261120" rel="stylesheet"/><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0b3023"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SCP"><link rel="apple-touch-icon" href="/assets/app/apple-touch-icon.png"><link rel="stylesheet" href="/assets/lexpuente-mobile.css?v=20261122-header-refined9"><meta name="lexpuente-release" content="2026-11-20"><link rel="stylesheet" href="/assets/lexpuente-contact.css"><link rel="stylesheet" href="/assets/lexpuente-trust.css"><link rel="stylesheet" href="/assets/scp-ad-video.css"><link rel="stylesheet" href="/assets/scp-account-pathways.css?v=20261120-pathways"><link rel="stylesheet" href="/assets/lexpuente-header.css?v=20261122-header-refined9"><link rel="stylesheet" href="/assets/scp-prueba-b.css?v=20261122-header-refined18"><link rel="stylesheet" href="/assets/scp-demo-market.css?v=20261123-search-market"></head>
 <body class="lp-elegant-home lp-prueba-b"><!--lp-header:start--><header class="lex-organized-header scp-header-refined">
   <div class="scp-header-main">
     <details class="scp-categories-menu">
@@ -56,7 +56,7 @@
     <a class="logo" href="/index.html" aria-label="Servicios Canal Puente SCP">
       <img class="lp-brand-emblem" src="/assets/scp-logo-profesor-final.png?v=20261122-sin-lema-completo" alt="Logotipo de Servicios Canal Puente SCP con su puente dorado y sus iniciales SCP" decoding="async" fetchpriority="high">
     </a>
-    <form class="lp-service-search" id="lp-service-search" role="search"><div class="lp-search-field"><label for="lp-service-need">¿Qué servicio necesitas?</label><input id="lp-service-need" name="need" type="search" maxlength="240" autocomplete="off" placeholder="Describe lo que buscas; por ejemplo, apoyo con un trámite" required></div><div class="lp-search-field"><label for="lp-service-location">¿En qué zona?</label><input id="lp-service-location" name="location" type="text" maxlength="100" autocomplete="address-level2" placeholder="Ciudad, barrio o código postal"></div><button type="submit">Buscar servicios <span aria-hidden="true">⌕</span></button></form>
+    <form class="lp-service-search" id="lp-service-search" role="search"><div class="lp-search-field"><label for="lp-service-need">¿Qué servicio necesitas?</label><input id="lp-service-need" name="need" type="search" maxlength="240" autocomplete="off" list="scp-service-suggestions" placeholder="Ej.: limpieza dental, extranjería o diseño web"></div><div class="lp-search-field"><label for="lp-service-location">Ciudad o país (España e Internacional)</label><input id="lp-service-location" name="location" type="text" maxlength="100" autocomplete="off" list="scp-location-suggestions" placeholder="Ciudad, país o Online / Internacional"></div><button type="submit">Buscar <span aria-hidden="true">⌕</span></button><datalist id="scp-service-suggestions"><option value="Odontología"><option value="Limpieza dental"><option value="Trámites de extranjería"><option value="Gestión documental"><option value="Asesoría inmobiliaria"><option value="Clases particulares"><option value="Fisioterapia"><option value="Diseño web"><option value="Traducción e interpretación"><option value="Bienestar emocional"><option value="Comunicación y redes sociales"><option value="Vivienda en alquiler"></datalist><datalist id="scp-location-suggestions"><option value="Barcelona"><option value="Madrid"><option value="Valencia"><option value="Sevilla"><option value="Málaga"><option value="Bilbao"><option value="Zaragoza"><option value="Online / Internacional"><option value="París"><option value="Lisboa"><option value="Londres"><option value="Buenos Aires"><option value="Bogotá"><option value="Ciudad de México"></datalist></form>
     <nav class="scp-header-utilities" aria-label="Accesos rápidos">
       <a href="/agenda.html">Agenda</a>
       <a href="/contacto.html">Contacto</a>
@@ -142,37 +142,32 @@
 </nav>
 <button class="lp-scp-carousel-toggle" type="button" aria-label="Pausar el carrusel" aria-pressed="false"><span class="lp-scp-carousel-toggle-icon" aria-hidden="true">Ⅱ</span><span class="lp-scp-carousel-toggle-label">Pausar</span></button>
 </div>
-</div><p class="lp-scp-search-prompt">Busca por servicio y zona. Si no sabes cómo llamarlo, descríbelo con tus palabras.</p>
-<div class="lp-scp-flow-visual" role="group" aria-label="Usuarios Titulares, servicios de distintos sectores y Usuarios Especialistas">
-  <div class="lp-scp-flow-node">
-    <span class="lp-scp-flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.1"/><path d="M5.5 20v-1.2a6.5 6.5 0 0 1 13 0V20z"/></svg></span>
-    <strong>QUIEN BUSCA</strong><small>Usuario Titular</small>
+</div><section class="scp-demo-marketplace" id="scp-demo-marketplace" aria-labelledby="scp-demo-market-title">
+  <header class="scp-demo-marketplace__intro">
+    <p class="scp-demo-marketplace__eyebrow">ESCAPARATE DIGITAL · ESPAÑA E INTERNACIONAL</p>
+    <h2 id="scp-demo-market-title">Explora solicitudes y servicios</h2>
+    <p>Busca una necesidad o una ubicación arriba. Estas fichas ficticias permiten probar cómo funciona el buscador de SCP.</p>
+  </header>
+  <p class="scp-demo-marketplace__status" id="scp-demo-search-status" role="status" aria-live="polite">Se muestran los 20 anuncios demostrativos.</p>
+  <section class="scp-demo-marketplace__block" aria-labelledby="scp-demo-demands-title">
+    <div class="scp-demo-marketplace__block-head"><div><p class="scp-demo-marketplace__eyebrow">PERSONAS QUE BUSCAN APOYO</p><h3 id="scp-demo-demands-title">Demandas activas · Usuarios Titulares <span id="scp-demo-demand-count">(10)</span></h3></div></div>
+    <div class="scp-demo-marketplace__grid" id="scp-demo-demands"></div>
+  </section>
+  <section class="scp-demo-marketplace__block" aria-labelledby="scp-demo-offers-title">
+    <div class="scp-demo-marketplace__block-head"><div><p class="scp-demo-marketplace__eyebrow">PROFESIONALES Y CENTROS</p><h3 id="scp-demo-offers-title">Servicios disponibles · Usuarios Especialistas <span id="scp-demo-offer-count">(10)</span></h3></div></div>
+    <div class="scp-demo-marketplace__grid" id="scp-demo-offers"></div>
+  </section>
+  <div class="scp-demo-marketplace__empty" id="scp-demo-empty" hidden>
+    <h3>No hay anuncios de prueba que coincidan.</h3>
+    <p>Puedes contarnos qué necesitas y preparar una solicitud personalizada.</p>
+    <a href="/registro.html?tipo=titular&amp;solicitud=servicio">Registrar solicitud personalizada</a>
   </div>
-  <span class="lp-scp-flow-connector" aria-hidden="true">›</span>
-  <div class="lp-scp-flow-node lp-scp-flow-service">
-    <span class="lp-scp-flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v13H4zM8 6.5V4h8v2.5M8 11h8M8 15h5"/></svg></span>
-    <strong>SERVICIOS</strong><small>De distintos sectores</small>
-  </div>
-  <span class="lp-scp-flow-connector" aria-hidden="true">›</span>
-  <div class="lp-scp-flow-node">
-    <span class="lp-scp-flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="13" rx="2"/><path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7M3.5 12h17M10 12v1.5h4V12"/></svg></span>
-    <strong>QUIEN PUEDE AYUDAR</strong><small>Usuario Especialista</small>
-  </div>
-</div>
-<div class="lp-scp-sector-chooser">
-  <label for="lp-home-sector">¿Ya tienes un sector en mente?</label>
-  <span class="lp-scp-sector-select-wrap"><select id="lp-home-sector" name="sector" aria-label="Filtrar la búsqueda por sector">
-    <option value="">Todos los sectores</option>
-    <option value="tramites">Trámites y documentación</option>
-    <option value="salud">Salud, odontología y bienestar</option>
-    <option value="vivienda">Vivienda e inmobiliaria</option>
-    <option value="academia">Academia y formación</option>
-    <option value="comunica">Comunicación y visibilidad</option>
-    <option value="tienda">Tienda y recursos</option>
-    <option value="otros">Otros ámbitos</option>
-  </select></span>
-</div>
-<p class="lp-search-note">Este buscador es orientativo. No incluyas datos personales ni información clínica.</p><div class="lp-scp-value-strip"><div><span>CLARIDAD ANTES DE CONTRATAR</span><strong>Conoce el alcance, el precio y las condiciones antes de decidir.</strong></div><a href="/servicios.html">Explorar servicios <span aria-hidden="true">↗</span></a></div><section class="lp-search-results" id="lp-search-results" aria-live="polite" aria-atomic="true" hidden></section><section class="lp-scp-entry-choices" aria-label="Elige cómo avanzar con SCP"><article class="lp-scp-entry-card lp-scp-entry-holder"><p>¿Buscas ayuda para contratar?</p><a href="/registro.html?tipo=titular&amp;solicitud=servicio" class="lp-scp-entry-link">Registra tu servicio</a><small>Crea tu cuenta de Usuario Titular y envía tu solicitud a SCP.</small></article><article class="lp-scp-entry-card lp-scp-entry-specialist"><p>¿Ofreces un servicio?</p><a href="/registro.html?tipo=especialista" class="lp-scp-entry-link">Ofrece tus servicios</a><small>Presenta tu actividad. SCP revisará la solicitud antes de activar el perfil.</small></article></section><p class="lp-scp-signin-hint">¿Ya tienes cuenta? <a href="/iniciar-sesion.html">Inicia sesión</a> y accede al espacio correspondiente a tu perfil.</p></div></section>
+  <p class="scp-demo-marketplace__footnote">Anuncios demostrativos de prueba para validación funcional de la plataforma SCP.</p>
+  <dialog class="scp-demo-dialog" id="scp-demo-dialog" aria-labelledby="scp-demo-dialog-title">
+    <div class="scp-demo-dialog__inner"><button class="scp-demo-dialog__close" type="button" aria-label="Cerrar">×</button><p class="scp-demo-marketplace__eyebrow">ANUNCIO DEMOSTRATIVO</p><h3 id="scp-demo-dialog-title"></h3><p id="scp-demo-dialog-copy"></p><a id="scp-demo-dialog-cta" href="/registro.html?tipo=titular&amp;solicitud=servicio">Registrar solicitud personalizada</a></div>
+  </dialog>
+</section>
+<section class="lp-scp-entry-choices" aria-label="Elige cómo avanzar con SCP"><article class="lp-scp-entry-card lp-scp-entry-holder"><p>¿Buscas ayuda para contratar?</p><a href="/registro.html?tipo=titular&amp;solicitud=servicio" class="lp-scp-entry-link">Registra tu servicio</a><small>Crea tu cuenta de Usuario Titular y envía tu solicitud a SCP.</small></article><article class="lp-scp-entry-card lp-scp-entry-specialist"><p>¿Ofreces un servicio?</p><a href="/registro.html?tipo=especialista" class="lp-scp-entry-link">Ofrece tus servicios</a><small>Presenta tu actividad. SCP revisará la solicitud antes de activar el perfil.</small></article></section><p class="lp-scp-signin-hint">¿Ya tienes cuenta? <a href="/iniciar-sesion.html">Inicia sesión</a> y accede al espacio correspondiente a tu perfil.</p></div></section>
 <section class="scp-prueba-b-promise" aria-label="Acompañamiento cercano"><p>No tienes que resolverlo a solas.</p><svg viewBox="0 0 120 24" aria-hidden="true"><path d="M8 18h104M16 18V9l44 9 44-9v9M22 9V6m10 5V7m10 3V8m48 2V8m10 2V7m10 2V6M14 21h92" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></section>
 <section class="scp-prueba-b-roles" aria-labelledby="scp-prueba-b-roles-title"><div class="scp-prueba-b-inner"><p class="scp-prueba-b-eyebrow">UN CANAL PARA DOS CAMINOS</p><h2 id="scp-prueba-b-roles-title">Encuentra tu servicio</h2><div class="scp-prueba-b-role-grid"><a class="scp-prueba-b-role scp-prueba-b-role--titular" href="/registro.html?tipo=titular&amp;solicitud=servicio"><span>Usuario Titular</span><strong>Busco un servicio</strong><small>Cuéntanos qué necesitas y da el primer paso.</small></a><a class="scp-prueba-b-role scp-prueba-b-role--especialista" href="/registro.html?tipo=especialista"><span>Usuario Especialista</span><strong>Ofrezco servicios</strong><small>Presenta tu actividad para colaborar con SCP.</small></a></div></div></section>
 <section class="scp-prueba-b-areas" aria-labelledby="scp-prueba-b-areas-title"><div class="scp-prueba-b-inner"><p class="scp-prueba-b-eyebrow">SOLUCIONES EN DIFERENTES ÁMBITOS</p><h2 id="scp-prueba-b-areas-title">Áreas de actividad</h2><div class="scp-prueba-b-area-grid">

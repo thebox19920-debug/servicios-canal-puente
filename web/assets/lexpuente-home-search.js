@@ -1,112 +1,111 @@
 (() => {
   'use strict';
   const form = document.getElementById('lp-service-search');
-  const results = document.getElementById('lp-search-results');
-  if (!form || !results) return;
+  const serviceInput = document.getElementById('lp-service-need');
+  const locationInput = document.getElementById('lp-service-location');
+  const demandsRoot = document.getElementById('scp-demo-demands');
+  const offersRoot = document.getElementById('scp-demo-offers');
+  if (!form || !serviceInput || !locationInput || !demandsRoot || !offersRoot) return;
 
-  const areas = [
-    {
-      category: 'tramites',
-      title: 'Trámites y documentación', href: '/areas/tramites.html',
-      description: 'Orientación y apoyo para gestiones, documentos y expedientes.',
-      terms: ['tramite','papeles','documento','documentacion','administracion','nie','nacionalidad','residencia','extranjer','empadronamiento','cita previa','formulario','solicitud','expediente','escrito','traduccion','interprete','abogado','legal','juridic','notificacion','asilo','arraigo']
-    },
-    {
-      category: 'salud',
-      title: 'Salud, odontología y bienestar', href: '/areas/sanidad.html',
-      description: 'Servicios de salud y odontología, y orientación hacia bienestar integral.',
-      terms: ['salud','dental','dentista','diente','dientes','boca','odont','higiene','limpieza','implante','ortodon','clinica','curetaje','corona','endodon','medico','medica','tratamiento','psic','terapia','bienestar','emocional','ansiedad','psiquiatr','psicolog']
-    },
-    {
-      category: 'vivienda',
-      title: 'Vivienda e inmobiliaria', href: '/areas/vivienda.html',
-      description: 'Ayuda para explorar opciones de vivienda y conectar con profesionales del sector.',
-      terms: ['vivienda','alquiler','alquilar','comprar','compra','venta','vender','piso','habitacion','inmueble','inmobiliaria','traspaso','agencia','hipoteca','mudanza','estancia']
-    },
-    {
-      category: 'academia',
-      title: 'Academia y formación', href: '/areas/academia.html',
-      description: 'Opciones de formación, aprendizaje y apoyo académico.',
-      terms: ['academia','curso','clase','estudio','formacion','aprender','idioma','profesor','matricula','pau','examen','educacion','taller','refuerzo','universidad']
-    },
-    {
-      category: 'comunica',
-      title: 'Comunicación y visibilidad', href: '/comunica.html',
-      description: 'Recursos de comunicación, contenidos y difusión.',
-      terms: ['publicidad','redes','marketing','marca','comunicacion','contenido','campana','difusion','visibilidad','instagram','tiktok','promocion','anuncio']
-    },
-    {
-      category: 'tienda',
-      title: 'Tienda y recursos', href: '/tienda.html',
-      description: 'Productos y recursos para facilitar la actividad profesional.',
-      terms: ['tienda','comprar','producto','material','instrumental','herramienta','equipo','suministro']
-    },
-    {
-      category: 'animales',
-      title: 'Protección animal · Próximamente', href: '/areas/animales.html',
-      description: 'Esta iniciativa está en preparación y todavía no se puede contratar.',
-      terms: ['animal','animales','gato','gatos','perro','mascota','rescate animal'], upcoming: true
-    },
-    {
-      category: 'otros',
-      title: 'Otros ámbitos', href: '/areas-de-actividad.html',
-      description: 'Explora las áreas de actividad y encuentra otras opciones disponibles.',
-      terms: ['otro','otros','general','no lo se','duda']
-    }
+  const demands = [
+    {title:'Limpieza dental y revisión preventiva',sector:'Salud y odontología',city:'Barcelona, España',timing:'En las próximas 2 semanas · Presupuesto aprox. 120 €',terms:'odontología dentista dental higiene limpieza revisión boca'},
+    {title:'Orientación para renovar una autorización de residencia',sector:'Trámites y documentación',city:'Madrid, España',timing:'Este mes · Presupuesto aprox. 180 €',terms:'trámites extranjería residencia documentación renovación inmigración'},
+    {title:'Asesoramiento para encontrar vivienda de alquiler',sector:'Vivienda e inmobiliaria',city:'Valencia, España',timing:'Búsqueda inmediata · Presupuesto orientativo 250 €',terms:'vivienda alquiler inmobiliaria piso asesoramiento'},
+    {title:'Clases particulares de matemáticas para acceso universitario',sector:'Academia y formación',city:'Sevilla, España',timing:'Inicio este mes · Presupuesto aprox. 25 €/hora',terms:'clases particulares academia formación matemáticas pau'},
+    {title:'Sesiones de fisioterapia para mejorar la movilidad',sector:'Bienestar y salud',city:'Zaragoza, España',timing:'Disponibilidad esta semana · Presupuesto aprox. 45 €/sesión',terms:'fisioterapia bienestar salud movilidad rehabilitación'},
+    {title:'Preparación de documentación para homologar estudios',sector:'Trámites y documentación',city:'Online / Internacional',timing:'Plazo orientativo de 3 semanas · Presupuesto aprox. 220 €',terms:'gestión documental documentación homologación estudios extranjería trámites online internacional'},
+    {title:'Diseño de una web sencilla para un pequeño negocio',sector:'Comunicación y visibilidad',city:'Ciudad de México, México · Online',timing:'Entrega orientativa en 4 semanas · Presupuesto aprox. 700 €',terms:'diseño web página internet comunicación digital'},
+    {title:'Valoración inmobiliaria para comprar un piso',sector:'Vivienda e inmobiliaria',city:'Málaga, España',timing:'Primera consulta esta semana · Presupuesto aprox. 150 €',terms:'asesoría inmobiliaria vivienda compra piso valoración'},
+    {title:'Traducción y acompañamiento para una cita administrativa',sector:'Trámites y documentación',city:'París, Francia',timing:'Cita prevista en 10 días · Presupuesto aprox. 95 €',terms:'traducción interpretación trámites acompañamiento Francia París'},
+    {title:'Acompañamiento de bienestar emocional no clínico',sector:'Bienestar integral',city:'Buenos Aires, Argentina · Online',timing:'Sesiones flexibles · Presupuesto aprox. 40 €/sesión',terms:'bienestar emocional hábitos salud acompañamiento online internacional Buenos Aires'}
   ];
-
+  const offers = [
+    {title:'Limpieza dental y valoración inicial',sector:'Salud y odontología',name:'Clínica Dental Riu',city:'Valencia, España',price:'Precio cerrado orientativo: 110 €',terms:'odontología dentista dental higiene limpieza revisión clínica'},
+    {title:'Asesoría de extranjería y renovación de residencia',sector:'Trámites y documentación',name:'Dra. Elena Marín · profesional ficticia',city:'Madrid, España',price:'Precio cerrado orientativo: 165 €',terms:'trámites extranjería residencia documentación asesoría legal'},
+    {title:'Búsqueda y gestión de alquiler residencial',sector:'Vivienda e inmobiliaria',name:'Puerta Abierta Inmobiliaria · centro ficticio',city:'Barcelona, España',price:'Precio cerrado orientativo: 290 €',terms:'vivienda alquiler inmobiliaria piso asesoría'},
+    {title:'Refuerzo de matemáticas para PAU',sector:'Academia y formación',name:'Aula Giralda · centro ficticio',city:'Sevilla, España',price:'Precio cerrado orientativo: 24 €/hora',terms:'clases particulares academia formación matemáticas pau'},
+    {title:'Fisioterapia y plan de movilidad',sector:'Bienestar y salud',name:'Centro Brújula · centro ficticio',city:'Bilbao, España',price:'Precio cerrado orientativo: 48 €/sesión',terms:'fisioterapia bienestar salud movilidad rehabilitación'},
+    {title:'Organización de expediente de homologación',sector:'Trámites y documentación',name:'Carpeta Clara · profesional ficticio',city:'Online / Internacional',price:'Precio cerrado orientativo: 210 €',terms:'gestión documental documentación homologación estudios trámites online internacional'},
+    {title:'Diseño web de presentación para negocio local',sector:'Comunicación y visibilidad',name:'Estudio Lumen · estudio ficticio',city:'Londres, Reino Unido · Online',price:'Precio cerrado orientativo: 680 €',terms:'diseño web página internet comunicación digital Londres'},
+    {title:'Consulta de compra y valoración de vivienda',sector:'Vivienda e inmobiliaria',name:'Casa Serena · asesoría ficticia',city:'Lisboa, Portugal · Online',price:'Precio cerrado orientativo: 145 €',terms:'asesoría inmobiliaria vivienda compra piso valoración Lisboa'},
+    {title:'Traducción e interpretación para gestiones',sector:'Trámites y documentación',name:'Ponte Lingua · profesional ficticia',city:'París, Francia · Online',price:'Precio cerrado orientativo: 90 €',terms:'traducción interpretación trámites documentación París Francia'},
+    {title:'Acompañamiento de bienestar emocional no clínico',sector:'Bienestar integral',name:'Brújula Serena · centro ficticio',city:'Bogotá, Colombia · Online',price:'Precio cerrado orientativo: 42 €/sesión',terms:'bienestar emocional hábitos salud acompañamiento online internacional Bogotá'}
+  ];
   const normalize = value => String(value || '').toLocaleLowerCase('es')
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim();
-
-  function node(tag, className, text) {
-    const element = document.createElement(tag);
-    if (className) element.className = className;
-    if (text) element.textContent = text;
-    return element;
-  }
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const query = normalize(document.getElementById('lp-service-need').value);
-    const location = document.getElementById('lp-service-location').value.trim();
-    const selectedSector = document.getElementById('lp-home-sector')?.value || '';
-    const ranked = areas.map(area => ({
-      ...area,
-      score: area.terms.reduce((sum, term) => sum + (query.includes(normalize(term)) ? 1 : 0), 0)
-    })).filter(area => area.score > 0 && (!selectedSector || area.category === selectedSector)).sort((a, b) => b.score - a.score).slice(0, 3);
-    if (!ranked.length && selectedSector) {
-      ranked.push(...areas.filter(area => area.category === selectedSector).slice(0, 3));
-    }
-
-    results.replaceChildren();
-    results.hidden = false;
-    const heading = node('h2', 'lp-search-results-title', ranked.length ? (selectedSector ? 'Opciones del sector que has elegido' : 'Estas áreas pueden encajar con lo que buscas') : 'No encuentro una coincidencia clara todavía');
-    results.append(heading);
-
-    const context = location
-      ? `Zona indicada: ${location}. La herramienta orienta por tipo de servicio; la disponibilidad de un Usuario Especialista en esa zona se confirma antes de avanzar.`
-      : 'Si nos indicas una zona, el equipo podrá confirmar después la disponibilidad de un Usuario Especialista allí.';
-    results.append(node('p', 'lp-search-results-context', context));
-
-    if (!ranked.length) {
-      const help = node('p', 'lp-search-empty', 'Prueba con palabras sencillas como “dentista”, “trámite”, “alquiler” o “formación”, o revisa todas las áreas.');
-      results.append(help);
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s/-]/g, ' ').replace(/\s+/g, ' ').trim();
+  const status = document.getElementById('scp-demo-search-status');
+  const demandCount = document.getElementById('scp-demo-demand-count');
+  const offerCount = document.getElementById('scp-demo-offer-count');
+  const empty = document.getElementById('scp-demo-empty');
+  const dialog = document.getElementById('scp-demo-dialog');
+  const dialogTitle = document.getElementById('scp-demo-dialog-title');
+  const dialogCopy = document.getElementById('scp-demo-dialog-copy');
+  const dialogCta = document.getElementById('scp-demo-dialog-cta');
+  const termsMatch = (item, service, location) => {
+    const serviceText = normalize([item.title,item.sector,item.name||'',item.terms].join(' '));
+    const locationText = normalize(item.city);
+    const queryMatches = !service || service.split(' ').filter(word => word.length > 2).every(word => serviceText.includes(word));
+    const locationMatches = !location || locationText.includes(location) ||
+      (location === 'online' && serviceText.includes('online')) ||
+      (location === 'internacional' && /internacional|online|francia|colombia|reino unido|portugal|argentina/.test(locationText)) ||
+      (location === 'mexico' && locationText.includes('mexico'));
+    return queryMatches && locationMatches;
+  };
+  function makeCard(item, kind) {
+    const card = document.createElement('article');
+    card.className = 'scp-demo-card' + (kind === 'offer' ? ' scp-demo-card--offer' : '');
+    const top = document.createElement('div'); top.className = 'scp-demo-card__top';
+    const sector = document.createElement('span'); sector.className = 'scp-demo-card__sector'; sector.textContent = item.sector;
+    const demo = document.createElement('span'); demo.className = 'scp-demo-card__demo'; demo.textContent = 'Ficha ficticia';
+    top.append(sector,demo);
+    const title = document.createElement('h4'); title.textContent = item.title;
+    const meta = document.createElement('p'); meta.className = 'scp-demo-card__meta';
+    if (kind === 'offer') {
+      meta.innerHTML = '<strong>Profesional / centro:</strong> ';
+      meta.append(document.createTextNode(item.name + ' · ' + item.city));
+      const price = document.createElement('p'); price.className='scp-demo-card__meta'; price.textContent=item.price;
+      card.append(top,title,meta,price);
     } else {
-      const grid = node('div', 'lp-search-result-grid');
-      for (const area of ranked) {
-        const card = node('article', 'lp-search-result-card');
-        card.append(node('h3', '', area.title));
-        card.append(node('p', '', area.description));
-        const link = node('a', '', area.upcoming ? 'Ver el proyecto' : 'Ver esta área');
-        link.href = area.href;
-        card.append(link);
-        grid.append(card);
-      }
-      results.append(grid);
+      meta.textContent = item.city + ' · ' + item.timing;
+      card.append(top,title,meta);
     }
-
-    const note = node('p', 'lp-search-results-note', 'Este buscador no asigna profesionales automáticamente ni guarda tu consulta. No introduzcas datos personales ni detalles clínicos.');
-    results.append(note);
-    results.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  });
+    const badge=document.createElement('span');badge.className='scp-demo-card__badge';
+    badge.textContent=kind==='offer'?'Perfil revisado SCP · 0 % comisión':'Escudo Dual SCP';
+    const button=document.createElement('button');button.className='scp-demo-card__button';button.type='button';
+    button.textContent=kind==='offer'?'Consultar alcance':'Ver solicitud';
+    button.addEventListener('click',()=>openDetails(item,kind));
+    card.append(badge,button);
+    return card;
+  }
+  function openDetails(item,kind) {
+    dialogTitle.textContent=item.title;
+    dialogCopy.textContent=kind==='offer'
+      ? item.name + ' · ' + item.city + '. ' + item.price + '. Esta ficha, el profesional y el centro son ficticios y solo sirven para probar el escaparate. No representa una oferta disponible ni una revisión real de SCP.'
+      : item.city + '. ' + item.timing + '. Esta solicitud es ficticia y solo sirve para probar el escaparate; no pertenece a una persona real.';
+    dialogCta.hidden=kind==='offer';
+    if(typeof dialog.showModal==='function') dialog.showModal();
+  }
+  function render() {
+    const service=normalize(serviceInput.value);
+    const location=normalize(locationInput.value);
+    const filteredDemands=demands.filter(item=>termsMatch(item,service,location));
+    const filteredOffers=offers.filter(item=>termsMatch(item,service,location));
+    demandsRoot.replaceChildren(...filteredDemands.map(item=>makeCard(item,'demand')));
+    offersRoot.replaceChildren(...filteredOffers.map(item=>makeCard(item,'offer')));
+    demandCount.textContent='('+filteredDemands.length+')';
+    offerCount.textContent='('+filteredOffers.length+')';
+    const total=filteredDemands.length+filteredOffers.length;
+    empty.hidden=total>0;
+    status.textContent=service||location
+      ? 'Resultados demostrativos: '+total+' anuncios coinciden con tu búsqueda.'
+      : 'Se muestran los 20 anuncios demostrativos.';
+    if(total===0) status.textContent='Sin coincidencias para "'+[serviceInput.value,locationInput.value].filter(Boolean).join(' · ')+'".';
+  }
+  form.addEventListener('submit',event=>{event.preventDefault();render();document.getElementById('scp-demo-marketplace').scrollIntoView({behavior:'smooth',block:'start'})});
+  serviceInput.addEventListener('input',render);
+  locationInput.addEventListener('input',render);
+  document.querySelector('.scp-demo-dialog__close')?.addEventListener('click',()=>dialog.close());
+  dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+  render();
 })();
