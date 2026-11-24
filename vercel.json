@@ -24,5 +24,10 @@
       "source": "/pagar",
       "destination": "/pagar.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 10
+    }
+  }
 }
