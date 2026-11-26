@@ -101,11 +101,13 @@ function storageUrl(base, bucket, key) {
 }
 
 function storageHeaders(service, contentType) {
-  return {
+  const headers = {
     apikey: service,
-    Authorization: 'Bearer ' + service,
     ...(contentType ? { 'Content-Type': contentType } : {})
   };
+  // New sb_secret_* API keys are not JWTs and must not be sent as Bearer tokens.
+  if (!service.startsWith('sb_secret_')) headers.Authorization = 'Bearer ' + service;
+  return headers;
 }
 
 function privateBucket(url, service, db) {
@@ -269,14 +271,16 @@ export async function syncAdminProfile(context, email, patch) {
   if (!context.admin || !address) throw new Error('Operación administrativa no autorizada.');
   const url = new URL(context.config.url + '/rest/v1/profiles');
   url.searchParams.set('email', 'eq.' + address);
+  const headers = {
+    apikey: context.config.service,
+    'Content-Type': 'application/json',
+    Prefer: 'return=minimal'
+  };
+  // New sb_secret_* API keys belong in apikey, not Authorization: Bearer.
+  if (!context.config.service.startsWith('sb_secret_')) headers.Authorization = 'Bearer ' + context.config.service;
   const result = await fetch(url, {
     method: 'PATCH',
-    headers: {
-      apikey: context.config.service,
-      Authorization: 'Bearer ' + context.config.service,
-      'Content-Type': 'application/json',
-      Prefer: 'return=minimal'
-    },
+    headers,
     body: JSON.stringify(patch),
     cache: 'no-store'
   });
