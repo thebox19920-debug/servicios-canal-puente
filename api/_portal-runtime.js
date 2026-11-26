@@ -228,7 +228,6 @@ export async function portalContext(req, { allowNoSession = false } = {}) {
   }
 
   const email = String(user?.email || '').trim().toLowerCase();
-  const configuredOwner = String(process.env.STATISTICS_OWNER_EMAIL || '').trim().toLowerCase();
   const approvalStatus = String(profile?.approval_status || '').trim().toUpperCase();
   const profileApproved = ['APPROVED', 'APROBADO'].includes(approvalStatus);
   const admin = !!user?.id && profile?.role === 'ADMIN' && profileApproved;
