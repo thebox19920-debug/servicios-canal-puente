@@ -195,11 +195,12 @@ function webRequest(req, headers, bytes) {
 }
 
 export async function portalContext(req, { allowNoSession = false } = {}) {
+  let user = null, profile = null, token = req.headers.authorization?.match(/^Bearer\s+(.+)$/i)?.[1] || '';
+  if (!token && !allowNoSession) return { response: json(401, { authenticated: false, error: 'Inicia sesión para continuar.' }) };
   let config;
   try { config = requiredConfig(); }
   catch (error) { return { response: json(503, { error: error.message }) }; }
 
-  let user = null, profile = null, token = req.headers.authorization?.match(/^Bearer\s+(.+)$/i)?.[1] || '';
   if (token) {
     if (token.length > 8192) return { response: json(401, { authenticated: false, error: 'La sesión no es válida.' }) };
     try {
