@@ -150,7 +150,23 @@ async function renderOrders(orders,isSpecialist){const target=$('portal-cases');
 function orderAction(order,newStatus,label){const b=make('button','button',label);b.type='button';b.onclick=async()=>{b.disabled=true;try{const {error}=await db.rpc('update_service_order_status',{p_order_id:order.id,p_new_status:newStatus,p_note:''});if(error)throw error;await loadMyAccount()}catch(err){b.disabled=false;const p=make('p','portal-note',err.message);b.after(p)}};return b}
 async function renderReviews(isSpecialist,user){if(!isSpecialist)return;const root=$('scp-marketplace-workspace');if(!root)return;const {data,error}=await db.from('specialist_reviews').select('*').order('created_at',{ascending:false});if(error)throw error;const section=make('section');section.append(make('h3','','Valoraciones privadas recibidas'),make('p','scp-market__muted','Solo tú, el Usuario Titular que la escribió y SCP podéis verla.'));if(!data?.length)section.append(make('p','scp-market__blank','Todavía no hay valoraciones privadas.'));for(const r of data||[])section.append(make('article','scp-market__card',`★ ${r.rating}/5 · ${r.private_note||'Sin comentario escrito.'}`));root.append(section)}
 
-async function adminPage(){return}
+async function adminPage(){
+ const status=$('portal-status'),adminRoot=$('portal-admin'),portalLogin=$('portal-login'),user=await currentUser().catch(()=>null);
+ if(!user){if(portalLogin)portalLogin.hidden=false;addLoginForm(portalLogin);setStatus('Inicia sesión con la cuenta de administración de SCP.');return}
+ const profile=await getMyProfile(user);
+ if(!profile||profile.role!=='ADMIN'||profile.approval_status!=='APPROVED'){setStatus('Esta cuenta no tiene permisos de Administración SCP.');return}
+ const {data:{session}}=await db.auth.getSession();
+ if(!session?.access_token){location.replace('/butaina');return}
+ const gate=await fetch('/api/portal/me',{headers:{Authorization:'Bearer '+session.access_token},cache:'no-store',credentials:'same-origin'}),gateData=await gate.json();
+ if(gate.status===401||gate.status===403){location.replace('/butaina');return}
+ if(!gate.ok)throw Error(gateData.error||'No se pudo comprobar el acceso privado.');
+ if(!gateData.admin){setStatus('Esta cuenta no tiene permisos de Administración SCP.');return}
+ if(!gateData.adminUnlocked){location.replace('/butaina');return}
+ if(portalLogin)portalLogin.hidden=true;if(adminRoot)adminRoot.hidden=false;authNavigation();
+ const host=$('scp-marketplace-admin-queue'),button=$('scp-marketplace-admin-load');if(!host)return;
+ const load=async()=>{button.disabled=true;try{await renderAdmin(host)}catch(err){setStatus(err.message,'scp-marketplace-admin-status')}finally{button.disabled=false}};
+ button.addEventListener('click',load);await load();setStatus('Sesión de administración SCP iniciada.');
+}
 async function renderAdmin(host){host.replaceChildren();const [profiles,offers,requests,orders,docs,reviews,events]=await Promise.all([
   db.from('profiles').select('*').order('created_at',{ascending:false}),db.from('specialist_offers').select('*').order('created_at',{ascending:false}),db.from('service_requests').select('*').order('created_at',{ascending:false}),db.from('service_orders').select('*').order('created_at',{ascending:false}),db.from('specialist_documents').select('*').order('created_at',{ascending:false}),db.from('specialist_reviews').select('*').order('created_at',{ascending:false}),db.from('service_order_events').select('*').order('created_at',{ascending:false})
 ]);for(const result of [profiles,offers,requests,orders,docs,reviews,events])if(result.error)throw result.error;
