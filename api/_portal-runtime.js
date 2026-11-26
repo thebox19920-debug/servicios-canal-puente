@@ -243,7 +243,8 @@ export async function portalContext(req, { allowNoSession = false } = {}) {
     ...process.env,
     DB: db,
     BUCKET: privateBucket(config.url, config.service, db),
-    // The approved Supabase ADMIN profile is authoritative; bind worker checks to this verified session email.\n    STATISTICS_OWNER_EMAIL: admin ? email : '',
+    // The approved Supabase ADMIN profile is authoritative; bind worker checks to this verified session email.
+    STATISTICS_OWNER_EMAIL: admin ? email : '',
     SCP_ADMIN_GATE_ISSUE: admin ? '' : adminGateIssue
   };
   const headers = new Headers();
