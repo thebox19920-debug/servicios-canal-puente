@@ -35,6 +35,11 @@ async function portalApi(req,env,pathOverride=null){
  if(path.startsWith('admin/')&&!admin)return portalJSON({error:'Solo la administradora puede realizar esta acción.'},403);
  try{
  if(path==='admin/unlock'&&req.method==='POST')return adminUnlock(req,env);
+ // Reserved access only needs Supabase identity; keep its account check independent of portal tables and private storage.
+ if(path==='me'&&req.method==='GET'&&url.searchParams.get('flow')==='reserved'){
+  if(!admin)return portalJSON({identity:who,admin:false,adminIssue:env.SCP_ADMIN_GATE_ISSUE||'Esta cuenta no tiene permisos de Administración SCP.'});
+  return portalJSON({identity:who,admin:true,adminUnlocked:await adminUnlocked(req,env),authentication:'supabase'});
+ }
  if((path.startsWith('admin/')||(path.startsWith('contracts/')&&admin))&&!await adminUnlocked(req,env))return portalJSON({error:'Introduce tu código de acceso LEXPUENTE.',codeRequired:true,url:'/acceso-scp.html'},423);
  if(path==='admin/test-accounts'||path.startsWith('admin/test-accounts/'))return testAdminApi(req,env,path,who);
  const accessDecision=await portalDecision(env,who.email);if(!admin&&['blocked','denied'].includes(accessDecision?.status))return portalJSON({error:accessDecision.status==='blocked'?'Acceso bloqueado por LEXPUENTE. Contacta con la administración.':'Solicitud de registro denegada.',status:accessDecision.status},403);
