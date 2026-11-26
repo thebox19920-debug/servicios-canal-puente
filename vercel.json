@@ -13,6 +13,10 @@
   ],
   "rewrites": [
     {
+      "source": "/api/portal/admin/:path*",
+      "destination": "/api/portal-admin?__scp_path=admin/:path*"
+    },
+    {
       "source": "/butaina",
       "destination": "/butaina/index.html"
     },
