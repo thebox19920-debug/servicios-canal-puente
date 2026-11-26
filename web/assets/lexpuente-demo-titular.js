@@ -5,7 +5,7 @@ form.addEventListener('submit',async event=>{
  event.preventDefault();const button=form.querySelector('button[type="submit"]');button.disabled=true;status.textContent='Guardando el Usuario Titular ficticio…';result.hidden=true;
  try{
   const data=Object.fromEntries(new FormData(form).entries());
-  const response=await fetch('/api/portal/admin/test-accounts',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({profileType:'titular',data})});
+  const auth=await window.SCP_SUPABASE?.auth.getSession(),token=auth?.data?.session?.access_token;if(!token)throw Error('Vuelve a entrar por /butaina para autorizar esta prueba.');const response=await fetch('/api/portal/admin/test-accounts',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({profileType:'titular',data})});
   const payload=await response.json();if(!response.ok)throw Error(payload.error||'No se pudo guardar la prueba.');
   form.hidden=true;status.textContent='';result.replaceChildren();
   const heading=document.createElement('h3');heading.textContent='Usuario Titular de prueba registrado';
