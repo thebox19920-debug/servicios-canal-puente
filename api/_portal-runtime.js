@@ -227,15 +227,27 @@ export async function portalContext(req, { allowNoSession = false } = {}) {
     return { response: json(401, { authenticated: false, error: 'Inicia sesión para continuar.' }) };
   }
 
-  const email = String(user?.email || '').toLowerCase();
-  const configuredOwner = String(process.env.STATISTICS_OWNER_EMAIL || '').toLowerCase();
-  const admin = !!user?.id && profile?.role === 'ADMIN' && profile?.approval_status === 'APPROVED' && !!configuredOwner && email === configuredOwner;
+  const email = String(user?.email || '').trim().toLowerCase();
+  const configuredOwner = String(process.env.STATISTICS_OWNER_EMAIL || '').trim().toLowerCase();
+  const approvalStatus = String(profile?.approval_status || '').trim().toUpperCase();
+  const profileApproved = ['APPROVED', 'APROBADO'].includes(approvalStatus);
+  const admin = !!user?.id && profile?.role === 'ADMIN' && profileApproved && !!configuredOwner && email === configuredOwner;
+  const adminGateIssue = !profile
+    ? 'No se encontró el perfil SCP de esta cuenta.'
+    : profile.role !== 'ADMIN'
+      ? 'Esta cuenta no tiene el rol de Administración SCP.'
+      : !profileApproved
+        ? 'El perfil de Administración SCP todavía no figura como aprobado.'
+        : !configuredOwner || email !== configuredOwner
+          ? 'El correo de esta sesión no coincide con el correo de administración configurado en Vercel.'
+          : '';
   const db = postgresDb(config.dbUrl);
   const env = {
     ...process.env,
     DB: db,
     BUCKET: privateBucket(config.url, config.service, db),
-    STATISTICS_OWNER_EMAIL: admin ? configuredOwner : ''
+    STATISTICS_OWNER_EMAIL: admin ? configuredOwner : '',
+    SCP_ADMIN_GATE_ISSUE: admin ? '' : adminGateIssue
   };
   const headers = new Headers();
   for (const [name, value] of Object.entries(req.headers || {})) {
