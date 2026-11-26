@@ -48,7 +48,7 @@ async function verifyAccount(){
  if(signin)signin.hidden=true;
  codeForm.hidden=false;message('Cuenta autorizada. Introduce tu código de acceso SCP.');
 }
-verifyAccount().catch(error=>message(error.message||'No se pudo comprobar la cuenta. El enlace de inicio de sesión sigue disponible.'));
+verifyAccount().catch(error=>showLogin(error.message||'No se pudo comprobar la cuenta. Usa el enlace para iniciar sesión y vuelve a intentarlo.'));
 codeForm.addEventListener('submit',async event=>{
  event.preventDefault();const button=codeForm.querySelector('button');button.disabled=true;
  try{
