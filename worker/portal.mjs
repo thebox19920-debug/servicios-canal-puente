@@ -234,6 +234,6 @@ async function portalApi(req,env){
   return portalJSON({message:'Observación guardada en el historial del servicio. LEXPUENTE y las personas asignadas a este encargo pueden verla.'},201);
  }
  return portalJSON({error:'Ruta no disponible.'},404);
- }catch{return portalJSON({error:'No se pudo completar la operación. Revisa los datos o vuelve a intentarlo.'},503)}
+ }catch(error){console.error('SCP portal API failure',path,error);const message=path==='admin/dashboard'?'Fallo al cargar los datos del panel: '+(error?.message||'error interno'):'No se pudo completar la operación. Revisa los datos o vuelve a intentarlo.';return portalJSON({error:message},503)}
 }
 export {portalApi,portalIdentity,portalIsAdmin};
