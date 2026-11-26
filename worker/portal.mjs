@@ -25,8 +25,8 @@ function portalProgress(record,events=[],now=Date.now()){
 }
 async function portalCaseEvents(env,id){return (await env.DB.prepare('SELECT case_id,kind,note,created_at FROM portal_events WHERE case_id=? ORDER BY created_at ASC').bind(id).all()).results}
 
-async function portalApi(req,env){
- const url=new URL(req.url),path=url.pathname.slice('/api/portal/'.length),who=portalIdentity(req),admin=portalIsAdmin(req,env);
+async function portalApi(req,env,pathOverride=null){
+ const url=new URL(req.url),path=typeof pathOverride==='string'?pathOverride:url.pathname.slice('/api/portal/'.length),who=portalIdentity(req),admin=portalIsAdmin(req,env);
  if(!who)return portalJSON({error:'Inicia sesión con ChatGPT para acceder.',signIn:'/signin-with-chatgpt?return_to=%2Fmi-cuenta.html'},401);
  if(!env.DB)return portalJSON({error:'El área privada no está disponible ahora.'},503);
  if(!['GET','POST'].includes(req.method))return portalJSON({error:'Método no permitido.'},405);
