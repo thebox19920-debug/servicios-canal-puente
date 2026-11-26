@@ -239,6 +239,6 @@ async function portalApi(req,env,pathOverride=null){
   return portalJSON({message:'Observación guardada en el historial del servicio. LEXPUENTE y las personas asignadas a este encargo pueden verla.'},201);
  }
  return portalJSON({error:'Ruta no disponible.'},404);
- }catch(error){console.error('SCP portal API failure',path,error);const isOwner=!!who?.email&&!!env.STATISTICS_OWNER_EMAIL&&who.email===env.STATISTICS_OWNER_EMAIL.toLowerCase();const diagnostic=isOwner&&['me','admin/dashboard'].includes(path);const label=path==='me'?'/api/portal/me':'/api/portal/admin/dashboard';const message=diagnostic?'Error en '+label+': '+(error?.message||'fallo interno sin detalle'):'No se pudo completar la operación. Revisa los datos o vuelve a intentarlo.';return portalJSON({error:message},503)}
+ }catch(error){console.error('SCP portal API failure',path,error);const isOwner=!!who?.email&&!!env.STATISTICS_OWNER_EMAIL&&who.email===env.STATISTICS_OWNER_EMAIL.toLowerCase();const diagnostic=isOwner&&['me','admin/dashboard','admin/unlock'].includes(path);const label=path==='me'?'/api/portal/me':'/api/portal/'+path;const message=diagnostic?'Error en '+label+': '+(error?.message||'fallo interno sin detalle'):'No se pudo completar la operación. Revisa los datos o vuelve a intentarlo.';return portalJSON({error:message},503)}
 }
 export {portalApi,portalIdentity,portalIsAdmin};
