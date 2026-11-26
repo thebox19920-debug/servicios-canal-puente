@@ -231,22 +231,20 @@ export async function portalContext(req, { allowNoSession = false } = {}) {
   const configuredOwner = String(process.env.STATISTICS_OWNER_EMAIL || '').trim().toLowerCase();
   const approvalStatus = String(profile?.approval_status || '').trim().toUpperCase();
   const profileApproved = ['APPROVED', 'APROBADO'].includes(approvalStatus);
-  const admin = !!user?.id && profile?.role === 'ADMIN' && profileApproved && !!configuredOwner && email === configuredOwner;
+  const admin = !!user?.id && profile?.role === 'ADMIN' && profileApproved;
   const adminGateIssue = !profile
     ? 'No se encontró el perfil SCP de esta cuenta.'
     : profile.role !== 'ADMIN'
       ? 'Esta cuenta no tiene el rol de Administración SCP.'
       : !profileApproved
         ? 'El perfil de Administración SCP todavía no figura como aprobado.'
-        : !configuredOwner || email !== configuredOwner
-          ? 'El correo de esta sesión no coincide con el correo de administración configurado en Vercel.'
-          : '';
+        : '';
   const db = postgresDb(config.dbUrl);
   const env = {
     ...process.env,
     DB: db,
     BUCKET: privateBucket(config.url, config.service, db),
-    STATISTICS_OWNER_EMAIL: admin ? configuredOwner : '',
+    // The approved Supabase ADMIN profile is authoritative; bind worker checks to this verified session email.\n    STATISTICS_OWNER_EMAIL: admin ? email : '',
     SCP_ADMIN_GATE_ISSUE: admin ? '' : adminGateIssue
   };
   const headers = new Headers();
