@@ -8,11 +8,11 @@ function sessionToken(){return db?.auth.getSession().then(({data})=>data?.sessio
 async function verifyAccount(){
  const token=await sessionToken();
  if(!token){showLogin();return}
- const response=await fetch('/api/portal/me',{headers:{Authorization:'Bearer '+token},cache:'no-store',credentials:'same-origin'});
+ const response=await fetch('/api/portal/me?flow=reserved',{headers:{Authorization:'Bearer '+token},cache:'no-store',credentials:'same-origin'});
  const data=await response.json();
  if(response.status===401){showLogin();message('Inicia sesión con tu cuenta SCP para continuar.');return}
  if(!response.ok)throw Error(data.error||'No se pudo comprobar la cuenta.');
- if(!data.admin){codeForm.hidden=true;message('Esta cuenta no tiene permisos de Administración SCP.');return}
+ if(!data.admin){codeForm.hidden=true;message(data.adminIssue||'Esta cuenta no tiene permisos de Administración SCP.');return}
  codeForm.hidden=false;message('Cuenta autorizada. Introduce tu código de acceso SCP.');
 }
 function showLogin(){
