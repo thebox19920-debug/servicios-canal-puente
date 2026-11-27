@@ -93,7 +93,11 @@ function postgresDb(dbUrl) {
 }
 
 function objectPath(key) {
-  return String(key).split('/').map(part => encodeURIComponent(part)).join('/');
+  return String(key).split('/').map(part => {
+    let decoded = part;
+    try { decoded = decodeURIComponent(part); } catch { /* Preserve malformed literal segments safely. */ }
+    return encodeURIComponent(decoded);
+  }).join('/');
 }
 
 function storageUrl(base, bucket, key) {
