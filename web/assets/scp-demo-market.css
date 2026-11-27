@@ -127,3 +127,10 @@ html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-location
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-location-source a{color:#f0d18a!important;text-decoration:underline!important}
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-location-back{width:100%!important;padding:8px 10px!important;border:0!important;border-radius:7px!important;background:rgba(255,255,255,.08)!important;color:#f5e9ce!important;text-align:left!important;font:600 12px/1.35 Arial,sans-serif!important;cursor:pointer!important}
 html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-location-back:hover{background:rgba(255,255,255,.14)!important}
+
+/* Buscador SCP: jerarquía visible y diferenciada sin acordeones. */
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-node--level-1>.scp-taxonomy-toggle{background:rgba(212,175,55,.16)!important;color:#ffe2a1!important;border-left:3px solid #d4af37!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-node--level-2>.scp-taxonomy-toggle{background:rgba(255,255,255,.055)!important;color:#f5e9ce!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-node--level-3>.scp-taxonomy-toggle{color:#dce8dc!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-node--level-4>.scp-taxonomy-service{color:#f5e9ce!important}
+html body.lp-prueba-b header.scp-header-refined #lp-service-search .scp-taxonomy-toggle{cursor:default!important}
