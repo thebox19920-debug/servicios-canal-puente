@@ -193,13 +193,11 @@ function renderTaxonomyNodes(nodes,container,depth=[],path=[],query='',revealAll
   if(query&&!revealAll&&!matchesLabel&&!hasMatchingDescendant)return;
   const group=document.createElement('div');group.className='scp-taxonomy-node scp-taxonomy-node--level-'+level;
   if(hasChildren){
-   const expanded=Boolean(query?(revealAll||matchesLabel||hasMatchingDescendant):expandedTaxonomyNodes.has(key));
-   const toggle=document.createElement('button');toggle.type='button';toggle.className='scp-taxonomy-toggle';toggle.setAttribute('aria-expanded',String(expanded));
-   const arrow=document.createElement('span');arrow.className='scp-taxonomy-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent=expanded?'▾':'▸';
-   const label=document.createElement('span');label.className='scp-taxonomy-label';highlightMatch(label,node.label,query);toggle.append(arrow,label);
-   toggle.addEventListener('click',()=>{if(query){serviceInput.value='';selectedCatalogService=null;expandedTaxonomyNodes.clear()}if(expandedTaxonomyNodes.has(key))expandedTaxonomyNodes.delete(key);else expandedTaxonomyNodes.add(key);renderServicePicker()});
-   group.append(toggle);
-   if(expanded){const children=document.createElement('div');children.className='scp-taxonomy-children';renderTaxonomyNodes(node.children,children,depth.concat(index),fullPath,query,revealAll||matchesLabel);group.append(children)}
+   const heading=document.createElement('div');heading.className='scp-taxonomy-toggle';heading.setAttribute('role','heading');heading.setAttribute('aria-level',String(level));
+   const arrow=document.createElement('span');arrow.className='scp-taxonomy-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent=level===1?'▾':level===2?'›':'↳';
+   const label=document.createElement('span');label.className='scp-taxonomy-label';highlightMatch(label,node.label,query);heading.append(arrow,label);
+   group.append(heading);
+   const children=document.createElement('div');children.className='scp-taxonomy-children';renderTaxonomyNodes(node.children,children,depth.concat(index),fullPath,query,revealAll||matchesLabel);group.append(children)
   }else{
    const service={label:node.label,path:fullPath},button=document.createElement('button');button.type='button';button.className='scp-taxonomy-service';button.setAttribute('aria-label',service.path.join(' > '));highlightMatch(button,node.label,query);button.addEventListener('click',()=>selectCatalogService(service));group.append(button)
   }
