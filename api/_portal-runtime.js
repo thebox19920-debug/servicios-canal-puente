@@ -128,7 +128,14 @@ function privateBucket(url, service, db) {
   async function get(key) {
     const response = await fetch(storageUrl(url, bucket, key), { headers: storageHeaders(service), cache: 'no-store' });
     if (response.ok) return responseObject(response);
-    if (response.status !== 404) throw new Error('Supabase Storage respondió HTTP ' + response.status + ' al leer el archivo privado.');
+    let missingObject = response.status === 404;
+    if (response.status === 400) {
+      try {
+        const storageError = await response.clone().json();
+        missingObject = storageError?.error === 'not_found' || storageError?.code === 'NoSuchKey' || storageError?.message === 'Object not found';
+      } catch {}
+    }
+    if (!missingObject) throw new Error('Supabase Storage respondió HTTP ' + response.status + ' al leer el archivo privado.');
     const alias = await db.prepare('SELECT bucket_name,source_path FROM portal_storage_aliases WHERE object_key=?').bind(key).first();
     if (!alias) return null;
     const source = await fetch(storageUrl(url, alias.bucket_name, alias.source_path), { headers: storageHeaders(service), cache: 'no-store' });
